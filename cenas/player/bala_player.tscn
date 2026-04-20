@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://covmsy6ki3nek"]
+
+[ext_resource type="Script" uid="uid://bn8jengkvj188" path="res://cenas/script/player/bala_player.gd" id="1_yl50q"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yl50q"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rkdp2"]
+
+[node name="bala_player" type="Area3D" unique_id=1133610996 groups=["ataque_player"]]
+script = ExtResource("1_yl50q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=929199901]
+shape = SubResource("SphereShape3D_yl50q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1646006476]
+mesh = SubResource("SphereMesh_rkdp2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

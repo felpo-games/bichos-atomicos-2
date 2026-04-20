@@ -48,13 +48,14 @@ func decidir_direcao():
 func _on_area_visaoverde_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		player = body
-		
+		eventos_global.batalha = true
 		pass
 	pass # Replace with function body.
 
 
 func _on_area_visaoverde_body_exited(body: Node3D) -> void:
 	if body == player:
+		eventos_global.batalha = false
 		player = null
 		direcao_alvo = Vector3.ZERO
 		

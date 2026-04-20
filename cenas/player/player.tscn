@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b1gqv36fccgwf"]
 
 [ext_resource type="Script" uid="uid://cx03s4khim4yi" path="res://cenas/script/player/player.gd" id="1_1m1wk"]
+[ext_resource type="PackedScene" uid="uid://covmsy6ki3nek" path="res://cenas/player/bala_player.tscn" id="2_w152q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kbvfo"]
 
@@ -8,7 +9,7 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cxihn"]
 radius = 0.155
-height = 1.505
+height = 1.35
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d4u85"]
 radius = 0.55
@@ -16,6 +17,7 @@ height = 2.05
 
 [node name="player" type="CharacterBody3D" unique_id=1822486866 groups=["player"]]
 script = ExtResource("1_1m1wk")
+bala_cena = ExtResource("2_w152q")
 
 [node name="CollisionPolygon3D" type="CollisionShape3D" parent="." unique_id=1532869750]
 shape = SubResource("CapsuleShape3D_kbvfo")
@@ -24,11 +26,11 @@ shape = SubResource("CapsuleShape3D_kbvfo")
 mesh = SubResource("CapsuleMesh_okt6s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="body" unique_id=1183815433]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.52581877)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.18753749)
 mesh = SubResource("CapsuleMesh_cxihn")
 
 [node name="Marker3D" type="Marker3D" parent="body" unique_id=940710450]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4581196)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 1.1336591)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=217648361]
 transform = Transform3D(1, 0, 0, 0, 0.73406184, 0.6790827, 0, -0.6790827, 0.73406184, 0, 6.8089895, 8.286701)

@@ -1,5 +1,6 @@
 extends Node3D
 
+
 var conversando = false
 var player 
 signal conversar

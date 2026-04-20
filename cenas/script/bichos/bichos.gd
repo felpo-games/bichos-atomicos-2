@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 			pass
 		estado.batalhando:
 			if player != null:
-				
+				eventos_global.batalha = true
 				var posicao_alvo_corpo = Vector3(player.global_position.x, global_position.y, player.global_position.z)
 				look_at(posicao_alvo_corpo, Vector3.UP)
 				arma.look_at(player.global_position, Vector3.UP)
@@ -73,6 +73,7 @@ func _on_area_saida_body_entered(body: Node3D) -> void:
 #tambem fica armazenado o alvo do bicho, no caso a falta de alvo.
 func _on_area_saida_body_exited(body: Node3D) -> void:
 	if body == player:
+		eventos_global.batalha = false
 		player = null
 		state = estado.conversa
 	
