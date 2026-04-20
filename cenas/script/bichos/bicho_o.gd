@@ -1,5 +1,5 @@
 extends Node3D
-
+#aaaaaa
 #minha buceta é rosa
 var conversando = false
 var player 
