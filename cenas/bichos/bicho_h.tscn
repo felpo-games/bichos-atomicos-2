@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://8jgini67sqoj"]
+
+[ext_resource type="Script" uid="uid://0t1uru4xn0m6" path="res://cenas/script/bichos/bicho_h.gd" id="1_n5cob"]
+[ext_resource type="Texture2D" uid="uid://bmign5tbe7odp" path="res://arte/miguel/WhatsApp Image 2026-04-11 at 10.24.21.jpeg" id="2_qmb33"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60qn1"]
+albedo_color = Color(0, 0.73333335, 1, 1)
+albedo_texture = ExtResource("2_qmb33")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n5cob"]
+material = SubResource("StandardMaterial3D_60qn1")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qmb33"]
+radius = 0.6
+height = 2.1
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f5dbx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n5cob"]
+radius = 5.896271
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n5cob"]
+height = 0.82611084
+radius = 0.001
+
+[sub_resource type="Animation" id="Animation_qmb33"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area de knockpack e dano (laranja)/CollisionShape3D:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.001]
+}
+
+[sub_resource type="Animation" id="Animation_f5dbx"]
+resource_name = "colision"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area de knockpack e dano (laranja)/CollisionShape3D:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.6625977, 0.001]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j26s6"]
+_data = {
+&"RESET": SubResource("Animation_qmb33"),
+&"colision": SubResource("Animation_f5dbx")
+}
+
+[node name="bicho_h" type="CharacterBody3D" unique_id=1122094937]
+script = ExtResource("1_n5cob")
+
+[node name="pivod" type="Node3D" parent="." unique_id=1050839899]
+
+[node name="body" type="MeshInstance3D" parent="pivod" unique_id=374000864]
+mesh = SubResource("CapsuleMesh_n5cob")
+
+[node name="Area_receber_dano(vermelha)" type="Area3D" parent="." unique_id=58162067]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area_receber_dano(vermelha)" unique_id=172188307]
+shape = SubResource("CapsuleShape3D_qmb33")
+debug_color = Color(0.98106664, 0, 0.37832505, 0.41960785)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1363758888]
+shape = SubResource("CapsuleShape3D_f5dbx")
+
+[node name="Area_visao(verde)" type="Area3D" parent="." unique_id=947970270]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area_visao(verde)" unique_id=1150772087]
+shape = SubResource("SphereShape3D_n5cob")
+debug_color = Color(4.548356e-06, 0.64999115, 0.13287708, 0.41960785)
+
+[node name="Area de knockpack e dano (laranja)" type="Area3D" parent="." unique_id=565690524]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area de knockpack e dano (laranja)" unique_id=1676405338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22506714, 0)
+shape = SubResource("CylinderShape3D_n5cob")
+debug_color = Color(0.55137575, 0.41600415, 0, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=397081893]
+libraries/ = SubResource("AnimationLibrary_j26s6")
+autoplay = &"colision"
+
+[connection signal="body_entered" from="Area_visao(verde)" to="." method="_on_area_visaoverde_body_entered"]
+[connection signal="body_exited" from="Area_visao(verde)" to="." method="_on_area_visaoverde_body_exited"]
+[connection signal="body_entered" from="Area de knockpack e dano (laranja)" to="." method="_on_area_de_knockpack_e_dano_laranja_body_entered"]

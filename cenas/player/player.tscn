@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b1gqv36fccgwf"]
+
+[ext_resource type="Script" uid="uid://cx03s4khim4yi" path="res://cenas/script/player/player.gd" id="1_1m1wk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kbvfo"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_okt6s"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cxihn"]
+radius = 0.155
+height = 1.505
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d4u85"]
+radius = 0.55
+height = 2.05
+
+[node name="player" type="CharacterBody3D" unique_id=1822486866 groups=["player"]]
+script = ExtResource("1_1m1wk")
+
+[node name="CollisionPolygon3D" type="CollisionShape3D" parent="." unique_id=1532869750]
+shape = SubResource("CapsuleShape3D_kbvfo")
+
+[node name="body" type="MeshInstance3D" parent="." unique_id=1333181709]
+mesh = SubResource("CapsuleMesh_okt6s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body" unique_id=1183815433]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.52581877)
+mesh = SubResource("CapsuleMesh_cxihn")
+
+[node name="Marker3D" type="Marker3D" parent="body" unique_id=940710450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4581196)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=217648361]
+transform = Transform3D(1, 0, 0, 0, 0.73406184, 0.6790827, 0, -0.6790827, 0.73406184, 0, 6.8089895, 8.286701)
+
+[node name="sistema_vida" type="Node3D" parent="." unique_id=1277443864]
+
+[node name="Area_dano" type="Area3D" parent="sistema_vida" unique_id=2011578690]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sistema_vida/Area_dano" unique_id=1793060139]
+shape = SubResource("CapsuleShape3D_d4u85")
+
+[node name="sistema_ataque" type="Node3D" parent="." unique_id=1329585878]

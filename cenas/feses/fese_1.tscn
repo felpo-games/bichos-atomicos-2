@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dbxvfmqis5jj7"]
+
+[ext_resource type="PackedScene" uid="uid://b1gqv36fccgwf" path="res://cenas/player/player.tscn" id="1_1c7ow"]
+[ext_resource type="PackedScene" uid="uid://p8av7a3qv0rj" path="res://cenas/telas/conversas_cena.tscn" id="1_guo0g"]
+[ext_resource type="PackedScene" uid="uid://c18jhd1my1kwy" path="res://cenas/bichos/bicho_o.tscn" id="2_p6wll"]
+[ext_resource type="PackedScene" uid="uid://8jgini67sqoj" path="res://cenas/bichos/bicho_h.tscn" id="3_e5vpm"]
+[ext_resource type="PackedScene" uid="uid://cojmkk1gai3wm" path="res://cenas/bichos/bicho_c.tscn" id="4_g0u1t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gjcs"]
+albedo_color = Color(0, 0.39215687, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1c7ow"]
+material = SubResource("StandardMaterial3D_8gjcs")
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_oqrsv"]
+data = PackedVector3Array(-25, 0.25, 25, 25, 0.25, 25, -25, -0.25, 25, 25, 0.25, 25, 25, -0.25, 25, -25, -0.25, 25, 25, 0.25, -25, -25, 0.25, -25, 25, -0.25, -25, -25, 0.25, -25, -25, -0.25, -25, 25, -0.25, -25, 25, 0.25, 25, 25, 0.25, -25, 25, -0.25, 25, 25, 0.25, -25, 25, -0.25, -25, 25, -0.25, 25, -25, 0.25, -25, -25, 0.25, 25, -25, -0.25, -25, -25, 0.25, 25, -25, -0.25, 25, -25, -0.25, -25, 25, 0.25, 25, -25, 0.25, 25, 25, 0.25, -25, -25, 0.25, 25, -25, 0.25, -25, 25, 0.25, -25, -25, -0.25, 25, 25, -0.25, 25, -25, -0.25, -25, 25, -0.25, 25, 25, -0.25, -25, -25, -0.25, -25)
+
+[node name="fese1" type="Node3D" unique_id=1065080157]
+
+[node name="chao" type="Node3D" parent="." unique_id=1933545562]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="chao" unique_id=402332448]
+mesh = SubResource("BoxMesh_1c7ow")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="chao/MeshInstance3D" unique_id=1044221823]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="chao/MeshInstance3D/StaticBody3D" unique_id=1758868948]
+shape = SubResource("ConcavePolygonShape3D_oqrsv")
+
+[node name="efeitos" type="Node3D" parent="." unique_id=2004406884]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="efeitos" unique_id=629562334]
+transform = Transform3D(0.49999997, 0.39936307, 0.76844597, -0.86602545, 0.23057236, 0.44366243, 0, -0.8873249, 0.46114475, 17.902573, 19.715208, 7.223153)
+shadow_enabled = true
+
+[node name="personagem" type="Node3D" parent="." unique_id=737634289]
+
+[node name="telas" type="Node3D" parent="personagem" unique_id=298533728]
+
+[node name="conversas_cena" parent="personagem/telas" unique_id=587679249 instance=ExtResource("1_guo0g")]
+
+[node name="player" parent="personagem" unique_id=1822486866 instance=ExtResource("1_1c7ow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4799995, 0)
+
+[node name="bichos" type="Node3D" parent="." unique_id=1018644957]
+
+[node name="bicho_h" parent="bichos" unique_id=1122094937 instance=ExtResource("3_e5vpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.694666, 1.4084129, -17.865496)
+
+[node name="bicho_c" parent="bichos" unique_id=1730391757 instance=ExtResource("4_g0u1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.822563, 1.2433438, 17.10046)
+
+[node name="bicho_o" parent="bichos" unique_id=1814063333 instance=ExtResource("2_p6wll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.565758, 0.73130035, -17.538023)
+
+[node name="coletaveis" type="Node3D" parent="." unique_id=2030487566]
+
+[connection signal="batalhar" from="personagem/telas/conversas_cena" to="bichos/bicho_c" method="_on_conversas_cena_batalhar"]
+[connection signal="conversa" from="bichos/bicho_c" to="personagem/telas/conversas_cena" method="_on_bicho_c_conversa"]

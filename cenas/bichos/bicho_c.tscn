@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cojmkk1gai3wm"]
+
+[ext_resource type="Script" uid="uid://bqxjiqb2ax1qu" path="res://cenas/script/bichos/bichos.gd" id="1_e72me"]
+[ext_resource type="PackedScene" uid="uid://cy0ud0v2a533p" path="res://cenas/bichos/bala_bicho.tscn" id="2_vqbf6"]
+[ext_resource type="Texture2D" uid="uid://cnni0shg6k5hj" path="res://arte/miguel/WhatsApp Image 2026-04-13 at 10.56.26.jpeg" id="3_vqbf6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwu8j"]
+albedo_color = Color(1, 0, 0.047058824, 1)
+albedo_texture = ExtResource("3_vqbf6")
+
+[sub_resource type="SphereMesh" id="SphereMesh_e3tyx"]
+material = SubResource("StandardMaterial3D_uwu8j")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vscvc"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 1.12
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uwu8j"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e3tyx"]
+radius = 1.7524773
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vscvc"]
+radius = 12.52749
+
+[node name="bicho_c" type="Node3D" unique_id=1730391757]
+script = ExtResource("1_e72me")
+projetil_cena = ExtResource("2_vqbf6")
+
+[node name="pivod" type="Node3D" parent="." unique_id=434412609]
+
+[node name="body" type="MeshInstance3D" parent="pivod" unique_id=1568244701]
+mesh = SubResource("SphereMesh_e3tyx")
+
+[node name="bico" type="MeshInstance3D" parent="pivod/body" unique_id=2040525518]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.13607448)
+mesh = SubResource("CylinderMesh_vscvc")
+
+[node name="ataque" type="Node3D" parent="." unique_id=597480449]
+
+[node name="Marker3D" type="Marker3D" parent="ataque" unique_id=1031108393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8065853)
+
+[node name="vida" type="Node3D" parent="." unique_id=1372800615]
+
+[node name="Area_receber_dano" type="Area3D" parent="vida" unique_id=958629405]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="vida/Area_receber_dano" unique_id=781699336]
+shape = SubResource("SphereShape3D_uwu8j")
+
+[node name="conversa" type="Node3D" parent="." unique_id=687584341]
+
+[node name="Area_interação" type="Area3D" parent="conversa" unique_id=1588777613]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="conversa/Area_interação" unique_id=575659025]
+shape = SubResource("SphereShape3D_e3tyx")
+
+[node name="Area_saida" type="Area3D" parent="conversa" unique_id=977487767]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="conversa/Area_saida" unique_id=1456497101]
+shape = SubResource("SphereShape3D_vscvc")
+
+[connection signal="area_entered" from="vida/Area_receber_dano" to="." method="_on_area_receber_dano_area_entered"]
+[connection signal="body_entered" from="conversa/Area_interação" to="." method="_on_area_interação_body_entered"]
+[connection signal="body_exited" from="conversa/Area_interação" to="." method="_on_area_interação_body_exited"]
+[connection signal="body_entered" from="conversa/Area_saida" to="." method="_on_area_saida_body_entered"]
+[connection signal="body_exited" from="conversa/Area_saida" to="." method="_on_area_saida_body_exited"]
