@@ -2,19 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bqxjiqb2ax1qu" path="res://cenas/script/bichos/bichos.gd" id="1_e72me"]
 [ext_resource type="PackedScene" uid="uid://cy0ud0v2a533p" path="res://cenas/bichos/bala_bicho.tscn" id="2_vqbf6"]
-[ext_resource type="Texture2D" uid="uid://cnni0shg6k5hj" path="res://arte/miguel/WhatsApp Image 2026-04-13 at 10.56.26.jpeg" id="3_vqbf6"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwu8j"]
-albedo_color = Color(1, 0, 0.047058824, 1)
-albedo_texture = ExtResource("3_vqbf6")
-
-[sub_resource type="SphereMesh" id="SphereMesh_e3tyx"]
-material = SubResource("StandardMaterial3D_uwu8j")
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_vscvc"]
-top_radius = 0.2
-bottom_radius = 0.2
-height = 1.12
+[ext_resource type="PackedScene" uid="uid://ddh0p37htd4ct" path="res://arte/miguel/3d/body_carbono.tscn" id="3_vqbf6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uwu8j"]
 
@@ -26,16 +14,14 @@ radius = 12.52749
 
 [node name="bicho_c" type="Node3D" unique_id=1730391757]
 script = ExtResource("1_e72me")
+"queméessebicho" = ["c", "o", "h"]
 projetil_cena = ExtResource("2_vqbf6")
 
 [node name="pivod" type="Node3D" parent="." unique_id=434412609]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="body" type="MeshInstance3D" parent="pivod" unique_id=1568244701]
-mesh = SubResource("SphereMesh_e3tyx")
-
-[node name="bico" type="MeshInstance3D" parent="pivod/body" unique_id=2040525518]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.13607448)
-mesh = SubResource("CylinderMesh_vscvc")
+[node name="body_carbono" parent="pivod" unique_id=896105083 instance=ExtResource("3_vqbf6")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1, 0)
 
 [node name="ataque" type="Node3D" parent="." unique_id=597480449]
 

@@ -11,6 +11,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fvdd4")
+fala = "Qual é a principal função do oxigênio no corpo humano?"
+opcao1 = "A) Produzir energia nas células através da respiração celular"
+opcao2 = "B) Controlar a temperatura do corpo diretamente"
+opcao3 = "C) Formar ossos e dentes"
+opcao_Certa = 1
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=85398611]
 layout_mode = 0
@@ -49,7 +54,7 @@ frame = 1
 layout_mode = 0
 offset_left = 273.0
 offset_top = 426.0
-offset_right = 884.0
+offset_right = 756.0
 offset_bottom = 630.0
 color = Color(1, 1, 1, 0.16078432)
 
@@ -66,29 +71,40 @@ text = "OXIGENIO"
 layout_mode = 0
 offset_left = 282.0
 offset_top = 435.0
-offset_right = 873.0
+offset_right = 739.0
 offset_bottom = 622.0
 
 [node name="Button" type="Button" parent="." unique_id=1539095743]
 layout_mode = 0
-offset_left = 890.0
+offset_left = 763.0
 offset_top = 422.0
-offset_right = 1138.0
+offset_right = 1136.0
 offset_bottom = 487.0
 text = "OPSAO1"
 
 [node name="Button2" type="Button" parent="." unique_id=13332049]
 layout_mode = 0
-offset_left = 890.0
+offset_left = 764.0
 offset_top = 494.0
-offset_right = 1138.0
+offset_right = 1137.0
 offset_bottom = 559.0
 text = "OPSAO1"
 
 [node name="Button3" type="Button" parent="." unique_id=1904897466]
 layout_mode = 0
-offset_left = 890.0
+offset_left = 765.0
 offset_top = 564.0
 offset_right = 1138.0
 offset_bottom = 629.0
 text = "OPSAO1"
+
+[node name="sair" type="Button" parent="." unique_id=1778680138]
+layout_mode = 0
+offset_right = 116.0
+offset_bottom = 86.0
+text = "sair"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="sair" to="." method="_on_sair_pressed"]

@@ -40,6 +40,7 @@ func _process(delta: float) -> void:
 				emit_signal("conversa")
 			pass
 		estado.batalhando:
+			eventos_global.batalha = true
 			if player != null:
 				eventos_global.batalha = true
 				var posicao_alvo_corpo = Vector3(player.global_position.x, global_position.y, player.global_position.z)
@@ -50,7 +51,7 @@ func _process(delta: float) -> void:
 				pass
 			pass
 		estado.morto:
-			
+			eventos_global.batalha = false
 			pass
 	pass
 
@@ -92,6 +93,7 @@ func _on_area_receber_dano_area_entered(area: Area3D) -> void:
 func derrotado():
 	state = estado.morto
 	laboratorio_global.bichos_desbloqueados.append(queméessebicho[0])
+	laboratorio_global.quantidade_c += 1
 	morto = true
 	queue_free()
 

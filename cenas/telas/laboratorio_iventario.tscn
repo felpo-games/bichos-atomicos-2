@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://dxchpdfieiuk1"]
+
+[ext_resource type="Script" uid="uid://c2vrid18uuakb" path="res://cenas/telas/laboratorio_iventario.gd" id="1_jxupr"]
+[ext_resource type="Texture2D" uid="uid://dn8a3b2l2a1i0" path="res://arte/felp/letras.png" id="2_xye0g"]
+[ext_resource type="Texture2D" uid="uid://dw8ss7u0ylula" path="res://arte/felp/oxigenio.png" id="3_hi35h"]
+[ext_resource type="Script" uid="uid://r4s7cqyknd7a" path="res://cenas/telas/but_bicho.gd" id="4_ymotw"]
+[ext_resource type="Texture2D" uid="uid://bmoswh55gh4vm" path="res://arte/felp/hidrogenio.png" id="5_oxgkr"]
+[ext_resource type="Texture2D" uid="uid://c6fhalte760ff" path="res://arte/felp/carbono.png" id="6_nnxpa"]
+[ext_resource type="Script" uid="uid://b4xopng2nxja0" path="res://cenas/telas/but_listaclear.gd" id="7_xye0g"]
+
+[node name="Laboratorio_iventario" type="Control" unique_id=1409135382]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jxupr")
+
+[node name="laboratorio" type="Control" parent="." unique_id=1237332314]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="laboratorio" unique_id=1183080021]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0, 0.48235294)
+
+[node name="GridContainer2" type="GridContainer" parent="laboratorio" unique_id=1995713187]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 224.0
+offset_right = 463.0
+offset_bottom = 264.0
+
+[node name="1" type="Sprite2D" parent="laboratorio/GridContainer2" unique_id=196187339]
+position = Vector2(109, 0)
+texture = ExtResource("2_xye0g")
+hframes = 5
+
+[node name="2" type="Sprite2D" parent="laboratorio/GridContainer2" unique_id=1832573668]
+position = Vector2(237, 0)
+texture = ExtResource("2_xye0g")
+hframes = 5
+
+[node name="3" type="Sprite2D" parent="laboratorio/GridContainer2" unique_id=1796130049]
+position = Vector2(367, 0)
+texture = ExtResource("2_xye0g")
+hframes = 5
+
+[node name="GridContainer" type="GridContainer" parent="laboratorio" unique_id=1796747305]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 360.0
+offset_right = 802.0
+offset_bottom = 496.0
+columns = 3
+
+[node name="But_bicho" type="Button" parent="laboratorio/GridContainer" unique_id=1571279109]
+layout_mode = 2
+icon = ExtResource("3_hi35h")
+script = ExtResource("4_ymotw")
+elemento = ["o", "h", "c"]
+
+[node name="But_bicho2" type="Button" parent="laboratorio/GridContainer" unique_id=1838665287]
+layout_mode = 2
+icon = ExtResource("5_oxgkr")
+script = ExtResource("4_ymotw")
+elemento = ["h", "o", "c"]
+
+[node name="But_bicho3" type="Button" parent="laboratorio/GridContainer" unique_id=1919252916]
+layout_mode = 2
+icon = ExtResource("6_nnxpa")
+script = ExtResource("4_ymotw")
+elemento = ["c", "o", "h"]
+
+[node name="Button" type="Button" parent="laboratorio/GridContainer" unique_id=1866848209]
+layout_mode = 2
+text = "apagar"
+script = ExtResource("7_xye0g")
+
+[node name="iventario" type="Control" parent="." unique_id=428158722]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_right = 1152.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="iventario" unique_id=544400433]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 1, 0.48235294)
+
+[node name="Button->" type="Button" parent="." unique_id=6282401]
+layout_mode = 0
+offset_left = 1018.0
+offset_top = 523.0
+offset_right = 1123.0
+offset_bottom = 618.0
+theme_override_font_sizes/font_size = 60
+text = "=>"
+
+[node name="Button<-" type="Button" parent="." unique_id=1018138549]
+layout_mode = 0
+offset_left = 1185.0
+offset_top = 523.0
+offset_right = 1290.0
+offset_bottom = 618.0
+theme_override_font_sizes/font_size = 60
+text = "<="
+
+[node name="sair" type="Button" parent="." unique_id=95140248]
+layout_mode = 0
+offset_right = 162.0
+offset_bottom = 103.0
+text = "sair"
+
+[connection signal="pressed" from="laboratorio/GridContainer/But_bicho" to="laboratorio/GridContainer/But_bicho" method="_on_pressed"]
+[connection signal="pressed" from="laboratorio/GridContainer/But_bicho2" to="laboratorio/GridContainer/But_bicho2" method="_on_pressed"]
+[connection signal="pressed" from="laboratorio/GridContainer/But_bicho3" to="laboratorio/GridContainer/But_bicho3" method="_on_pressed"]
+[connection signal="pressed" from="laboratorio/GridContainer/Button" to="laboratorio/GridContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="sair" to="." method="_on_sair_pressed"]
