@@ -10,7 +10,7 @@ material = SubResource("StandardMaterial3D_i1oab")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_auu6e"]
 
-[node name="bala_dc" type="Area3D" unique_id=1777013342]
+[node name="bala_dc" type="Area3D" unique_id=1777013342 groups=["ataque_dc", "ataque_player"]]
 script = ExtResource("1_a47i1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=517282303]

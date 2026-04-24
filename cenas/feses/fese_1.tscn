@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dxchpdfieiuk1" path="res://cenas/telas/laboratorio_iventario.tscn" id="3_34wp8"]
 [ext_resource type="PackedScene" uid="uid://8jgini67sqoj" path="res://cenas/bichos/bicho_h.tscn" id="3_e5vpm"]
 [ext_resource type="PackedScene" uid="uid://cojmkk1gai3wm" path="res://cenas/bichos/bicho_c.tscn" id="4_g0u1t"]
+[ext_resource type="PackedScene" uid="uid://2n7s13pt8lm1" path="res://cenas/obstaculos/fogo_normal.tscn" id="8_1efgt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gjcs"]
 albedo_color = Color(0, 0.39215687, 0, 1)
@@ -79,6 +80,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5067005, 0.73130035, 11.8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2534885, 0.73130035, 11.800081)
 
 [node name="coletaveis" type="Node3D" parent="." unique_id=2030487566]
+
+[node name="obstaculos" type="Node3D" parent="." unique_id=110551841]
+
+[node name="fogo_normal" type="Node3D" parent="obstaculos" unique_id=239939384]
+
+[node name="fogo_normal" parent="obstaculos/fogo_normal" unique_id=944948005 instance=ExtResource("8_1efgt")]
+transform = Transform3D(-0.14033103, 0, 0.9901046, 0, 1, 0, -0.9901046, 0, -0.14033103, -16.660982, 1.5780773, 0)
+
+[node name="fogo_normal2" parent="obstaculos/fogo_normal" unique_id=1975960319 instance=ExtResource("8_1efgt")]
+transform = Transform3D(-0.14033103, 0, 0.9901046, 0, 1, 0, -0.9901046, 0, -0.14033103, -16.660982, 1.5780773, 1.5581512)
+
+[node name="fogo_normal3" parent="obstaculos/fogo_normal" unique_id=901165594 instance=ExtResource("8_1efgt")]
+transform = Transform3D(-0.14033103, 0, 0.9901046, 0, 1, 0, -0.9901046, 0, -0.14033103, -13.215167, 1.5780773, 1.5581512)
+
+[node name="fogo_normal4" parent="obstaculos/fogo_normal" unique_id=1208907688 instance=ExtResource("8_1efgt")]
+transform = Transform3D(-0.14033103, 0, 0.9901046, 0, 1, 0, -0.9901046, 0, -0.14033103, -13.215167, 1.5780773, -0.12768745)
+
+[node name="fogo_normal5" parent="obstaculos/fogo_normal" unique_id=1172457286 instance=ExtResource("8_1efgt")]
+transform = Transform3D(-0.14033103, 0, 0.9901046, 0, 1, 0, -0.9901046, 0, -0.14033103, -18.885427, 1.5780773, -0.12768745)
+
+[node name="fogo_normal6" parent="obstaculos/fogo_normal" unique_id=1634613799 instance=ExtResource("8_1efgt")]
+transform = Transform3D(-0.14033103, 0, 0.9901046, 0, 1, 0, -0.9901046, 0, -0.14033103, -18.885427, 1.5780773, 1.5267849)
 
 [connection signal="batalhar" from="personagem/telas/conversas_cena" to="bichos/bicho_c" method="_on_conversas_cena_batalhar"]
 [connection signal="batalhar" from="personagem/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_batalhar"]

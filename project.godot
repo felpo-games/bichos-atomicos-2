@@ -27,6 +27,9 @@ import/blender/enabled=false
 [global_group]
 
 ataque_bicho=""
+ataque_agua=""
+ataque_player=""
+ataque_dc=""
 
 [input]
 

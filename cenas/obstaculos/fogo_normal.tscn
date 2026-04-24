@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://2n7s13pt8lm1"]
+
+[ext_resource type="Script" uid="uid://dtq56dixcg2o6" path="res://cenas/obstaculos/fogo_normal.gd" id="1_w6slb"]
+[ext_resource type="Texture2D" uid="uid://dsjy4rrbmdv0p" path="res://arte/felp/fogo.png" id="2_88pf3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bnu6m"]
+
+[node name="fogo_normal" type="Node3D" unique_id=944948005]
+script = ExtResource("1_w6slb")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=490518308]
+billboard = 2
+texture = ExtResource("2_88pf3")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1439848205]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1607302856]
+shape = SubResource("BoxShape3D_bnu6m")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
