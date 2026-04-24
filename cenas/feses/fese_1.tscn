@@ -8,16 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://8jgini67sqoj" path="res://cenas/bichos/bicho_h.tscn" id="3_e5vpm"]
 [ext_resource type="PackedScene" uid="uid://cojmkk1gai3wm" path="res://cenas/bichos/bicho_c.tscn" id="4_g0u1t"]
 [ext_resource type="PackedScene" uid="uid://2n7s13pt8lm1" path="res://cenas/obstaculos/fogo_normal.tscn" id="8_1efgt"]
+[ext_resource type="PackedScene" uid="uid://ce3xps06jwojt" path="res://cenas/obstaculos/fogo_eletrico.tscn" id="9_xeb63"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gjcs"]
 albedo_color = Color(0, 0.39215687, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1c7ow"]
 material = SubResource("StandardMaterial3D_8gjcs")
-size = Vector3(50, 0.5, 50)
+size = Vector3(50, 0.5, 100)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_oqrsv"]
-data = PackedVector3Array(-25, 0.25, 25, 25, 0.25, 25, -25, -0.25, 25, 25, 0.25, 25, 25, -0.25, 25, -25, -0.25, 25, 25, 0.25, -25, -25, 0.25, -25, 25, -0.25, -25, -25, 0.25, -25, -25, -0.25, -25, 25, -0.25, -25, 25, 0.25, 25, 25, 0.25, -25, 25, -0.25, 25, 25, 0.25, -25, 25, -0.25, -25, 25, -0.25, 25, -25, 0.25, -25, -25, 0.25, 25, -25, -0.25, -25, -25, 0.25, 25, -25, -0.25, 25, -25, -0.25, -25, 25, 0.25, 25, -25, 0.25, 25, 25, 0.25, -25, -25, 0.25, 25, -25, 0.25, -25, 25, 0.25, -25, -25, -0.25, 25, 25, -0.25, 25, -25, -0.25, -25, 25, -0.25, 25, 25, -0.25, -25, -25, -0.25, -25)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xeb63"]
+data = PackedVector3Array(-25, 0.25, 50, 25, 0.25, 50, -25, -0.25, 50, 25, 0.25, 50, 25, -0.25, 50, -25, -0.25, 50, 25, 0.25, -50, -25, 0.25, -50, 25, -0.25, -50, -25, 0.25, -50, -25, -0.25, -50, 25, -0.25, -50, 25, 0.25, 50, 25, 0.25, -50, 25, -0.25, 50, 25, 0.25, -50, 25, -0.25, -50, 25, -0.25, 50, -25, 0.25, -50, -25, 0.25, 50, -25, -0.25, -50, -25, 0.25, 50, -25, -0.25, 50, -25, -0.25, -50, 25, 0.25, 50, -25, 0.25, 50, 25, 0.25, -50, -25, 0.25, 50, -25, 0.25, -50, 25, 0.25, -50, -25, -0.25, 50, 25, -0.25, 50, -25, -0.25, -50, 25, -0.25, 50, 25, -0.25, -50, -25, -0.25, -50)
 
 [node name="fese1" type="Node3D" unique_id=1065080157]
 
@@ -26,10 +27,10 @@ data = PackedVector3Array(-25, 0.25, 25, 25, 0.25, 25, -25, -0.25, 25, 25, 0.25,
 [node name="MeshInstance3D" type="MeshInstance3D" parent="chao" unique_id=402332448]
 mesh = SubResource("BoxMesh_1c7ow")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="chao/MeshInstance3D" unique_id=1044221823]
+[node name="StaticBody3D" type="StaticBody3D" parent="chao/MeshInstance3D" unique_id=850405748]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="chao/MeshInstance3D/StaticBody3D" unique_id=1758868948]
-shape = SubResource("ConcavePolygonShape3D_oqrsv")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="chao/MeshInstance3D/StaticBody3D" unique_id=1119582690]
+shape = SubResource("ConcavePolygonShape3D_xeb63")
 
 [node name="efeitos" type="Node3D" parent="." unique_id=2004406884]
 
@@ -48,36 +49,36 @@ shadow_enabled = true
 [node name="Laboratorio_iventario" parent="personagem/telas" unique_id=1409135382 instance=ExtResource("3_34wp8")]
 
 [node name="player" parent="personagem" unique_id=1822486866 instance=ExtResource("1_1c7ow")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4799995, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.65928, 1.4799995, 29.82803)
 
 [node name="bichos" type="Node3D" parent="." unique_id=1018644957]
 
 [node name="bicho_h" parent="bichos" unique_id=1122094937 instance=ExtResource("3_e5vpm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.694666, 1.4084129, -17.865496)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8488197, 1.4084129, 2.1928291)
 
 [node name="bicho_h4" parent="bichos" unique_id=405679416 instance=ExtResource("3_e5vpm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.601109, 1.4084129, -17.865496)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.601109, 1.4084129, 9.186035)
 
 [node name="bicho_h3" parent="bichos" unique_id=913013922 instance=ExtResource("3_e5vpm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.694666, 1.4084129, -2.052723)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.725645, 1.4084129, -18.955694)
 
 [node name="bicho_h2" parent="bichos" unique_id=2052091591 instance=ExtResource("3_e5vpm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.58252, 1.4084129, -1.1594563)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.58252, 1.4084129, -19.42301)
 
 [node name="bicho_c" parent="bichos" unique_id=1730391757 instance=ExtResource("4_g0u1t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.822563, 1.2433438, 17.10046)
 
 [node name="bicho_c2" parent="bichos" unique_id=835884886 instance=ExtResource("4_g0u1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.358261, 1.2433438, 17.10046)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.886856, 1.2433438, -16.964682)
 
 [node name="bicho_o" parent="bichos" unique_id=1814063333 instance=ExtResource("2_p6wll")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.565758, 0.73130035, -17.538023)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.06543, 0.73130035, 25.803104)
 
 [node name="bicho_o2" parent="bichos" unique_id=1857098330 instance=ExtResource("2_p6wll")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5067005, 0.73130035, 11.800081)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0315523, 0.73130035, -31.723064)
 
 [node name="bicho_o3" parent="bichos" unique_id=79884874 instance=ExtResource("2_p6wll")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2534885, 0.73130035, 11.800081)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.816493, 0.73130035, -29.52969)
 
 [node name="coletaveis" type="Node3D" parent="." unique_id=2030487566]
 
@@ -102,6 +103,27 @@ transform = Transform3D(-0.14033103, 0, 0.9901046, 0, 1, 0, -0.9901046, 0, -0.14
 
 [node name="fogo_normal6" parent="obstaculos/fogo_normal" unique_id=1634613799 instance=ExtResource("8_1efgt")]
 transform = Transform3D(-0.14033103, 0, 0.9901046, 0, 1, 0, -0.9901046, 0, -0.14033103, -18.885427, 1.5780773, 1.5267849)
+
+[node name="fogo_eletrico" type="Node3D" parent="obstaculos" unique_id=1679242623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8751621, 0, -23.899696)
+
+[node name="fogo_eletrico" parent="obstaculos/fogo_eletrico" unique_id=702213636 instance=ExtResource("9_xeb63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.735165, 2.0399346, -3.7732553)
+
+[node name="fogo_eletrico2" parent="obstaculos/fogo_eletrico" unique_id=271743782 instance=ExtResource("9_xeb63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.244938, 2.0399346, -3.7732553)
+
+[node name="fogo_eletrico3" parent="obstaculos/fogo_eletrico" unique_id=1304600200 instance=ExtResource("9_xeb63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.008422, 2.0399346, -3.7732553)
+
+[node name="fogo_eletrico4" parent="obstaculos/fogo_eletrico" unique_id=1427594267 instance=ExtResource("9_xeb63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.008422, 2.0399346, -6.2430153)
+
+[node name="fogo_eletrico5" parent="obstaculos/fogo_eletrico" unique_id=1120031388 instance=ExtResource("9_xeb63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.970114, 2.0399346, -6.2430153)
+
+[node name="fogo_eletrico6" parent="obstaculos/fogo_eletrico" unique_id=775066741 instance=ExtResource("9_xeb63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.728508, 2.0399346, -6.2430153)
 
 [connection signal="batalhar" from="personagem/telas/conversas_cena" to="bichos/bicho_c" method="_on_conversas_cena_batalhar"]
 [connection signal="batalhar" from="personagem/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_batalhar"]

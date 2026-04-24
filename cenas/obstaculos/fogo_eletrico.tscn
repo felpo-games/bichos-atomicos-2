@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ce3xps06jwojt"]
+
+[ext_resource type="Script" uid="uid://be8b64ln4i1yh" path="res://cenas/obstaculos/fogo_eletrico.gd" id="1_70vp8"]
+[ext_resource type="Texture2D" uid="uid://dccejat5jnm0x" path="res://arte/felp/fogo eletrico.png" id="2_e4rsf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_irmpw"]
+
+[node name="fogo_eletrico" type="Node3D" unique_id=702213636]
+script = ExtResource("1_70vp8")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1698896354]
+billboard = 2
+texture = ExtResource("2_e4rsf")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=213032899]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=792946967]
+shape = SubResource("BoxShape3D_irmpw")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
