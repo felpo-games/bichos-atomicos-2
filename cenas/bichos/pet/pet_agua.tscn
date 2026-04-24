@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dcrt0qkbbtxhx"]
+
+[ext_resource type="Script" uid="uid://bj3lchjwjggpd" path="res://cenas/bichos/pet/pet_agua.gd" id="1_ic4cb"]
+[ext_resource type="PackedScene" uid="uid://d0q8ynndwkhfq" path="res://cenas/bichos/pet/bala_agua.tscn" id="2_ajas2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajas2"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_qxds7"]
+material = SubResource("StandardMaterial3D_ajas2")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ic4cb"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.9
+
+[node name="pet_agua" type="Node3D" unique_id=349165857]
+script = ExtResource("1_ic4cb")
+bala_cena = ExtResource("2_ajas2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=609850792]
+mesh = SubResource("SphereMesh_qxds7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1956822830]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.10472071)
+mesh = SubResource("CylinderMesh_ic4cb")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1863813597]
+transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, 0, 0, 0.7406477)

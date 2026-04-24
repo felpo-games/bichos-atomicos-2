@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://hojavvhb5u3p"]
+
+[ext_resource type="Script" uid="uid://dajwxhebvm6sc" path="res://cenas/bichos/pet/pet_dc.gd" id="1_f8x35"]
+[ext_resource type="PackedScene" uid="uid://jfkidv631nm2" path="res://cenas/bichos/pet/bala_dc.tscn" id="2_by070"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_by070"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1e8aq"]
+material = SubResource("StandardMaterial3D_by070")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f8x35"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 1.0
+
+[node name="pet_dc" type="Node3D" unique_id=191536983]
+script = ExtResource("1_f8x35")
+bala_cena = ExtResource("2_by070")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=661702322]
+mesh = SubResource("SphereMesh_1e8aq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=653496569]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.118817866)
+mesh = SubResource("CylinderMesh_f8x35")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1412334786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8532226)

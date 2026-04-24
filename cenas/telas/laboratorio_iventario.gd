@@ -27,10 +27,16 @@ func fabricar():
 		laboratorio_global.bichos_desbloqueados.append("dc")
 		print("dc")
 		limpar_lista()
+		laboratorio_global.quantidade_o -= 2
+		laboratorio_global.quantidade_c -=1
+		laboratorio_global.pet_dc = true
 		pass
 	if lista.count("o") >= 1 and lista.count("h") >= 2:
 		laboratorio_global.bichos_desbloqueados.append("a")
 		print("a")
+		laboratorio_global.quantidade_h -= 2
+		laboratorio_global.quantidade_o -=1
+		laboratorio_global.pet_agua = true
 		limpar_lista()
 		pass
 	pass

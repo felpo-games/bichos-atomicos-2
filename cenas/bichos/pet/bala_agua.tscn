@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d0q8ynndwkhfq"]
+
+[ext_resource type="Script" uid="uid://s1hotq8xytvc" path="res://cenas/bichos/pet/bala_agua.gd" id="1_sv0vd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fmy5d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fmy5d"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_sv0vd"]
+material = SubResource("StandardMaterial3D_fmy5d")
+
+[node name="bala_agua" type="Area3D" unique_id=254501640 groups=["ataque_agua"]]
+script = ExtResource("1_sv0vd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=580279200]
+shape = SubResource("SphereShape3D_fmy5d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1589278011]
+mesh = SubResource("SphereMesh_sv0vd")

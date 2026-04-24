@@ -28,6 +28,10 @@ var dash_em_cooldown := false
 @export var dash_cooldown := 1.0 # tempo pra poder usar de novo
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("troca_de_pet"):
+		laboratorio_global.pet_1 = !laboratorio_global.pet_1
+		print(laboratorio_global.pet_1)
+		pass
 	# Sistema de tiro
 	if Input.is_action_just_pressed("campirar") and eventos_global.batalha == true:
 		atirar()

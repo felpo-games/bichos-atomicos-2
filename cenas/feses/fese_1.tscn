@@ -54,11 +54,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4799995, 0)
 [node name="bicho_h" parent="bichos" unique_id=1122094937 instance=ExtResource("3_e5vpm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.694666, 1.4084129, -17.865496)
 
+[node name="bicho_h4" parent="bichos" unique_id=405679416 instance=ExtResource("3_e5vpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.601109, 1.4084129, -17.865496)
+
+[node name="bicho_h3" parent="bichos" unique_id=913013922 instance=ExtResource("3_e5vpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.694666, 1.4084129, -2.052723)
+
 [node name="bicho_h2" parent="bichos" unique_id=2052091591 instance=ExtResource("3_e5vpm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.58252, 1.4084129, -1.1594563)
 
 [node name="bicho_c" parent="bichos" unique_id=1730391757 instance=ExtResource("4_g0u1t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.822563, 1.2433438, 17.10046)
+
+[node name="bicho_c2" parent="bichos" unique_id=835884886 instance=ExtResource("4_g0u1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.358261, 1.2433438, 17.10046)
 
 [node name="bicho_o" parent="bichos" unique_id=1814063333 instance=ExtResource("2_p6wll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.565758, 0.73130035, -17.538023)
@@ -66,11 +75,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.565758, 0.73130035, -17.53
 [node name="bicho_o2" parent="bichos" unique_id=1857098330 instance=ExtResource("2_p6wll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5067005, 0.73130035, 11.800081)
 
+[node name="bicho_o3" parent="bichos" unique_id=79884874 instance=ExtResource("2_p6wll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2534885, 0.73130035, 11.800081)
+
 [node name="coletaveis" type="Node3D" parent="." unique_id=2030487566]
 
 [connection signal="batalhar" from="personagem/telas/conversas_cena" to="bichos/bicho_c" method="_on_conversas_cena_batalhar"]
+[connection signal="batalhar" from="personagem/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_batalhar"]
 [connection signal="acertou" from="personagem/telas/conversa_o" to="bichos/bicho_o" method="_on_conversa_o_acertou"]
 [connection signal="acertou" from="personagem/telas/conversa_o" to="bichos/bicho_o2" method="_on_conversa_o_acertou"]
+[connection signal="acertou" from="personagem/telas/conversa_o" to="bichos/bicho_o3" method="_on_conversa_o_acertou"]
 [connection signal="conversa" from="bichos/bicho_c" to="personagem/telas/conversas_cena" method="_on_bicho_c_conversa"]
+[connection signal="conversa" from="bichos/bicho_c2" to="personagem/telas/conversas_cena" method="_on_bicho_c_conversa"]
 [connection signal="conversar" from="bichos/bicho_o" to="personagem/telas/conversa_o" method="_on_bicho_o_conversar"]
 [connection signal="conversar" from="bichos/bicho_o2" to="personagem/telas/conversa_o" method="_on_bicho_o_conversar"]
+[connection signal="conversar" from="bichos/bicho_o3" to="personagem/telas/conversa_o" method="_on_bicho_o_conversar"]

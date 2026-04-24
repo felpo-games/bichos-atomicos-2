@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://jfkidv631nm2"]
+
+[ext_resource type="Script" uid="uid://dfl0x2mu5agy" path="res://cenas/bichos/pet/bala_dc.gd" id="1_a47i1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1oab"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_a47i1"]
+material = SubResource("StandardMaterial3D_i1oab")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_auu6e"]
+
+[node name="bala_dc" type="Area3D" unique_id=1777013342]
+script = ExtResource("1_a47i1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=517282303]
+mesh = SubResource("SphereMesh_a47i1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=443953389]
+shape = SubResource("SphereShape3D_auu6e")

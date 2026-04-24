@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cx03s4khim4yi" path="res://cenas/script/player/player.gd" id="1_1m1wk"]
 [ext_resource type="PackedScene" uid="uid://covmsy6ki3nek" path="res://cenas/player/bala_player.tscn" id="2_w152q"]
+[ext_resource type="PackedScene" uid="uid://dcrt0qkbbtxhx" path="res://cenas/bichos/pet/pet_agua.tscn" id="3_4i5rx"]
+[ext_resource type="PackedScene" uid="uid://hojavvhb5u3p" path="res://cenas/bichos/pet/pet_dc.tscn" id="4_a8ubr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kbvfo"]
 
@@ -25,6 +27,14 @@ shape = SubResource("CapsuleShape3D_kbvfo")
 [node name="body" type="MeshInstance3D" parent="." unique_id=1333181709]
 mesh = SubResource("CapsuleMesh_okt6s")
 
+[node name="sistema_ataque" type="Node3D" parent="body" unique_id=1329585878]
+
+[node name="pet_agua" parent="body/sistema_ataque" unique_id=349165857 instance=ExtResource("3_4i5rx")]
+transform = Transform3D(0.50000006, 0, 0, 0, 0.5, 0, 0, 0, 0.50000006, 1.2366223, 0.43957055, 0)
+
+[node name="pet_dc" parent="body/sistema_ataque" unique_id=191536983 instance=ExtResource("4_a8ubr")]
+transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, -1.237, 0.44, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="body" unique_id=1183815433]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.18753749)
 mesh = SubResource("CapsuleMesh_cxihn")
@@ -41,5 +51,3 @@ transform = Transform3D(1, 0, 0, 0, 0.73406184, 0.6790827, 0, -0.6790827, 0.7340
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sistema_vida/Area_dano" unique_id=1793060139]
 shape = SubResource("CapsuleShape3D_d4u85")
-
-[node name="sistema_ataque" type="Node3D" parent="." unique_id=1329585878]
