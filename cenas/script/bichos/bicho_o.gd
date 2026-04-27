@@ -39,6 +39,8 @@ func _on_conversa_o_acertou() -> void:
 	if player == true:
 		laboratorio_global.bichos_desbloqueados.append("o")
 		laboratorio_global.quantidade_o += 1
+		var icon = load("res://arte/miguel/WhatsApp Image 2026-04-13 at 10.56.26.jpeg")
+		$"../../personagem/telas/notificacao".mostrar_notificacao("oxigenio", icon )
 		hide()
 		$Area3D/CollisionShape3D.disabled = true
 	pass # Replace with function body.

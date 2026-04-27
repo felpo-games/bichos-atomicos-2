@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://ps0pj0l88i1e"]
+
+[ext_resource type="Script" uid="uid://dn512klr8abr6" path="res://cenas/script/telas/notificacao.gd" id="1_4yq1s"]
+[ext_resource type="Texture2D" uid="uid://bxuy3oyimvbes" path="res://arte/miguel/WhatsApp Image 2026-04-11 at 10.24.20.jpeg" id="2_yp7k8"]
+
+[sub_resource type="Animation" id="Animation_hnmg7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3, -233)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_opje3"]
+resource_name = "new_animation"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(806, 262), Vector2(817, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7lmxi"]
+_data = {
+&"RESET": SubResource("Animation_hnmg7"),
+&"new_animation": SubResource("Animation_opje3")
+}
+
+[node name="notificacao" type="Control" unique_id=1508309764]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchor_right = 0.291
+anchor_bottom = 0.17300001
+offset_left = -3.0
+offset_top = -233.0
+offset_right = -3.2313843
+offset_bottom = -233.104
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4yq1s")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=821762414]
+layout_mode = 0
+offset_right = 330.0
+offset_bottom = 108.0
+color = Color(1, 1, 1, 0.12941177)
+
+[node name="TextureRect" type="Sprite2D" parent="." unique_id=1915801663]
+position = Vector2(54, 55)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_yp7k8")
+hframes = 2
+vframes = 2
+
+[node name="Label" type="Label" parent="." unique_id=273231939]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 5.0
+offset_right = 235.0
+offset_bottom = 99.0
+text = "ai minha xereca
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=525004811]
+libraries/ = SubResource("AnimationLibrary_7lmxi")

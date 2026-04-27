@@ -82,6 +82,7 @@ func _on_area_receber_danovermelha_area_entered(area: Area3D) -> void:
 			state = estado.morto
 			laboratorio_global.bichos_desbloqueados.append(queméessebicho[0])
 			laboratorio_global.quantidade_h += 1
+			$Notificacao.mostrar_notificacao("hidrogenio", "res://arte/miguel/WhatsApp Image 2026-04-11 at 10.24.20.jpeg")
 			queue_free()
 		pass
 	pass # Replace with function body.
