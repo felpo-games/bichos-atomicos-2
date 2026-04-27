@@ -19,7 +19,8 @@ func _physics_process(delta: float):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	if player and pode_mover:
+	if player != null and pode_mover:
+		print("quero me mecher")
 		decidir_direcao()
 	if player != null:
 		if direcao_alvo != Vector3.ZERO:
@@ -29,6 +30,7 @@ func _physics_process(delta: float):
 		move_and_slide()
 
 func decidir_direcao():
+	print("me mecheendowa")
 	pode_mover = false
 	var sorteio = randi_range(1, 10)
 	var direcao_real = (player.global_position - global_position).normalized()
@@ -46,20 +48,6 @@ func decidir_direcao():
 
 
 
-func _on_area_visaoverde_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		player = body
-		eventos_global.batalha = true
-		pass
-	pass 
-
-
-func _on_area_visaoverde_body_exited(body: Node3D) -> void:
-	if body == player:
-		eventos_global.batalha = false
-		player = null
-		direcao_alvo = Vector3.ZERO
-	pass
 
 
 func _on_area_de_knockpack_e_dano_laranja_body_entered(body: Node3D) -> void:
@@ -82,7 +70,29 @@ func _on_area_receber_danovermelha_area_entered(area: Area3D) -> void:
 			state = estado.morto
 			laboratorio_global.bichos_desbloqueados.append(queméessebicho[0])
 			laboratorio_global.quantidade_h += 1
-			$Notificacao.mostrar_notificacao("hidrogenio", "res://arte/miguel/WhatsApp Image 2026-04-11 at 10.24.20.jpeg")
+			var icon = load("res://arte/miguel/WhatsApp Image 2026-04-11 at 10.24.21.jpeg")
+			$"../../personagem/telas/notificacao".mostrar_notificacao("hidrogenio", icon )
 			queue_free()
 		pass
+	pass # Replace with function body.
+
+
+func _on_area_h_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		print("player entrou")
+		player = body
+		eventos_global.batalha = true
+		pode_mover = true
+		pass
+	pass # Replace with function body.
+
+
+func _on_area_h_body_exited(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		print("player saiu")
+		pode_mover = false
+		eventos_global.batalha = false
+		player = null
+		direcao_alvo = Vector3.ZERO
+	
 	pass # Replace with function body.

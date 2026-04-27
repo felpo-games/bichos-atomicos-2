@@ -9,9 +9,6 @@ radius = 0.77898115
 [sub_resource type="SphereShape3D" id="SphereShape3D_j26s6"]
 radius = 0.69038147
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_n5cob"]
-radius = 5.896271
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n5cob"]
 height = 0.82611084
 radius = 0.001
@@ -71,12 +68,6 @@ debug_color = Color(0.98106664, 0, 0.37832505, 0.41960785)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1363758888]
 shape = SubResource("SphereShape3D_j26s6")
 
-[node name="Area_visao(verde)" type="Area3D" parent="." unique_id=947970270]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area_visao(verde)" unique_id=1150772087]
-shape = SubResource("SphereShape3D_n5cob")
-debug_color = Color(4.548356e-06, 0.64999115, 0.13287708, 0.41960785)
-
 [node name="Area de knockpack e dano (laranja)" type="Area3D" parent="." unique_id=565690524]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area de knockpack e dano (laranja)" unique_id=1676405338]
@@ -89,6 +80,4 @@ libraries/ = SubResource("AnimationLibrary_j26s6")
 autoplay = &"colision"
 
 [connection signal="area_entered" from="Area_receber_dano(vermelha)" to="." method="_on_area_receber_danovermelha_area_entered"]
-[connection signal="body_entered" from="Area_visao(verde)" to="." method="_on_area_visaoverde_body_entered"]
-[connection signal="body_exited" from="Area_visao(verde)" to="." method="_on_area_visaoverde_body_exited"]
 [connection signal="body_entered" from="Area de knockpack e dano (laranja)" to="." method="_on_area_de_knockpack_e_dano_laranja_body_entered"]

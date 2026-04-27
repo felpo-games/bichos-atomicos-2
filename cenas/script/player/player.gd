@@ -32,6 +32,7 @@ func _physics_process(delta: float) -> void:
 		laboratorio_global.pet_1 = !laboratorio_global.pet_1
 		print(laboratorio_global.pet_1)
 		pass
+	
 	# Sistema de tiro
 	if Input.is_action_just_pressed("campirar") and eventos_global.batalha == true:
 		atirar()
