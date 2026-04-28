@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://duiqtjvodddjc" path="res://cenas/script/efeitos/efeitos.gd" id="2_u5hjb"]
 [ext_resource type="PackedScene" uid="uid://dxchpdfieiuk1" path="res://cenas/telas/laboratorio_iventario.tscn" id="3_34wp8"]
 [ext_resource type="PackedScene" uid="uid://8jgini67sqoj" path="res://cenas/bichos/bicho_h.tscn" id="3_e5vpm"]
-[ext_resource type="Script" uid="uid://uy5aqbuer7mh" path="res://cenas/script/efeitos/directional_light_3d.gd" id="3_qjydo"]
 [ext_resource type="PackedScene" uid="uid://cojmkk1gai3wm" path="res://cenas/bichos/bicho_c.tscn" id="4_g0u1t"]
 [ext_resource type="Texture2D" uid="uid://bj1quk3v0q2vj" path="res://arte/felp/ceu.png" id="4_qjydo"]
 [ext_resource type="PackedScene" uid="uid://ps0pj0l88i1e" path="res://cenas/telas/notificacao.tscn" id="5_f6840"]
@@ -26,6 +25,8 @@ sky_material = SubResource("PanoramaSkyMaterial_qjydo")
 [sub_resource type="Environment" id="Environment_83ktr"]
 background_mode = 2
 sky = SubResource("Sky_h4ygu")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
 tonemap_mode = 2
 glow_enabled = true
 
@@ -231,11 +232,6 @@ environment = SubResource("Environment_83ktr")
 
 [node name="efeitos" type="Node3D" parent="." unique_id=2004406884]
 script = ExtResource("2_u5hjb")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="efeitos" unique_id=629562334]
-transform = Transform3D(1, 0, 0, 0, -0.7614479, 0.6482263, 0, -0.6482263, -0.7614479, 0, 10, 0)
-shadow_enabled = true
-script = ExtResource("3_qjydo")
 
 [node name="personagem" type="Node3D" parent="." unique_id=737634289]
 

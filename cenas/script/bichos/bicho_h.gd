@@ -20,6 +20,7 @@ func _physics_process(delta: float):
 		velocity += get_gravity() * delta
 	
 	if player != null and pode_mover:
+		
 		print("quero me mecher")
 		decidir_direcao()
 	if player != null:
@@ -83,6 +84,7 @@ func _on_area_h_body_entered(body: Node3D) -> void:
 		player = body
 		eventos_global.batalha = true
 		pode_mover = true
+		$pivod/hidrogenio/AnimationPlayer.play("walk_2")
 		pass
 	pass # Replace with function body.
 
@@ -96,3 +98,7 @@ func _on_area_h_body_exited(body: Node3D) -> void:
 		direcao_alvo = Vector3.ZERO
 	
 	pass # Replace with function body.
+
+func animacao():
+	
+	pass

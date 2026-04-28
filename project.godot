@@ -20,6 +20,11 @@ laboratorio_global="*uid://b5rywhkr8wb14"
 eventos_global="*uid://d4e0rum8c7hxu"
 dados_player="*uid://21wc6ksutpx4"
 
+[display]
+
+window/size/mode=2
+window/stretch/mode="viewport"
+
 [filesystem]
 
 import/blender/enabled=false
