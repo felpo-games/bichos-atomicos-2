@@ -522,6 +522,7 @@ mesh = SubResource("ArrayMesh_vb2yy")
 [connection signal="acertou" from="personagem/telas/conversa_o" to="bichos/bicho_o" method="_on_conversa_o_acertou"]
 [connection signal="acertou" from="personagem/telas/conversa_o" to="bichos/bicho_o2" method="_on_conversa_o_acertou"]
 [connection signal="acertou" from="personagem/telas/conversa_o" to="bichos/bicho_o3" method="_on_conversa_o_acertou"]
+[connection signal="capturou_oxigenio" from="personagem/telas/conversa_o" to="bichos/bicho_o" method="_on_conversa_o_capturou_oxigenio"]
 [connection signal="conversa" from="bichos/bicho_c" to="personagem/telas/conversas_cena" method="_on_bicho_c_conversa"]
 [connection signal="conversa" from="bichos/bicho_c2" to="personagem/telas/conversas_cena" method="_on_bicho_c_conversa"]
 [connection signal="conversar" from="bichos/bicho_o" to="personagem/telas/conversa_o" method="_on_bicho_o_conversar"]

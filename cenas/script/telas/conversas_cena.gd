@@ -40,8 +40,3 @@ func sair():
 func _on_batalhar() -> void:
 	sair()
 	pass # Replace with function body.
-
-
-func _on_bicho_c_conversa() -> void:
-	aparecer()
-	pass # Replace with function body.

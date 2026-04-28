@@ -46,3 +46,8 @@ func _on_conversa_o_acertou() -> void:
 		hide()
 		$Area3D/CollisionShape3D.disabled = true
 	pass # Replace with function body.
+
+
+func _on_conversa_o_capturou_oxigenio() -> void:
+	queue_free()
+	pass # Replace with function body.
