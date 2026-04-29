@@ -49,5 +49,5 @@ func _on_conversa_o_acertou() -> void:
 
 
 func _on_conversa_o_capturou_oxigenio() -> void:
-	queue_free()
+	get_parent().queue_free()
 	pass # Replace with function body.

@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@export var ui_atomo: Control
+var vida = 3
 
 enum estado {normal, batalhando, morto}
 var state = estado.normal
@@ -106,4 +108,14 @@ func atirar():
 	get_tree().root.add_child(bala)
 	bala.global_position = arma.global_position
 	bala.global_rotation = arma.global_rotation
-	
+
+func dano():
+	if vida > 0:
+		vida -= 1
+		if ui_atomo:
+			ui_atomo.atualizar_vida(vida)
+		if vida <= 0:
+			morrer()
+
+func morrer():
+	get_tree().change_scene_to_file("res://cenas/gameover.tscn")

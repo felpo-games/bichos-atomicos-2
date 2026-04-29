@@ -22,8 +22,10 @@ color = Color(0.29803923, 0.29803923, 0.29803923, 0.3254902)
 
 [node name="Button_sair" type="Button" parent="." unique_id=247786479]
 layout_mode = 0
-offset_right = 112.0
-offset_bottom = 74.0
+offset_left = 1040.0
+offset_top = -1.0
+offset_right = 1152.0
+offset_bottom = 73.0
 text = "sair"
 
 [node name="Button_batalha" type="Button" parent="." unique_id=798014784]

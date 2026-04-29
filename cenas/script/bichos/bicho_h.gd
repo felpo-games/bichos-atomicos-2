@@ -54,8 +54,8 @@ func decidir_direcao():
 func _on_area_de_knockpack_e_dano_laranja_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		var sorteio = randi_range(-3, 3)
-		if body.has_method("receber_dano"):
-			body.receber_dano(1)
+		if body.has_method("dano"):
+			body.dano()
 		var direcao_kb = (body.global_position - global_position).normalized()
 		direcao_kb.x = sorteio
 		if "velocity" in body:
