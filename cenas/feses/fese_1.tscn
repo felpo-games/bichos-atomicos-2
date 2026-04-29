@@ -256,17 +256,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.783964, 0.9369426, 46.704
 
 [node name="bichos" type="Node3D" parent="." unique_id=1018644957]
 
-[node name="bicho_c2" parent="bichos" unique_id=1805140130 instance=ExtResource("9_qjydo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.316029, 2.705368, 25.821007)
 
-[node name="bicho_o" parent="bichos" unique_id=1814063333 instance=ExtResource("2_p6wll")]
+[node name="OXIGENIOS" type="Node3D" parent="bichos" unique_id=1867637516]
+
+[node name="bicho_o" parent="bichos/OXIGENIOS" unique_id=1814063333 instance=ExtResource("2_p6wll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.06543, 0.73130035, 25.803104)
 
-[node name="bicho_o2" parent="bichos" unique_id=1857098330 instance=ExtResource("2_p6wll")]
+[node name="bicho_o2" parent="bichos/OXIGENIOS" unique_id=1857098330 instance=ExtResource("2_p6wll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0315523, 0.73130035, -31.723064)
 
-[node name="bicho_o3" parent="bichos" unique_id=79884874 instance=ExtResource("2_p6wll")]
+[node name="bicho_o3" parent="bichos/OXIGENIOS" unique_id=79884874 instance=ExtResource("2_p6wll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.816493, 0.73130035, -29.52969)
+
+[node name="bicho_h3" parent="bichos" unique_id=913013922 instance=ExtResource("3_e5vpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.725645, 1.4084129, -18.955694)
+
+[node name="bicho_h2" parent="bichos" unique_id=2052091591 instance=ExtResource("3_e5vpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.58252, 1.4084129, -19.42301)
+
+[node name="bicho_c" parent="bichos" unique_id=1730391757 instance=ExtResource("4_g0u1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.822563, 1.2433438, 17.10046)
+
+[node name="bicho_c2" parent="bichos" unique_id=835884886 instance=ExtResource("4_g0u1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.886856, 1.2433438, -16.964682)
 
 [node name="area_h" parent="bichos" unique_id=187279684 instance=ExtResource("13_h4ygu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
@@ -514,17 +526,15 @@ transform = Transform3D(0.8497731, 0, -0.5271486, 0, 1, 0, 0.5271486, 0, 0.84977
 mesh = SubResource("ArrayMesh_vb2yy")
 
 [connection signal="acertou" from="personagem/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_acertou"]
-[connection signal="batalhar" from="personagem/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_batalhar"]
-[connection signal="acertou" from="personagem/telas/conversa_o" to="bichos/bicho_o" method="_on_conversa_o_acertou"]
-[connection signal="acertou" from="personagem/telas/conversa_o" to="bichos/bicho_o2" method="_on_conversa_o_acertou"]
-[connection signal="acertou" from="personagem/telas/conversa_o" to="bichos/bicho_o3" method="_on_conversa_o_acertou"]
-[connection signal="capturou_oxigenio" from="personagem/telas/conversa_o" to="bichos/bicho_o" method="_on_conversa_o_capturou_oxigenio"]
-[connection signal="capturou_oxigenio" from="personagem/telas/conversa_o" to="bichos/bicho_o2" method="_on_conversa_o_capturou_oxigenio"]
-[connection signal="capturou_oxigenio" from="personagem/telas/conversa_o" to="bichos/bicho_o3" method="_on_conversa_o_capturou_oxigenio"]
-[connection signal="conversa" from="bichos/bicho_c2" to="personagem/telas/conversas_cena" method="_on_bicho_c_2_conversa"]
-[connection signal="conversar" from="bichos/bicho_o" to="personagem/telas/conversa_o" method="_on_bicho_o_conversar"]
-[connection signal="conversar" from="bichos/bicho_o2" to="personagem/telas/conversa_o" method="_on_bicho_o_conversar"]
-[connection signal="conversar" from="bichos/bicho_o3" to="personagem/telas/conversa_o" method="_on_bicho_o_conversar"]
+[connection signal="batalhar" from="personagem/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_batalhar"][connection signal="acertou" from="personagem/telas/conversa_o" to="bichos/OXIGENIOS/bicho_o" method="_on_conversa_o_acertou"]
+[connection signal="acertou" from="personagem/telas/conversa_o" to="bichos/OXIGENIOS/bicho_o2" method="_on_conversa_o_acertou"]
+[connection signal="acertou" from="personagem/telas/conversa_o" to="bichos/OXIGENIOS/bicho_o3" method="_on_conversa_o_acertou"]
+[connection signal="capturou_oxigenio" from="personagem/telas/conversa_o" to="bichos/OXIGENIOS/bicho_o" method="_on_conversa_o_capturou_oxigenio"]
+[connection signal="conversar" from="bichos/OXIGENIOS/bicho_o" to="personagem/telas/conversa_o" method="_on_bicho_o_conversar"]
+[connection signal="conversar" from="bichos/OXIGENIOS/bicho_o2" to="personagem/telas/conversa_o" method="_on_bicho_o_conversar"]
+[connection signal="conversar" from="bichos/OXIGENIOS/bicho_o3" to="personagem/telas/conversa_o" method="_on_bicho_o_conversar"]
+[connection signal="conversa" from="bichos/bicho_c" to="personagem/telas/conversas_cena" method="_on_bicho_c_conversa"]
+[connection signal="conversa" from="bichos/bicho_c2" to="personagem/telas/conversas_cena" method="_on_bicho_c_conversa"]
 [connection signal="body_entered" from="bichos/area_h" to="bichos/area_h/bicho_h" method="_on_area_h_body_entered"]
 [connection signal="body_exited" from="bichos/area_h" to="bichos/area_h/bicho_h" method="_on_area_h_body_exited"]
 [connection signal="body_entered" from="bichos/area_h2" to="bichos/area_h2/bicho_h" method="_on_area_h_body_entered"]

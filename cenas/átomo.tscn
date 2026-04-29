@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://kty240fktcex"]
+
+[ext_resource type="Texture2D" uid="uid://vm6nppxse6mr" path="res://arte/artes chris/átomo PNG.png" id="1_7dhif"]
+[ext_resource type="Script" uid="uid://cdai56fxd6w1x" path="res://cenas/átomo.gd" id="1_texgt"]
+[ext_resource type="Texture2D" uid="uid://cmjwws7efpwio" path="res://arte/artes chris/elétron PNG.png" id="2_texgt"]
+
+[sub_resource type="Animation" id="Animation_pa5ek"]
+resource_name = "orbita"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("eletron1/trajeto1:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("eletron2/trajeto2:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("eletron3/trajeto3:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h3wqn"]
+_data = {
+&"orbita": SubResource("Animation_pa5ek")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_mxsr8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 27, 95, 0, 0, 0, 0, 60, 63, 0, 0, 0, 0, 90, 46, 0, 0, 0, 0, 119, 33, 0, 0, 0, 0, 142, 33, 0, 0, 0, 0, 144, 39, 0, 0, 0, 0, 137, 51, 0, 0, 0, 0, 129, 62, 0, 0, 0, 0, 110, 78, 0, 0, 0, 0, 76, 100, 0, 0, 0, 0, 46, 113, 0, 0, 0, 0, 31, 115, 0, 0, 0, 0, 21, 111, 0, 0, 0, 0, 26, 96, 0, 0, 0, 0, 27, 95)
+}
+point_count = 15
+
+[sub_resource type="Curve2D" id="Curve2D_j2mpa"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 70, 22, 0, 0, 0, 0, 81, 10, 0, 0, 0, 0, 89, 15, 0, 0, 0, 0, 95, 30, 0, 0, 0, 0, 97, 43, 0, 0, 0, 0, 98, 56, 0, 0, 0, 0, 100, 91, 0, 0, 0, 0, 91, 129, 0, 0, 0, 0, 80, 135, 0, 0, 0, 0, 67, 115, 0, 0, 0, 0, 64, 80, 0, 0, 0, 0, 65, 48, 0, 0, 0, 0, 70, 22)
+}
+point_count = 13
+
+[sub_resource type="Curve2D" id="Curve2D_7dhif"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 134, 87, 0, 0, 0, 0, 145, 104, 0, 0, 0, 0, 144, 114, 0, 0, 0, 0, 124, 113, 0, 0, 0, 0, 106, 109, 0, 0, 0, 0, 56, 78, 0, 0, 0, 0, 26, 52, 0, 0, 0, 0, 21, 38, 0, 0, 0, 0, 29, 31, 0, 0, 0, 0, 74, 43, 0, 0, 0, 0, 111, 67, 0, 0, 0, 0, 134, 87)
+}
+point_count = 12
+
+[node name="atomo_VIDAS" type="Control" unique_id=39492598]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_texgt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=691299158]
+libraries/ = SubResource("AnimationLibrary_h3wqn")
+autoplay = &"orbita"
+
+[node name="orbita" type="TextureRect" parent="." unique_id=1246551682]
+layout_mode = 0
+offset_left = -27.0
+offset_top = -67.0
+offset_right = 289.0
+offset_bottom = 249.0
+texture = ExtResource("1_7dhif")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="eletron1" type="Path2D" parent="." unique_id=642060321]
+curve = SubResource("Curve2D_mxsr8")
+
+[node name="trajeto1" type="PathFollow2D" parent="eletron1" unique_id=1537875097]
+position = Vector2(27, 95)
+rotation = -0.77001476
+
+[node name="TextureRect" type="TextureRect" parent="eletron1/trajeto1" unique_id=1441266920]
+offset_left = -15.793816
+offset_top = -15.315208
+offset_right = 14.206184
+offset_bottom = 14.684792
+texture = ExtResource("2_texgt")
+expand_mode = 1
+stretch_mode = 4
+flip_v = true
+metadata/_edit_use_anchors_ = true
+
+[node name="eletron2" type="Path2D" parent="." unique_id=337282524]
+curve = SubResource("Curve2D_j2mpa")
+
+[node name="trajeto2" type="PathFollow2D" parent="eletron2" unique_id=716383720]
+position = Vector2(70, 22)
+rotation = -0.8288491
+
+[node name="TextureRect" type="TextureRect" parent="eletron2/trajeto2" unique_id=440309396]
+offset_left = -14.9888
+offset_top = -13.391638
+offset_right = 14.0112
+offset_bottom = 15.608362
+texture = ExtResource("2_texgt")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="eletron3" type="Path2D" parent="." unique_id=1987006850]
+curve = SubResource("Curve2D_7dhif")
+
+[node name="trajeto3" type="PathFollow2D" parent="eletron3" unique_id=912188279]
+position = Vector2(134, 87)
+rotation = 0.9964915
+
+[node name="TextureRect" type="TextureRect" parent="eletron3/trajeto3" unique_id=1079406483]
+offset_left = -13.7788315
+offset_top = -13.68005
+offset_right = 15.2211685
+offset_bottom = 15.31995
+texture = ExtResource("2_texgt")
+expand_mode = 1
+stretch_mode = 4

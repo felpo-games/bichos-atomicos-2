@@ -50,5 +50,5 @@ func _on_conversa_o_acertou() -> void:
 
 func _on_conversa_o_capturou_oxigenio() -> void:
 	_on_conversa_o_acertou()
-	
+
 	pass # Replace with function body.

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://covmsy6ki3nek" path="res://cenas/player/bala_player.tscn" id="2_w152q"]
 [ext_resource type="PackedScene" uid="uid://dcrt0qkbbtxhx" path="res://cenas/bichos/pet/pet_agua.tscn" id="3_4i5rx"]
 [ext_resource type="PackedScene" uid="uid://hojavvhb5u3p" path="res://cenas/bichos/pet/pet_dc.tscn" id="4_a8ubr"]
+[ext_resource type="PackedScene" uid="uid://kty240fktcex" path="res://cenas/átomo.tscn" id="5_bmch6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kbvfo"]
 
@@ -17,8 +18,9 @@ height = 1.35
 radius = 0.55
 height = 2.05
 
-[node name="player" type="CharacterBody3D" unique_id=1822486866 groups=["player"]]
+[node name="player" type="CharacterBody3D" unique_id=1822486866 node_paths=PackedStringArray("ui_atomo") groups=["player"]]
 script = ExtResource("1_1m1wk")
+ui_atomo = NodePath("CanvasLayer/atomo_VIDAS")
 bala_cena = ExtResource("2_w152q")
 
 [node name="CollisionPolygon3D" type="CollisionShape3D" parent="." unique_id=1532869750]
@@ -52,3 +54,8 @@ rotation_order = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sistema_vida/Area_dano" unique_id=1793060139]
 shape = SubResource("CapsuleShape3D_d4u85")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=423719487]
+
+[node name="atomo_VIDAS" parent="CanvasLayer" unique_id=39492598 instance=ExtResource("5_bmch6")]
+visible = true

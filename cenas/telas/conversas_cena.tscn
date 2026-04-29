@@ -23,6 +23,22 @@ offset_bottom = 652.0
 mouse_filter = 2
 color = Color(0.29803923, 0.29803923, 0.29803923, 0.3254902)
 
+[node name="Button_sair" type="Button" parent="." unique_id=247786479]
+layout_mode = 0
+offset_left = 1040.0
+offset_top = -1.0
+offset_right = 1152.0
+offset_bottom = 73.0
+text = "sair"
+
+[node name="Button_batalha" type="Button" parent="." unique_id=798014784]
+layout_mode = 0
+offset_left = 866.0
+offset_top = 451.0
+offset_right = 1146.0
+offset_bottom = 648.0
+text = "batalhar"
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1121878941]
 position = Vector2(116, 532.99994)
 scale = Vector2(0.3, 0.3)
