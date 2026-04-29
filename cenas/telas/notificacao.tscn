@@ -84,11 +84,9 @@ offset_bottom = 108.0
 color = Color(1, 1, 1, 0.12941177)
 
 [node name="TextureRect" type="Sprite2D" parent="." unique_id=1915801663]
-position = Vector2(54, 55)
-scale = Vector2(0.3, 0.3)
+position = Vector2(71, 54)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_yp7k8")
-hframes = 2
-vframes = 2
 
 [node name="Label" type="Label" parent="." unique_id=273231939]
 layout_mode = 0

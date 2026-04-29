@@ -30,6 +30,8 @@ func fabricar():
 		laboratorio_global.quantidade_o -= 2
 		laboratorio_global.quantidade_c -=1
 		laboratorio_global.pet_dc = true
+		var icon = load("res://arte/vlad/WhatsApp Image 2026-04-28 at 16.12.42.jpeg")
+		$"../notificacao".mostrar_notificacao("hidrogenio", icon )
 		pass
 	if lista.count("o") >= 1 and lista.count("h") >= 2:
 		laboratorio_global.bichos_desbloqueados.append("a")
@@ -38,6 +40,8 @@ func fabricar():
 		laboratorio_global.quantidade_o -=1
 		laboratorio_global.pet_agua = true
 		limpar_lista()
+		var icon = load("res://arte/vlad/WhatsApp Image 2026-04-28 at 16.12.42 (4).jpeg")
+		$"../notificacao".mostrar_notificacao("hidrogenio", icon )
 		pass
 	pass
 

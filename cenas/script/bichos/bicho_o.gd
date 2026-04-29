@@ -40,7 +40,7 @@ func _on_conversa_o_acertou() -> void:
 		laboratorio_global.bichos_desbloqueados.append("o")
 		laboratorio_global.quantidade_o += 1
 		
-		var icon = load("res://arte/miguel/WhatsApp Image 2026-04-13 at 10.56.26.jpeg")
+		var icon = load("res://arte/vlad/WhatsApp Image 2026-04-28 at 16.12.42 (3).jpeg")
 		$"../../personagem/telas/notificacao".mostrar_notificacao("oxigenio", icon )
 		
 		hide()
@@ -49,5 +49,6 @@ func _on_conversa_o_acertou() -> void:
 
 
 func _on_conversa_o_capturou_oxigenio() -> void:
-	queue_free()
+	_on_conversa_o_acertou()
+	
 	pass # Replace with function body.

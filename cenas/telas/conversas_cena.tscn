@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://p8av7a3qv0rj"]
 
 [ext_resource type="Script" uid="uid://dv1wqiksjhsed" path="res://cenas/script/telas/conversas_cena.gd" id="1_01mm0"]
-[ext_resource type="Texture2D" uid="uid://cnni0shg6k5hj" path="res://arte/miguel/WhatsApp Image 2026-04-13 at 10.56.26.jpeg" id="2_01mm0"]
+[ext_resource type="Texture2D" uid="uid://d0eny6w3pkih" path="res://arte/vlad/WhatsApp Image 2026-04-28 at 16.12.42 (1).jpeg" id="2_01mm0"]
 
 [node name="conversas_cena" type="Control" unique_id=587679249]
 layout_mode = 3
@@ -10,7 +10,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_01mm0")
+respostas = Array[String](["oi", "hi", "teste"])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=696174675]
 layout_mode = 0
@@ -18,29 +20,13 @@ offset_left = -2.0
 offset_top = 422.0
 offset_right = 1147.0
 offset_bottom = 652.0
+mouse_filter = 2
 color = Color(0.29803923, 0.29803923, 0.29803923, 0.3254902)
-
-[node name="Button_sair" type="Button" parent="." unique_id=247786479]
-layout_mode = 0
-offset_right = 112.0
-offset_bottom = 74.0
-text = "sair"
-
-[node name="Button_batalha" type="Button" parent="." unique_id=798014784]
-layout_mode = 0
-offset_left = 866.0
-offset_top = 451.0
-offset_right = 1146.0
-offset_bottom = 648.0
-text = "batalhar"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1121878941]
 position = Vector2(116, 532.99994)
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_01mm0")
-hframes = 2
-vframes = 2
-frame = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=163731479]
 layout_mode = 0
@@ -51,6 +37,30 @@ offset_bottom = 640.0
 theme_override_font_sizes/normal_font_size = 50
 text = "aperte no botão se tiver coragem"
 
+[node name="Button_sair" type="Button" parent="." unique_id=1842412359]
+layout_mode = 0
+offset_right = 229.0
+offset_bottom = 149.0
+text = "sair"
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=2055072399]
+layout_mode = 0
+offset_left = 915.0
+offset_top = 486.0
+offset_right = 955.0
+offset_bottom = 526.0
+
+[node name="Button_respostas" type="Button" parent="GridContainer" unique_id=1951070493]
+layout_mode = 2
+
+[node name="Button_respostas2" type="Button" parent="GridContainer" unique_id=165450241]
+layout_mode = 2
+
+[node name="Button_respostas3" type="Button" parent="GridContainer" unique_id=1153654900]
+layout_mode = 2
+
 [connection signal="batalhar" from="." to="." method="_on_batalhar"]
 [connection signal="pressed" from="Button_sair" to="." method="_on_button_sair_pressed"]
-[connection signal="pressed" from="Button_batalha" to="." method="_on_button_batalha_pressed"]
+[connection signal="pressed" from="GridContainer/Button_respostas" to="." method="_on_button_respostas_pressed"]
+[connection signal="pressed" from="GridContainer/Button_respostas2" to="." method="_on_button_respostas_2_pressed"]
+[connection signal="pressed" from="GridContainer/Button_respostas3" to="." method="_on_button_respostas_3_pressed"]

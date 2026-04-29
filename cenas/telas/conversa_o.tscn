@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bxuy3oyimvbes" path="res://arte/miguel/WhatsApp Image 2026-04-11 at 10.24.20.jpeg" id="2_vy7ou"]
 
 [node name="conversa_o" type="Control" unique_id=901814761 node_paths=PackedStringArray("tela_dialogo")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,9 +14,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fvdd4")
 tela_dialogo = NodePath("TelaDeDiálogo")
-falas_oxigenio = Array[String](["cuzinho", "bucetinha", "penis"])
+falas_oxigenio = Array[String](["Você tem um olhar analítico, garoto... Me lembra o velho barbudo que costumava nos catalogar naqueles potes de vidro", "A floresta está perigosa. Meus irmãos reativos estão instáveis. Se você tem o Códice, use o seu Erlenmeyer. Capture-nos. Misture-nos. Crie os Elementoydes. Talvez você consiga arrumar a bagunça que ele fez."])
 
 [node name="TelaDeDiálogo" parent="." unique_id=1407872982 instance=ExtResource("2_jyge4")]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=85398611]
 visible = false
@@ -49,9 +51,6 @@ visible = false
 position = Vector2(122.000015, 527)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_vy7ou")
-hframes = 2
-vframes = 2
-frame = 1
 
 [node name="ColorRect3" type="ColorRect" parent="." unique_id=1243984352]
 visible = false

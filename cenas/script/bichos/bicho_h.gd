@@ -15,6 +15,9 @@ var pode_mover = true
 
 var PontosVida = 3
 
+
+
+
 func _physics_process(delta: float):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -71,8 +74,12 @@ func _on_area_receber_danovermelha_area_entered(area: Area3D) -> void:
 			state = estado.morto
 			laboratorio_global.bichos_desbloqueados.append(queméessebicho[0])
 			laboratorio_global.quantidade_h += 1
-			var icon = load("res://arte/miguel/WhatsApp Image 2026-04-11 at 10.24.21.jpeg")
-			$"../../personagem/telas/notificacao".mostrar_notificacao("hidrogenio", icon )
+			var icon = load("res://arte/vlad/WhatsApp Image 2026-04-28 at 16.12.42 (2).jpeg")
+			var notif = $"../../../personagem/telas/notificacao"
+			if notif != null:
+				notif.mostrar_notificacao("hidrogenio", icon)
+			else:
+				print("NOTIFICAÇÃO NÃO ENCONTRADA")
 			queue_free()
 		pass
 	pass # Replace with function body.

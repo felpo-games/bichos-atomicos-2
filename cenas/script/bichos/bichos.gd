@@ -38,6 +38,7 @@ func _process(delta: float) -> void:
 		estado.conversa:
 			if Input.is_action_just_pressed("interacao") and player != null:
 				emit_signal("conversa")
+				print("carbono quer conversar")
 			pass
 		estado.batalhando:
 			eventos_global.batalha = true
@@ -91,6 +92,8 @@ func _on_area_receber_dano_area_entered(area: Area3D) -> void:
 	pass # Replace with function body.
 
 func derrotado():
+	var icon = load("res://arte/vlad/WhatsApp Image 2026-04-28 at 16.12.42 (1).jpeg")
+	$"../../personagem/telas/notificacao".mostrar_notificacao("carbono", icon )
 	state = estado.morto
 	laboratorio_global.bichos_desbloqueados.append(queméessebicho[0])
 	laboratorio_global.quantidade_c += 1
@@ -142,4 +145,9 @@ func atirar():
 	pode_atirar = true
 func _on_conversas_cena_batalhar() -> void:
 	preparar_batalha()
+	pass # Replace with function body.
+
+
+func _on_conversas_cena_acertou() -> void:
+	derrotado()
 	pass # Replace with function body.

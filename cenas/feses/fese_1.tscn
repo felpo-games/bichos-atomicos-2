@@ -8,10 +8,10 @@
 [ext_resource type="Script" uid="uid://duiqtjvodddjc" path="res://cenas/script/efeitos/efeitos.gd" id="2_u5hjb"]
 [ext_resource type="PackedScene" uid="uid://dxchpdfieiuk1" path="res://cenas/telas/laboratorio_iventario.tscn" id="3_34wp8"]
 [ext_resource type="PackedScene" uid="uid://8jgini67sqoj" path="res://cenas/bichos/bicho_h.tscn" id="3_e5vpm"]
-[ext_resource type="PackedScene" uid="uid://cojmkk1gai3wm" path="res://cenas/bichos/bicho_c.tscn" id="4_g0u1t"]
 [ext_resource type="Texture2D" uid="uid://bj1quk3v0q2vj" path="res://arte/felp/ceu.png" id="4_qjydo"]
 [ext_resource type="PackedScene" uid="uid://ps0pj0l88i1e" path="res://cenas/telas/notificacao.tscn" id="5_f6840"]
 [ext_resource type="PackedScene" uid="uid://2n7s13pt8lm1" path="res://cenas/obstaculos/fogo_normal.tscn" id="8_1efgt"]
+[ext_resource type="PackedScene" uid="uid://c6jiopsbejkol" path="res://cenas/bichos/bicho_c_2.tscn" id="9_qjydo"]
 [ext_resource type="PackedScene" uid="uid://ce3xps06jwojt" path="res://cenas/obstaculos/fogo_eletrico.tscn" id="9_xeb63"]
 [ext_resource type="Texture2D" uid="uid://dq8lj3agab0si" path="res://arte/hesley/Props_EnviroTex1.png" id="11_7uoum"]
 [ext_resource type="PackedScene" uid="uid://lapplba6kgdm" path="res://cenas/bichos/area_h.tscn" id="13_h4ygu"]
@@ -25,7 +25,7 @@ sky_material = SubResource("PanoramaSkyMaterial_qjydo")
 [sub_resource type="Environment" id="Environment_83ktr"]
 background_mode = 2
 sky = SubResource("Sky_h4ygu")
-ambient_light_source = 2
+ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 tonemap_mode = 2
 glow_enabled = true
@@ -223,9 +223,6 @@ shadow_mesh = SubResource("ArrayMesh_rf31l")
 
 [node name="fase1" type="Node3D" unique_id=1065080157]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1036476215]
-environment = SubResource("Environment_83ktr")
-
 [node name="chao" type="Node3D" parent="." unique_id=1933545562]
 
 [node name="blocagem_teste1" parent="chao" unique_id=704723087 instance=ExtResource("1_rmu0y")]
@@ -233,35 +230,34 @@ environment = SubResource("Environment_83ktr")
 [node name="efeitos" type="Node3D" parent="." unique_id=2004406884]
 script = ExtResource("2_u5hjb")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="efeitos" unique_id=1036476215]
+environment = SubResource("Environment_83ktr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="efeitos" unique_id=1874804446]
+transform = Transform3D(0.09534191, -0.9954446, 0, 0.9609748, 0.092040464, 0.26087523, -0.25968683, -0.024872344, 0.9653725, 0, 23.909245, 0)
+
 [node name="personagem" type="Node3D" parent="." unique_id=737634289]
 
 [node name="telas" type="Node3D" parent="personagem" unique_id=298533728]
 
+[node name="notificacao" parent="personagem/telas" unique_id=1508309764 instance=ExtResource("5_f6840")]
+offset_right = -3.2319946
+
 [node name="conversas_cena" parent="personagem/telas" unique_id=587679249 instance=ExtResource("1_guo0g")]
+respostas = Array[String](["oi", "teste", "hi"])
+resposta_correta = "teste"
 
 [node name="conversa_o" parent="personagem/telas" unique_id=901814761 instance=ExtResource("2_oqrsv")]
 
 [node name="Laboratorio_iventario" parent="personagem/telas" unique_id=1409135382 instance=ExtResource("3_34wp8")]
-
-[node name="notificacao" parent="personagem/telas" unique_id=1508309764 instance=ExtResource("5_f6840")]
-offset_right = -3.2319946
 
 [node name="player" parent="personagem" unique_id=1822486866 instance=ExtResource("1_1c7ow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.783964, 0.9369426, 46.704834)
 
 [node name="bichos" type="Node3D" parent="." unique_id=1018644957]
 
-[node name="bicho_h3" parent="bichos" unique_id=913013922 instance=ExtResource("3_e5vpm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.725645, 1.4084129, -18.955694)
-
-[node name="bicho_h2" parent="bichos" unique_id=2052091591 instance=ExtResource("3_e5vpm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.58252, 1.4084129, -19.42301)
-
-[node name="bicho_c" parent="bichos" unique_id=1730391757 instance=ExtResource("4_g0u1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.822563, 1.2433438, 17.10046)
-
-[node name="bicho_c2" parent="bichos" unique_id=835884886 instance=ExtResource("4_g0u1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.886856, 1.2433438, -16.964682)
+[node name="bicho_c2" parent="bichos" unique_id=1805140130 instance=ExtResource("9_qjydo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.316029, 2.705368, 25.821007)
 
 [node name="bicho_o" parent="bichos" unique_id=1814063333 instance=ExtResource("2_p6wll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.06543, 0.73130035, 25.803104)
@@ -517,14 +513,15 @@ mesh = SubResource("ArrayMesh_f6840")
 transform = Transform3D(0.8497731, 0, -0.5271486, 0, 1, 0, 0.5271486, 0, 0.8497731, -0.06275082, 8.754907, -0.42308903)
 mesh = SubResource("ArrayMesh_vb2yy")
 
-[connection signal="batalhar" from="personagem/telas/conversas_cena" to="bichos/bicho_c" method="_on_conversas_cena_batalhar"]
+[connection signal="acertou" from="personagem/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_acertou"]
 [connection signal="batalhar" from="personagem/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_batalhar"]
 [connection signal="acertou" from="personagem/telas/conversa_o" to="bichos/bicho_o" method="_on_conversa_o_acertou"]
 [connection signal="acertou" from="personagem/telas/conversa_o" to="bichos/bicho_o2" method="_on_conversa_o_acertou"]
 [connection signal="acertou" from="personagem/telas/conversa_o" to="bichos/bicho_o3" method="_on_conversa_o_acertou"]
 [connection signal="capturou_oxigenio" from="personagem/telas/conversa_o" to="bichos/bicho_o" method="_on_conversa_o_capturou_oxigenio"]
-[connection signal="conversa" from="bichos/bicho_c" to="personagem/telas/conversas_cena" method="_on_bicho_c_conversa"]
-[connection signal="conversa" from="bichos/bicho_c2" to="personagem/telas/conversas_cena" method="_on_bicho_c_conversa"]
+[connection signal="capturou_oxigenio" from="personagem/telas/conversa_o" to="bichos/bicho_o2" method="_on_conversa_o_capturou_oxigenio"]
+[connection signal="capturou_oxigenio" from="personagem/telas/conversa_o" to="bichos/bicho_o3" method="_on_conversa_o_capturou_oxigenio"]
+[connection signal="conversa" from="bichos/bicho_c2" to="personagem/telas/conversas_cena" method="_on_bicho_c_2_conversa"]
 [connection signal="conversar" from="bichos/bicho_o" to="personagem/telas/conversa_o" method="_on_bicho_o_conversar"]
 [connection signal="conversar" from="bichos/bicho_o2" to="personagem/telas/conversa_o" method="_on_bicho_o_conversar"]
 [connection signal="conversar" from="bichos/bicho_o3" to="personagem/telas/conversa_o" method="_on_bicho_o_conversar"]

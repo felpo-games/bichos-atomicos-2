@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c6jiopsbejkol"]
+
+[ext_resource type="Script" uid="uid://4aob2270rfsr" path="res://cenas/script/bichos/bicho_c_2.gd" id="1_gpf66"]
+[ext_resource type="PackedScene" uid="uid://ddh0p37htd4ct" path="res://arte/miguel/3d/body_carbono.tscn" id="1_ujdew"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ujdew"]
+size = Vector3(1.3405762, 1.6842957, 1.5267334)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3t3t1"]
+size = Vector3(1, 1.4283447, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hr657"]
+radius = 1.3675228
+
+[node name="bicho_c2" type="CharacterBody3D" unique_id=428746475]
+script = ExtResource("1_gpf66")
+
+[node name="crecimento" type="Node3D" parent="." unique_id=2146030183]
+
+[node name="pivod" type="Node3D" parent="crecimento" unique_id=970048840]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="body_carbono" parent="crecimento/pivod" unique_id=896105083 instance=ExtResource("1_ujdew")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1, 0)
+
+[node name="AreadeDano" type="Area3D" parent="crecimento" unique_id=1200206220]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="crecimento/AreadeDano" unique_id=1730406103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07434082, -0.17332458, -0.04034424)
+shape = SubResource("BoxShape3D_ujdew")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=199239861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21417236, 0)
+shape = SubResource("BoxShape3D_3t3t1")
+
+[node name="AreaConversa" type="Area3D" parent="." unique_id=786362242]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaConversa" unique_id=1628395298]
+shape = SubResource("SphereShape3D_hr657")
+
+[connection signal="body_entered" from="AreaConversa" to="." method="_on_area_conversa_body_entered"]
+[connection signal="body_exited" from="AreaConversa" to="." method="_on_area_conversa_body_exited"]
