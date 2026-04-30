@@ -75,7 +75,7 @@ func _on_area_receber_danovermelha_area_entered(area: Area3D) -> void:
 			laboratorio_global.bichos_desbloqueados.append(queméessebicho[0])
 			laboratorio_global.quantidade_h += 1
 			var icon = load("res://arte/vlad/WhatsApp Image 2026-04-28 at 16.12.42 (2).jpeg")
-			var notif = $"../../../personagem/telas/notificacao"
+			var notif = $"../../../ui_dialogos/telas/notificacao"
 			if notif != null:
 				notif.mostrar_notificacao("hidrogenio", icon)
 			else:

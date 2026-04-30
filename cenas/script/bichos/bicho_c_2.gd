@@ -19,6 +19,7 @@ signal conversa
 var vida = 4
 var morto = false
 var grande = false
+@export var speed: float = 5.0
 
 func _physics_process(delta):
 	# gravidade
@@ -35,6 +36,7 @@ func _physics_process(delta):
 				print("conversa")
 			pass
 		estado.batalhando:
+			andar()
 			crecer()
 			pass
 		estado.morto:
@@ -45,7 +47,7 @@ func _physics_process(delta):
 
 func derrotado():
 	var icon = load("res://arte/vlad/WhatsApp Image 2026-04-28 at 16.12.42 (1).jpeg")
-	$"../../personagem/telas/notificacao".mostrar_notificacao("carbono", icon )
+	$"../../ui_dialogos/telas/notificacao".mostrar_notificacao("carbono", icon )
 	state = estado.morto
 	laboratorio_global.bichos_desbloqueados.append(queméessebicho[0])
 	laboratorio_global.quantidade_c += 1
@@ -53,6 +55,23 @@ func derrotado():
 	queue_free()
 
 func andar():
+	if player == null:
+		return
+	
+	var direcao = (player.global_transform.origin - global_transform.origin).normalized()
+	
+	velocity.x = direcao.x * speed
+	velocity.z = direcao.z * speed
+	
+	move_and_slide()
+	look_at(player.global_transform.origin, Vector3.UP)
+	var distancia = global_transform.origin.distance_to(player.global_transform.origin)
+	if distancia > 2.0:
+		velocity.x = direcao.x * speed
+		velocity.z = direcao.z * speed
+	else:
+		velocity.x = 0
+		velocity.z = 0
 	pass
 
 func crecer():

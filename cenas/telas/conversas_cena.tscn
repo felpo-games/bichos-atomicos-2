@@ -23,22 +23,6 @@ offset_bottom = 652.0
 mouse_filter = 2
 color = Color(0.29803923, 0.29803923, 0.29803923, 0.3254902)
 
-[node name="Button_sair" type="Button" parent="." unique_id=247786479]
-layout_mode = 0
-offset_left = 1040.0
-offset_top = -1.0
-offset_right = 1152.0
-offset_bottom = 73.0
-text = "sair"
-
-[node name="Button_batalha" type="Button" parent="." unique_id=798014784]
-layout_mode = 0
-offset_left = 866.0
-offset_top = 451.0
-offset_right = 1146.0
-offset_bottom = 648.0
-text = "batalhar"
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1121878941]
 position = Vector2(116, 532.99994)
 scale = Vector2(0.3, 0.3)
@@ -53,30 +37,32 @@ offset_bottom = 640.0
 theme_override_font_sizes/normal_font_size = 50
 text = "aperte no botão se tiver coragem"
 
-[node name="Button_sair" type="Button" parent="." unique_id=1842412359]
-layout_mode = 0
-offset_right = 229.0
-offset_bottom = 149.0
-text = "sair"
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1824093856]
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=2055072399]
-layout_mode = 0
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer" unique_id=2055072399]
 offset_left = 915.0
 offset_top = 486.0
 offset_right = 955.0
 offset_bottom = 526.0
 
-[node name="Button_respostas" type="Button" parent="GridContainer" unique_id=1951070493]
+[node name="Button_respostas" type="Button" parent="CanvasLayer/GridContainer" unique_id=1676703016]
 layout_mode = 2
 
-[node name="Button_respostas2" type="Button" parent="GridContainer" unique_id=165450241]
+[node name="Button_respostas2" type="Button" parent="CanvasLayer/GridContainer" unique_id=2013177594]
 layout_mode = 2
 
-[node name="Button_respostas3" type="Button" parent="GridContainer" unique_id=1153654900]
+[node name="Button_respostas3" type="Button" parent="CanvasLayer/GridContainer" unique_id=1956175218]
 layout_mode = 2
+
+[node name="Button_sair" type="Button" parent="CanvasLayer" unique_id=386876858]
+offset_left = 1044.0
+offset_top = 10.0
+offset_right = 1141.0
+offset_bottom = 87.0
+text = "sair"
 
 [connection signal="batalhar" from="." to="." method="_on_batalhar"]
-[connection signal="pressed" from="Button_sair" to="." method="_on_button_sair_pressed"]
-[connection signal="pressed" from="GridContainer/Button_respostas" to="." method="_on_button_respostas_pressed"]
-[connection signal="pressed" from="GridContainer/Button_respostas2" to="." method="_on_button_respostas_2_pressed"]
-[connection signal="pressed" from="GridContainer/Button_respostas3" to="." method="_on_button_respostas_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridContainer/Button_respostas" to="." method="_on_button_respostas_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridContainer/Button_respostas2" to="." method="_on_button_respostas_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridContainer/Button_respostas3" to="." method="_on_button_respostas_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button_sair" to="." method="_on_button_sair_pressed"]

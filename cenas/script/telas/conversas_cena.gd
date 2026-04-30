@@ -9,13 +9,12 @@ signal capturou_oxigenio
 @export var resposta_correta: String
 
 func _ready() -> void:
-	hide()
-	
+	sair()
 	var respostas_embaralhadas = respostas.duplicate()
 	respostas_embaralhadas.shuffle()
-	$GridContainer/Button_respostas.text = respostas_embaralhadas[0]
-	$GridContainer/Button_respostas2.text = respostas_embaralhadas[1]
-	$GridContainer/Button_respostas3.text = respostas_embaralhadas[2]
+	$CanvasLayer/GridContainer/Button_respostas.text = respostas_embaralhadas[0]
+	$CanvasLayer/GridContainer/Button_respostas2.text = respostas_embaralhadas[1]
+	$CanvasLayer/GridContainer/Button_respostas3.text = respostas_embaralhadas[2]
 	pass # Replace with function body.
 
 
@@ -30,10 +29,12 @@ func _on_button_sair_pressed() -> void:
 func aparecer():
 	eventos_global.numa_tela = true
 	show()
+	$CanvasLayer.visible = true
 	pass
 
 func sair():
 	hide()
+	$CanvasLayer.visible = false
 	eventos_global.numa_tela = false
 	pass
 
@@ -54,22 +55,20 @@ func verificar_resposta(botao: Button):
 	sair()
 
 func _on_button_respostas_pressed() -> void:
-	verificar_resposta($GridContainer/Button_respostas)
+	verificar_resposta($CanvasLayer/GridContainer/Button_respostas)
 
 	pass # Replace with function body.
 
 
 func _on_button_respostas_2_pressed() -> void:
-	verificar_resposta($GridContainer/Button_respostas2)
+	verificar_resposta($CanvasLayer/GridContainer/Button_respostas2)
 
 	pass # Replace with function body.
 
 
 func _on_button_respostas_3_pressed() -> void:
-	verificar_resposta($GridContainer/Button_respostas3)
-
+	verificar_resposta($CanvasLayer/GridContainer/Button_respostas3)
 	pass # Replace with function body.
-
 
 
 func _on_bicho_c_2_conversa() -> void:
