@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c18jhd1my1kwy"]
 
 [ext_resource type="Script" uid="uid://bnufe7ainy02o" path="res://cenas/script/bichos/bicho_o.gd" id="1_e3tyx"]
-[ext_resource type="PackedScene" uid="uid://bpgcsac8hjhcw" path="res://arte/miguel/3d/body_oxigenio.tscn" id="2_vscvc"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uwu8j"]
 radius = 2.0
@@ -15,9 +14,6 @@ script = ExtResource("1_e3tyx")
 shape = SubResource("SphereShape3D_uwu8j")
 
 [node name="pivod" type="Node3D" parent="." unique_id=544965559]
-
-[node name="body_oxigenio" parent="pivod" unique_id=896105083 instance=ExtResource("2_vscvc")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.144, 0, -0.261)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

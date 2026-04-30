@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dsjy4rrbmdv0p" path="res://arte/felp/fogo.png" id="2_88pf3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bnu6m"]
+size = Vector3(2.290985, 2.3339233, 2.5124512)
 
 [node name="fogo_normal" type="Node3D" unique_id=944948005]
 script = ExtResource("1_w6slb")
@@ -15,6 +16,7 @@ texture = ExtResource("2_88pf3")
 [node name="Area3D" type="Area3D" parent="." unique_id=1439848205]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1607302856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.097579956, 0.66696167, 0.15930176)
 shape = SubResource("BoxShape3D_bnu6m")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

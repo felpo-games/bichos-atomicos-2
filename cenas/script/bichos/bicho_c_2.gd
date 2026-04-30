@@ -3,23 +3,30 @@ extends CharacterBody3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @export var queméessebicho:Array = ["o","h","c"]
+
 enum estado  {conversa, batalhando, morto}
 var state = estado.conversa
 
-#esta variavel servira para o bicho tetectar se tem alguem para conversar e ou batalharr.
+# referência do player
 var player 
 
-# variaveis para conversar
+# variáveis de conversa
 var conversar:bool = true
 var conversando:bool = false
 
 signal conversa
 
-# variaveis para batalha
+# variáveis de batalha
 var vida = 4
 var morto = false
 var grande = false
-@export var speed: float = 5.0
+@export var speed: float = 3.0
+
+# variáveis de knockback
+@export var forca_knockback = 15.0
+@export var forca_vertical = 5.0
+var pode_bater = true
+@export var tempo_knockback = 1.0
 
 func _physics_process(delta):
 	# gravidade
@@ -27,23 +34,22 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	else:
 		velocity.y = 0
-	move_and_slide()
 	
 	match state:
 		estado.conversa:
 			if Input.is_action_just_pressed("interacao") and player != null:
 				emit_signal("conversa")
 				print("conversa")
-			pass
+		
 		estado.batalhando:
 			andar()
-			crecer()
-			pass
+			
 		estado.morto:
 			eventos_global.batalha = false
 			derrotado()
-			pass
-	pass
+	
+	move_and_slide()
+
 
 func derrotado():
 	var icon = load("res://arte/vlad/WhatsApp Image 2026-04-28 at 16.12.42 (1).jpeg")
@@ -54,51 +60,92 @@ func derrotado():
 	morto = true
 	queue_free()
 
+
 func andar():
 	if player == null:
 		return
 	
-	var direcao = (player.global_transform.origin - global_transform.origin).normalized()
+	var direcao = player.global_transform.origin - global_transform.origin
+	var distancia = direcao.length()
+	direcao = direcao.normalized()
 	
-	velocity.x = direcao.x * speed
-	velocity.z = direcao.z * speed
-	
-	move_and_slide()
-	look_at(player.global_transform.origin, Vector3.UP)
-	var distancia = global_transform.origin.distance_to(player.global_transform.origin)
+	# movimento
 	if distancia > 2.0:
 		velocity.x = direcao.x * speed
 		velocity.z = direcao.z * speed
 	else:
 		velocity.x = 0
 		velocity.z = 0
-	pass
+	
+	# olhar para o player sem inclinar
+	var alvo = player.global_transform.origin
+	alvo.y = global_transform.origin.y
+	look_at(alvo, Vector3.UP)
+
 
 func crecer():
-	if grande == false:
+	if not grande:
+		eventos_global.batalha = true
+		grande = true
 		var tween = create_tween()
 		tween.tween_property(self, "scale", Vector3.ONE * 2.0, 1.5)
-		grande = true
-		pass
+
+
+func aplicar_knockback(alvo):
+	if not pode_bater:
+		return
+	
+	pode_bater = false
+	
+	var direcao = alvo.global_transform.origin - global_transform.origin
+	direcao.y = 0
+	direcao = direcao.normalized()
+	
+	var forca = Vector3(
+		direcao.x * forca_knockback,
+		forca_vertical,
+		direcao.z * forca_knockback
+	)
+	
+	if alvo.has_method("receber_knockback"):
+		alvo.receber_knockback(forca)
+	
+	await get_tree().create_timer(tempo_knockback).timeout
+	pode_bater = true
+
 
 func _on_area_conversa_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		print("oi")
 		player = body
-		pass
-	pass # Replace with function body.
+
 
 func _on_area_conversa_body_exited(body: Node3D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and state == estado.conversa:
 		player = null
-		pass
-	pass # Replace with function body.
 
-#quando o player erra a resposta ele entra em batalha
+
+# quando o player erra a resposta
 func _on_conversas_cena_batalhar() -> void:
 	state = estado.batalhando
-	pass # Replace with function body.
-#se o player acerta ele so some
+	crecer()
+
+
+# quando o player acerta
 func _on_conversas_cena_acertou() -> void:
 	state = estado.morto
+
+
+func _on_areade_dano_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player") and state == estado.batalhando:
+		aplicar_knockback(body)
+	pass # Replace with function body.
+
+
+func _on_areade_dano_area_entered(area: Area3D) -> void:
+	if area.is_in_group("ataque_player"):
+		vida -= 1
+		if vida <= 0:
+			state = estado.morto
+		pass
 	pass # Replace with function body.
