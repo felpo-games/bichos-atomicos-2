@@ -29,7 +29,10 @@ var dash_em_cooldown := false
 # ✅ KNOCKBACK
 var em_knockback := false
 @export var tempo_knockback := 0.3
-
+func _ready() -> void:
+	eventos_global.batalha = false
+	
+	pass
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("troca_de_pet"):
 		laboratorio_global.pet_1 = !laboratorio_global.pet_1
@@ -41,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	
 	# dash
 	if Input.is_action_just_pressed("dash"): 
-		start_dash()
+		pass
 
 	if eventos_global.numa_tela == false:
 		
