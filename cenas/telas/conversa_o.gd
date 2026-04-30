@@ -68,16 +68,15 @@ signal capturou_oxigenio
 	#$RichTextLabel.text = str(fala)
 	#pass # Replace with function body.
 #
-
+@export var icon: Texture2D
 func _on_bicho_o_conversar() -> void:
 	tela_dialogo.iniciar_dialogo(falas_oxigenio)
 	await tela_dialogo.dialogo_encerrado 
 	laboratorio_global.bichos_desbloqueados.append("o")
 	laboratorio_global.quantidade_o += 1
-	var icon = load("res://arte/miguel/WhatsApp Image 2026-04-13 at 10.56.26.jpeg")
 	$"../notificacao".mostrar_notificacao("oxigenio", icon)
 	hide()
-	capturou_oxigenio.emit()
+	emit_signal("capturou_oxigenio")
 	#aparecer()
 	pass # Replace with function body.
 

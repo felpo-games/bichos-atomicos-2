@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b6oqu5bc0f02k" path="res://cenas/telas/conversa_o.gd" id="1_fvdd4"]
 [ext_resource type="PackedScene" uid="uid://pxlbdj5mbpd6" path="res://cenas/tela_de_diálogo.tscn" id="2_jyge4"]
-[ext_resource type="Texture2D" uid="uid://bxuy3oyimvbes" path="res://arte/miguel/WhatsApp Image 2026-04-11 at 10.24.20.jpeg" id="2_vy7ou"]
 
 [node name="conversa_o" type="Control" unique_id=901814761 node_paths=PackedStringArray("tela_dialogo")]
 visible = false
@@ -45,12 +44,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(0, 0, 0, 0.6)
-
-[node name="WhatsAppImage20260411At10_24_20" type="Sprite2D" parent="." unique_id=1086407373]
-visible = false
-position = Vector2(122.000015, 527)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("2_vy7ou")
 
 [node name="ColorRect3" type="ColorRect" parent="." unique_id=1243984352]
 visible = false

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://pxlbdj5mbpd6"]
 
 [ext_resource type="Script" uid="uid://bg24llxnvrtei" path="res://tela_de_diálogo.gd" id="1_eanw3"]
-[ext_resource type="Texture2D" uid="uid://c3ee3nwen2kg1" path="res://arte/e8a724a7-a1ce-43d0-bc96-05399faae374.png" id="2_sg1hu"]
+[ext_resource type="Texture2D" uid="uid://c3ee3nwen2kg1" path="res://arte/artes chris/e8a724a7-a1ce-43d0-bc96-05399faae374.png" id="2_sg1hu"]
 
 [node name="TelaDeDiálogo" type="CanvasLayer" unique_id=1407872982]
 process_mode = 3

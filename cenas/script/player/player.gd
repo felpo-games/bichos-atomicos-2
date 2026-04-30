@@ -63,10 +63,11 @@ func _physics_process(delta: float) -> void:
 				if direction:
 					velocity.x = direction.x * SPEED
 					velocity.z = direction.z * SPEED
-					
+					$body/pivod/AnimationPlayer.play("walk_Pl")
 					var target_angle = atan2(direction.x, direction.z)
 					$body.rotation.y = lerp_angle($body.rotation.y, target_angle, rotation_speed * delta)
 				else:
+					$body/pivod/AnimationPlayer.stop()
 					velocity.x = move_toward(velocity.x, 0, SPEED)
 					velocity.z = move_toward(velocity.z, 0, SPEED)
 

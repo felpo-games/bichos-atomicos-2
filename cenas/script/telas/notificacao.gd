@@ -5,6 +5,7 @@ extends Control
 @onready var texto = $Label
 
 func mostrar_notificacao(nome: String, textura: Texture2D):
+	print(textura)
 	$AnimationPlayer.play("new_animation")
 	imagem.texture = textura
 	texto.text = "Você conseguiu um %s!" % nome
@@ -24,3 +25,4 @@ func mostrar_notificacao(nome: String, textura: Texture2D):
 	await tween_out.finished
 	
 	visible = false
+	

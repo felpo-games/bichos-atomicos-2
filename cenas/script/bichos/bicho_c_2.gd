@@ -28,6 +28,8 @@ var grande = false
 var pode_bater = true
 @export var tempo_knockback = 1.0
 
+func _ready() -> void:
+	$AnimationPlayer.play("inicio")
 func _physics_process(delta):
 	# gravidade
 	if not is_on_floor():
@@ -43,6 +45,7 @@ func _physics_process(delta):
 		
 		estado.batalhando:
 			andar()
+			$AnimationPlayer.play("new_animation")
 			
 		estado.morto:
 			eventos_global.batalha = false
@@ -50,9 +53,10 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
+var icon: Texture2D
 
 func derrotado():
-	var icon = load("res://arte/vlad/WhatsApp Image 2026-04-28 at 16.12.42 (1).jpeg")
+	icon = load("res://arte/vlad/satanas atomico/satanas atomico/o2.png")
 	$"../../ui_dialogos/telas/notificacao".mostrar_notificacao("carbono", icon )
 	state = estado.morto
 	laboratorio_global.bichos_desbloqueados.append(queméessebicho[0])
@@ -62,6 +66,7 @@ func derrotado():
 
 
 func andar():
+	$crecimento/pivod/AnimationPlayer.play("attack_C")
 	if player == null:
 		return
 	

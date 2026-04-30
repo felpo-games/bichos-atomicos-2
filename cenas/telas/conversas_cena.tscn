@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://p8av7a3qv0rj"]
 
 [ext_resource type="Script" uid="uid://dv1wqiksjhsed" path="res://cenas/script/telas/conversas_cena.gd" id="1_01mm0"]
-[ext_resource type="Texture2D" uid="uid://d0eny6w3pkih" path="res://arte/vlad/WhatsApp Image 2026-04-28 at 16.12.42 (1).jpeg" id="2_01mm0"]
+[ext_resource type="Texture2D" uid="uid://omegs4civp3m" path="res://arte/vlad/satanas atomico/satanas atomico/c.png" id="2_01mm0"]
 
 [node name="conversas_cena" type="Control" unique_id=587679249]
 layout_mode = 3
@@ -25,7 +25,7 @@ color = Color(0.29803923, 0.29803923, 0.29803923, 0.3254902)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1121878941]
 position = Vector2(116, 532.99994)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_01mm0")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=163731479]
