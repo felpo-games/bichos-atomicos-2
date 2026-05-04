@@ -1,0 +1,33 @@
+[gd_resource type="VisualShader" format=3 uid="uid://boow10ka0xwfc"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_gqpvk"]
+expanded_output_ports = [0]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_4lhl7"]
+parameter_name = "hit_texture"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_pwbu4"]
+expanded_output_ports = [0]
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_xpbhq"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeBillboard" id="VisualShaderNodeBillboard_8pbcf"]
+keep_scale = true
+
+[resource]
+nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_8pbcf")
+nodes/vertex/2/position = Vector2(-32, 464)
+nodes/vertex/connections = PackedInt32Array(2, 0, 0, 10)
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_gqpvk")
+nodes/fragment/2/position = Vector2(-384, 304)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture2DParameter_4lhl7")
+nodes/fragment/3/position = Vector2(-768, 656)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_pwbu4")
+nodes/fragment/4/position = Vector2(-416, 640)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatOp_xpbhq")
+nodes/fragment/5/position = Vector2(-32, 624)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 2, 2, 4, 5, 1, 4, 1, 5, 0, 2, 1, 0, 0, 5, 0, 0, 1)

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cndx8s1jfrqcp"]
+
+[ext_resource type="Script" uid="uid://chl85i7cyawae" path="res://cenas/efeitos/cena_de_aviso_de_fogo.gd" id="1_3octp"]
+[ext_resource type="Texture2D" uid="uid://dsjy4rrbmdv0p" path="res://arte/felp/fogo.png" id="2_p6opl"]
+
+[node name="cena de aviso de fogo" type="Node3D" unique_id=1692157412]
+script = ExtResource("1_3octp")
+tempo = 0.5
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=767698815]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("2_p6opl")

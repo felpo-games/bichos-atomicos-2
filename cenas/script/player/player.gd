@@ -119,13 +119,15 @@ func atirar():
 
 
 func dano():
+	
 	if vida > 0:
 		vida -= 1
 		if ui_atomo:
 			ui_atomo.atualizar_vida(vida)
 		if vida <= 0:
 			morrer()
-
+	pass
 
 func morrer():
 	get_tree().change_scene_to_file("res://cenas/gameover.tscn")
+	pass # Replace with function body.

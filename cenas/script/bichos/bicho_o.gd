@@ -1,66 +1,89 @@
 extends Node3D
 
-
 var conversando = false
 var player 
 signal conversar
 
-# Called when the node enters the scene tree for the first time.
+@export var icon: Texture2D
+
+# respawn
+@export var reaparecer = true
+@export var tempo_renascer = 5.0
+
+var posicao_inicial: Vector3
+
 func _ready() -> void:
-	player = false
+	player = null
+	posicao_inicial = global_position
 	show()
-	
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if player == true and conversando == false and Input.is_action_just_pressed("interacao"):
-		
+	if player != null and conversando == false and Input.is_action_just_pressed("interacao"):
 		emit_signal("conversar")
 		conversando = true
 		print("oi")
-		
-		await get_tree().create_timer(3).timeout
-		queue_free()
-		pass
-	pass
-
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		player = true
-	pass # Replace with function body.
-
+		player = body
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		player = false
+		player = null
 		conversando = false
-	pass # Replace with function body.
 
-@export var icon: Texture2D
-func _on_conversa_o_acertou() -> void:
-	
-	if player == true:
+# =========================
+# COLETA / MORTE
+# =========================
+
+func coletado():
+	if player != null:
 		laboratorio_global.bichos_desbloqueados.append("o")
 		laboratorio_global.quantidade_o += 1
 		
-		#icon = load("res://arte/vlad/satanas atomico/satanas atomico/ho2.png")
 		var notif = $"../../ui_dialogos/telas/notificacao"
 		if notif != null:
-			print("Icon: ")
 			notif.mostrar_notificacao("Oxigenio", icon)
 		else:
 			print("NOTIFICAÇÃO NÃO ENCONTRADA")
-		
-		hide()
-		$Area3D/CollisionShape3D.disabled = true
-	pass # Replace with function body.
+	
+	if player != null:
+		desativar()
+	
+	if reaparecer:
+		respawn()
 
+func desativar():
+	hide()
+	
+	if has_node("Area3D/CollisionShape3D"):
+		$Area3D/CollisionShape3D.disabled = true
+	
+	set_process(false)
+
+func reativar():
+	show()
+	
+	if has_node("Area3D/CollisionShape3D"):
+		$Area3D/CollisionShape3D.disabled = false
+	
+	player = null
+	conversando = false
+	
+	global_position = posicao_inicial
+	
+	set_process(true)
+
+func respawn():
+	await get_tree().create_timer(tempo_renascer).timeout
+	reativar()
+
+# =========================
+# SINAIS
+# =========================
+
+func _on_conversa_o_acertou() -> void:
+	coletado()
 
 func _on_conversa_o_capturou_oxigenio() -> void:
-	_on_conversa_o_acertou()
-	queue_free()
-	print("quero sumir")
-	pass # Replace with function body.
+	coletado()

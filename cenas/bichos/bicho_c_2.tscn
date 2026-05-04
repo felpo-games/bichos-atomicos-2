@@ -828,6 +828,7 @@ _data = {
 [node name="bicho_c2" type="CharacterBody3D" unique_id=428746475]
 script = ExtResource("1_gpf66")
 "queméessebicho" = ["c", "o", "h"]
+tempo_renascer = 30.0
 
 [node name="crecimento" type="Node3D" parent="." unique_id=2146030183]
 
@@ -931,7 +932,7 @@ shape = SubResource("SphereShape3D_hr657")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2064552060]
 libraries/ = SubResource("AnimationLibrary_3t3t1")
-autoplay = &"new_animation"
+autoplay = &"inicio"
 
 [connection signal="area_entered" from="crecimento/AreadeDano" to="." method="_on_areade_dano_area_entered"]
 [connection signal="body_entered" from="crecimento/AreadeDano" to="." method="_on_areade_dano_body_entered"]

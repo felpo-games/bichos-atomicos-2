@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://jfkidv631nm2"]
 
-[ext_resource type="Script" uid="uid://dfl0x2mu5agy" path="res://cenas/bichos/pet/bala_dc.gd" id="1_a47i1"]
+[ext_resource type="Script" uid="uid://bn8jengkvj188" path="res://cenas/script/player/bala_player.gd" id="1_a47i1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1oab"]
 albedo_color = Color(0, 0, 0, 1)

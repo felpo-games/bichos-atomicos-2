@@ -9,13 +9,23 @@
 [ext_resource type="Texture2D" uid="uid://bj1quk3v0q2vj" path="res://arte/felp/ceu.png" id="4_qjydo"]
 [ext_resource type="PackedScene" uid="uid://ps0pj0l88i1e" path="res://cenas/telas/notificacao.tscn" id="5_f6840"]
 [ext_resource type="PackedScene" uid="uid://c18jhd1my1kwy" path="res://cenas/bichos/bicho_o.tscn" id="7_7uoum"]
-[ext_resource type="Texture2D" uid="uid://bnwippjag2fcx" path="res://arte/vlad/satanas atomico/satanas atomico/nao sei oq atomico.png" id="8_qjydo"]
+[ext_resource type="PackedScene" uid="uid://dtrut616f2ww0" path="res://cenas/bichos/bicho_ph.tscn" id="9_h4ygu"]
 [ext_resource type="PackedScene" uid="uid://c6jiopsbejkol" path="res://cenas/bichos/bicho_c_2.tscn" id="9_qjydo"]
 [ext_resource type="Texture2D" uid="uid://l40rg1w4u43m" path="res://arte/vlad/satanas atomico/satanas atomico/o2.png" id="10_h4ygu"]
 [ext_resource type="PackedScene" uid="uid://2n7s13pt8lm1" path="res://cenas/obstaculos/fogo_normal.tscn" id="12_f6840"]
 [ext_resource type="PackedScene" uid="uid://lapplba6kgdm" path="res://cenas/bichos/area_h.tscn" id="13_h4ygu"]
 [ext_resource type="Script" uid="uid://c7fsw3lepcgdq" path="res://cenas/script/obstaculos/areado_fogo.gd" id="13_u5hjb"]
 [ext_resource type="PackedScene" uid="uid://ce3xps06jwojt" path="res://cenas/obstaculos/fogo_eletrico.tscn" id="14_qjydo"]
+[ext_resource type="Script" uid="uid://bkcf15b20g7bi" path="res://addons/proton_scatter/src/scatter.gd" id="17_pshm4"]
+[ext_resource type="Script" uid="uid://dwf6bpdmo6koq" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="18_tim8w"]
+[ext_resource type="Script" uid="uid://c4ik6xgkprf30" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="19_b4grr"]
+[ext_resource type="Script" uid="uid://nkbvxtdlweuf" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="20_8l63c"]
+[ext_resource type="Script" uid="uid://dcyld38wy20io" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="21_ob45n"]
+[ext_resource type="Script" uid="uid://bwjvtpctiq7sn" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="22_lg0kn"]
+[ext_resource type="Script" uid="uid://5ahvba2vb4th" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="23_gynid"]
+[ext_resource type="Script" uid="uid://brbtiyaqrbvlg" path="res://addons/proton_scatter/src/scatter_item.gd" id="24_mjidp"]
+[ext_resource type="Script" uid="uid://r2q8o1ditgup" path="res://addons/proton_scatter/src/scatter_shape.gd" id="25_2khhj"]
+[ext_resource type="Script" uid="uid://dmjx8g0p0xn8q" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="26_031u1"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xeb63"]
 panorama = ExtResource("4_qjydo")
@@ -38,7 +48,40 @@ size = Vector3(36.357605, 8.291626, 12.570129)
 [sub_resource type="BoxShape3D" id="BoxShape3D_u5hjb"]
 size = Vector3(34.796753, 12.025513, 12.948944)
 
-[node name="fase_1" type="Node3D" unique_id=1341664247]
+[sub_resource type="Resource" id="Resource_duhmn"]
+script = ExtResource("20_8l63c")
+amount = 50
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_lnt5l"]
+script = ExtResource("21_ob45n")
+position = Vector3(0.15, 0.15, 0.15)
+scale = Vector3(1.5, 0.1, 0.1)
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_wlnao"]
+script = ExtResource("22_lg0kn")
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+restrict_height = true
+
+[sub_resource type="Resource" id="Resource_3qe05"]
+script = ExtResource("23_gynid")
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+
+[sub_resource type="Resource" id="Resource_5khuk"]
+script = ExtResource("18_tim8w")
+stack = Array[ExtResource("19_b4grr")]([SubResource("Resource_duhmn"), SubResource("Resource_lnt5l"), SubResource("Resource_wlnao"), SubResource("Resource_3qe05")])
+
+[sub_resource type="Resource" id="Resource_re6xn"]
+script = ExtResource("26_031u1")
+size = Vector3(61.413242, 1, 137.7807)
+metadata/_custom_type_script = "uid://dmjx8g0p0xn8q"
+
+[node name="fese_1" type="Node3D" unique_id=1341664247]
 
 [node name="blocagem" type="Node3D" parent="." unique_id=1018792614]
 
@@ -84,15 +127,18 @@ shape = SubResource("SphereShape3D_rmu0y")
 
 [node name="bicho_o" parent="bichos" unique_id=1814063333 instance=ExtResource("7_7uoum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.336416, 1.5029488, -53.35958)
-icon = ExtResource("8_qjydo")
+icon = ExtResource("10_h4ygu")
 
 [node name="bicho_o3" parent="bichos" unique_id=1500830051 instance=ExtResource("7_7uoum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.113276, 1.5029488, -53.35958)
-icon = ExtResource("8_qjydo")
+icon = ExtResource("10_h4ygu")
 
 [node name="bicho_o2" parent="bichos" unique_id=1549283805 instance=ExtResource("7_7uoum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.925703, 1.5029488, 10.675026)
-icon = ExtResource("8_qjydo")
+icon = ExtResource("10_h4ygu")
+
+[node name="bicho_ph" parent="bichos" unique_id=1936316218 instance=ExtResource("9_h4ygu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5707998, 9.488998)
 
 [node name="ui_dialogos" type="CanvasLayer" parent="." unique_id=744198927]
 
@@ -102,7 +148,6 @@ anchors_preset = 0
 
 [node name="conversa_o" parent="ui_dialogos/telas" unique_id=901814761 instance=ExtResource("2_oqrsv")]
 layout_mode = 1
-icon = ExtResource("10_h4ygu")
 
 [node name="conversas_cena" parent="ui_dialogos/telas" unique_id=587679249 instance=ExtResource("1_guo0g")]
 layout_mode = 1
@@ -181,6 +226,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.938768, 0.84676933, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.898376, 5.5127563, 2.4175568)
 shape = SubResource("BoxShape3D_u5hjb")
 
+[node name="ProtonScatter" type="Node3D" parent="." unique_id=1967824871]
+script = ExtResource("17_pshm4")
+modifier_stack = SubResource("Resource_5khuk")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+metadata/_custom_type_script = "uid://bkcf15b20g7bi"
+
+[node name="ScatterItem" type="Node3D" parent="ProtonScatter" unique_id=1840776414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+script = ExtResource("24_mjidp")
+path = "uid://clbgrf8mx7a1x"
+
+[node name="ScatterShape" type="Node3D" parent="ProtonScatter" unique_id=1094161149]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0.752162, -49.850357)
+script = ExtResource("25_2khhj")
+shape = SubResource("Resource_re6xn")
+
 [connection signal="conversa" from="bichos/bicho_c2" to="ui_dialogos/telas/conversas_cena" method="_on_bicho_c_2_conversa"]
 [connection signal="body_entered" from="bichos/area_h" to="bichos/area_h/bicho_h" method="_on_area_h_body_entered"]
 [connection signal="body_exited" from="bichos/area_h" to="bichos/area_h/bicho_h" method="_on_area_h_body_exited"]
@@ -189,8 +251,9 @@ shape = SubResource("BoxShape3D_u5hjb")
 [connection signal="conversar" from="bichos/bicho_o" to="ui_dialogos/telas/conversa_o" method="_on_bicho_o_conversar"]
 [connection signal="conversar" from="bichos/bicho_o3" to="ui_dialogos/telas/conversa_o" method="_on_bicho_o_conversar"]
 [connection signal="conversar" from="bichos/bicho_o2" to="ui_dialogos/telas/conversa_o" method="_on_bicho_o_conversar"]
-[connection signal="acertou" from="ui_dialogos/telas/conversa_o" to="bichos/bicho_o" method="_on_conversa_o_acertou"]
 [connection signal="capturou_oxigenio" from="ui_dialogos/telas/conversa_o" to="bichos/bicho_o" method="_on_conversa_o_capturou_oxigenio"]
+[connection signal="capturou_oxigenio" from="ui_dialogos/telas/conversa_o" to="bichos/bicho_o3" method="_on_conversa_o_capturou_oxigenio"]
+[connection signal="capturou_oxigenio" from="ui_dialogos/telas/conversa_o" to="bichos/bicho_o2" method="_on_conversa_o_capturou_oxigenio"]
 [connection signal="acertou" from="ui_dialogos/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_acertou"]
 [connection signal="batalhar" from="ui_dialogos/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_batalhar"]
 [connection signal="body_entered" from="obstaculos/fogo/Areado fogo" to="obstaculos/fogo/Areado fogo" method="_on_body_entered"]

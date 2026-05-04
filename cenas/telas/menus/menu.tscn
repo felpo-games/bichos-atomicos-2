@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bp7afts2xbulq"]
+
+[ext_resource type="PackedScene" uid="uid://fqfjexqbgscf" path="res://cenas/but/butão_menu.tscn" id="1_txs5f"]
+[ext_resource type="Texture2D" uid="uid://detg3ekr0c7oq" path="res://arte/Nova pasta/Botões/Botões/button_play.png" id="1_wrun1"]
+[ext_resource type="Texture2D" uid="uid://rs7a865360h1" path="res://arte/Nova pasta/Botões/Botões/button_pressed_play.png" id="2_txs5f"]
+[ext_resource type="Texture2D" uid="uid://d0tgu2w8alek8" path="res://arte/Nova pasta/Botões/Botões/button_opcoes.png" id="3_galh6"]
+[ext_resource type="Texture2D" uid="uid://bcb08vj13k4g8" path="res://arte/Nova pasta/Botões/Botões/button_pressed_opcoes.png" id="4_hvxxs"]
+[ext_resource type="Texture2D" uid="uid://4mvfwsyjgobw" path="res://arte/Nova pasta/Botões/Botões/button_sair.png" id="6_3dko1"]
+[ext_resource type="Texture2D" uid="uid://bs42fyqcxdxy5" path="res://arte/Nova pasta/Botões/Botões/button_pressed_sair.png" id="7_5ls68"]
+
+[node name="menu" type="Control" unique_id=1854807263]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1797381921]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 150.0
+offset_right = 325.0
+offset_bottom = 554.0
+
+[node name="butão_menu" parent="GridContainer" unique_id=1083859154 instance=ExtResource("1_txs5f")]
+layout_mode = 2
+cena = "res://cenas/CUTECENE/cutcene.tscn"
+asset_normal = ExtResource("1_wrun1")
+asset_precionado = ExtResource("2_txs5f")
+
+[node name="butão_menu2" parent="GridContainer" unique_id=1768899740 instance=ExtResource("1_txs5f")]
+layout_mode = 2
+asset_normal = ExtResource("3_galh6")
+asset_precionado = ExtResource("4_hvxxs")
+
+[node name="butão_menu3" parent="GridContainer" unique_id=629618904 instance=ExtResource("1_txs5f")]
+layout_mode = 2
+asset_normal = ExtResource("6_3dko1")
+asset_precionado = ExtResource("7_5ls68")

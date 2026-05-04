@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0q8ynndwkhfq"]
 
-[ext_resource type="Script" uid="uid://s1hotq8xytvc" path="res://cenas/bichos/pet/bala_agua.gd" id="1_sv0vd"]
+[ext_resource type="Script" uid="uid://bn8jengkvj188" path="res://cenas/script/player/bala_player.gd" id="1_sv0vd"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fmy5d"]
 

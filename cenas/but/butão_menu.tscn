@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://fqfjexqbgscf"]
+
+[ext_resource type="Script" uid="uid://c5ah83b8wjt27" path="res://cenas/but/butão_menu.gd" id="1_konrv"]
+
+[node name="butão_menu" type="TextureButton" unique_id=1083859154]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_konrv")

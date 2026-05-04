@@ -1,0 +1,50 @@
+[gd_scene format=4 uid="uid://kmy3lgtbievn"]
+
+[ext_resource type="Texture2D" uid="uid://dq8lj3agab0si" path="res://arte/hesley/Props_EnviroTex1.png" id="1_wyah5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pkwk7"]
+resource_name = "EnviromentTex"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_wyah5")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pyypx"]
+_surfaces = [{
+"aabb": AABB(-1.0509838, -0.9893446, -1.1066064, 2.1135423, 1.9874116, 2.222086),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABgAHAAgABgAJAAcACgAGAAgACgAIAAsA"),
+"name": "EnviromentTex",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("kIIqdv//AAAH729/AAAAAGF68IvNAQAASf5vf+z0AAAsBm9/sfIAACwGb39IDAAA9XuXAQpNAAD/////1Z0AAP9/m/qvnAAArvGmCaNIAAB2BgAAI2EAAAAAOPWJmwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gu4x6"]
+resource_name = "Props_Plano_005"
+_surfaces = [{
+"aabb": AABB(-1.0509838, -0.9893446, -1.1066064, 2.1135423, 1.9874116, 2.222086),
+"attribute_data": PackedByteArray("9L93Fx2QDAAdkHcX9L8MAPS/4y4dkOMu9L93Fx2QDAAdkHcX9L8MAPS/4y4dkOMu"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABgAHAAgABgAJAAcACgAGAAgACgAIAAsA"),
+"material": SubResource("StandardMaterial3D_pkwk7"),
+"name": "EnviromentTex",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("kIIqdv//syoH729/AAD8KmF68IvNATgqSf5vf+z0byssBm9/sfLpKSwGb39IDGgp9XuXAQpNogf/////1Z04Cf9/m/qvnNwHrvGmCaNIDgl2BgAAI2E8BgAAOPWJm2AGpiqZ0w8r3tP1KjXUxCpI04kq8NPcKpHUL8WvORzFjznoxYA6VcSoOAHGojq1xmk7")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_pyypx")
+
+[node name="Grama1" type="MeshInstance3D" unique_id=1669636927]
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_gu4x6")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=82274661]

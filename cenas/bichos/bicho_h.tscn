@@ -932,6 +932,7 @@ _data = {
 [node name="bicho_h" type="CharacterBody3D" unique_id=1122094937]
 script = ExtResource("1_n5cob")
 "queméessebicho" = ["h", "o", "c"]
+tempo_renascer = 30.0
 
 [node name="pivod" type="Node3D" parent="." unique_id=1050839899]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.5, 0)

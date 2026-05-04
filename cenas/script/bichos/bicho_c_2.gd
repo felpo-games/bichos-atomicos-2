@@ -28,8 +28,15 @@ var grande = false
 var pode_bater = true
 @export var tempo_knockback = 1.0
 
+@export var reaparecer = true
+@export var tempo_renascer = 5.0
+
+var posicao_inicial: Vector3
+
 func _ready() -> void:
+	posicao_inicial = global_transform.origin
 	$AnimationPlayer.play("inicio")
+
 func _physics_process(delta):
 	# gravidade
 	if not is_on_floor():
@@ -49,21 +56,66 @@ func _physics_process(delta):
 			
 		estado.morto:
 			eventos_global.batalha = false
-			derrotado()
 	
 	move_and_slide()
 
 var icon: Texture2D
 
 func derrotado():
-	icon = load("res://arte/vlad/satanas atomico/satanas atomico/o2.png")
-	$"../../ui_dialogos/telas/notificacao".mostrar_notificacao("carbono", icon )
+	icon = load("res://arte/vlad/satanas atomico/satanas atomico/c.png")
+	$"../../ui_dialogos/telas/notificacao".mostrar_notificacao("carbono", icon)
+
 	state = estado.morto
 	laboratorio_global.bichos_desbloqueados.append(queméessebicho[0])
 	laboratorio_global.quantidade_c += 1
 	morto = true
-	queue_free()
+	
+	desativar_bicho()
+	
+	if reaparecer:
+		respawn()
 
+func desativar_bicho():
+	hide()
+	set_physics_process(false)
+	
+	# desativa colisões (confere os caminhos na sua cena)
+	if has_node("CollisionShape3D"):
+		$CollisionShape3D.disabled = true
+	if has_node("areade_dano/CollisionShape3D"):
+		$areade_dano/CollisionShape3D.disabled = true
+	if has_node("area_conversa/CollisionShape3D"):
+		$area_conversa/CollisionShape3D.disabled = true
+	
+	$AnimationPlayer.stop()
+
+func reativar_bicho():
+	show()
+	set_physics_process(true)
+	
+	# reativa colisões
+	if has_node("CollisionShape3D"):
+		$CollisionShape3D.disabled = false
+	if has_node("areade_dano/CollisionShape3D"):
+		$areade_dano/CollisionShape3D.disabled = false
+	if has_node("area_conversa/CollisionShape3D"):
+		$area_conversa/CollisionShape3D.disabled = false
+	
+	# resetar variáveis
+	vida = 4
+	morto = false
+	grande = false
+	state = estado.conversa
+	player = null
+	
+	scale = Vector3.ONE
+	global_transform.origin = posicao_inicial
+	
+	$AnimationPlayer.play("inicio")
+
+func respawn():
+	await get_tree().create_timer(tempo_renascer).timeout
+	reativar_bicho()
 
 func andar():
 	$crecimento/pivod/AnimationPlayer.play("attack_C")
@@ -74,7 +126,6 @@ func andar():
 	var distancia = direcao.length()
 	direcao = direcao.normalized()
 	
-	# movimento
 	if distancia > 2.0:
 		velocity.x = direcao.x * speed
 		velocity.z = direcao.z * speed
@@ -82,11 +133,9 @@ func andar():
 		velocity.x = 0
 		velocity.z = 0
 	
-	# olhar para o player sem inclinar
 	var alvo = player.global_transform.origin
 	alvo.y = global_transform.origin.y
 	look_at(alvo, Vector3.UP)
-
 
 func crecer():
 	if not grande:
@@ -94,7 +143,6 @@ func crecer():
 		grande = true
 		var tween = create_tween()
 		tween.tween_property(self, "scale", Vector3.ONE * 2.0, 1.5)
-
 
 func aplicar_knockback(alvo):
 	if not pode_bater:
@@ -118,39 +166,30 @@ func aplicar_knockback(alvo):
 	await get_tree().create_timer(tempo_knockback).timeout
 	pode_bater = true
 
-
 func _on_area_conversa_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		print("oi")
 		player = body
-
 
 func _on_area_conversa_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player") and state == estado.conversa:
 		player = null
 
-
-# quando o player erra a resposta
 func _on_conversas_cena_batalhar() -> void:
 	state = estado.batalhando
 	crecer()
 
-
-# quando o player acerta
 func _on_conversas_cena_acertou() -> void:
 	state = estado.morto
-
+	derrotado()
 
 func _on_areade_dano_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and state == estado.batalhando:
 		aplicar_knockback(body)
-	pass # Replace with function body.
-
+		body.dano()
 
 func _on_areade_dano_area_entered(area: Area3D) -> void:
 	if area.is_in_group("ataque_player"):
 		vida -= 1
 		if vida <= 0:
 			state = estado.morto
-		pass
-	pass # Replace with function body.
+			derrotado()

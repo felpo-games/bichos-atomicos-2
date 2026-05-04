@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cyetq3yts03ih"]
+
+[ext_resource type="PackedScene" uid="uid://fqfjexqbgscf" path="res://cenas/but/butão_menu.tscn" id="1_yh78w"]
+[ext_resource type="Texture2D" uid="uid://g1y3rahy1doo" path="res://arte/Nova pasta/Botões/Botões/icon_play.png" id="2_ewogm"]
+[ext_resource type="Texture2D" uid="uid://bvxt88xtgtp7k" path="res://arte/Nova pasta/Botões/Botões/icon_pressed_play.png" id="3_orxm3"]
+
+[node name="CUTCENE" type="Control" unique_id=129025649]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="butão_menu" parent="." unique_id=1083859154 instance=ExtResource("1_yh78w")]
+layout_mode = 0
+offset_left = 1025.0
+offset_top = 544.0
+offset_right = 1065.0
+offset_bottom = 584.0
+cena = "res://cenas/feses/fese_1.tscn"
+asset_normal = ExtResource("2_ewogm")
+asset_precionado = ExtResource("3_orxm3")

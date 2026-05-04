@@ -866,10 +866,10 @@ shape = SubResource("CapsuleShape3D_kbvfo")
 [node name="sistema_ataque" type="Node3D" parent="body" unique_id=1329585878]
 
 [node name="pet_agua" parent="body/sistema_ataque" unique_id=349165857 instance=ExtResource("3_4i5rx")]
-transform = Transform3D(0.50000006, 0, 0, 0, 0.5, 0, 0, 0, 0.50000006, 1.2366223, 0.43957055, 0)
+transform = Transform3D(0.50000006, 0, 0, 0, 0.5, 0, 0, 0, 0.50000006, 1.5, 0.44, 0)
 
 [node name="pet_dc" parent="body/sistema_ataque" unique_id=191536983 instance=ExtResource("4_a8ubr")]
-transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, -1.237, 0.44, 0)
+transform = Transform3D(0.50000006, 0, 0, 0, 0.5, 0, 0, 0, 0.50000006, -1.4997356, 0.44, 0)
 
 [node name="Marker3D" type="Marker3D" parent="body" unique_id=940710450]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 1.1336591)
@@ -993,3 +993,5 @@ shape = SubResource("CapsuleShape3D_d4u85")
 
 [node name="atomo_VIDAS" parent="CanvasLayer" unique_id=39492598 instance=ExtResource("5_bmch6")]
 visible = true
+
+[connection signal="area_entered" from="sistema_vida/Area_dano" to="." method="_on_area_dano_area_entered"]

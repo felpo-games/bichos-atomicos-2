@@ -36,10 +36,10 @@ color = Color(1, 1, 0, 0.48235294)
 
 [node name="GridContainer2" type="GridContainer" parent="laboratorio" unique_id=1995713187]
 layout_mode = 0
-offset_left = 423.0
-offset_top = 224.0
-offset_right = 463.0
-offset_bottom = 264.0
+offset_left = 339.0
+offset_top = 226.0
+offset_right = 379.0
+offset_bottom = 266.0
 
 [node name="1" type="Sprite2D" parent="laboratorio/GridContainer2" unique_id=196187339]
 position = Vector2(109, 0)
