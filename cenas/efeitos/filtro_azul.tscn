@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ds2fpmg81xnkt"]
+
+[ext_resource type="Shader" uid="uid://bcgutpyd7ctqt" path="res://cenas/efeitos/blue_visual.gdshader" id="1_3jw6g"]
+[ext_resource type="Script" uid="uid://by52dny4duv10" path="res://cenas/efeitos/filtro.gd" id="2_18yr0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t1mqq"]
+shader = ExtResource("1_3jw6g")
+shader_parameter/intensidade = 1.0
+
+[node name="filtro_azul" type="Control" unique_id=1994584366]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="filtro" type="ColorRect" parent="." unique_id=1738772147]
+material = SubResource("ShaderMaterial_t1mqq")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_18yr0")

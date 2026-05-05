@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://lapplba6kgdm" path="res://cenas/bichos/area_h.tscn" id="13_h4ygu"]
 [ext_resource type="Script" uid="uid://c7fsw3lepcgdq" path="res://cenas/script/obstaculos/areado_fogo.gd" id="13_u5hjb"]
 [ext_resource type="PackedScene" uid="uid://ce3xps06jwojt" path="res://cenas/obstaculos/fogo_eletrico.tscn" id="14_qjydo"]
+[ext_resource type="PackedScene" uid="uid://ds2fpmg81xnkt" path="res://cenas/efeitos/filtro_azul.tscn" id="14_tim8w"]
+[ext_resource type="Shader" uid="uid://bcgutpyd7ctqt" path="res://cenas/efeitos/blue_visual.gdshader" id="15_b4grr"]
 [ext_resource type="Script" uid="uid://bkcf15b20g7bi" path="res://addons/proton_scatter/src/scatter.gd" id="17_pshm4"]
 [ext_resource type="Script" uid="uid://dwf6bpdmo6koq" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="18_tim8w"]
 [ext_resource type="Script" uid="uid://c4ik6xgkprf30" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="19_b4grr"]
@@ -42,39 +44,44 @@ reflected_light_source = 2
 [sub_resource type="SphereShape3D" id="SphereShape3D_rmu0y"]
 radius = 7.320535
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8l63c"]
+shader = ExtResource("15_b4grr")
+shader_parameter/intensidade = 1.0
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_vb2yy"]
 size = Vector3(36.357605, 8.291626, 12.570129)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u5hjb"]
 size = Vector3(34.796753, 12.025513, 12.948944)
 
-[sub_resource type="Resource" id="Resource_duhmn"]
+[sub_resource type="Resource" id="Resource_b4grr"]
 script = ExtResource("20_8l63c")
 amount = 50
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_lnt5l"]
+[sub_resource type="Resource" id="Resource_8l63c"]
 script = ExtResource("21_ob45n")
 position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(10, 100, 0)
 scale = Vector3(1.5, 0.1, 0.1)
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_wlnao"]
+[sub_resource type="Resource" id="Resource_ob45n"]
 script = ExtResource("22_lg0kn")
 offset_step = 0.2
 consecutive_step_multiplier = 0.75
 restrict_height = true
 
-[sub_resource type="Resource" id="Resource_3qe05"]
+[sub_resource type="Resource" id="Resource_lg0kn"]
 script = ExtResource("23_gynid")
 ray_length = 5.0
 ray_offset = 5.0
 remove_points_on_miss = false
 
-[sub_resource type="Resource" id="Resource_5khuk"]
+[sub_resource type="Resource" id="Resource_gynid"]
 script = ExtResource("18_tim8w")
-stack = Array[ExtResource("19_b4grr")]([SubResource("Resource_duhmn"), SubResource("Resource_lnt5l"), SubResource("Resource_wlnao"), SubResource("Resource_3qe05")])
+stack = Array[ExtResource("19_b4grr")]([SubResource("Resource_b4grr"), SubResource("Resource_8l63c"), SubResource("Resource_ob45n"), SubResource("Resource_lg0kn")])
 
 [sub_resource type="Resource" id="Resource_re6xn"]
 script = ExtResource("26_031u1")
@@ -138,7 +145,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.925703, 1.5029488, 10.6750
 icon = ExtResource("10_h4ygu")
 
 [node name="bicho_ph" parent="bichos" unique_id=1936316218 instance=ExtResource("9_h4ygu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5707998, 9.488998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5707998, -109.47899)
 
 [node name="ui_dialogos" type="CanvasLayer" parent="." unique_id=744198927]
 
@@ -160,6 +167,19 @@ visible = false
 layout_mode = 1
 offset_right = -3.0
 offset_bottom = -233.0
+
+[node name="filtro_azul" parent="ui_dialogos/telas" unique_id=1994584366 instance=ExtResource("14_tim8w")]
+material = SubResource("ShaderMaterial_8l63c")
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -38.0
+offset_top = -40.0
+offset_right = 1187.0
+offset_bottom = 676.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="obstaculos" type="Node3D" parent="." unique_id=1940622742]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.21842, 0, 0)
@@ -228,7 +248,7 @@ shape = SubResource("BoxShape3D_u5hjb")
 
 [node name="ProtonScatter" type="Node3D" parent="." unique_id=1967824871]
 script = ExtResource("17_pshm4")
-modifier_stack = SubResource("Resource_5khuk")
+modifier_stack = SubResource("Resource_gynid")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://bkcf15b20g7bi"
