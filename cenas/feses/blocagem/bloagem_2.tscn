@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cqongv1ynmutg"]
+
+[ext_resource type="Texture2D" uid="uid://clp2r5h5l1olg" path="res://arte/hesley/grama.png" id="1_bd5ph"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2y1we"]
+albedo_color = Color(0, 0.65882355, 0, 1)
+albedo_texture = ExtResource("1_bd5ph")
+
+[sub_resource type="BoxMesh" id="BoxMesh_3x6na"]
+material = SubResource("StandardMaterial3D_2y1we")
+size = Vector3(15, 0.5, 60)
+
+[node name="bloagem2" type="Node3D" unique_id=2003986998]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=129088442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+mesh = SubResource("BoxMesh_3x6na")

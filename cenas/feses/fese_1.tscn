@@ -85,7 +85,7 @@ stack = Array[ExtResource("19_b4grr")]([SubResource("Resource_b4grr"), SubResour
 
 [sub_resource type="Resource" id="Resource_re6xn"]
 script = ExtResource("26_031u1")
-size = Vector3(61.413242, 1, 137.7807)
+size = Vector3(293.1707, 1, 255.70296)
 metadata/_custom_type_script = "uid://dmjx8g0p0xn8q"
 
 [node name="fese_1" type="Node3D" unique_id=1341664247]
@@ -93,7 +93,7 @@ metadata/_custom_type_script = "uid://dmjx8g0p0xn8q"
 [node name="blocagem" type="Node3D" parent="." unique_id=1018792614]
 
 [node name="blogagem_1" parent="blocagem" unique_id=2026020556 instance=ExtResource("1_1efgt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -68.69879)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05529785, 0.6965637, -68.053894)
 
 [node name="personagem" type="Node3D" parent="." unique_id=932227546]
 
@@ -112,7 +112,7 @@ shadow_enabled = true
 [node name="bichos" type="Node3D" parent="." unique_id=9806684]
 
 [node name="bicho_c2" parent="bichos" unique_id=428746475 instance=ExtResource("9_qjydo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4277964, 3.5346832, -36.372124)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.07513, 3.5346832, -229.98473)
 
 [node name="area_h" parent="bichos" unique_id=187279684 instance=ExtResource("13_h4ygu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.194286, 0, -3.5460777)
@@ -259,7 +259,7 @@ script = ExtResource("24_mjidp")
 path = "uid://clbgrf8mx7a1x"
 
 [node name="ScatterShape" type="Node3D" parent="ProtonScatter" unique_id=1094161149]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0.752162, -49.850357)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0.752162, -124.09856)
 script = ExtResource("25_2khhj")
 shape = SubResource("Resource_re6xn")
 
