@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ufsiaud0qavt"]
+
+[node name="Config" type="Control" unique_id=684376258]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=774908297]
+layout_mode = 0
+offset_right = 1164.0
+offset_bottom = 660.0
+color = Color(0.67595047, 0.6921526, 1, 1)
+
+[node name="imagem" type="Control" parent="ColorRect" unique_id=1031051845]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="audio" type="Control" parent="ColorRect" unique_id=1745339144]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Compatilhe" type="Control" parent="ColorRect" unique_id=762738083]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
