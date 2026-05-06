@@ -1,5 +1,39 @@
 [gd_scene format=3 uid="uid://ufsiaud0qavt"]
 
+[ext_resource type="Texture2D" uid="uid://csxhgdnqmmd30" path="res://UI/Janelas/fundo_opcoes.png" id="1_2gltl"]
+[ext_resource type="Texture2D" uid="uid://bh1b02q35o3au" path="res://UI/Janelas/elenmeyer_opt1.png" id="2_hdexd"]
+[ext_resource type="FontFile" uid="uid://dn8arjbeupiyv" path="res://UI/Fontes/JHCRasbora-Extrabold.otf" id="3_1orqb"]
+[ext_resource type="Texture2D" uid="uid://bji2pxlhemyew" path="res://UI/Janelas/Opcoes/marcador_brilho.png" id="4_2hliq"]
+[ext_resource type="Texture2D" uid="uid://d4hrdihoxf1gw" path="res://UI/Janelas/Opcoes/marcador_brilho_pressed.png" id="5_63hsu"]
+[ext_resource type="Texture2D" uid="uid://cxkwxneqpue6w" path="res://UI/Janelas/Opcoes/barra_volume.png" id="6_1orqb"]
+[ext_resource type="Texture2D" uid="uid://bjjcviv1pbr7r" path="res://UI/Botões/button_voltar.png" id="6_d1c66"]
+[ext_resource type="Texture2D" uid="uid://c6odndlm7on3j" path="res://UI/Janelas/Opcoes/botao_volume.png" id="7_2hliq"]
+[ext_resource type="Texture2D" uid="uid://b3tvr3xivpovl" path="res://UI/Botões/button_pressed_voltar.png" id="7_71j7u"]
+[ext_resource type="Texture2D" uid="uid://bd8nqqm61dh4j" path="res://UI/Botões/button_sair.png" id="8_dvra0"]
+[ext_resource type="Texture2D" uid="uid://bwtwanqaaxpnj" path="res://UI/Botões/button_pressed_sair.png" id="9_oetbw"]
+[ext_resource type="Texture2D" uid="uid://d1f4j4eup7tt8" path="res://UI/Botões/button_salvar.png" id="10_0ac1p"]
+[ext_resource type="Texture2D" uid="uid://d1vt8nhggnu0h" path="res://UI/Botões/button_pressed_salvar.png" id="11_x8m1e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p3was"]
+font = ExtResource("3_1orqb")
+font_size = 37
+
+[sub_resource type="LabelSettings" id="LabelSettings_63hsu"]
+font = ExtResource("3_1orqb")
+font_size = 43
+
+[sub_resource type="LabelSettings" id="LabelSettings_d1c66"]
+font = ExtResource("3_1orqb")
+font_size = 41
+
+[sub_resource type="LabelSettings" id="LabelSettings_71j7u"]
+font = ExtResource("3_1orqb")
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_dfhte"]
+font = ExtResource("3_1orqb")
+font_size = 37
+
 [node name="Config" type="Control" unique_id=684376258]
 layout_mode = 3
 anchors_preset = 0
@@ -8,19 +42,186 @@ anchors_preset = 0
 layout_mode = 0
 offset_right = 1164.0
 offset_bottom = 660.0
-color = Color(0.67595047, 0.6921526, 1, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="FundoOpcoes" type="Sprite2D" parent="ColorRect" unique_id=806531831]
+position = Vector2(587, 325)
+scale = Vector2(1.0138888, 1.0216049)
+texture = ExtResource("1_2gltl")
+metadata/_edit_lock_ = true
+
+[node name="ElenmeyerOpt1" type="Sprite2D" parent="ColorRect" unique_id=763281205]
+position = Vector2(583, 307)
+texture = ExtResource("2_hdexd")
 
 [node name="imagem" type="Control" parent="ColorRect" unique_id=1031051845]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Label" type="Label" parent="ColorRect/imagem" unique_id=1785204092]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 239.0
+offset_right = 411.0
+offset_bottom = 271.0
+text = "FILTRO AMARELO:"
+label_settings = SubResource("LabelSettings_p3was")
+
+[node name="ATIVO" type="Label" parent="ColorRect/imagem" unique_id=557601523]
+layout_mode = 0
+offset_left = 573.0
+offset_top = 237.0
+offset_right = 877.0
+offset_bottom = 275.0
+text = "ATIVADO"
+label_settings = SubResource("LabelSettings_p3was")
+
+[node name="MARCADO_DE_FILTRO" type="TextureButton" parent="ColorRect/imagem" unique_id=1541989605]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 483.0
+offset_top = 242.0
+offset_right = 483.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+texture_normal = ExtResource("4_2hliq")
+texture_pressed = ExtResource("5_63hsu")
+
 [node name="audio" type="Control" parent="ColorRect" unique_id=1745339144]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+layout_mode = 1
+anchor_right = 0.062000003
+anchor_bottom = 0.106000006
+offset_left = 27.0
+offset_top = -55.0
+offset_right = -5.168007
+offset_bottom = -84.96001
+
+[node name="MUSICA" type="Label" parent="ColorRect/audio" unique_id=1000877116]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.57500005
+offset_left = 141.0
+offset_top = 370.0
+offset_right = 287.0
+offset_bottom = 384.0
+text = "MUSICA:"
+label_settings = SubResource("LabelSettings_63hsu")
+
+[node name="BarraVolume" type="Sprite2D" parent="ColorRect/audio" unique_id=418586851]
+position = Vector2(588, 389)
+texture = ExtResource("6_1orqb")
+
+[node name="VOLUME" type="TextureButton" parent="ColorRect/audio" unique_id=1330407890]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 790.0
+offset_top = 373.0
+offset_right = 810.0
+offset_bottom = 373.0
+texture_normal = ExtResource("7_2hliq")
 
 [node name="Compatilhe" type="Control" parent="ColorRect" unique_id=762738083]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 27.0
+offset_top = 37.0
+offset_right = 67.0
+offset_bottom = 77.0
+
+[node name="REDES" type="Label" parent="ColorRect/Compatilhe" unique_id=2053320677]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 273.0
+offset_right = 410.0
+offset_bottom = 310.0
+text = "REDES SOCIAIS:"
+label_settings = SubResource("LabelSettings_d1c66")
+
+[node name="INSTA" type="Label" parent="ColorRect/Compatilhe/REDES" unique_id=988033387]
+layout_mode = 0
+offset_left = 363.0
+offset_top = -42.0
+offset_right = 708.0
+offset_bottom = -5.0
+text = "@BICHOSATOMICOS_"
+label_settings = SubResource("LabelSettings_71j7u")
+
+[node name="LINK" type="Label" parent="ColorRect/Compatilhe/REDES" unique_id=1964537182]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 38.0
+offset_right = 788.0
+offset_bottom = 75.0
+text = "(link do jogo)"
+label_settings = SubResource("LabelSettings_71j7u")
+
+[node name="BOTAO_VOLTAR" type="TextureButton" parent="ColorRect" unique_id=528903332]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 581.0
+offset_right = 188.0
+offset_bottom = 638.0
+texture_normal = ExtResource("6_d1c66")
+texture_pressed = ExtResource("7_71j7u")
+
+[node name="BOTAO_SAIR" type="TextureButton" parent="ColorRect" unique_id=537376644]
+layout_mode = 0
+offset_left = 1010.0
+offset_top = 577.0
+offset_right = 1180.0
+offset_bottom = 634.0
+texture_normal = ExtResource("8_dvra0")
+texture_pressed = ExtResource("9_oetbw")
+
+[node name="BOTAO_SALVAR" type="TextureButton" parent="ColorRect" unique_id=1945092703]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 469.0
+offset_right = 681.0
+offset_bottom = 533.0
+texture_normal = ExtResource("10_0ac1p")
+texture_pressed = ExtResource("11_x8m1e")
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=546885431]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.08400001
+anchor_bottom = 0.080000006
+offset_left = 178.0
+offset_top = 64.0
+offset_right = 221.224
+offset_bottom = 49.199997
+text = "IMAGEM"
+label_settings = SubResource("LabelSettings_dfhte")
+
+[node name="Label2" type="Label" parent="ColorRect" unique_id=1539991013]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.08400001
+anchor_bottom = 0.080000006
+offset_left = 525.0
+offset_top = 58.0
+offset_right = 568.224
+offset_bottom = 43.199997
+text = "AUDIO"
+label_settings = SubResource("LabelSettings_dfhte")
+
+[node name="Label3" type="Label" parent="ColorRect" unique_id=881295631]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.08400001
+anchor_bottom = 0.080000006
+offset_left = 778.0
+offset_top = 60.0
+offset_right = 929.224
+offset_bottom = 45.199997
+text = "COMPARTILHE"
+label_settings = SubResource("LabelSettings_dfhte")
