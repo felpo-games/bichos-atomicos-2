@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://ufsiaud0qavt"]
 
 [ext_resource type="Texture2D" uid="uid://csxhgdnqmmd30" path="res://UI/Janelas/fundo_opcoes.png" id="1_2gltl"]
+[ext_resource type="Script" uid="uid://b8u00o3diweuq" path="res://cenas/script/telas/CONFIG.gd" id="1_2hliq"]
 [ext_resource type="Texture2D" uid="uid://bh1b02q35o3au" path="res://UI/Janelas/elenmeyer_opt1.png" id="2_hdexd"]
 [ext_resource type="FontFile" uid="uid://dn8arjbeupiyv" path="res://UI/Fontes/JHCRasbora-Extrabold.otf" id="3_1orqb"]
+[ext_resource type="Texture2D" uid="uid://eq3y4ypqw7xu" path="res://UI/Janelas/elenmeyer_opt2.png" id="3_d1c66"]
 [ext_resource type="Texture2D" uid="uid://bji2pxlhemyew" path="res://UI/Janelas/Opcoes/marcador_brilho.png" id="4_2hliq"]
+[ext_resource type="Texture2D" uid="uid://dg1jxbm1i6gxf" path="res://UI/Janelas/elenmeyer_opt3.png" id="4_71j7u"]
 [ext_resource type="Texture2D" uid="uid://d4hrdihoxf1gw" path="res://UI/Janelas/Opcoes/marcador_brilho_pressed.png" id="5_63hsu"]
 [ext_resource type="Texture2D" uid="uid://cxkwxneqpue6w" path="res://UI/Janelas/Opcoes/barra_volume.png" id="6_1orqb"]
 [ext_resource type="Texture2D" uid="uid://bjjcviv1pbr7r" path="res://UI/Botões/button_voltar.png" id="6_d1c66"]
@@ -34,9 +37,17 @@ font_size = 36
 font = ExtResource("3_1orqb")
 font_size = 37
 
-[node name="Config" type="Control" unique_id=684376258]
+[node name="Config" type="Control" unique_id=684376258 node_paths=PackedStringArray("tela_imagem", "tela_audio", "tela_compartilhe")]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_2hliq")
+tela_imagem = NodePath("ColorRect/imagem")
+tela_audio = NodePath("ColorRect/audio")
+tela_compartilhe = NodePath("ColorRect/Compatilhe")
+sprit_1 = ExtResource("2_hdexd")
+sprit_2 = ExtResource("3_d1c66")
+sprit_3 = ExtResource("4_71j7u")
+link = "https://www.instagram.com/bichosatomicos_?igsh=MW43OTJlbDNldTZiMw%3D%3D&utm_source=qr"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=774908297]
 layout_mode = 0
@@ -53,6 +64,37 @@ metadata/_edit_lock_ = true
 [node name="ElenmeyerOpt1" type="Sprite2D" parent="ColorRect" unique_id=763281205]
 position = Vector2(583, 307)
 texture = ExtResource("2_hdexd")
+
+[node name="BOTAO_AUDIO" type="TextureButton" parent="ColorRect/ElenmeyerOpt1" unique_id=257392623]
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 0.054
+anchor_right = 0.504
+anchor_bottom = 0.054
+offset_left = -639.928
+offset_top = -277.81
+offset_right = -342.928
+offset_bottom = -236.81
+
+[node name="BOTAO_COMPARTILHE" type="TextureButton" parent="ColorRect/ElenmeyerOpt1" unique_id=106451199]
+anchors_preset = -1
+anchor_left = 0.86700004
+anchor_top = 0.05
+anchor_right = 0.86700004
+anchor_bottom = 0.05
+offset_left = -660.39404
+offset_top = -277.75
+offset_right = -375.39404
+offset_bottom = -237.75
+
+[node name="BOTAO_IMAGEM" type="TextureButton" parent="ColorRect/ElenmeyerOpt1" unique_id=780502623]
+anchors_preset = -1
+anchor_left = 0.015000001
+anchor_right = 0.017
+offset_left = -488.73
+offset_top = -251.0
+offset_right = -193.694
+offset_bottom = -197.0
 
 [node name="imagem" type="Control" parent="ColorRect" unique_id=1031051845]
 visible = false
@@ -94,7 +136,6 @@ texture_normal = ExtResource("4_2hliq")
 texture_pressed = ExtResource("5_63hsu")
 
 [node name="audio" type="Control" parent="ColorRect" unique_id=1745339144]
-visible = false
 layout_mode = 1
 anchor_right = 0.062000003
 anchor_bottom = 0.106000006
@@ -129,38 +170,49 @@ offset_right = 810.0
 offset_bottom = 373.0
 texture_normal = ExtResource("7_2hliq")
 
+[node name="HSlider" type="HSlider" parent="ColorRect/audio" unique_id=1161898691]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 375.0
+offset_right = 824.0
+offset_bottom = 391.0
+
 [node name="Compatilhe" type="Control" parent="ColorRect" unique_id=762738083]
+visible = false
 anchors_preset = 0
-offset_left = 27.0
-offset_top = 37.0
-offset_right = 67.0
-offset_bottom = 77.0
+offset_left = 53.0
+offset_top = 54.0
+offset_right = 93.0
+offset_bottom = 94.0
 
 [node name="REDES" type="Label" parent="ColorRect/Compatilhe" unique_id=2053320677]
 layout_mode = 0
-offset_left = 144.0
-offset_top = 273.0
-offset_right = 410.0
-offset_bottom = 310.0
+offset_left = 172.0
+offset_top = 245.0
+offset_right = 475.0
+offset_bottom = 287.0
 text = "REDES SOCIAIS:"
 label_settings = SubResource("LabelSettings_d1c66")
 
-[node name="INSTA" type="Label" parent="ColorRect/Compatilhe/REDES" unique_id=988033387]
-layout_mode = 0
-offset_left = 363.0
-offset_top = -42.0
-offset_right = 708.0
-offset_bottom = -5.0
-text = "@BICHOSATOMICOS_"
-label_settings = SubResource("LabelSettings_71j7u")
+[node name="link_botao" type="TextureButton" parent="ColorRect/Compatilhe" unique_id=323018003]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 18.625
+anchor_top = 7.1120005
+anchor_right = 18.625
+anchor_bottom = 7.287
+offset_left = -222.0
+offset_top = -61.48001
+offset_right = 222.0
+offset_bottom = 54.51999
 
-[node name="LINK" type="Label" parent="ColorRect/Compatilhe/REDES" unique_id=1964537182]
+[node name="INSTA" type="Label" parent="ColorRect/Compatilhe" unique_id=988033387]
 layout_mode = 0
-offset_left = 422.0
-offset_top = 38.0
-offset_right = 788.0
-offset_bottom = 75.0
-text = "(link do jogo)"
+offset_left = 554.0
+offset_top = 241.0
+offset_right = 920.0
+offset_bottom = 278.0
+text = "@BICHOSATOMICOS_"
 label_settings = SubResource("LabelSettings_71j7u")
 
 [node name="BOTAO_VOLTAR" type="TextureButton" parent="ColorRect" unique_id=528903332]
@@ -207,10 +259,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.08400001
 anchor_bottom = 0.080000006
-offset_left = 525.0
-offset_top = 58.0
-offset_right = 568.224
-offset_bottom = 43.199997
+offset_left = 513.0
+offset_top = 56.0
+offset_right = 556.224
+offset_bottom = 41.199997
 text = "AUDIO"
 label_settings = SubResource("LabelSettings_dfhte")
 
@@ -225,3 +277,9 @@ offset_right = 929.224
 offset_bottom = 45.199997
 text = "COMPARTILHE"
 label_settings = SubResource("LabelSettings_dfhte")
+
+[connection signal="pressed" from="ColorRect/ElenmeyerOpt1/BOTAO_AUDIO" to="." method="ativar_tela_audio"]
+[connection signal="pressed" from="ColorRect/ElenmeyerOpt1/BOTAO_COMPARTILHE" to="." method="ativar_tela_compartilhe"]
+[connection signal="pressed" from="ColorRect/ElenmeyerOpt1/BOTAO_IMAGEM" to="." method="ativar_tela_imagem"]
+[connection signal="value_changed" from="ColorRect/audio/HSlider" to="." method="mudanca_de_valor_slider"]
+[connection signal="pressed" from="ColorRect/Compatilhe/link_botao" to="." method="acesar_link"]
