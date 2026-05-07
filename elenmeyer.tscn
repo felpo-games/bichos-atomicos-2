@@ -1,0 +1,227 @@
+[gd_scene load_steps=18 format=3 uid="uid://bdsa75mhnls2r"]
+
+[ext_resource type="Texture2D" uid="uid://csxhgdnqmmd30" path="res://UI/Janelas/fundo_opcoes.png" id="1_36m0o"]
+[ext_resource type="Texture2D" uid="uid://bh1b02q35o3au" path="res://UI/Janelas/elenmeyer_opt1.png" id="2_38c2g"]
+[ext_resource type="FontFile" uid="uid://dycml3x37dr0n" path="res://UI/Fontes/04B_30__.TTF" id="3_ycnnh"]
+[ext_resource type="Texture2D" uid="uid://bjjcviv1pbr7r" path="res://UI/Botões/button_voltar.png" id="5_54ra3"]
+[ext_resource type="Texture2D" uid="uid://b3tvr3xivpovl" path="res://UI/Botões/button_pressed_voltar.png" id="6_6bmsf"]
+[ext_resource type="Texture2D" uid="uid://bw6x0mo8geimk" path="res://UI/Janelas/desconhecido.png" id="9_u5dh3"]
+[ext_resource type="Texture2D" uid="uid://djkyvtwph20xx" path="res://UI/Janelas/Elenemeyer/moldura_elemento_C.png" id="10_ycnnh"]
+[ext_resource type="Texture2D" uid="uid://b8kaqmohyfe60" path="res://UI/Janelas/Elenemeyer/moldura_elemento_C_pressed.png" id="11_bc34h"]
+[ext_resource type="Texture2D" uid="uid://c7carlnyhojy1" path="res://UI/Janelas/Elenemeyer/moldura_elemento_H.png" id="12_sn8qg"]
+[ext_resource type="Texture2D" uid="uid://b51yl6eo0qays" path="res://UI/Janelas/Elenemeyer/moldura_elemento_H_pressed.png" id="13_gekhx"]
+[ext_resource type="Texture2D" uid="uid://d120hq0aubsym" path="res://UI/Janelas/Elenemeyer/moldura_elemento_O.png" id="14_1n2fo"]
+[ext_resource type="Texture2D" uid="uid://7h60sqtxbuc2" path="res://UI/Janelas/Elenemeyer/moldura_elemento_O_pressed.png" id="15_vaa7t"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ycnnh"]
+texture = ExtResource("1_36m0o")
+
+[sub_resource type="Theme" id="Theme_bc34h"]
+default_font = ExtResource("3_ycnnh")
+default_font_size = 35
+
+[sub_resource type="Theme" id="Theme_54ra3"]
+default_font = ExtResource("3_ycnnh")
+default_font_size = 23
+
+[sub_resource type="Theme" id="Theme_6bmsf"]
+default_font = ExtResource("3_ycnnh")
+default_font_size = 23
+
+[sub_resource type="Theme" id="Theme_2totg"]
+default_font = ExtResource("3_ycnnh")
+default_font_size = 23
+
+[node name="elenmeyer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_right = 151.0
+offset_bottom = 57.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 650.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ycnnh")
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="ElenmeyerOpt1" type="Sprite2D" parent="Panel/PanelContainer"]
+position = Vector2(573, 318)
+texture = ExtResource("2_38c2g")
+
+[node name="Titulo_Janela" type="RichTextLabel" parent="Panel/PanelContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme = SubResource("Theme_bc34h")
+bbcode_enabled = true
+text = "ELENMEYER"
+horizontal_alignment = 1
+
+[node name="AspectRC-Botoes" type="AspectRatioContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+ratio = 1.8357
+
+[node name="BoxContainer3" type="BoxContainer" parent="Panel/AspectRC-Botoes"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="VoltarButton" type="TextureButton" parent="Panel/AspectRC-Botoes/BoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("5_54ra3")
+texture_pressed = ExtResource("6_6bmsf")
+
+[node name="AspectRC-Elementos" type="AspectRatioContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.128
+anchor_top = 0.26200002
+anchor_right = 0.12900001
+anchor_bottom = 0.26200002
+offset_left = -21.712006
+offset_top = 3.9564667
+offset_right = 927.3903
+offset_bottom = 338.95645
+ratio = 1.9174
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/AspectRC-Elementos"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/AspectRC-Elementos/HBoxContainer"]
+position = Vector2(-32.005493, -41.75)
+scale = Vector2(0.7987076, 0.77371275)
+texture = ExtResource("9_u5dh3")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/AspectRC-Elementos"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/AspectRC-Elementos/HBoxContainer2"]
+position = Vector2(-32.005493, -41.75)
+scale = Vector2(0.7987076, 0.77371275)
+texture = ExtResource("9_u5dh3")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/AspectRC-Elementos"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/AspectRC-Elementos/HBoxContainer3"]
+position = Vector2(-32.005493, -41.75)
+scale = Vector2(0.7987076, 0.77371275)
+texture = ExtResource("9_u5dh3")
+
+[node name="AspectRC-BotoesElementos" type="AspectRatioContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.069000006
+anchor_top = 0.60300004
+anchor_right = 0.069000006
+anchor_bottom = 0.60300004
+offset_left = -0.47213745
+offset_top = -15.026886
+offset_right = 984.52783
+offset_bottom = 106.973114
+ratio = 6.0454
+
+[node name="ElementContainer_C" type="HBoxContainer" parent="Panel/AspectRC-BotoesElementos"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="C_Button" type="TextureButton" parent="Panel/AspectRC-BotoesElementos/ElementContainer_C"]
+layout_mode = 2
+texture_normal = ExtResource("10_ycnnh")
+texture_pressed = ExtResource("11_bc34h")
+
+[node name="ElementContainer_H" type="HBoxContainer" parent="Panel/AspectRC-BotoesElementos"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="h_Button" type="TextureButton" parent="Panel/AspectRC-BotoesElementos/ElementContainer_H"]
+layout_mode = 2
+texture_normal = ExtResource("12_sn8qg")
+texture_pressed = ExtResource("13_gekhx")
+
+[node name="ElementContainer_O" type="HBoxContainer" parent="Panel/AspectRC-BotoesElementos"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="O_Button" type="TextureButton" parent="Panel/AspectRC-BotoesElementos/ElementContainer_O"]
+layout_mode = 2
+texture_normal = ExtResource("14_1n2fo")
+texture_pressed = ExtResource("15_vaa7t")
+
+[node name="AspectRC-SubJanelas" type="AspectRatioContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 65.0
+offset_right = 1059.0
+offset_bottom = 114.0
+ratio = 10.0
+stretch_mode = 3
+
+[node name="HBC_Titulo1" type="HBoxContainer" parent="Panel/AspectRC-SubJanelas"]
+custom_minimum_size = Vector2(300, 0)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Elementos" type="Button" parent="Panel/AspectRC-SubJanelas/HBC_Titulo1"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme = SubResource("Theme_54ra3")
+text = "ELEMENTOS"
+flat = true
+icon_alignment = 1
+
+[node name="HBC_Titulo2" type="HBoxContainer" parent="Panel/AspectRC-SubJanelas"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Sintese" type="Button" parent="Panel/AspectRC-SubJanelas/HBC_Titulo2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_6bmsf")
+theme_override_colors/font_color = Color(0.15336114, 0.16541821, 0.22629684, 1)
+text = "SINTESE"
+flat = true
+
+[node name="HBC_Titulo3" type="HBoxContainer" parent="Panel/AspectRC-SubJanelas"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+alignment = 2
+
+[node name="Compostos" type="Button" parent="Panel/AspectRC-SubJanelas/HBC_Titulo3"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = SubResource("Theme_2totg")
+theme_override_colors/font_color = Color(0.16470589, 0.18039216, 0.24313726, 1)
+text = "COMPOSTOS
+"
+flat = true
