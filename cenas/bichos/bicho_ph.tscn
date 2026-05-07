@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dccejat5jnm0x" path="res://arte/felp/fogo eletrico.png" id="3_pn01w"]
 [ext_resource type="Texture2D" uid="uid://ddj41f08d6184" path="res://arte/felp/pocao.jpeg" id="4_swpu4"]
 [ext_resource type="Shader" uid="uid://c0mdkbdeehau5" path="res://cenas/script/efeitos/simples_shades.tres" id="7_swpu4"]
-[ext_resource type="PackedScene" uid="uid://efn32bajtgl1" path="res://cenas/efeitos/animacao_de_fogo.tscn" id="8_2g0cs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0swi"]
 resource_name = "peroxido_textura"
@@ -587,6 +586,12 @@ _data = {
 &"walk_Pl": SubResource("Animation_hx080")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_2g0cs"]
+radius = 9.751328
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dooiq"]
+size = Vector3(2.562439, 4.500244, 2.0357056)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_swpu4"]
 transparency = 1
 albedo_texture = ExtResource("3_pn01w")
@@ -763,11 +768,25 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1
 [node name="RayCast3D" type="RayCast3D" parent="sistema_de_ataque" unique_id=2403102]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34027958, 0)
 
+[node name="Timer" type="Timer" parent="sistema_de_ataque" unique_id=115750196]
+wait_time = 5.0
+one_shot = true
+
+[node name="Area_visao" type="Area3D" parent="sistema_de_ataque" unique_id=2083866291]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sistema_de_ataque/Area_visao" unique_id=376908377]
+shape = SubResource("SphereShape3D_2g0cs")
+
+[node name="Area_vida" type="Area3D" parent="sistema_de_ataque" unique_id=1554317029]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sistema_de_ataque/Area_vida" unique_id=498568556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09561157, 1.7501221, -0.0030822754)
+shape = SubResource("BoxShape3D_dooiq")
+
 [node name="imagem" type="Node3D" parent="." unique_id=1464803043]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.000963, 0)
 
 [node name="fogo" type="Sprite3D" parent="imagem" unique_id=389750528]
-visible = false
 texture = ExtResource("2_preqx")
 
 [node name="eletrizidade" type="Sprite3D" parent="imagem" unique_id=529941750]
@@ -802,13 +821,6 @@ amount = 3
 process_material = SubResource("ParticleProcessMaterial_dooiq")
 draw_pass_1 = SubResource("QuadMesh_kfy8d")
 
-[node name="animacao de fogo" parent="efeitos/fogo" unique_id=1110363027 instance=ExtResource("8_2g0cs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9845445, 2.4808168, 0)
-
-[node name="animacao de fogo2" parent="efeitos/fogo" unique_id=1122842892 instance=ExtResource("8_2g0cs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1548674, 2.4808168, 0)
-
-[connection signal="anim_fogo" from="." to="efeitos/fogo/animacao de fogo" method="_on_bicho_ph_anim_fogo"]
-[connection signal="anim_fogo" from="." to="efeitos/fogo/animacao de fogo2" method="_on_bicho_ph_anim_fogo"]
-[connection signal="parar_fogo" from="." to="efeitos/fogo/animacao de fogo" method="_on_bicho_ph_parar_fogo"]
-[connection signal="parar_fogo" from="." to="efeitos/fogo/animacao de fogo2" method="_on_bicho_ph_parar_fogo"]
+[connection signal="timeout" from="sistema_de_ataque/Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="sistema_de_ataque/Area_visao" to="." method="_on_area_visao_body_entered"]
+[connection signal="area_entered" from="sistema_de_ataque/Area_vida" to="." method="_on_area_vida_area_entered"]

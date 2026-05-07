@@ -7,7 +7,7 @@ enum estado {normal, batalhando, morto}
 var state = estado.normal
 
 # MOVIMENTO
-var SPEED = 5.0
+var SPEED = 15.0
 @export var rotation_speed = 10.0
 
 @export var bala_cena:PackedScene
@@ -43,16 +43,16 @@ func _physics_process(delta: float) -> void:
 		atirar()
 	
 	# dash
-	if Input.is_action_just_pressed("dash"): 
-		pass
+	#if Input.is_action_just_pressed("dash"): 
+		#pass
 
 	if eventos_global.numa_tela == false:
 		
-		# GRAVIDADE
+		
 		if not is_on_floor() and not is_dashing:
 			velocity.y -= gravity * delta
 
-		# 🚨 AQUI ESTÁ A CORREÇÃO
+		
 		if not em_knockback:
 			
 			var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
@@ -77,26 +77,26 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 
-func start_dash():
-	if is_dashing or dash_em_cooldown or em_knockback:
-		return
-	
-	is_dashing = true
-	dash_em_cooldown = true
-	dash_timer = dash_duration
-	
-	var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
-	var dash_dir : Vector3
-	
-	if input_dir.length() > 0:
-		dash_dir = Vector3(input_dir.x, 0, input_dir.y).normalized()
-	else:
-		dash_dir = -$body.global_transform.basis.z 
-
-	velocity = dash_dir * dash_speed
-	
-	await get_tree().create_timer(dash_cooldown).timeout
-	dash_em_cooldown = false
+#func start_dash():
+	#if is_dashing or dash_em_cooldown or em_knockback:
+		#return
+	#
+	#is_dashing = true
+	#dash_em_cooldown = true
+	#dash_timer = dash_duration
+	#
+	#var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
+	#var dash_dir : Vector3
+	#
+	#if input_dir.length() > 0:
+		#dash_dir = Vector3(input_dir.x, 0, input_dir.y).normalized()
+	#else:
+		#dash_dir = -$body.global_transform.basis.z 
+#
+	#velocity = dash_dir * dash_speed
+	#
+	#await get_tree().create_timer(dash_cooldown).timeout
+	#dash_em_cooldown = false
 
 
 func receber_knockback(forca: Vector3):
@@ -131,3 +131,7 @@ func dano():
 func morrer():
 	get_tree().change_scene_to_file("res://cenas/gameover.tscn")
 	pass # Replace with function body.
+
+func iniciar_batalha():
+	
+	pass

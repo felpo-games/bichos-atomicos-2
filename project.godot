@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 laboratorio_global="*uid://b5rywhkr8wb14"
 eventos_global="*uid://d4e0rum8c7hxu"
 dados_player="*uid://21wc6ksutpx4"
+DadosInimigos="*uid://bbs5m2bm56aj7"
 
 [display]
 

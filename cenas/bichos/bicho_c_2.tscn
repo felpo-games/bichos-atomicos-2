@@ -828,6 +828,12 @@ _data = {
 [node name="bicho_c2" type="CharacterBody3D" unique_id=428746475]
 script = ExtResource("1_gpf66")
 "queméessebicho" = ["c", "o", "h"]
+speed = null
+fraqueza = null
+forca_knockback = null
+forca_vertical = null
+tempo_knockback = null
+reaparecer = null
 tempo_renascer = 30.0
 
 [node name="crecimento" type="Node3D" parent="." unique_id=2146030183]

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://txlq5k4v3idt"]
+
+[ext_resource type="PackedScene" uid="uid://b3f5gfckhgp85" path="res://arte/felp/blogagem.glb" id="1_ojl74"]
+[ext_resource type="Texture2D" uid="uid://1d1cfugon77i" path="res://arte/felp/blogagem_190fcb46-414c-4f6f-9f84-8134fe486aa3.png" id="2_qljob"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_io3nd"]
+albedo_texture = ExtResource("2_qljob")
+
+[node name="blogagem" unique_id=1838888856 instance=ExtResource("1_ojl74")]
+
+[node name="Cube" parent="." index="0" unique_id=1347565041]
+material_override = SubResource("StandardMaterial3D_io3nd")

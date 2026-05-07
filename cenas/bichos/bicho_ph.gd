@@ -3,12 +3,14 @@ extends Node3D
 enum estado  {conversa, batalhando, morto}
 var state = estado.conversa
 
-enum ataque  {fogo, pocao, eletrizidade}
+enum ataque  {fogo, pocao, eletrizidade, nulo}
+var receber_dano = ataque.nulo
+
+var player_pos
 
 # fogo
 signal anim_fogo
 signal parar_fogo
-@onready var fogo: Sprite3D = $imagem/fogo
 
 @export var cena_fogo: PackedScene
 @export var cena_aviso: PackedScene
@@ -16,56 +18,99 @@ signal parar_fogo
 @export var raio_spawn = 5.0
 
 # raio
-@onready var eletricidade: Sprite3D = $imagem/eletrizidade
+var direcao_dash = Vector3.ZERO
+var velocidade_dash = 10.0
+var tempo_dash = 1.0
+var dash_ativo = false
 
+# batalha
 
+@onready var timer: Timer = $sistema_de_ataque/Timer
+var vida = 10
 
 
 func _ready() -> void:
-	await get_tree().process_frame
-	ataque_de_fogo()
 	pass 
 
 
 
 func _process(delta: float) -> void:
+	if dash_ativo:
+		global_position += direcao_dash * velocidade_dash * delta
 	match state:
 		estado.conversa:
 			
 			pass
 		estado.batalhando:
-			
+				
+				
 			pass
 		estado.morto:
 			
 			pass
+	
 	pass
 
 
 func ataque_():
-	
+	print("batalhar")
+	var escolha = randi() % 2
+	state = estado.batalhando
+	if escolha == 0:
+		ataque_de_fogo()
+	else:
+		estado_eletrico()
 	pass
 
 
 
 
 func ataque_de_fogo():
+	$efeitos/fogo/GPUParticles3D.emitting = true
+	$efeitos/raio/GPUParticles3D.emitting = false
+	print("uuuuu")
+	receber_dano = ataque.fogo
 	emit_signal("anim_fogo")
 	$pivod/AnimationPlayer.play("attack2_PH")
 	$imagem/fogo.visible = true
 	spawnar_fogo()
+	$imagem/fogo.visible = true
+	$imagem/pocao.visible = false
+	$imagem/eletrizidade.visible = false
 	
+	await spawnar_fogo()
+	estado_cansado()
 	pass
 
 
 func estado_eletrico():
+	$efeitos/fogo/GPUParticles3D.emitting = false
+	$efeitos/raio/GPUParticles3D.emitting = true
+	print("uiii")
+	receber_dano = ataque.eletrizidade
 	$efeitos/raio/GPUParticles3D.emitting = true
 	$pivod/AnimationPlayer.play("attack2_PH")
 	
+	$imagem/fogo.visible = false
+	$imagem/pocao.visible = false
+	$imagem/eletrizidade.visible = true
+	
+	iniciar_dash()
+	
+	await iniciar_dash()
+	estado_cansado()
 	pass
 
-func estado_normal():
-	
+func estado_cansado():
+	$efeitos/fogo/GPUParticles3D.emitting = false
+	$efeitos/raio/GPUParticles3D.emitting = false
+	print("cansei")
+	receber_dano = ataque.pocao
+	$pivod/AnimationPlayer.stop()
+	$imagem/fogo.visible = false
+	$imagem/pocao.visible = true
+	$imagem/eletrizidade.visible = false
+	$sistema_de_ataque/Timer.start()
 	pass
 
 
@@ -116,3 +161,59 @@ func mostrar_aviso(pos):
 	get_tree().current_scene.add_child(aviso)
 	
 	return aviso
+
+func iniciar_dash():
+	if player_pos == null:
+		return
+
+	var direcao = (player_pos.global_position - global_position)
+	direcao.y = 0
+	direcao_dash = direcao.normalized()
+
+	dash_ativo = true
+
+	await get_tree().create_timer(tempo_dash).timeout
+	dash_ativo = false
+
+
+func _on_timer_timeout() -> void:
+	ataque_()
+	pass # Replace with function body.
+
+
+
+
+func _on_area_vida_area_entered(area: Area3D) -> void:
+	match receber_dano:
+		ataque.fogo:
+			if area.is_in_group("ataque_agua") and receber_dano == ataque.fogo:
+				tomar_dano()
+			pass
+		ataque.eletrizidade:
+			if area.is_in_group("ataque_dc") and receber_dano == ataque.eletrizidade :
+				tomar_dano()
+			pass
+		ataque.pocao:
+			if area.is_in_group("ataque_player") and receber_dano == ataque.pocao:
+				tomar_dano()
+			pass
+		ataque.nulo:
+			pass
+	pass # Replace with function body.
+
+func tomar_dano():
+	vida -= 1
+	if vida <= 0:
+		eventos_global.batalha = false
+		queue_free()
+		state = estado.morto
+	pass
+
+
+func _on_area_visao_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		DadosInimigos.inimigo_atual = self
+		eventos_global.batalha = true
+		player_pos = body
+		ataque_()
+	pass # Replace with function body.

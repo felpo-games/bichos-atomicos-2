@@ -1715,7 +1715,7 @@ script = ExtResource("1_f8x35")
 bala_cena = ExtResource("2_by070")
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1412334786]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8532226)
+transform = Transform3D(-0.99722815, 0, 0.07440447, 0, 1, 0, -0.07440447, 0, -0.99722815, 0, 1.0263585, 1.0903065)
 
 [node name="pivod" type="Node3D" parent="." unique_id=2114500533]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.106506795, 0)

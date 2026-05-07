@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dl7em3ubuelef"]
+
+[ext_resource type="Script" uid="uid://dpykoa2rgy8j0" path="res://cenas/script/telas/ui_inimigos.gd" id="1_bekju"]
+[ext_resource type="Texture2D" uid="uid://dsjy4rrbmdv0p" path="res://arte/felp/fogo.png" id="2_ggdsp"]
+[ext_resource type="Texture2D" uid="uid://dccejat5jnm0x" path="res://arte/felp/fogo eletrico.png" id="3_gcxxc"]
+[ext_resource type="Texture2D" uid="uid://dp51bbjccbd3n" path="res://arte/felp/pocao.png" id="4_gcxxc"]
+
+[node name="ui_inimigos" type="Control" unique_id=1938463550]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bekju")
+img_fogo = ExtResource("2_ggdsp")
+img_raio = ExtResource("3_gcxxc")
+img_normal = ExtResource("4_gcxxc")
+
+[node name="Label" type="Label" parent="." unique_id=607500470]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 16.0
+offset_right = 1077.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 30
+text = "vida do inimigo"
+
+[node name="fraqueza" type="TextureRect" parent="." unique_id=1411168360]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 139.0
+offset_right = 1128.0
+offset_bottom = 267.0
+texture = ExtResource("2_ggdsp")
+
+[node name="TextureProgressBar" type="ProgressBar" parent="." unique_id=1217478998]
+layout_mode = 0
+offset_left = 843.0
+offset_top = 72.0
+offset_right = 1117.0
+offset_bottom = 112.0
+max_value = 10.0
