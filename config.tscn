@@ -156,19 +156,9 @@ text = "MUSICA:"
 label_settings = SubResource("LabelSettings_63hsu")
 
 [node name="BarraVolume" type="Sprite2D" parent="ColorRect/audio" unique_id=418586851]
+visible = false
 position = Vector2(588, 389)
 texture = ExtResource("6_1orqb")
-
-[node name="VOLUME" type="TextureButton" parent="ColorRect/audio" unique_id=1330407890]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 790.0
-offset_top = 373.0
-offset_right = 810.0
-offset_bottom = 373.0
-texture_normal = ExtResource("7_2hliq")
 
 [node name="HSlider" type="HSlider" parent="ColorRect/audio" unique_id=1161898691]
 layout_mode = 0
@@ -176,6 +166,10 @@ offset_left = 356.0
 offset_top = 375.0
 offset_right = 824.0
 offset_bottom = 391.0
+theme_override_icons/grabber = ExtResource("7_2hliq")
+theme_override_icons/grabber_highlight = ExtResource("4_2hliq")
+theme_override_icons/grabber_disabled = ExtResource("4_2hliq")
+theme_override_icons/tick = ExtResource("6_1orqb")
 
 [node name="Compatilhe" type="Control" parent="ColorRect" unique_id=762738083]
 visible = false
