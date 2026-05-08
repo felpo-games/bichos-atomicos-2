@@ -2,75 +2,164 @@ extends Control
 
 signal batalhar
 signal acertou
-signal capturou_oxigenio
 
-@export var tela_dialogo: CanvasLayer
-@export var respostas: Array[String]
-@export var resposta_correta: String
+@export var resposta_correta : String = "Quatro ligações."
 
-func _ready() -> void:
+@export var respostas := [
+	"Duas ligações.",
+	"Quatro ligações.",
+	"Nenhuma, já sou estável."
+]
+
+var etapa = 0
+
+@onready var texto_dialogo = $texto
+@onready var botao_continuar = $ButtonContinuar
+
+@onready var botao1 = $CanvasLayer/GridContainer/Button_respostas
+@onready var botao2 = $CanvasLayer/GridContainer/Button_respostas2
+@onready var botao3 = $CanvasLayer/GridContainer/Button_respostas3
+
+
+func _ready():
+
 	sair()
-	var respostas_embaralhadas = respostas.duplicate()
-	respostas_embaralhadas.shuffle()
-	$CanvasLayer/GridContainer/Button_respostas.text = respostas_embaralhadas[0]
-	$CanvasLayer/GridContainer/Button_respostas2.text = respostas_embaralhadas[1]
-	$CanvasLayer/GridContainer/Button_respostas3.text = respostas_embaralhadas[2]
-	pass # Replace with function body.
 
+	configurar_respostas()
 
-func _process(delta: float) -> void:
-	
-	pass
+	esconder_respostas()
 
-func _on_button_sair_pressed() -> void:
-	sair()
-	pass 
 
 func aparecer():
-	eventos_global.numa_tela = true
+
 	show()
 	$CanvasLayer.visible = true
-	pass
+
+	etapa = 0
+
+	proxima_fala()
+
 
 func sair():
+
 	hide()
 	$CanvasLayer.visible = false
-	eventos_global.numa_tela = false
-	pass
 
 
+func proxima_fala():
+
+	# PRIMEIRA FALA DO CARBONO
+	if etapa == 0:
+
+		texto_dialogo.text = """
+Carbono:
+
+" Ora, ora. Um pequeno invasor com ferramentas velhas.
+
+Você acha que só porque carrega esse Erlenmeyer pode ditar as regras da química?
+
+O velho tentou me prender com essa exata mesma teoria antes de tudo ir pelos ares."
+"""
+
+		botao_continuar.text = '"Por favor, me deixe passar."'
+
+	# SEGUNDA FALA
+	elif etapa == 1:
+
+		texto_dialogo.text = """
+Carbono:
+
+" Não sem antes responder minha pergunta!
+
+Responda:
+
+OLHANDO PARA MIM e sabendo que eu sou a base da vida nesta floresta...
+
+quantas ligações químicas eu preciso fazer para alcançar minha estabilidade plena?"
+"""
+
+		botao_continuar.hide()
+
+		mostrar_respostas()
 
 
-func _on_button_sair_mouse_entered() -> void:
-	sair()
-	pass # Replace with function body.
+func configurar_respostas():
+
+	var respostas_embaralhadas = respostas.duplicate()
+
+	respostas_embaralhadas.shuffle()
+
+	botao1.text = respostas_embaralhadas[0]
+	botao2.text = respostas_embaralhadas[1]
+	botao3.text = respostas_embaralhadas[2]
+
+
+func esconder_respostas():
+
+	$CanvasLayer/GridContainer.hide()
+
+
+func mostrar_respostas():
+
+	$CanvasLayer/GridContainer.show()
 
 
 func verificar_resposta(botao: Button):
-	if botao.text.strip_edges().to_lower() == resposta_correta.strip_edges().to_lower():
+
+	esconder_respostas()
+
+	if botao.text == resposta_correta:
+
+		texto_dialogo.text = """
+Carbono:
+
+"Hmph. Pura sorte.
+
+Você tem a teoria...
+vamos ver se tem a prática."
+"""
+
 		acertou.emit()
+
 	else:
+
+		texto_dialogo.text = """
+Carbono:
+
+"IGNORANTE!"
+"""
+
+		modulate = Color(1, 0.3, 0.3)
+
+		await get_tree().create_timer(1.0).timeout
+
 		batalhar.emit()
-	
+
+	await get_tree().create_timer(2.0).timeout
+
 	sair()
 
-func _on_button_respostas_pressed() -> void:
-	verificar_resposta($CanvasLayer/GridContainer/Button_respostas)
 
-	pass # Replace with function body.
+func _on_button_continuar_pressed():
 
+	etapa += 1
 
-func _on_button_respostas_2_pressed() -> void:
-	verificar_resposta($CanvasLayer/GridContainer/Button_respostas2)
-
-	pass # Replace with function body.
+	proxima_fala()
 
 
-func _on_button_respostas_3_pressed() -> void:
-	verificar_resposta($CanvasLayer/GridContainer/Button_respostas3)
-	pass # Replace with function body.
+func _on_button_respostas_pressed():
+
+	verificar_resposta(botao1)
 
 
-func _on_bicho_c_2_conversa() -> void:
+func _on_button_respostas_2_pressed():
+
+	verificar_resposta(botao2)
+
+
+func _on_button_respostas_3_pressed():
+
+	verificar_resposta(botao3)
+
+func _on_bicho_c_2_conversa() -> void: 
 	aparecer()
-	pass # Replace with function body.

@@ -872,7 +872,7 @@ transform = Transform3D(0.50000006, 0, 0, 0, 0.5, 0, 0, 0, 0.50000006, 1.5, 0.44
 transform = Transform3D(0.50000006, 0, 0, 0, 0.5, 0, 0, 0, 0.50000006, -1.4997356, 0.44, 0)
 
 [node name="Marker3D" type="Marker3D" parent="body" unique_id=940710450]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 1.1336591)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.29054737, 1.1336591)
 
 [node name="pivod" type="Node3D" parent="body" unique_id=1186250388]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.9842632, 0)
@@ -979,7 +979,7 @@ skeleton = NodePath("..")
 libraries/ = SubResource("AnimationLibrary_asbux")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=217648361]
-transform = Transform3D(0.70710677, 0.49999997, -0.5, 0, 0.7071068, 0.70710677, 0.70710677, -0.49999997, 0.5, -3.8289208, 5.893285, 3.240574)
+transform = Transform3D(0.7071068, 0.49999997, -0.5, 0, 0.7071068, 0.70710677, 0.7071068, -0.49999997, 0.5, -3.8289208, 10.855367, 10.460821)
 rotation_order = 3
 
 [node name="sistema_vida" type="Node3D" parent="." unique_id=1277443864]

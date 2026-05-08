@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bprq4uurg7e8o"]
+
+[ext_resource type="Script" uid="uid://nhxfbwi0e1p0" path="res://cenas/telas/diario.gd" id="1_fwm0b"]
+[ext_resource type="Texture2D" uid="uid://omegs4civp3m" path="res://arte/vlad/satanas atomico/satanas atomico/c.png" id="1_nyue8"]
+
+[node name="diario" type="Control" unique_id=1448515958]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fwm0b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1601107456]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(1, 1, 0.36078432, 0.24705882)
+
+[node name="Button_proximapagina" type="Button" parent="." unique_id=881147439]
+layout_mode = 0
+offset_left = 1023.0
+offset_top = 500.0
+offset_right = 1125.0
+offset_bottom = 625.0
+text = "=>"
+
+[node name="Button_sair" type="Button" parent="." unique_id=1336288414]
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 78.0
+text = "sair"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=621857905]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 231.0
+offset_right = 850.0
+offset_bottom = 623.0
+theme_override_font_sizes/normal_font_size = 30
+text = "textoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+
+[node name="Label_nome" type="Label" parent="." unique_id=1102797106]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 34.0
+offset_right = 693.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 70
+text = "criatura"
+
+[node name="TextureRect_imagem" type="TextureRect" parent="." unique_id=1188839530]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 14.0
+offset_right = 3863.0
+offset_bottom = 3098.0
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("1_nyue8")
+
+[connection signal="pressed" from="Button_proximapagina" to="." method="_on_button_proximapagina_pressed"]
+[connection signal="pressed" from="Button_sair" to="." method="_on_button_sair_pressed"]
