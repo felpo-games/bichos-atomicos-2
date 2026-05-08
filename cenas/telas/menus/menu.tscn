@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bp7afts2xbulq"]
 
+[ext_resource type="Script" uid="uid://cvwln0yureci7" path="res://cenas/telas/menus/menu.gd" id="1_galh6"]
 [ext_resource type="PackedScene" uid="uid://fqfjexqbgscf" path="res://cenas/but/butão_menu.tscn" id="1_txs5f"]
 [ext_resource type="Texture2D" uid="uid://detg3ekr0c7oq" path="res://arte/Nova pasta/Botões/Botões/button_play.png" id="1_wrun1"]
 [ext_resource type="Texture2D" uid="uid://rs7a865360h1" path="res://arte/Nova pasta/Botões/Botões/button_pressed_play.png" id="2_txs5f"]
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_galh6")
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=1797381921]
 layout_mode = 0

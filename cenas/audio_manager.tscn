@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://diclaqk7fiyc0"]
+
+[ext_resource type="AudioStream" uid="uid://iyljm67xvxl4" path="res://AUDIOHUDS/gameover_som.wav" id="1_2p41f"]
+[ext_resource type="AudioStream" uid="uid://bpilmt7ol7ofr" path="res://SFX/UI_popup.wav" id="2_22nab"]
+[ext_resource type="AudioStream" uid="uid://bpobnb6s4wh35" path="res://SFX/UI_navegação.wav" id="3_g064v"]
+[ext_resource type="AudioStream" uid="uid://c24r38i5ute2a" path="res://SFX/UI_sintetizando.wav" id="4_ail2f"]
+[ext_resource type="AudioStream" uid="uid://bw3sq7cqp8rnv" path="res://SFX/UI_Confirmar.wav" id="5_0u360"]
+[ext_resource type="AudioStream" uid="uid://xjylrgp23yde" path="res://AUDIOHUDS/musica_menu.wav" id="6_g064v"]
+[ext_resource type="AudioStream" uid="uid://btjirn70d5iah" path="res://AUDIOHUDS/musica_gameplay.wav" id="7_ail2f"]
+
+[node name="AudioManager" type="Node" unique_id=1329495005]
+
+[node name="SFXGameOver" type="AudioStreamPlayer" parent="." unique_id=413521421]
+stream = ExtResource("1_2p41f")
+
+[node name="SFXpop_up" type="AudioStreamPlayer" parent="." unique_id=1733333475]
+stream = ExtResource("2_22nab")
+
+[node name="SFXnavegacao" type="AudioStreamPlayer" parent="." unique_id=675475624]
+stream = ExtResource("3_g064v")
+
+[node name="SFXcancelar_voltar" type="AudioStreamPlayer" parent="." unique_id=429788371]
+
+[node name="SFXsintetizar_compostos" type="AudioStreamPlayer" parent="." unique_id=1397121183]
+stream = ExtResource("4_ail2f")
+
+[node name="SFXconfirmar" type="AudioStreamPlayer" parent="." unique_id=1788038932]
+stream = ExtResource("5_0u360")
+
+[node name="MusicaMenu" type="AudioStreamPlayer" parent="." unique_id=888923822]
+stream = ExtResource("6_g064v")
+
+[node name="MusicaGameplay" type="AudioStreamPlayer" parent="." unique_id=2006015199]
+stream = ExtResource("7_ail2f")

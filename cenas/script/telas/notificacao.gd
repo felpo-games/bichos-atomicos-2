@@ -7,6 +7,7 @@ extends Control
 func mostrar_notificacao(nome: String, textura: Texture2D):
 	print(textura)
 	$AnimationPlayer.play("new_animation")
+	AudioManager.get_node("SFXpop_up").play()
 	imagem.texture = textura
 	texto.text = "Você conseguiu um %s!" % nome
 	

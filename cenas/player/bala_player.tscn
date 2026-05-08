@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://covmsy6ki3nek"]
 
 [ext_resource type="Script" uid="uid://bn8jengkvj188" path="res://cenas/script/player/bala_player.gd" id="1_yl50q"]
+[ext_resource type="AudioStream" uid="uid://cigbjkl0waib6" path="res://SFX/arremesso_erlenmeyer.wav" id="2_y0kkr"]
+[ext_resource type="AudioStream" uid="uid://usx6maahrrfe" path="res://SFX/dano_do_erlenmeyer.wav" id="3_faadu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yl50q"]
 
@@ -14,6 +16,13 @@ shape = SubResource("SphereShape3D_yl50q")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1646006476]
 mesh = SubResource("SphereMesh_rkdp2")
+
+[node name="Sfxlancamento" type="AudioStreamPlayer3D" parent="." unique_id=429028730]
+stream = ExtResource("2_y0kkr")
+autoplay = true
+
+[node name="SfxImpacto" type="AudioStreamPlayer3D" parent="." unique_id=352815347]
+stream = ExtResource("3_faadu")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
