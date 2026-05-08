@@ -766,8 +766,8 @@ _data = {
 margin = 0.0
 size = Vector3(0.5198364, 1.6842957, 0.79434204)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3t3t1"]
-size = Vector3(1.341, 1.0392656, 1.527)
+[sub_resource type="SphereShape3D" id="SphereShape3D_gpf66"]
+radius = 1.0761832
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hr657"]
 radius = 1.3675228
@@ -929,7 +929,7 @@ debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=199239861]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3223672, 0)
-shape = SubResource("BoxShape3D_3t3t1")
+shape = SubResource("SphereShape3D_gpf66")
 
 [node name="AreaConversa" type="Area3D" parent="." unique_id=786362242]
 

@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://c0mdkbdeehau5" path="res://cenas/script/efeitos/simples_shades.tres" id="3_88pf3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bnu6m"]
-size = Vector3(2.290985, 2.3339233, 2.5124512)
+size = Vector3(2.290985, 5.471649, 2.5124512)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bnu6m"]
 render_priority = 0
@@ -49,10 +49,10 @@ script = ExtResource("1_w6slb")
 billboard = 2
 texture = ExtResource("2_88pf3")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1439848205]
+[node name="Area3D" type="Area3D" parent="." unique_id=1439848205 groups=["ataque_bicho"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1607302856]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.097579956, 0.66696167, 0.15930176)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.097579956, 2.2358246, 0.15930176)
 shape = SubResource("BoxShape3D_bnu6m")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1389883489]

@@ -984,7 +984,7 @@ rotation_order = 3
 
 [node name="sistema_vida" type="Node3D" parent="." unique_id=1277443864]
 
-[node name="Area_dano" type="Area3D" parent="sistema_vida" unique_id=2011578690]
+[node name="Area_dano" type="Area3D" parent="sistema_vida" unique_id=2011578690 groups=["player"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sistema_vida/Area_dano" unique_id=1793060139]
 shape = SubResource("CapsuleShape3D_d4u85")

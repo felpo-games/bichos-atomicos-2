@@ -7,8 +7,8 @@ void fragment() {
     vec4 cor = texture(screen_texture, SCREEN_UV);
 
     vec3 cor_quente = vec3(
-        cor.r * 1.02,
-        cor.g * 1.01,
+        cor.r * 1.2,
+        cor.g * 1.2,
         cor.b * 0.8
     );
 

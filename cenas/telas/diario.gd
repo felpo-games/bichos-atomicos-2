@@ -40,7 +40,7 @@ func _ready():
 	atualizar_diario()
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interacao"):
+	if Input.is_action_just_pressed("diario"):
 		eventos_global.numa_tela = true
 		show()
 		atualizar_diario()

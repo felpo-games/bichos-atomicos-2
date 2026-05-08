@@ -34,6 +34,7 @@
 [ext_resource type="Script" uid="uid://bwjvtpctiq7sn" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="22_lg0kn"]
 [ext_resource type="Script" uid="uid://5ahvba2vb4th" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="23_gynid"]
 [ext_resource type="Script" uid="uid://brbtiyaqrbvlg" path="res://addons/proton_scatter/src/scatter_item.gd" id="24_mjidp"]
+[ext_resource type="Script" uid="uid://cpxdb6oe7k6bw" path="res://cenas/feses/fogo_obstaculo.gd" id="24_wlnao"]
 [ext_resource type="Script" uid="uid://r2q8o1ditgup" path="res://addons/proton_scatter/src/scatter_shape.gd" id="25_2khhj"]
 [ext_resource type="Script" uid="uid://dmjx8g0p0xn8q" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="26_031u1"]
 [ext_resource type="PackedScene" uid="uid://dyphkfe8asawa" path="res://cenas/coletaveis/pagina_do_diario.tscn" id="37_wlnao"]
@@ -51,46 +52,49 @@ ambient_light_source = 3
 reflected_light_source = 2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rmu0y"]
-radius = 7.320535
+radius = 19.946926
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8l63c"]
 shader = ExtResource("15_b4grr")
 shader_parameter/intensidade = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vb2yy"]
-size = Vector3(65.2415, 8.291626, 12.570129)
+size = Vector3(65.2415, 8.291626, 26.465836)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lnt5l"]
+size = Vector3(86.25282, 15.723511, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u5hjb"]
-size = Vector3(34.796753, 12.025513, 12.948944)
+size = Vector3(34.796753, 12.025513, 24.604477)
 
-[sub_resource type="Resource" id="Resource_lnt5l"]
+[sub_resource type="Resource" id="Resource_wlnao"]
 script = ExtResource("20_8l63c")
 amount = 50
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_wlnao"]
+[sub_resource type="Resource" id="Resource_3qe05"]
 script = ExtResource("21_ob45n")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(10, 100, 0)
 scale = Vector3(1.5, 0.1, 0.1)
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_3qe05"]
+[sub_resource type="Resource" id="Resource_5khuk"]
 script = ExtResource("22_lg0kn")
 offset_step = 0.2
 consecutive_step_multiplier = 0.75
 restrict_height = true
 
-[sub_resource type="Resource" id="Resource_5khuk"]
+[sub_resource type="Resource" id="Resource_1hi1d"]
 script = ExtResource("23_gynid")
 ray_length = 5.0
 ray_offset = 5.0
 remove_points_on_miss = false
 
-[sub_resource type="Resource" id="Resource_1hi1d"]
+[sub_resource type="Resource" id="Resource_h1cmy"]
 script = ExtResource("18_tim8w")
-stack = Array[ExtResource("19_b4grr")]([SubResource("Resource_lnt5l"), SubResource("Resource_wlnao"), SubResource("Resource_3qe05"), SubResource("Resource_5khuk")])
+stack = Array[ExtResource("19_b4grr")]([SubResource("Resource_wlnao"), SubResource("Resource_3qe05"), SubResource("Resource_5khuk"), SubResource("Resource_1hi1d")])
 
 [sub_resource type="Resource" id="Resource_re6xn"]
 script = ExtResource("26_031u1")
@@ -102,7 +106,7 @@ metadata/_custom_type_script = "uid://dmjx8g0p0xn8q"
 [node name="blocagem" type="Node3D" parent="." unique_id=1018792614]
 
 [node name="blogagem_1" parent="blocagem" unique_id=1832851319 instance=ExtResource("1_1efgt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05529785, -1.0535889, -68.053894)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10222626, -0.96635246, -68.12547)
 
 [node name="decoração da area d carbono" type="Node3D" parent="blocagem" unique_id=1523680775]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.42557, 0, -229.10681)
@@ -197,7 +201,7 @@ transform = Transform3D(-2.2562599e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, 
 [node name="personagem" type="Node3D" parent="." unique_id=932227546]
 
 [node name="player" parent="personagem" unique_id=1822486866 instance=ExtResource("1_1c7ow")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.1043701, 0.23167133, 21.659058)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.1043701, 0.23167133, 1.6637878)
 
 [node name="efeitos" type="Node3D" parent="." unique_id=1522335302]
 
@@ -211,7 +215,7 @@ shadow_enabled = true
 [node name="bichos" type="Node3D" parent="." unique_id=9806684]
 
 [node name="bicho_c2" parent="bichos" unique_id=428746475 instance=ExtResource("9_qjydo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115.22098, 2.6285954, -229.98473)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115.22098, 3.5070648, -229.98473)
 speed = 3.0
 fraqueza = "pocao"
 forca_knockback = 15.0
@@ -220,21 +224,23 @@ tempo_knockback = 1.0
 reaparecer = true
 
 [node name="area_h" parent="bichos" unique_id=187279684 instance=ExtResource("13_h4ygu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.62488, 0, -1.949851)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 133.20277, 0, -11.101296)
 
 [node name="bicho_h" parent="bichos/area_h" unique_id=1122094937 instance=ExtResource("3_e5vpm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91381073, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.91381073, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bichos/area_h" unique_id=1981042974]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_rmu0y")
 
 [node name="area_h2" parent="bichos" unique_id=2145989643 instance=ExtResource("13_h4ygu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135.74265, 0, -6.222603)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -130.83383, 0, -10.1134205)
 
 [node name="bicho_h" parent="bichos/area_h2" unique_id=7474898 instance=ExtResource("3_e5vpm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91381073, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.91381073, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bichos/area_h2" unique_id=207247854]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_rmu0y")
 
 [node name="bicho_o" parent="bichos" unique_id=1814063333 instance=ExtResource("7_7uoum")]
@@ -246,7 +252,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.50658, 1.5029488, -230.38
 icon = ExtResource("10_h4ygu")
 
 [node name="bicho_o2" parent="bichos" unique_id=1549283805 instance=ExtResource("7_7uoum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2433052, 1.5029488, -9.597914)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2433052, 1.5029488, -22.677217)
 icon = ExtResource("10_h4ygu")
 
 [node name="bicho_ph" parent="bichos" unique_id=1936316218 instance=ExtResource("9_h4ygu")]
@@ -255,6 +261,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5707998, -314.826)
 [node name="ui_dialogos" type="CanvasLayer" parent="." unique_id=744198927]
 
 [node name="ui_inimigos" parent="ui_dialogos" unique_id=1938463550 instance=ExtResource("16_031u1")]
+visible = false
 
 [node name="telas" type="Control" parent="ui_dialogos" unique_id=1038367610]
 layout_mode = 3
@@ -277,6 +284,7 @@ grow_vertical = 1
 layout_mode = 1
 
 [node name="conversas_cena" parent="ui_dialogos/telas" unique_id=587679249 instance=ExtResource("1_guo0g")]
+visible = false
 layout_mode = 1
 
 [node name="notificacao" parent="ui_dialogos/telas" unique_id=1508309764 instance=ExtResource("5_f6840")]
@@ -286,6 +294,7 @@ offset_right = -3.0
 offset_bottom = -233.0
 
 [node name="diario" parent="ui_dialogos/telas" unique_id=1448515958 instance=ExtResource("16_lnt5l")]
+visible = false
 layout_mode = 1
 
 [node name="Laboratorio_iventario" parent="ui_dialogos/telas" unique_id=1409135382 instance=ExtResource("3_34wp8")]
@@ -294,44 +303,52 @@ layout_mode = 1
 [node name="obstaculos" type="Node3D" parent="." unique_id=1940622742]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.21842, 0, 0)
 
-[node name="fogo" type="Node3D" parent="obstaculos" unique_id=1811681913]
+[node name="fogo_obstaculo" type="Node3D" parent="obstaculos" unique_id=1811681913]
 transform = Transform3D(0.8512052, 0, 0.524833, 0, 1, 0, -0.524833, 0, 0.8512052, -46.827675, 0, -86.13635)
+script = ExtResource("24_wlnao")
 
-[node name="fogo_normal" parent="obstaculos/fogo" unique_id=944948005 instance=ExtResource("12_f6840")]
+[node name="fogo_normal" parent="obstaculos/fogo_obstaculo" unique_id=944948005 instance=ExtResource("12_f6840")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.51291, 0.61592054, -20.52696)
 
-[node name="fogo_normal2" parent="obstaculos/fogo" unique_id=1262309215 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.524036, 0.61592054, -20.52696)
+[node name="fogo_normal2" parent="obstaculos/fogo_obstaculo" unique_id=348246755 instance=ExtResource("12_f6840")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.717255, 0.61592054, -21.197083)
 
-[node name="fogo_normal3" parent="obstaculos/fogo" unique_id=351127948 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.772314, 0.61592054, -20.52696)
+[node name="fogo_normal3" parent="obstaculos/fogo_obstaculo" unique_id=1525543879 instance=ExtResource("12_f6840")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3164063, 0.61592054, -21.580948)
 
-[node name="fogo_normal4" parent="obstaculos/fogo" unique_id=210189675 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.911507, 0.61592054, -20.52696)
+[node name="fogo_normal4" parent="obstaculos/fogo_obstaculo" unique_id=651234863 instance=ExtResource("12_f6840")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.689114, 0.61592054, -22.392715)
 
-[node name="fogo_normal5" parent="obstaculos/fogo" unique_id=1234914145 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.818775, 0.61592054, -20.52696)
+[node name="fogo_normal5" parent="obstaculos/fogo_obstaculo" unique_id=128837452 instance=ExtResource("12_f6840")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.678196, 0.61592054, -20.421524)
 
-[node name="fogo_normal6" parent="obstaculos/fogo" unique_id=1991916920 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.389835, 0.61592054, -20.701014)
+[node name="fogo_normal6" parent="obstaculos/fogo_obstaculo" unique_id=174031416 instance=ExtResource("12_f6840")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.636467, 0.61592054, -20.10936)
 
-[node name="fogo_normal7" parent="obstaculos/fogo" unique_id=162729580 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9626, 0.61592054, -20.701014)
+[node name="fogo_normal7" parent="obstaculos/fogo_obstaculo" unique_id=1414721789 instance=ExtResource("12_f6840")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.325909, 0.61592054, -20.709335)
 
-[node name="fogo_normal8" parent="obstaculos/fogo" unique_id=377367037 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.302417, 0.61592054, -20.701014)
+[node name="fogo_normal8" parent="obstaculos/fogo_obstaculo" unique_id=187064771 instance=ExtResource("12_f6840")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.456333, 0.61592054, -20.779633)
 
-[node name="fogo_normal9" parent="obstaculos/fogo" unique_id=1002419365 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.302417, 0.61592054, -20.701014)
+[node name="fogo_normal9" parent="obstaculos/fogo_obstaculo" unique_id=792274479 instance=ExtResource("12_f6840")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.996273, 0.61592054, -20.815002)
 
-[node name="Areado fogo" type="Area3D" parent="obstaculos/fogo" unique_id=1754655945]
+[node name="Areado fogo" type="Area3D" parent="obstaculos/fogo_obstaculo" unique_id=1754655945]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.830103)
 script = ExtResource("13_u5hjb")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="obstaculos/fogo/Areado fogo" unique_id=1216971679]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.10151, 3.645813, -0.36434937)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="obstaculos/fogo_obstaculo/Areado fogo" unique_id=1216971679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.101513, 3.645813, 6.583473)
 shape = SubResource("BoxShape3D_vb2yy")
 debug_color = Color(0.9799766, 0, 0.3874831, 0.41960785)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="obstaculos/fogo_obstaculo" unique_id=793388566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.97781, 0, -37.266785)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="obstaculos/fogo_obstaculo/StaticBody3D" unique_id=291233395]
+transform = Transform3D(0.9932195, 0, 0.11625475, 0, 1, 0, -0.11625475, 0, 0.9932195, -4.02882, 7.3617554, 9.055954)
+shape = SubResource("BoxShape3D_lnt5l")
 
 [node name="eletrizidade" type="Node3D" parent="obstaculos" unique_id=158834330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -258.3992)
@@ -357,13 +374,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.938768, 0.84676933, 0)
 [node name="Area3D" type="Area3D" parent="obstaculos/eletrizidade" unique_id=281158284]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="obstaculos/eletrizidade/Area3D" unique_id=168641316]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.898376, 5.5127563, 2.4175568)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.898376, 5.5127563, 8.245331)
 shape = SubResource("BoxShape3D_u5hjb")
 
 [node name="ProtonScatter" type="Node3D" parent="." unique_id=1967824871]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6306324, 0)
 script = ExtResource("17_pshm4")
-modifier_stack = SubResource("Resource_1hi1d")
+modifier_stack = SubResource("Resource_h1cmy")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://bkcf15b20g7bi"
@@ -380,21 +397,22 @@ script = ExtResource("25_2khhj")
 shape = SubResource("Resource_re6xn")
 
 [node name="coletaveis" type="Node3D" parent="." unique_id=654289107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2675228, 0)
 
 [node name="pagina do diario" parent="coletaveis" unique_id=329671854 instance=ExtResource("37_wlnao")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5957584, 0, -21.529993)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -6.5957584, 0, -30.614758)
 
 [node name="pagina do diario2" parent="coletaveis" unique_id=213313738 instance=ExtResource("37_wlnao")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -134.5054, 0, -25.625223)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -134.5054, 0, -25.625223)
 
 [node name="pagina do diario3" parent="coletaveis" unique_id=645070512 instance=ExtResource("37_wlnao")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.295013, 0, -57.244194)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.295013, 0, -57.244194)
 
 [node name="pagina do diario4" parent="coletaveis" unique_id=1583070764 instance=ExtResource("37_wlnao")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.0815, 0, -231.52675)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -100.0815, 0, -231.52675)
 
 [node name="pagina do diario5" parent="coletaveis" unique_id=1522847604 instance=ExtResource("37_wlnao")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.090073, 0, -242.37402)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.090073, 0, -242.37402)
 
 [connection signal="conversa" from="bichos/bicho_c2" to="ui_dialogos/telas/conversas_cena" method="_on_bicho_c_2_conversa"]
 [connection signal="body_entered" from="bichos/area_h" to="bichos/area_h/bicho_h" method="_on_area_h_body_entered"]
@@ -409,8 +427,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.090073, 0, -242.37402)
 [connection signal="capturou_oxigenio" from="ui_dialogos/telas/conversa_o" to="bichos/bicho_o2" method="_on_conversa_o_capturou_oxigenio"]
 [connection signal="acertou" from="ui_dialogos/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_acertou"]
 [connection signal="batalhar" from="ui_dialogos/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_batalhar"]
-[connection signal="body_entered" from="obstaculos/fogo/Areado fogo" to="obstaculos/fogo/Areado fogo" method="_on_body_entered"]
-[connection signal="body_exited" from="obstaculos/fogo/Areado fogo" to="obstaculos/fogo/Areado fogo" method="_on_body_exited"]
-[connection signal="body_entered" from="obstaculos/eletrizidade/Area3D" to="obstaculos/fogo/Areado fogo" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="obstaculos/eletrizidade/Area3D" to="obstaculos/fogo/Areado fogo" method="_on_area_3d_body_exited"]
+[connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]
+[connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal2" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]
+[connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal3" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]
+[connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal4" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]
+[connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal5" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]
+[connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal6" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]
+[connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal7" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]
+[connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal8" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]
+[connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal9" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]
+[connection signal="body_entered" from="obstaculos/fogo_obstaculo/Areado fogo" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_body_entered"]
+[connection signal="body_exited" from="obstaculos/fogo_obstaculo/Areado fogo" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_body_exited"]
+[connection signal="body_entered" from="obstaculos/eletrizidade/Area3D" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="obstaculos/eletrizidade/Area3D" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_area_3d_body_exited"]
 [connection signal="peguei_pagina" from="coletaveis/pagina do diario" to="ui_dialogos/telas/notificacao" method="_on_pagina_do_diario_peguei_pagina"]

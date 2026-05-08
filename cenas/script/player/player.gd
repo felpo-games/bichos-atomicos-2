@@ -30,6 +30,7 @@ var dash_em_cooldown := false
 var em_knockback := false
 @export var tempo_knockback := 0.3
 func _ready() -> void:
+
 	eventos_global.batalha = false
 	
 	pass
@@ -135,3 +136,9 @@ func morrer():
 func iniciar_batalha():
 	
 	pass
+
+
+func _on_area_dano_area_entered(area: Area3D) -> void:
+	if area.is_in_group("ataque_bicho"):
+		dano()
+	pass # Replace with function body.
