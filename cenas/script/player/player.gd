@@ -126,6 +126,7 @@ func dano():
 		if ui_atomo:
 			ui_atomo.atualizar_vida(vida)
 		if vida <= 0:
+			AudioManager.get_node("SFXGameOver").play()
 			morrer()
 	pass
 
