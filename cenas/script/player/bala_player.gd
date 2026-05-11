@@ -18,12 +18,10 @@ func _on_area_entered(area: Area3D) -> void:
 	if area.is_in_group("bicho"):
 		destruir_com_som()
 
-# --- NOVA FUNÇÃO CENTRALIZADA PARA O ÁUDIO ---
 func destruir_com_som() -> void:
 	velocidade = 0 
-	$MeshInstance3D.hide()
+	$frasco.hide()
 	$CollisionShape3D.set_deferred("disabled", true)
-
 	$SfxImpacto.play()
 	await $SfxImpacto.finished
 	queue_free()

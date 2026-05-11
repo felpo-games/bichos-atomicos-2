@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@onready var menu_opcoes: Control = $"../../UI/telas/Config"
 @export var ui_atomo: Control
 var vida = 3
 
@@ -29,6 +30,16 @@ var dash_em_cooldown := false
 # ✅ KNOCKBACK
 var em_knockback := false
 @export var tempo_knockback := 0.3
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("abri_tela_opcoes"):
+		alternar_pausa()
+
+func alternar_pausa():
+	var jogo_pausado = get_tree().paused
+	get_tree().paused = !jogo_pausado
+	menu_opcoes.visible = !jogo_pausado
+
 func _ready() -> void:
 
 	eventos_global.batalha = false
@@ -117,7 +128,7 @@ func atirar():
 	get_tree().root.add_child(bala)
 	bala.global_position = arma.global_position
 	bala.global_rotation = arma.global_rotation
-
+	$AUDIOS/SfxArremesso.play()
 
 func dano():
 	

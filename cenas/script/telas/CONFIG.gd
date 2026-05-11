@@ -7,6 +7,11 @@ extends Node
 @export var sprit_3:Texture2D
 @export var link:String
 @export var teste:float
+var bus_musica_id = AudioServer.get_bus_index("musica")
+
+func _ready() -> void:
+	var volume_atual = AudioServer.get_bus_volume_db(bus_musica_id)
+	$ColorRect/audio/HSlider.value = db_to_linear(volume_atual)
 
 func ativar_tela_imagem():
 	tela_imagem.show()
@@ -27,6 +32,31 @@ func ativar_tela_compartilhe():
 func acesar_link():
 	OS.shell_open(link)
 	
-func mudanca_de_valor_slider(novo_valor:float):
-	teste=novo_valor
-	print(teste)
+func _on_h_slider_value_changed(value: float) -> void:
+	var volume = linear_to_db(value)
+	AudioServer.set_bus_volume_db(bus_musica_id, volume)
+	pass 
+
+
+func _on_botao_sair_pressed() -> void:
+	get_tree().paused = false 
+	get_tree().change_scene_to_file("res://cenas/telas/menus/main_menu.tscn")
+	pass # Replace with function body.
+
+
+func _on_visibility_changed() -> void:
+	if self.visible == true:
+		if get_tree().paused == true:
+			$ColorRect/BotaoVoltar.visible = true
+			$ColorRect/BotaoSair.visible = true
+		else:
+			$ColorRect/BotaoVoltar.visible = true
+			$ColorRect/BotaoSair.visible = false
+	pass # Replace with function body.
+
+
+func _on_botao_voltar_pressed() -> void:
+	self.visible = false
+	if get_tree().paused == true:
+		get_tree().paused = false
+	pass # Replace with function body.

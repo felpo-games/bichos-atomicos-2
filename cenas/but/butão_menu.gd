@@ -46,8 +46,12 @@ func _on_mouse_exited() -> void:
 func _on_pressed() -> void:
 	if Input.is_action_pressed("ação") and namira:
 		_on_pressed()
-	if cena != "": 
-		get_tree().change_scene_to_file(cena)
-	else:
+	if cena == "sair":
 		get_tree().quit()
+	elif cena != "":
+		get_tree().change_scene_to_file(cena)
 pass # Replace with function body.
+
+
+func _on_opcoes_button_pressed() -> void:
+	pass # Replace with function body.

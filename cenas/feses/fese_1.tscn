@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b1gqv36fccgwf" path="res://cenas/player/player.tscn" id="1_1c7ow"]
 [ext_resource type="PackedScene" uid="uid://srh5s8avyce5" path="res://cenas/feses/blogagem_1.tscn" id="1_1efgt"]
+[ext_resource type="Script" uid="uid://byl1a3oe2a5um" path="res://cenas/feses/fese_1.gd" id="1_3qe05"]
 [ext_resource type="PackedScene" uid="uid://p8av7a3qv0rj" path="res://cenas/telas/conversas_cena.tscn" id="1_guo0g"]
 [ext_resource type="PackedScene" uid="uid://epsr0grmp51n" path="res://arte/hesley/totem_1.tscn" id="2_2khhj"]
 [ext_resource type="PackedScene" uid="uid://c1grbf3pv5ut5" path="res://cenas/telas/conversa_o.tscn" id="2_oqrsv"]
@@ -27,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://dl7em3ubuelef" path="res://cenas/telas/ui_inimigos.tscn" id="16_031u1"]
 [ext_resource type="PackedScene" uid="uid://bprq4uurg7e8o" path="res://cenas/telas/diario.tscn" id="16_lnt5l"]
 [ext_resource type="Script" uid="uid://bkcf15b20g7bi" path="res://addons/proton_scatter/src/scatter.gd" id="17_pshm4"]
+[ext_resource type="PackedScene" uid="uid://ufsiaud0qavt" path="res://cenas/telas/menus/config.tscn" id="18_5khuk"]
 [ext_resource type="Script" uid="uid://dwf6bpdmo6koq" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="18_tim8w"]
 [ext_resource type="Script" uid="uid://c4ik6xgkprf30" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="19_b4grr"]
 [ext_resource type="Script" uid="uid://nkbvxtdlweuf" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="20_8l63c"]
@@ -67,34 +69,34 @@ size = Vector3(86.25282, 15.723511, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_u5hjb"]
 size = Vector3(34.796753, 12.025513, 24.604477)
 
-[sub_resource type="Resource" id="Resource_wlnao"]
+[sub_resource type="Resource" id="Resource_5khuk"]
 script = ExtResource("20_8l63c")
 amount = 50
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_3qe05"]
+[sub_resource type="Resource" id="Resource_1hi1d"]
 script = ExtResource("21_ob45n")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(10, 100, 0)
 scale = Vector3(1.5, 0.1, 0.1)
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_5khuk"]
+[sub_resource type="Resource" id="Resource_h1cmy"]
 script = ExtResource("22_lg0kn")
 offset_step = 0.2
 consecutive_step_multiplier = 0.75
 restrict_height = true
 
-[sub_resource type="Resource" id="Resource_1hi1d"]
+[sub_resource type="Resource" id="Resource_ipfv2"]
 script = ExtResource("23_gynid")
 ray_length = 5.0
 ray_offset = 5.0
 remove_points_on_miss = false
 
-[sub_resource type="Resource" id="Resource_h1cmy"]
+[sub_resource type="Resource" id="Resource_pe8w4"]
 script = ExtResource("18_tim8w")
-stack = Array[ExtResource("19_b4grr")]([SubResource("Resource_wlnao"), SubResource("Resource_3qe05"), SubResource("Resource_5khuk"), SubResource("Resource_1hi1d")])
+stack = Array[ExtResource("19_b4grr")]([SubResource("Resource_5khuk"), SubResource("Resource_1hi1d"), SubResource("Resource_h1cmy"), SubResource("Resource_ipfv2")])
 
 [sub_resource type="Resource" id="Resource_re6xn"]
 script = ExtResource("26_031u1")
@@ -102,6 +104,7 @@ size = Vector3(296.05426, 1, 255.70296)
 metadata/_custom_type_script = "uid://dmjx8g0p0xn8q"
 
 [node name="fese_1" type="Node3D" unique_id=1341664247]
+script = ExtResource("1_3qe05")
 
 [node name="blocagem" type="Node3D" parent="." unique_id=1018792614]
 
@@ -199,6 +202,7 @@ transform = Transform3D(-2.2562599e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, 
 transform = Transform3D(-2.2562599e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -0.5161721, -4.371139e-08, 1.9106855e-15, 4.9360657, 0, 24.74118)
 
 [node name="personagem" type="Node3D" parent="." unique_id=932227546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.21063, 0, 0)
 
 [node name="player" parent="personagem" unique_id=1822486866 instance=ExtResource("1_1c7ow")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.1043701, 0.23167133, 1.6637878)
@@ -258,16 +262,18 @@ icon = ExtResource("10_h4ygu")
 [node name="bicho_ph" parent="bichos" unique_id=1936316218 instance=ExtResource("9_h4ygu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5707998, -314.826)
 
-[node name="ui_dialogos" type="CanvasLayer" parent="." unique_id=744198927]
+[node name="UI" type="CanvasLayer" parent="." unique_id=744198927]
+process_mode = 3
 
-[node name="ui_inimigos" parent="ui_dialogos" unique_id=1938463550 instance=ExtResource("16_031u1")]
+[node name="ui_inimigos" parent="UI" unique_id=1938463550 instance=ExtResource("16_031u1")]
 visible = false
 
-[node name="telas" type="Control" parent="ui_dialogos" unique_id=1038367610]
+[node name="telas" type="Control" parent="UI" unique_id=1038367610]
 layout_mode = 3
 anchors_preset = 0
 
-[node name="filtro_azul" parent="ui_dialogos/telas" unique_id=1994584366 instance=ExtResource("14_tim8w")]
+[node name="filtro_azul" parent="UI/telas" unique_id=1994584366 instance=ExtResource("14_tim8w")]
+visible = false
 material = SubResource("ShaderMaterial_8l63c")
 layout_mode = 1
 anchors_preset = 0
@@ -279,26 +285,37 @@ offset_right = 1187.0
 offset_bottom = 676.0
 grow_horizontal = 1
 grow_vertical = 1
+mouse_filter = 2
 
-[node name="conversa_o" parent="ui_dialogos/telas" unique_id=901814761 instance=ExtResource("2_oqrsv")]
+[node name="conversa_o" parent="UI/telas" unique_id=901814761 instance=ExtResource("2_oqrsv")]
 layout_mode = 1
 
-[node name="conversas_cena" parent="ui_dialogos/telas" unique_id=587679249 instance=ExtResource("1_guo0g")]
+[node name="conversas_cena" parent="UI/telas" unique_id=587679249 instance=ExtResource("1_guo0g")]
 visible = false
 layout_mode = 1
 
-[node name="notificacao" parent="ui_dialogos/telas" unique_id=1508309764 instance=ExtResource("5_f6840")]
-visible = false
-layout_mode = 1
-offset_right = -3.0
-offset_bottom = -233.0
-
-[node name="diario" parent="ui_dialogos/telas" unique_id=1448515958 instance=ExtResource("16_lnt5l")]
+[node name="diario" parent="UI/telas" unique_id=1448515958 instance=ExtResource("16_lnt5l")]
 visible = false
 layout_mode = 1
 
-[node name="Laboratorio_iventario" parent="ui_dialogos/telas" unique_id=1409135382 instance=ExtResource("3_34wp8")]
+[node name="Laboratorio_iventario" parent="UI/telas" unique_id=1409135382 instance=ExtResource("3_34wp8")]
+visible = false
 layout_mode = 1
+
+[node name="notificacao" parent="UI/telas" unique_id=1508309764 instance=ExtResource("5_f6840")]
+layout_mode = 1
+offset_left = 407.0
+offset_top = -114.0
+offset_right = 407.0
+offset_bottom = -114.0
+
+[node name="Config" parent="UI/telas" unique_id=684376258 instance=ExtResource("18_5khuk")]
+visible = false
+layout_mode = 0
+offset_left = -15.0
+offset_top = 2.0
+offset_right = -15.0
+offset_bottom = 2.0
 
 [node name="obstaculos" type="Node3D" parent="." unique_id=1940622742]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.21842, 0, 0)
@@ -380,7 +397,7 @@ shape = SubResource("BoxShape3D_u5hjb")
 [node name="ProtonScatter" type="Node3D" parent="." unique_id=1967824871]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6306324, 0)
 script = ExtResource("17_pshm4")
-modifier_stack = SubResource("Resource_h1cmy")
+modifier_stack = SubResource("Resource_pe8w4")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://bkcf15b20g7bi"
@@ -414,19 +431,19 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -100.0815, 0, -231.52675)
 [node name="pagina do diario5" parent="coletaveis" unique_id=1522847604 instance=ExtResource("37_wlnao")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.090073, 0, -242.37402)
 
-[connection signal="conversa" from="bichos/bicho_c2" to="ui_dialogos/telas/conversas_cena" method="_on_bicho_c_2_conversa"]
+[connection signal="conversa" from="bichos/bicho_c2" to="UI/telas/conversas_cena" method="_on_bicho_c_2_conversa"]
 [connection signal="body_entered" from="bichos/area_h" to="bichos/area_h/bicho_h" method="_on_area_h_body_entered"]
 [connection signal="body_exited" from="bichos/area_h" to="bichos/area_h/bicho_h" method="_on_area_h_body_exited"]
 [connection signal="body_entered" from="bichos/area_h2" to="bichos/area_h2/bicho_h" method="_on_area_h_body_entered"]
 [connection signal="body_exited" from="bichos/area_h2" to="bichos/area_h2/bicho_h" method="_on_area_h_body_exited"]
-[connection signal="conversar" from="bichos/bicho_o" to="ui_dialogos/telas/conversa_o" method="_on_bicho_o_conversar"]
-[connection signal="conversar" from="bichos/bicho_o3" to="ui_dialogos/telas/conversa_o" method="_on_bicho_o_conversar"]
-[connection signal="conversar" from="bichos/bicho_o2" to="ui_dialogos/telas/conversa_o" method="_on_bicho_o_conversar"]
-[connection signal="capturou_oxigenio" from="ui_dialogos/telas/conversa_o" to="bichos/bicho_o" method="_on_conversa_o_capturou_oxigenio"]
-[connection signal="capturou_oxigenio" from="ui_dialogos/telas/conversa_o" to="bichos/bicho_o3" method="_on_conversa_o_capturou_oxigenio"]
-[connection signal="capturou_oxigenio" from="ui_dialogos/telas/conversa_o" to="bichos/bicho_o2" method="_on_conversa_o_capturou_oxigenio"]
-[connection signal="acertou" from="ui_dialogos/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_acertou"]
-[connection signal="batalhar" from="ui_dialogos/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_batalhar"]
+[connection signal="conversar" from="bichos/bicho_o" to="UI/telas/conversa_o" method="_on_bicho_o_conversar"]
+[connection signal="conversar" from="bichos/bicho_o3" to="UI/telas/conversa_o" method="_on_bicho_o_conversar"]
+[connection signal="conversar" from="bichos/bicho_o2" to="UI/telas/conversa_o" method="_on_bicho_o_conversar"]
+[connection signal="capturou_oxigenio" from="UI/telas/conversa_o" to="bichos/bicho_o" method="_on_conversa_o_capturou_oxigenio"]
+[connection signal="capturou_oxigenio" from="UI/telas/conversa_o" to="bichos/bicho_o3" method="_on_conversa_o_capturou_oxigenio"]
+[connection signal="capturou_oxigenio" from="UI/telas/conversa_o" to="bichos/bicho_o2" method="_on_conversa_o_capturou_oxigenio"]
+[connection signal="acertou" from="UI/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_acertou"]
+[connection signal="batalhar" from="UI/telas/conversas_cena" to="bichos/bicho_c2" method="_on_conversas_cena_batalhar"]
 [connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]
 [connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal2" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]
 [connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal3" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]
@@ -440,4 +457,4 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.090073, 0, -242.37402)
 [connection signal="body_exited" from="obstaculos/fogo_obstaculo/Areado fogo" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_body_exited"]
 [connection signal="body_entered" from="obstaculos/eletrizidade/Area3D" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="obstaculos/eletrizidade/Area3D" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_area_3d_body_exited"]
-[connection signal="peguei_pagina" from="coletaveis/pagina do diario" to="ui_dialogos/telas/notificacao" method="_on_pagina_do_diario_peguei_pagina"]
+[connection signal="peguei_pagina" from="coletaveis/pagina do diario" to="UI/telas/notificacao" method="_on_pagina_do_diario_peguei_pagina"]

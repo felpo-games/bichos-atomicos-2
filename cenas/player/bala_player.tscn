@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bn8jengkvj188" path="res://cenas/script/player/bala_player.gd" id="1_yl50q"]
 [ext_resource type="Texture2D" uid="uid://c8iyrdstmqqdr" path="res://arte/miguel/3d/novo/player_oxigenio__textura.png" id="2_rkdp2"]
+[ext_resource type="AudioStream" uid="uid://usx6maahrrfe" path="res://SFX/dano_do_erlenmeyer.wav" id="3_y0kkr"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yl50q"]
 
@@ -73,6 +74,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5026305, -1.7871444, 0.2126
 mesh = SubResource("ArrayMesh_y0kkr")
 skin = SubResource("Skin_faadu")
 skeleton = NodePath("..")
+
+[node name="SfxImpacto" type="AudioStreamPlayer3D" parent="." unique_id=1542784125]
+stream = ExtResource("3_y0kkr")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

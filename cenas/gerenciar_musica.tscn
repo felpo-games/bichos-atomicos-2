@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://prcswdwcxss3"]
+
+[ext_resource type="AudioStream" uid="uid://btjirn70d5iah" path="res://AUDIOHUDS/musica_gameplay.wav" id="1_c8gls"]
+[ext_resource type="Script" uid="uid://dscjc5it2lpxb" path="res://cenas/gerenciar_musica.gd" id="1_vpdy2"]
+[ext_resource type="AudioStream" uid="uid://xjylrgp23yde" path="res://AUDIOHUDS/musica_menu.wav" id="2_vpdy2"]
+
+[node name="GerenciarMusica" type="Node" unique_id=64583886]
+process_mode = 3
+script = ExtResource("1_vpdy2")
+
+[node name="MusicaMenu" type="AudioStreamPlayer" parent="." unique_id=226454814]
+process_mode = 3
+stream = ExtResource("1_c8gls")
+volume_db = -8.824
+bus = &"musica"
+
+[node name="MusicaMundo" type="AudioStreamPlayer" parent="." unique_id=916200543]
+process_mode = 3
+stream = ExtResource("2_vpdy2")
+bus = &"musica"

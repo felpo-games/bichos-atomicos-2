@@ -83,7 +83,7 @@ func morrer():
 	laboratorio_global.quantidade_h += 1
 
 	var icon = load("res://arte/vlad/satanas atomico/satanas atomico/ho2.png")
-	var notif = $"../../../ui_dialogos/telas/notificacao"
+	var notif = $"../../../UI/telas/notificacao"
 
 	if notif != null:
 		notif.mostrar_notificacao("hidrogenio", icon)
@@ -94,40 +94,39 @@ func morrer():
 		respawn()
 
 func desativar_bicho():
-
 	hide()
 	set_physics_process(false)
 
 	if has_node("CollisionShape3D"):
-		$CollisionShape3D.disabled = true
+		$CollisionShape3D.set_deferred("disabled", true)
 
 	if has_node("area_de_knockpack_e_dano_laranja/CollisionShape3D"):
-		$area_de_knockpack_e_dano_laranja/CollisionShape3D.disabled = true
+		$area_de_knockpack_e_dano_laranja/CollisionShape3D.set_deferred("disabled", true)
 
 	if has_node("area_receber_danovermelha/CollisionShape3D"):
-		$area_receber_danovermelha/CollisionShape3D.disabled = true
+		$area_receber_danovermelha/CollisionShape3D.set_deferred("disabled", true)
 
 	if has_node("area_h/CollisionShape3D"):
-		$area_h/CollisionShape3D.disabled = true
+		$area_h/CollisionShape3D.set_deferred("disabled", true)
 
 	$pivod/hidrogenio/AnimationPlayer.stop()
 
-func reativar_bicho():
 
+func reativar_bicho():
 	show()
 	set_physics_process(true)
 
 	if has_node("CollisionShape3D"):
-		$CollisionShape3D.disabled = false
+		$CollisionShape3D.set_deferred("disabled", false)
 
 	if has_node("area_de_knockpack_e_dano_laranja/CollisionShape3D"):
-		$area_de_knockpack_e_dano_laranja/CollisionShape3D.disabled = false
+		$area_de_knockpack_e_dano_laranja/CollisionShape3D.set_deferred("disabled", false)
 
 	if has_node("area_receber_danovermelha/CollisionShape3D"):
-		$area_receber_danovermelha/CollisionShape3D.disabled = false
+		$area_receber_danovermelha/CollisionShape3D.set_deferred("disabled", false)
 
 	if has_node("area_h/CollisionShape3D"):
-		$area_h/CollisionShape3D.disabled = false
+		$area_h/CollisionShape3D.set_deferred("disabled", false)
 
 	# resetar variáveis
 	vida = 3
@@ -151,17 +150,14 @@ func respawn():
 # =========================
 
 func _on_area_de_knockpack_e_dano_laranja_body_entered(body: Node3D) -> void:
-
 	if body.is_in_group("player"):
-
-		var sorteio = randi_range(-3, 3)
-
 		if body.has_method("dano"):
 			body.dano()
-
-		var direcao_kb = (body.global_position - global_position).normalized()
-		direcao_kb.x = sorteio
-
+		var direcao_kb = body.global_position - global_position
+		direcao_kb.y = 0 
+		direcao_kb = direcao_kb.normalized()
+		direcao_kb.y = 0.5 
+		direcao_kb = direcao_kb.normalized()
 		if "velocity" in body:
 			body.velocity = direcao_kb * forca_knockback
 

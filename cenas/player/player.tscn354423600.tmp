@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://kty240fktcex" path="res://cenas/átomo.tscn" id="5_bmch6"]
 [ext_resource type="Texture2D" uid="uid://c8iyrdstmqqdr" path="res://arte/miguel/3d/novo/player_oxigenio__textura.png" id="6_wneci"]
 [ext_resource type="AudioStream" uid="uid://du7bh8hxxjqhd" path="res://SFX/UI_passos.wav" id="7_wneci"]
-[ext_resource type="AudioStream" uid="uid://cigbjkl0waib6" path="res://SFX/arremesso_erlenmeyer.wav" id="9_h2li5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kbvfo"]
 
@@ -251,6 +250,9 @@ tracks/6/path = NodePath("Armature_006/Skeleton3D:Leg.l")
 tracks/6/interp = 0
 tracks/6/loop_wrap = true
 tracks/6/keys = PackedFloat32Array(0, 1, 0.18611746, 0.017967414, -0.982116, 0.022042044)
+
+[sub_resource type="Animation" id="Animation_h2li5"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_pyp8t"]
 resource_name = "attack2_PH"
@@ -853,6 +855,7 @@ tracks/7/use_blend = true
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_asbux"]
 _data = {
 &"Jump": SubResource("Animation_b2x8o"),
+&"RESET": SubResource("Animation_h2li5"),
 &"attack2_PH": SubResource("Animation_pyp8t"),
 &"attack_C": SubResource("Animation_kqx45"),
 &"attack_DC": SubResource("Animation_15aup"),
@@ -945,7 +948,7 @@ bones/6/parent = 0
 bones/6/rest = Transform3D(-0.9297507, 0.049983773, -0.36478594, -0.036607653, -0.9983826, -0.043497, -0.36637056, -0.027087338, 0.93007547, 0.21878017, 0.5200347, 0.0363315)
 bones/6/enabled = true
 bones/6/position = Vector3(0.21878017, 0.5200347, 0.0363315)
-bones/6/rotation = Quaternion(-0.18611744, -0.017967414, 0.982116, -0.022042042)
+bones/6/rotation = Quaternion(-0.18611744, -0.01796741, 0.98211586, -0.022042042)
 bones/6/scale = Vector3(1.0000019, 1, 1.0000006)
 bones/7/name = "root"
 bones/7/parent = -1
@@ -1014,10 +1017,5 @@ visible = true
 [node name="AUDIOS" type="Node3D" parent="." unique_id=1587115270]
 
 [node name="SFXpassos" type="AudioStreamPlayer3D" parent="AUDIOS" unique_id=961835920]
-stream = ExtResource("7_wneci")
-volume_db = 7.164
-
-[node name="SfxArremesso" type="AudioStreamPlayer3D" parent="AUDIOS" unique_id=1238473045]
-stream = ExtResource("9_h2li5")
 
 [connection signal="area_entered" from="sistema_vida/Area_dano" to="." method="_on_area_dano_area_entered"]

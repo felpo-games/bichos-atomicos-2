@@ -1,69 +1,70 @@
 [gd_scene format=3 uid="uid://ufsiaud0qavt"]
 
-[ext_resource type="Texture2D" uid="uid://csxhgdnqmmd30" path="res://UI/Janelas/fundo_opcoes.png" id="1_2gltl"]
-[ext_resource type="Script" uid="uid://b8u00o3diweuq" path="res://cenas/script/telas/CONFIG.gd" id="1_2hliq"]
-[ext_resource type="Texture2D" uid="uid://bh1b02q35o3au" path="res://UI/Janelas/elenmeyer_opt1.png" id="2_hdexd"]
-[ext_resource type="FontFile" uid="uid://dn8arjbeupiyv" path="res://UI/Fontes/JHCRasbora-Extrabold.otf" id="3_1orqb"]
-[ext_resource type="Texture2D" uid="uid://eq3y4ypqw7xu" path="res://UI/Janelas/elenmeyer_opt2.png" id="3_d1c66"]
-[ext_resource type="Texture2D" uid="uid://bji2pxlhemyew" path="res://UI/Janelas/Opcoes/marcador_brilho.png" id="4_2hliq"]
-[ext_resource type="Texture2D" uid="uid://dg1jxbm1i6gxf" path="res://UI/Janelas/elenmeyer_opt3.png" id="4_71j7u"]
-[ext_resource type="Texture2D" uid="uid://d4hrdihoxf1gw" path="res://UI/Janelas/Opcoes/marcador_brilho_pressed.png" id="5_63hsu"]
-[ext_resource type="Texture2D" uid="uid://cxkwxneqpue6w" path="res://UI/Janelas/Opcoes/barra_volume.png" id="6_1orqb"]
-[ext_resource type="Texture2D" uid="uid://bjjcviv1pbr7r" path="res://UI/Botões/button_voltar.png" id="6_d1c66"]
-[ext_resource type="Texture2D" uid="uid://c6odndlm7on3j" path="res://UI/Janelas/Opcoes/botao_volume.png" id="7_2hliq"]
-[ext_resource type="Texture2D" uid="uid://b3tvr3xivpovl" path="res://UI/Botões/button_pressed_voltar.png" id="7_71j7u"]
-[ext_resource type="Texture2D" uid="uid://bd8nqqm61dh4j" path="res://UI/Botões/button_sair.png" id="8_dvra0"]
-[ext_resource type="Texture2D" uid="uid://bwtwanqaaxpnj" path="res://UI/Botões/button_pressed_sair.png" id="9_oetbw"]
-[ext_resource type="Texture2D" uid="uid://d1f4j4eup7tt8" path="res://UI/Botões/button_salvar.png" id="10_0ac1p"]
-[ext_resource type="Texture2D" uid="uid://d1vt8nhggnu0h" path="res://UI/Botões/button_pressed_salvar.png" id="11_x8m1e"]
+[ext_resource type="Script" uid="uid://b8u00o3diweuq" path="res://cenas/script/telas/CONFIG.gd" id="1_ksxrd"]
+[ext_resource type="Texture2D" uid="uid://bh1b02q35o3au" path="res://UI/Janelas/elenmeyer_opt1.png" id="2_u8wf4"]
+[ext_resource type="Texture2D" uid="uid://eq3y4ypqw7xu" path="res://UI/Janelas/elenmeyer_opt2.png" id="3_afooe"]
+[ext_resource type="Texture2D" uid="uid://dg1jxbm1i6gxf" path="res://UI/Janelas/elenmeyer_opt3.png" id="4_pjmeh"]
+[ext_resource type="Texture2D" uid="uid://csxhgdnqmmd30" path="res://UI/Janelas/fundo_opcoes.png" id="5_ch3wd"]
+[ext_resource type="FontFile" uid="uid://dn8arjbeupiyv" path="res://UI/Fontes/JHCRasbora-Extrabold.otf" id="6_q1oh8"]
+[ext_resource type="Texture2D" uid="uid://bji2pxlhemyew" path="res://UI/Janelas/Opcoes/marcador_brilho.png" id="7_ilcbo"]
+[ext_resource type="Texture2D" uid="uid://d4hrdihoxf1gw" path="res://UI/Janelas/Opcoes/marcador_brilho_pressed.png" id="8_383q5"]
+[ext_resource type="Texture2D" uid="uid://cxkwxneqpue6w" path="res://UI/Janelas/Opcoes/barra_volume.png" id="9_lrhbd"]
+[ext_resource type="Texture2D" uid="uid://c6odndlm7on3j" path="res://UI/Janelas/Opcoes/botao_volume.png" id="10_xtask"]
+[ext_resource type="Texture2D" uid="uid://bjjcviv1pbr7r" path="res://UI/Botões/button_voltar.png" id="11_o8dnn"]
+[ext_resource type="Texture2D" uid="uid://bd8nqqm61dh4j" path="res://UI/Botões/button_sair.png" id="13_mnagl"]
+[ext_resource type="Texture2D" uid="uid://bwtwanqaaxpnj" path="res://UI/Botões/button_pressed_sair.png" id="14_0phgo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p3was"]
-font = ExtResource("3_1orqb")
+font = ExtResource("6_q1oh8")
 font_size = 37
 
 [sub_resource type="LabelSettings" id="LabelSettings_63hsu"]
-font = ExtResource("3_1orqb")
+font = ExtResource("6_q1oh8")
 font_size = 43
 
 [sub_resource type="LabelSettings" id="LabelSettings_d1c66"]
-font = ExtResource("3_1orqb")
+font = ExtResource("6_q1oh8")
 font_size = 41
 
 [sub_resource type="LabelSettings" id="LabelSettings_71j7u"]
-font = ExtResource("3_1orqb")
+font = ExtResource("6_q1oh8")
 font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_dfhte"]
-font = ExtResource("3_1orqb")
+font = ExtResource("6_q1oh8")
 font_size = 37
 
 [node name="Config" type="Control" unique_id=684376258 node_paths=PackedStringArray("tela_imagem", "tela_audio", "tela_compartilhe")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_2hliq")
+script = ExtResource("1_ksxrd")
 tela_imagem = NodePath("ColorRect/imagem")
 tela_audio = NodePath("ColorRect/audio")
 tela_compartilhe = NodePath("ColorRect/Compatilhe")
-sprit_1 = ExtResource("2_hdexd")
-sprit_2 = ExtResource("3_d1c66")
-sprit_3 = ExtResource("4_71j7u")
+sprit_1 = ExtResource("2_u8wf4")
+sprit_2 = ExtResource("3_afooe")
+sprit_3 = ExtResource("4_pjmeh")
 link = "https://www.instagram.com/bichosatomicos_?igsh=MW43OTJlbDNldTZiMw%3D%3D&utm_source=qr"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=774908297]
-layout_mode = 0
-offset_right = 1164.0
-offset_bottom = 660.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="FundoOpcoes" type="Sprite2D" parent="ColorRect" unique_id=806531831]
 position = Vector2(587, 325)
 scale = Vector2(1.0138888, 1.0216049)
-texture = ExtResource("1_2gltl")
+texture = ExtResource("5_ch3wd")
 metadata/_edit_lock_ = true
 
 [node name="ElenmeyerOpt1" type="Sprite2D" parent="ColorRect" unique_id=763281205]
 position = Vector2(583, 307)
-texture = ExtResource("2_hdexd")
+texture = ExtResource("2_u8wf4")
 
 [node name="BOTAO_AUDIO" type="TextureButton" parent="ColorRect/ElenmeyerOpt1" unique_id=257392623]
 anchors_preset = -1
@@ -132,8 +133,8 @@ offset_bottom = 238.0
 grow_horizontal = 2
 grow_vertical = 2
 toggle_mode = true
-texture_normal = ExtResource("4_2hliq")
-texture_pressed = ExtResource("5_63hsu")
+texture_normal = ExtResource("7_ilcbo")
+texture_pressed = ExtResource("8_383q5")
 
 [node name="audio" type="Control" parent="ColorRect" unique_id=1745339144]
 layout_mode = 1
@@ -158,7 +159,7 @@ label_settings = SubResource("LabelSettings_63hsu")
 [node name="BarraVolume" type="Sprite2D" parent="ColorRect/audio" unique_id=418586851]
 visible = false
 position = Vector2(588, 389)
-texture = ExtResource("6_1orqb")
+texture = ExtResource("9_lrhbd")
 
 [node name="HSlider" type="HSlider" parent="ColorRect/audio" unique_id=1161898691]
 layout_mode = 0
@@ -166,10 +167,13 @@ offset_left = 356.0
 offset_top = 375.0
 offset_right = 824.0
 offset_bottom = 391.0
-theme_override_icons/grabber = ExtResource("7_2hliq")
-theme_override_icons/grabber_highlight = ExtResource("4_2hliq")
-theme_override_icons/grabber_disabled = ExtResource("4_2hliq")
-theme_override_icons/tick = ExtResource("6_1orqb")
+theme_override_icons/grabber = ExtResource("10_xtask")
+theme_override_icons/grabber_highlight = ExtResource("7_ilcbo")
+theme_override_icons/grabber_disabled = ExtResource("7_ilcbo")
+theme_override_icons/tick = ExtResource("9_lrhbd")
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="Compatilhe" type="Control" parent="ColorRect" unique_id=762738083]
 visible = false
@@ -209,32 +213,23 @@ offset_bottom = 278.0
 text = "@BICHOSATOMICOS_"
 label_settings = SubResource("LabelSettings_71j7u")
 
-[node name="BOTAO_VOLTAR" type="TextureButton" parent="ColorRect" unique_id=528903332]
+[node name="BotaoVoltar" type="TextureButton" parent="ColorRect" unique_id=528903332]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 581.0
 offset_right = 188.0
 offset_bottom = 638.0
-texture_normal = ExtResource("6_d1c66")
-texture_pressed = ExtResource("7_71j7u")
+texture_normal = ExtResource("11_o8dnn")
+texture_pressed = ExtResource("11_o8dnn")
 
-[node name="BOTAO_SAIR" type="TextureButton" parent="ColorRect" unique_id=537376644]
+[node name="BotaoSair" type="TextureButton" parent="ColorRect" unique_id=2071994038]
 layout_mode = 0
-offset_left = 1010.0
-offset_top = 577.0
-offset_right = 1180.0
-offset_bottom = 634.0
-texture_normal = ExtResource("8_dvra0")
-texture_pressed = ExtResource("9_oetbw")
-
-[node name="BOTAO_SALVAR" type="TextureButton" parent="ColorRect" unique_id=1945092703]
-layout_mode = 0
-offset_left = 511.0
-offset_top = 469.0
-offset_right = 681.0
-offset_bottom = 533.0
-texture_normal = ExtResource("10_0ac1p")
-texture_pressed = ExtResource("11_x8m1e")
+offset_left = 1004.0
+offset_top = 579.0
+offset_right = 1174.0
+offset_bottom = 636.0
+texture_normal = ExtResource("13_mnagl")
+texture_pressed = ExtResource("14_0phgo")
 
 [node name="Label" type="Label" parent="ColorRect" unique_id=546885431]
 layout_mode = 1
@@ -272,8 +267,11 @@ offset_bottom = 45.199997
 text = "COMPARTILHE"
 label_settings = SubResource("LabelSettings_dfhte")
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="ColorRect/ElenmeyerOpt1/BOTAO_AUDIO" to="." method="ativar_tela_audio"]
 [connection signal="pressed" from="ColorRect/ElenmeyerOpt1/BOTAO_COMPARTILHE" to="." method="ativar_tela_compartilhe"]
 [connection signal="pressed" from="ColorRect/ElenmeyerOpt1/BOTAO_IMAGEM" to="." method="ativar_tela_imagem"]
-[connection signal="value_changed" from="ColorRect/audio/HSlider" to="." method="mudanca_de_valor_slider"]
+[connection signal="value_changed" from="ColorRect/audio/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="ColorRect/Compatilhe/link_botao" to="." method="acesar_link"]
+[connection signal="pressed" from="ColorRect/BotaoVoltar" to="." method="_on_botao_voltar_pressed"]
+[connection signal="pressed" from="ColorRect/BotaoSair" to="." method="_on_botao_sair_pressed"]

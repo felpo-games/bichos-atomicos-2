@@ -11,9 +11,12 @@ config_version=5
 [application]
 
 config/name="bichos atomicos 2"
-run/main_scene="uid://bp7afts2xbulq"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://ce5xmwwppc728"
 
 [autoload]
 
@@ -21,6 +24,8 @@ laboratorio_global="*uid://b5rywhkr8wb14"
 eventos_global="*uid://d4e0rum8c7hxu"
 dados_player="*uid://21wc6ksutpx4"
 DadosInimigos="*uid://bbs5m2bm56aj7"
+AudioManager="*uid://diclaqk7fiyc0"
+GerenciarMusica="*uid://prcswdwcxss3"
 
 [display]
 
@@ -29,7 +34,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
+enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg")
 
 [filesystem]
 
@@ -104,6 +109,11 @@ troca_de_pet={
 diario={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":77,"key_label":0,"unicode":109,"location":0,"echo":false,"script":null)
+]
+}
+abri_tela_opcoes={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 

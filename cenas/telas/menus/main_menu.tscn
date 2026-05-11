@@ -1,22 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvujnlo8q7h8t"]
+[gd_scene format=3 uid="uid://dvujnlo8q7h8t"]
 
-[ext_resource type="Script" uid="uid://bf56sdptf5g4b" path="res://cenas/telas/main_menu.gd" id="1_xvjib"]
+[ext_resource type="Script" uid="uid://dips0ty1m8sek" path="res://cenas/telas/menus/main_menu.gd" id="1_2o4nl"]
 [ext_resource type="Texture2D" uid="uid://dj86w1vvq5jyg" path="res://UI/Botões/button_play.png" id="2_fcijg"]
 [ext_resource type="Texture2D" uid="uid://bsm26lwe55ufj" path="res://UI/Botões/button_pressed_play.png" id="3_xvjib"]
+[ext_resource type="Script" uid="uid://c5ah83b8wjt27" path="res://cenas/but/butão_menu.gd" id="4_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://befgd8ofb8kng" path="res://UI/Botões/button_opcoes.png" id="4_vhp1t"]
 [ext_resource type="FontFile" uid="uid://dycml3x37dr0n" path="res://UI/Fontes/04B_30__.TTF" id="5_dx7j6"]
 [ext_resource type="Texture2D" uid="uid://dfd345s7hfceq" path="res://UI/Botões/button_pressed_opcoes.png" id="5_ggp7y"]
+[ext_resource type="PackedScene" uid="uid://ufsiaud0qavt" path="res://cenas/telas/menus/config.tscn" id="8_fbubj"]
 
-[node name="main_menu" type="Control"]
+[node name="main_menu" type="Control" unique_id=837384785]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_xvjib")
+scale = Vector2(1.0399995, 1.0399995)
+script = ExtResource("1_2o4nl")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1074075186]
 z_index = -1
 layout_mode = 1
 anchors_preset = -1
@@ -27,7 +30,7 @@ offset_bottom = -2.0
 color = Color(0, 0.19032526, 0.27443027, 1)
 metadata/_edit_lock_ = true
 
-[node name="Titulo" type="RichTextLabel" parent="."]
+[node name="Titulo" type="RichTextLabel" parent="." unique_id=816270776]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.26900002
@@ -43,7 +46,7 @@ theme_override_font_sizes/normal_font_size = 45
 text = "BICHOS AToMICOS"
 metadata/_edit_group_ = true
 
-[node name="SombraTitulo" type="RichTextLabel" parent="."]
+[node name="SombraTitulo" type="RichTextLabel" parent="." unique_id=1871416604]
 modulate = Color(0, 0, 0, 1)
 z_index = -1
 layout_mode = 1
@@ -61,7 +64,7 @@ theme_override_font_sizes/normal_font_size = 45
 text = "BICHOS AToMICOS"
 metadata/_edit_group_ = true
 
-[node name="PlayButton" type="TextureButton" parent="."]
+[node name="PlayButton" type="TextureButton" parent="." unique_id=1958554455]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.384
@@ -74,8 +77,12 @@ offset_right = 204.63199
 offset_bottom = 29.855957
 texture_normal = ExtResource("2_fcijg")
 texture_pressed = ExtResource("3_xvjib")
+script = ExtResource("4_nlkkf")
+cena = "res://cenas/CUTECENE/cutcene.tscn"
+asset_normal = ExtResource("2_fcijg")
+asset_precionado = ExtResource("3_xvjib")
 
-[node name="OpcoesButton" type="TextureButton" parent="."]
+[node name="OpcoesButton" type="TextureButton" parent="." unique_id=1782751309]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.384
@@ -88,5 +95,13 @@ offset_right = 236.63199
 offset_bottom = 141.85596
 texture_normal = ExtResource("4_vhp1t")
 texture_pressed = ExtResource("5_ggp7y")
+script = ExtResource("4_nlkkf")
+asset_normal = ExtResource("4_vhp1t")
+asset_precionado = ExtResource("5_ggp7y")
+
+[node name="Config" parent="." unique_id=684376258 instance=ExtResource("8_fbubj")]
+visible = false
+layout_mode = 0
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="OpcoesButton" to="." method="_on_opcoes_button_pressed"]

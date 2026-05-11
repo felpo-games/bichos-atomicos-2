@@ -41,7 +41,7 @@ func coletado():
 		laboratorio_global.bichos_desbloqueados.append("o")
 		laboratorio_global.quantidade_o += 1
 		
-		var notif = $"../../ui_dialogos/telas/notificacao"
+		var notif = $"../../UI/telas/notificacao"
 		if notif != null:
 			notif.mostrar_notificacao("Oxigenio", icon)
 		else:
