@@ -41,7 +41,6 @@ func alternar_pausa():
 	menu_opcoes.visible = !jogo_pausado
 
 func _ready() -> void:
-
 	eventos_global.batalha = false
 	
 	pass

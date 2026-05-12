@@ -9,9 +9,18 @@ extends Node
 @export var teste:float
 var bus_musica_id = AudioServer.get_bus_index("musica")
 
+#PROGRAMAÇÃO DO FILTRO
+@onready var marcador_de_filtro = $ColorRect/imagem/MARCADO_DE_FILTRO
+@onready var ativado_desativado = $ColorRect/imagem/ATIVADO_DESATIVADO
+
+
+
 func _ready() -> void:
 	var volume_atual = AudioServer.get_bus_volume_db(bus_musica_id)
 	$ColorRect/audio/HSlider.value = db_to_linear(volume_atual)
+	var estado_atual = FiltroAzul.get_node("filtro").visible #INICIO PROGRAMAÇÃO FILTRO
+	marcador_de_filtro.button_pressed = estado_atual
+	atualizar_texto_label(estado_atual)
 
 func ativar_tela_imagem():
 	tela_imagem.show()
@@ -60,3 +69,18 @@ func _on_botao_voltar_pressed() -> void:
 	if get_tree().paused == true:
 		get_tree().paused = false
 	pass # Replace with function body.
+
+func _on_marcado_de_filtro_toggled(ligado: bool) -> void: #PROGRAMAÇÃO FILTRO
+	if FiltroAzul.has_node("filtro"):
+		FiltroAzul.get_node("filtro").visible = ligado
+	atualizar_texto_label(ligado)
+	print("o filtro está: ", ligado)
+
+func atualizar_texto_label(esta_ligado): #PROGRAMAÇÃO FILTO
+	if esta_ligado:
+		ativado_desativado.text = "ATIVADO"
+		ativado_desativado.add_theme_color_override("font_color", Color.GREEN)
+	else:
+		ativado_desativado.text = "DESATIVADO"
+		ativado_desativado.add_theme_color_override("font_color", Color.GRAY)
+	pass

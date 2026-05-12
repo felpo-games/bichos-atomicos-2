@@ -1,14 +1,30 @@
 [gd_scene format=3 uid="uid://dxchpdfieiuk1"]
 
 [ext_resource type="Script" uid="uid://c2vrid18uuakb" path="res://cenas/telas/laboratorio_iventario.gd" id="1_jxupr"]
-[ext_resource type="Texture2D" uid="uid://dn8a3b2l2a1i0" path="res://arte/felp/letras.png" id="2_xye0g"]
-[ext_resource type="Texture2D" uid="uid://dw8ss7u0ylula" path="res://arte/felp/oxigenio.png" id="3_hi35h"]
-[ext_resource type="Script" uid="uid://r4s7cqyknd7a" path="res://cenas/telas/but_bicho.gd" id="4_ymotw"]
-[ext_resource type="Texture2D" uid="uid://bmoswh55gh4vm" path="res://arte/felp/hidrogenio.png" id="5_oxgkr"]
-[ext_resource type="Texture2D" uid="uid://c6fhalte760ff" path="res://arte/felp/carbono.png" id="6_nnxpa"]
-[ext_resource type="Script" uid="uid://b4xopng2nxja0" path="res://cenas/telas/but_listaclear.gd" id="7_xye0g"]
+[ext_resource type="Texture2D" uid="uid://d120hq0aubsym" path="res://UI/Janelas/Elenemeyer/moldura_elemento_O.png" id="4_hi35h"]
+[ext_resource type="Texture2D" uid="uid://c7carlnyhojy1" path="res://UI/Janelas/Elenemeyer/moldura_elemento_H.png" id="5_ymotw"]
+[ext_resource type="Texture2D" uid="uid://djkyvtwph20xx" path="res://UI/Janelas/Elenemeyer/moldura_elemento_C.png" id="6_oxgkr"]
+[ext_resource type="Texture2D" uid="uid://b4i80j1ddgmyr" path="res://UI/Janelas/Elenemeyer/moldura_elemento.png" id="7_00dcp"]
+[ext_resource type="Texture2D" uid="uid://l40rg1w4u43m" path="res://arte/vlad/satanas atomico/satanas atomico/o2.png" id="8_d3vqm"]
+[ext_resource type="Texture2D" uid="uid://cy6jho6h72jem" path="res://UI/Janelas/elenmeyer_info.png" id="8_nnxpa"]
+[ext_resource type="Texture2D" uid="uid://bh1b02q35o3au" path="res://UI/Janelas/elenmeyer_opt1.png" id="9_btfhd"]
+[ext_resource type="Texture2D" uid="uid://omegs4civp3m" path="res://arte/vlad/satanas atomico/satanas atomico/c.png" id="9_daqlr"]
+[ext_resource type="Texture2D" uid="uid://dq2s4wc4dnsq2" path="res://arte/vlad/satanas atomico/satanas atomico/ho2.png" id="10_02e1e"]
+[ext_resource type="Texture2D" uid="uid://eq3y4ypqw7xu" path="res://UI/Janelas/elenmeyer_opt2.png" id="10_fajxt"]
+[ext_resource type="FontFile" uid="uid://dn8arjbeupiyv" path="res://UI/Fontes/JHCRasbora-Extrabold.otf" id="11_65gy6"]
+[ext_resource type="Texture2D" uid="uid://dg1jxbm1i6gxf" path="res://UI/Janelas/elenmeyer_opt3.png" id="11_c7tbn"]
+[ext_resource type="Texture2D" uid="uid://bw2c0aqx52mmx" path="res://UI/Janelas/Elenemeyer/espaco_sintese.png" id="13_u1mq0"]
+[ext_resource type="Texture2D" uid="uid://dvmbhs071l6ra" path="res://UI/Janelas/Elenemeyer/soma_sintese.png" id="14_btjc5"]
+[ext_resource type="Texture2D" uid="uid://ddys4u4jthpn3" path="res://UI/Janelas/destaque_elemento.png" id="16_mgap8"]
+[ext_resource type="Texture2D" uid="uid://b1lq6pxcpj6e1" path="res://arte/vlad/satanas atomico/satanas atomico/co2.png" id="17_2an7v"]
+[ext_resource type="Texture2D" uid="uid://bnwippjag2fcx" path="res://arte/vlad/satanas atomico/satanas atomico/nao sei oq atomico.png" id="18_8dviv"]
+[ext_resource type="Texture2D" uid="uid://8mb7id4h6qii" path="res://UI/Janelas/Elenemeyer/destaque_elemento.png" id="18_d3vqm"]
+[ext_resource type="Texture2D" uid="uid://dhquaf83wmy5q" path="res://UI/Janelas/Elenemeyer/espac_elemento_sintese.png" id="19_qtrlo"]
+[ext_resource type="FontFile" uid="uid://dycml3x37dr0n" path="res://UI/Fontes/04B_30__.TTF" id="20_6jte0"]
 
 [node name="Laboratorio_iventario" type="Control" unique_id=1409135382]
+process_mode = 3
+layout_direction = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,8 +32,476 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jxupr")
+imagem_brilho = ExtResource("18_d3vqm")
+imagem_vazia = ExtResource("13_u1mq0")
+imagem_o = ExtResource("8_d3vqm")
+imagem_h = ExtResource("10_02e1e")
+imagem_c = ExtResource("9_daqlr")
+icone_agua = ExtResource("18_8dviv")
+icone_dioxido = ExtResource("17_2an7v")
 
-[node name="laboratorio" type="Control" parent="." unique_id=1237332314]
+[node name="ElenmeyerInfo" type="TextureRect" parent="." unique_id=1043443510]
+layout_mode = 0
+offset_left = -18.666626
+offset_top = -17.96872
+offset_right = 963.3334
+offset_bottom = 444.03128
+scale = Vector2(1.2532246, 1.5455898)
+texture = ExtResource("8_nnxpa")
+
+[node name="TELA_ATOMOS" type="TextureRect" parent="." unique_id=1300724519]
+layout_mode = 0
+offset_left = 15.000001
+offset_top = 26.000004
+offset_right = 997.0
+offset_bottom = 541.0
+scale = Vector2(1.1610628, 1.1048545)
+texture = ExtResource("9_btfhd")
+metadata/_edit_lock_ = true
+
+[node name="MolduraElementoO" type="TextureRect" parent="TELA_ATOMOS" unique_id=212773253]
+layout_mode = 0
+offset_left = 149.8627
+offset_top = 415.43933
+offset_right = 240.8627
+offset_bottom = 504.43933
+scale = Vector2(0.86127985, 0.9050966)
+texture = ExtResource("4_hi35h")
+
+[node name="MolduraElementoH" type="TextureRect" parent="TELA_ATOMOS" unique_id=969630378]
+layout_mode = 0
+offset_left = 446.14294
+offset_top = 422.6801
+offset_right = 537.14294
+offset_bottom = 511.6801
+scale = Vector2(0.86127985, 0.9050966)
+texture = ExtResource("5_ymotw")
+
+[node name="MolduraElementoC" type="TextureRect" parent="TELA_ATOMOS" unique_id=1547096800]
+layout_mode = 0
+offset_left = 742.4232
+offset_top = 415.43933
+offset_right = 833.4232
+offset_bottom = 504.43933
+scale = Vector2(0.86127985, 0.9050966)
+texture = ExtResource("6_oxgkr")
+
+[node name="MolduraElemento" type="TextureRect" parent="TELA_ATOMOS" unique_id=1176325044]
+layout_mode = 0
+offset_left = 91.295654
+offset_top = 181.01932
+offset_right = 182.29565
+offset_bottom = 270.01932
+scale = Vector2(2.133845, 2.2424023)
+texture = ExtResource("7_00dcp")
+
+[node name="MolduraElemento2" type="TextureRect" parent="TELA_ATOMOS" unique_id=1647298406]
+layout_mode = 0
+offset_left = 380.68567
+offset_top = 181.01932
+offset_right = 471.68567
+offset_bottom = 270.01932
+scale = Vector2(2.133845, 2.2424023)
+texture = ExtResource("7_00dcp")
+
+[node name="MolduraElemento3" type="TextureRect" parent="TELA_ATOMOS" unique_id=246302091]
+layout_mode = 0
+offset_left = 676.9659
+offset_top = 181.01932
+offset_right = 767.9659
+offset_bottom = 270.01932
+scale = Vector2(2.133845, 2.2424023)
+texture = ExtResource("7_00dcp")
+
+[node name="O" type="TextureRect" parent="TELA_ATOMOS" unique_id=836124006]
+visible = false
+layout_mode = 0
+offset_left = 78.37646
+offset_top = 186.44989
+offset_right = 309.08765
+offset_bottom = 364.75394
+texture = ExtResource("8_d3vqm")
+expand_mode = 1
+
+[node name="H" type="TextureRect" parent="TELA_ATOMOS" unique_id=2138350418]
+visible = false
+layout_mode = 0
+offset_left = 357.43112
+offset_top = 165.63268
+offset_right = 589.97656
+offset_bottom = 398.17816
+texture = ExtResource("10_02e1e")
+expand_mode = 1
+
+[node name="C" type="TextureRect" parent="TELA_ATOMOS" unique_id=1845896086]
+visible = false
+layout_mode = 0
+offset_left = 673.5208
+offset_top = 178.30402
+offset_right = 875.9216
+offset_bottom = 380.70477
+texture = ExtResource("9_daqlr")
+expand_mode = 1
+
+[node name="qnt_O" type="Label" parent="TELA_ATOMOS" unique_id=5083134]
+layout_mode = 0
+offset_left = 192.0654
+offset_top = 399.14758
+offset_right = 278.1934
+offset_bottom = 445.3075
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
+
+[node name="qnt_C" type="Label" parent="TELA_ATOMOS" unique_id=355559767]
+layout_mode = 0
+offset_left = 792.37744
+offset_top = 408.19855
+offset_right = 878.50543
+offset_bottom = 454.35846
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
+
+[node name="qnt_H" type="Label" parent="TELA_ATOMOS" unique_id=884393708]
+layout_mode = 0
+offset_left = 489.20694
+offset_top = 412.72406
+offset_right = 575.33496
+offset_bottom = 458.88397
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TELA_SINTESE" type="TextureRect" parent="." unique_id=1735693008]
+visible = false
+layout_mode = 0
+offset_left = 11.0
+offset_top = 19.0
+offset_right = 993.0
+offset_bottom = 534.0
+scale = Vector2(1.1609603, 1.1179612)
+texture = ExtResource("10_fajxt")
+
+[node name="EspacoSintese" type="TextureRect" parent="TELA_SINTESE" unique_id=1530502147]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.005
+anchor_bottom = 1.07
+offset_left = 103.917786
+offset_top = 194.99785
+offset_right = -724.9921
+offset_bottom = -124.052185
+scale = Vector2(0.6239361, 0.647934)
+pivot_offset = Vector2(78.68965, 115.96362)
+texture = ExtResource("13_u1mq0")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Icone" type="TextureRect" parent="TELA_SINTESE/EspacoSintese" unique_id=82240088]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="EspacoSintese2" type="TextureRect" parent="TELA_SINTESE" unique_id=50141000]
+layout_mode = 0
+offset_left = 420.89676
+offset_top = 202.1537
+offset_right = 578.8967
+offset_bottom = 434.1537
+scale = Vector2(0.6239361, 0.647934)
+pivot_offset = Vector2(78.68964, 111.82205)
+texture = ExtResource("13_u1mq0")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Icone" type="TextureRect" parent="TELA_SINTESE/EspacoSintese2" unique_id=1338229137]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="EspaçoSintese3" type="TextureRect" parent="TELA_SINTESE" unique_id=988156567]
+layout_mode = 0
+offset_left = 744.7666
+offset_top = 245.08902
+offset_right = 848.12933
+offset_bottom = 396.86215
+pivot_offset = Vector2(51.681335, 78.71472)
+texture = ExtResource("13_u1mq0")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Icone" type="TextureRect" parent="TELA_SINTESE/EspaçoSintese3" unique_id=1359402544]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="SomaSintese" type="TextureRect" parent="TELA_SINTESE" unique_id=762823814]
+layout_mode = 0
+offset_left = 296.8615
+offset_top = 259.4008
+offset_right = 391.8615
+offset_bottom = 357.4008
+scale = Vector2(0.8613559, 0.8944855)
+texture = ExtResource("14_btjc5")
+metadata/_edit_use_anchors_ = true
+
+[node name="SomaSintese2" type="TextureRect" parent="TELA_SINTESE" unique_id=313031986]
+layout_mode = 0
+offset_left = 613.84045
+offset_top = 259.4008
+offset_right = 708.84045
+offset_bottom = 357.4008
+scale = Vector2(0.8613559, 0.8944855)
+texture = ExtResource("14_btjc5")
+metadata/_edit_use_anchors_ = true
+
+[node name="botao_c" type="TextureButton" parent="TELA_SINTESE" unique_id=915900473]
+layout_mode = 0
+offset_left = 565.60455
+offset_top = 87.65956
+offset_right = 656.60455
+offset_bottom = 176.65956
+scale = Vector2(0.72436506, 0.72436506)
+focus_mode = 0
+texture_normal = ExtResource("6_oxgkr")
+metadata/_edit_use_anchors_ = true
+
+[node name="botao_o" type="TextureButton" parent="TELA_SINTESE" unique_id=123239938]
+layout_mode = 0
+offset_left = 345.0974
+offset_top = 87.65956
+offset_right = 436.0974
+offset_bottom = 176.65956
+scale = Vector2(0.72436506, 0.72436506)
+focus_mode = 0
+texture_normal = ExtResource("4_hi35h")
+metadata/_edit_use_anchors_ = true
+
+[node name="botao_h" type="TextureButton" parent="TELA_SINTESE" unique_id=1389905472]
+layout_mode = 0
+offset_left = 455.35098
+offset_top = 87.65956
+offset_right = 546.35095
+offset_bottom = 176.65956
+scale = Vector2(0.72436506, 0.72436506)
+focus_mode = 0
+texture_normal = ExtResource("5_ymotw")
+metadata/_edit_use_anchors_ = true
+
+[node name="botao_limpar" type="TextureButton" parent="TELA_SINTESE" unique_id=1970459450]
+modulate = Color(0.44313726, 0.6901961, 0.69803923, 1)
+layout_mode = 0
+offset_left = 407.11502
+offset_top = 467.8159
+offset_right = 840.115
+offset_bottom = 615.8159
+scale = Vector2(0.465, 0.465)
+focus_mode = 0
+texture_normal = ExtResource("19_qtrlo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_limpar" type="Label" parent="TELA_SINTESE" unique_id=1349433773]
+layout_mode = 0
+offset_left = 454.48962
+offset_top = 488.38907
+offset_right = 580.4896
+offset_bottom = 519.38904
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("11_65gy6")
+theme_override_font_sizes/font_size = 30
+text = "LIMPAR"
+metadata/_edit_use_anchors_ = true
+
+[node name="Fundo_animado" type="TextureRect" parent="TELA_SINTESE" unique_id=1650955012]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -117.14441
+offset_top = -93.02649
+offset_right = -849.1444
+offset_bottom = -358.0265
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(125, 125)
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Composto_animado" type="TextureRect" parent="TELA_SINTESE" unique_id=1891458374]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -491.0
+offset_top = -257.5
+offset_right = -1273.0
+offset_bottom = -572.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 100)
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TELA_COMPOSTOS" type="TextureRect" parent="." unique_id=1644894207]
+visible = false
+layout_mode = 0
+offset_left = 15.0
+offset_top = 24.0
+offset_right = 997.0
+offset_bottom = 539.0
+scale = Vector2(1.1733706, 1.1048546)
+texture = ExtResource("11_c7tbn")
+
+[node name="DestaqueElemento" type="TextureRect" parent="TELA_COMPOSTOS" unique_id=756478798]
+layout_mode = 0
+offset_left = 109.08746
+offset_top = 104.08612
+offset_right = 544.08746
+offset_bottom = 507.08615
+scale = Vector2(0.6460572, 0.6861216)
+texture = ExtResource("16_mgap8")
+
+[node name="DestaqueElemento2" type="TextureRect" parent="TELA_COMPOSTOS" unique_id=1067765038]
+layout_mode = 0
+offset_left = 603.3899
+offset_top = 107.706474
+offset_right = 1038.3899
+offset_bottom = 510.70648
+scale = Vector2(0.6460572, 0.6861216)
+texture = ExtResource("16_mgap8")
+
+[node name="Co2" type="TextureRect" parent="TELA_COMPOSTOS" unique_id=2125501050]
+layout_mode = 0
+offset_left = 595.7197
+offset_top = 31.678377
+offset_right = 4019.7197
+offset_bottom = 3551.6785
+scale = Vector2(0.102548264, 0.10890768)
+texture = ExtResource("17_2an7v")
+
+[node name="agua" type="TextureRect" parent="TELA_COMPOSTOS" unique_id=1457978605]
+layout_mode = 0
+offset_left = 116.75766
+offset_top = 74.217896
+offset_right = 3040.7576
+offset_bottom = 2790.2178
+scale = Vector2(0.097744666, 0.10380618)
+texture = ExtResource("18_8dviv")
+
+[node name="butao_h2o" type="TextureButton" parent="TELA_COMPOSTOS" unique_id=1890734128]
+modulate = Color(0.40784314, 0.8901961, 0.8509804, 1)
+layout_mode = 0
+offset_left = 169.59692
+offset_top = 409.10367
+offset_right = 602.5969
+offset_bottom = 557.10364
+scale = Vector2(0.4, 0.4)
+focus_mode = 0
+texture_normal = ExtResource("19_qtrlo")
+
+[node name="butao_co2" type="TextureButton" parent="TELA_COMPOSTOS" unique_id=1330199412]
+modulate = Color(0.4092078, 0.89400375, 0.90089005, 1)
+layout_mode = 0
+offset_left = 670.7173
+offset_top = 409.10367
+offset_right = 1103.7173
+offset_bottom = 557.10364
+scale = Vector2(0.4, 0.4)
+focus_mode = 0
+texture_normal = ExtResource("19_qtrlo")
+
+[node name="Label_CO2" type="Label" parent="TELA_COMPOSTOS" unique_id=89468828]
+layout_mode = 0
+offset_left = 670.7173
+offset_top = 409.10364
+offset_right = 843.7102
+offset_bottom = 466.76794
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 12
+theme_override_fonts/font = ExtResource("20_6jte0")
+theme_override_font_sizes/font_size = 30
+text = "CO₂"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_H2O" type="Label" parent="TELA_COMPOSTOS" unique_id=448123152]
+layout_mode = 0
+offset_left = 169.59692
+offset_top = 409.10364
+offset_right = 342.58984
+offset_bottom = 466.76794
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 12
+theme_override_fonts/font = ExtResource("20_6jte0")
+theme_override_font_sizes/font_size = 30
+text = "H₂O"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="botao_composto" type="Button" parent="." unique_id=316005004]
+layout_mode = 0
+offset_left = 840.0
+offset_top = 39.99997
+offset_right = 1036.0
+offset_bottom = 78.99997
+focus_mode = 0
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("11_65gy6")
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "COMPOSTOS"
+
+[node name="botao_atomos" type="Button" parent="." unique_id=25542471]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 37.0
+offset_right = 250.0
+offset_bottom = 76.0
+focus_mode = 0
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("11_65gy6")
+theme_override_font_sizes/font_size = 30
+text = "ÁTOMOS"
+
+[node name="botao_sintese" type="Button" parent="." unique_id=1968879028]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 40.0
+offset_right = 630.0
+offset_bottom = 79.0
+focus_mode = 0
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("11_65gy6")
+theme_override_font_sizes/font_size = 30
+text = "SÍNTESE"
+
+[node name="JanelaInformacao" type="TextureRect" parent="." unique_id=493561102]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,113 +509,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="laboratorio" unique_id=1183080021]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 0, 0.48235294)
-
-[node name="GridContainer2" type="GridContainer" parent="laboratorio" unique_id=1995713187]
+[node name="Texto" type="RichTextLabel" parent="JanelaInformacao" unique_id=391388672]
 layout_mode = 0
-offset_left = 339.0
-offset_top = 226.0
-offset_right = 379.0
-offset_bottom = 266.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="1" type="Sprite2D" parent="laboratorio/GridContainer2" unique_id=196187339]
-position = Vector2(109, 0)
-texture = ExtResource("2_xye0g")
-hframes = 5
-
-[node name="2" type="Sprite2D" parent="laboratorio/GridContainer2" unique_id=1832573668]
-position = Vector2(237, 0)
-texture = ExtResource("2_xye0g")
-hframes = 5
-
-[node name="3" type="Sprite2D" parent="laboratorio/GridContainer2" unique_id=1796130049]
-position = Vector2(367, 0)
-texture = ExtResource("2_xye0g")
-hframes = 5
-
-[node name="GridContainer" type="GridContainer" parent="laboratorio" unique_id=1796747305]
+[node name="Titulo" type="Label" parent="JanelaInformacao" unique_id=450107645]
 layout_mode = 0
-offset_left = 386.0
-offset_top = 360.0
-offset_right = 802.0
-offset_bottom = 496.0
-columns = 3
+offset_right = 40.0
+offset_bottom = 23.0
 
-[node name="But_bicho" type="Button" parent="laboratorio/GridContainer" unique_id=1571279109]
-layout_mode = 2
-icon = ExtResource("3_hi35h")
-script = ExtResource("4_ymotw")
-elemento = ["o", "h", "c"]
-
-[node name="But_bicho2" type="Button" parent="laboratorio/GridContainer" unique_id=1838665287]
-layout_mode = 2
-icon = ExtResource("5_oxgkr")
-script = ExtResource("4_ymotw")
-elemento = ["h", "o", "c"]
-
-[node name="But_bicho3" type="Button" parent="laboratorio/GridContainer" unique_id=1919252916]
-layout_mode = 2
-icon = ExtResource("6_nnxpa")
-script = ExtResource("4_ymotw")
-elemento = ["c", "o", "h"]
-
-[node name="Button" type="Button" parent="laboratorio/GridContainer" unique_id=1866848209]
-layout_mode = 2
-text = "apagar"
-script = ExtResource("7_xye0g")
-
-[node name="iventario" type="Control" parent="." unique_id=428158722]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1152.0
-offset_right = 1152.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="iventario" unique_id=544400433]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 1, 1, 0.48235294)
-
-[node name="Button->" type="Button" parent="." unique_id=6282401]
+[node name="Bicho" type="TextureRect" parent="JanelaInformacao" unique_id=49006530]
 layout_mode = 0
-offset_left = 1018.0
-offset_top = 523.0
-offset_right = 1123.0
-offset_bottom = 618.0
-theme_override_font_sizes/font_size = 60
-text = "=>"
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Button<-" type="Button" parent="." unique_id=1018138549]
+[node name="Botao_sair" type="TextureButton" parent="JanelaInformacao" unique_id=1390660397]
 layout_mode = 0
-offset_left = 1185.0
-offset_top = 523.0
-offset_right = 1290.0
-offset_bottom = 618.0
-theme_override_font_sizes/font_size = 60
-text = "<="
+offset_right = 40.0
+offset_bottom = 40.0
+focus_mode = 0
 
-[node name="sair" type="Button" parent="." unique_id=95140248]
-layout_mode = 0
-offset_right = 162.0
-offset_bottom = 103.0
-text = "sair"
-
-[connection signal="pressed" from="laboratorio/GridContainer/But_bicho" to="laboratorio/GridContainer/But_bicho" method="_on_pressed"]
-[connection signal="pressed" from="laboratorio/GridContainer/But_bicho2" to="laboratorio/GridContainer/But_bicho2" method="_on_pressed"]
-[connection signal="pressed" from="laboratorio/GridContainer/But_bicho3" to="laboratorio/GridContainer/But_bicho3" method="_on_pressed"]
-[connection signal="pressed" from="laboratorio/GridContainer/Button" to="laboratorio/GridContainer/Button" method="_on_pressed"]
-[connection signal="pressed" from="sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="TELA_SINTESE/botao_c" to="." method="_on_botao_c_pressed"]
+[connection signal="pressed" from="TELA_SINTESE/botao_o" to="." method="_on_botao_o_pressed"]
+[connection signal="pressed" from="TELA_SINTESE/botao_h" to="." method="_on_botao_h_pressed"]
+[connection signal="pressed" from="TELA_SINTESE/botao_limpar" to="." method="_on_botao_limpar_pressed"]
+[connection signal="pressed" from="TELA_COMPOSTOS/butao_h2o" to="." method="_on_butao_h_2o_pressed"]
+[connection signal="pressed" from="TELA_COMPOSTOS/butao_co2" to="." method="_on_butao_co_2_pressed"]
+[connection signal="pressed" from="botao_composto" to="." method="_on_botao_composto_pressed"]
+[connection signal="pressed" from="botao_atomos" to="." method="_on_botao_atomos_pressed"]
+[connection signal="pressed" from="botao_sintese" to="." method="_on_botao_sintese_pressed"]
+[connection signal="pressed" from="JanelaInformacao/Botao_sair" to="." method="_on_botao_sair_pressed"]

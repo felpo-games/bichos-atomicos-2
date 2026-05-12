@@ -150,21 +150,29 @@ func respawn():
 # =========================
 
 func _on_area_de_knockpack_e_dano_laranja_body_entered(body: Node3D) -> void:
+	# A trava de segurança mestre: se estiver morto, ignora o dano e o knockback!
+	if state == estado.morto:
+		return
+
 	if body.is_in_group("player"):
 		if body.has_method("dano"):
 			body.dano()
+
 		var direcao_kb = body.global_position - global_position
 		direcao_kb.y = 0 
 		direcao_kb = direcao_kb.normalized()
 		direcao_kb.y = 0.5 
 		direcao_kb = direcao_kb.normalized()
+
 		if "velocity" in body:
 			body.velocity = direcao_kb * forca_knockback
 
 func _on_area_receber_danovermelha_area_entered(area: Area3D) -> void:
+	# Evita que o inimigo tome dano de novo e rode a função morrer() duplicada
+	if state == estado.morto:
+		return
 
 	if area.is_in_group("ataque_player"):
-
 		vida -= 1
 
 		# atualiza global
@@ -175,9 +183,11 @@ func _on_area_receber_danovermelha_area_entered(area: Area3D) -> void:
 			morrer()
 
 func _on_area_h_body_entered(body: Node3D) -> void:
+	# Evita que o "fantasma" do inimigo inicie uma batalha com o player
+	if state == estado.morto:
+		return
 
 	if body.is_in_group("player"):
-
 		player = body
 
 		# salva inimigo atual
@@ -188,22 +198,14 @@ func _on_area_h_body_entered(body: Node3D) -> void:
 		DadosInimigos.status_inimigo["fraqueza"] = fraqueza
 
 		eventos_global.batalha = true
-
 		pode_mover = true
 
 		$pivod/hidrogenio/AnimationPlayer.play("walk_2")
 
 func _on_area_h_body_exited(body: Node3D) -> void:
-
 	if body.is_in_group("player"):
-
 		pode_mover = false
-
 		eventos_global.batalha = false
-
 		player = null
-
 		direcao_alvo = Vector3.ZERO
-
-		# limpa inimigo atual
 		DadosInimigos.inimigo_atual = null

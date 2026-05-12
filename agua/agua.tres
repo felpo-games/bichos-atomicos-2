@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InfoElemento" format=3 uid="uid://4gu262mf837v"]
+
+[ext_resource type="Texture2D" uid="uid://l40rg1w4u43m" path="res://arte/vlad/satanas atomico/satanas atomico/o2.png" id="1_8solx"]
+[ext_resource type="Script" uid="uid://bp0b0b38drkrf" path="res://cenas/script/globais/InfoElemento.gd" id="1_pgnqs"]
+
+[resource]
+script = ExtResource("1_pgnqs")
+titulo = "cuzinho"
+descricao = "pimtos
+"
+bicho = ExtResource("1_8solx")
+metadata/_custom_type_script = "uid://bp0b0b38drkrf"

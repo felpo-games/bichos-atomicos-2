@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d4hrdihoxf1gw" path="res://UI/Janelas/Opcoes/marcador_brilho_pressed.png" id="8_383q5"]
 [ext_resource type="Texture2D" uid="uid://cxkwxneqpue6w" path="res://UI/Janelas/Opcoes/barra_volume.png" id="9_lrhbd"]
 [ext_resource type="Texture2D" uid="uid://c6odndlm7on3j" path="res://UI/Janelas/Opcoes/botao_volume.png" id="10_xtask"]
+[ext_resource type="FontFile" uid="uid://c77v7nivsurme" path="res://UI/Fontes/JHCRasbora-RegularItalic.otf" id="11_mnagl"]
 [ext_resource type="Texture2D" uid="uid://bjjcviv1pbr7r" path="res://UI/Botões/button_voltar.png" id="11_o8dnn"]
 [ext_resource type="Texture2D" uid="uid://bd8nqqm61dh4j" path="res://UI/Botões/button_sair.png" id="13_mnagl"]
 [ext_resource type="Texture2D" uid="uid://bwtwanqaaxpnj" path="res://UI/Botões/button_pressed_sair.png" id="14_0phgo"]
@@ -24,11 +25,11 @@ font_size = 43
 
 [sub_resource type="LabelSettings" id="LabelSettings_d1c66"]
 font = ExtResource("6_q1oh8")
-font_size = 41
+font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_71j7u"]
 font = ExtResource("6_q1oh8")
-font_size = 36
+font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_dfhte"]
 font = ExtResource("6_q1oh8")
@@ -41,7 +42,7 @@ anchors_preset = 0
 script = ExtResource("1_ksxrd")
 tela_imagem = NodePath("ColorRect/imagem")
 tela_audio = NodePath("ColorRect/audio")
-tela_compartilhe = NodePath("ColorRect/Compatilhe")
+tela_compartilhe = NodePath("ColorRect/CREDITOS")
 sprit_1 = ExtResource("2_u8wf4")
 sprit_2 = ExtResource("3_afooe")
 sprit_3 = ExtResource("4_pjmeh")
@@ -98,26 +99,25 @@ offset_right = -193.694
 offset_bottom = -197.0
 
 [node name="imagem" type="Control" parent="ColorRect" unique_id=1031051845]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="ColorRect/imagem" unique_id=1785204092]
 layout_mode = 0
-offset_left = 156.0
-offset_top = 239.0
-offset_right = 411.0
-offset_bottom = 271.0
+offset_left = 158.0
+offset_top = 307.0
+offset_right = 462.0
+offset_bottom = 345.0
 text = "FILTRO AMARELO:"
 label_settings = SubResource("LabelSettings_p3was")
 
-[node name="ATIVO" type="Label" parent="ColorRect/imagem" unique_id=557601523]
+[node name="ATIVADO_DESATIVADO" type="Label" parent="ColorRect/imagem" unique_id=557601523]
 layout_mode = 0
-offset_left = 573.0
-offset_top = 237.0
-offset_right = 877.0
-offset_bottom = 275.0
+offset_left = 548.0
+offset_top = 308.0
+offset_right = 852.0
+offset_bottom = 346.0
 text = "ATIVADO"
 label_settings = SubResource("LabelSettings_p3was")
 
@@ -126,10 +126,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 483.0
-offset_top = 242.0
-offset_right = 483.0
-offset_bottom = 238.0
+offset_left = 485.0
+offset_top = 310.0
+offset_right = 485.0
+offset_bottom = 306.0
 grow_horizontal = 2
 grow_vertical = 2
 toggle_mode = true
@@ -137,6 +137,7 @@ texture_normal = ExtResource("7_ilcbo")
 texture_pressed = ExtResource("8_383q5")
 
 [node name="audio" type="Control" parent="ColorRect" unique_id=1745339144]
+visible = false
 layout_mode = 1
 anchor_right = 0.062000003
 anchor_bottom = 0.106000006
@@ -175,7 +176,7 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="Compatilhe" type="Control" parent="ColorRect" unique_id=762738083]
+[node name="CREDITOS" type="Control" parent="ColorRect" unique_id=762738083]
 visible = false
 anchors_preset = 0
 offset_left = 53.0
@@ -183,16 +184,16 @@ offset_top = 54.0
 offset_right = 93.0
 offset_bottom = 94.0
 
-[node name="REDES" type="Label" parent="ColorRect/Compatilhe" unique_id=2053320677]
+[node name="REDES" type="Label" parent="ColorRect/CREDITOS" unique_id=2053320677]
 layout_mode = 0
-offset_left = 172.0
-offset_top = 245.0
-offset_right = 475.0
-offset_bottom = 287.0
+offset_left = 459.0
+offset_top = 454.0
+offset_right = 762.0
+offset_bottom = 496.0
 text = "REDES SOCIAIS:"
 label_settings = SubResource("LabelSettings_d1c66")
 
-[node name="link_botao" type="TextureButton" parent="ColorRect/Compatilhe" unique_id=323018003]
+[node name="link_botao" type="TextureButton" parent="ColorRect/CREDITOS" unique_id=323018003]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 18.625
@@ -204,14 +205,33 @@ offset_top = -61.48001
 offset_right = 222.0
 offset_bottom = 54.51999
 
-[node name="INSTA" type="Label" parent="ColorRect/Compatilhe" unique_id=988033387]
+[node name="INSTA" type="Label" parent="ColorRect/CREDITOS" unique_id=988033387]
 layout_mode = 0
-offset_left = 554.0
-offset_top = 241.0
-offset_right = 920.0
-offset_bottom = 278.0
+offset_left = 690.0
+offset_top = 457.0
+offset_right = 1056.0
+offset_bottom = 494.0
 text = "@BICHOSATOMICOS_"
 label_settings = SubResource("LabelSettings_71j7u")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/CREDITOS" unique_id=288215217]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 120.0
+offset_right = 928.0
+offset_bottom = 404.0
+theme_override_fonts/normal_font = ExtResource("11_mnagl")
+theme_override_font_sizes/normal_font_size = 30
+text = "FELIPE - PROGRAMADOR
+
+CHRISTINA - GAME DESIGNER E SONOPLASTA
+
+MIGUEL - ARTISTA
+
+LUISA - UI/UX E GAME DESIGNER
+
+MARIANA - MARKETING
+"
 
 [node name="BotaoVoltar" type="TextureButton" parent="ColorRect" unique_id=528903332]
 layout_mode = 0
@@ -260,18 +280,19 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.08400001
 anchor_bottom = 0.080000006
-offset_left = 778.0
-offset_top = 60.0
-offset_right = 929.224
-offset_bottom = 45.199997
-text = "COMPARTILHE"
+offset_left = 813.0
+offset_top = 59.0
+offset_right = 989.0
+offset_bottom = 97.0
+text = "CRÉDITOS"
 label_settings = SubResource("LabelSettings_dfhte")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="ColorRect/ElenmeyerOpt1/BOTAO_AUDIO" to="." method="ativar_tela_audio"]
 [connection signal="pressed" from="ColorRect/ElenmeyerOpt1/BOTAO_COMPARTILHE" to="." method="ativar_tela_compartilhe"]
 [connection signal="pressed" from="ColorRect/ElenmeyerOpt1/BOTAO_IMAGEM" to="." method="ativar_tela_imagem"]
+[connection signal="toggled" from="ColorRect/imagem/MARCADO_DE_FILTRO" to="." method="_on_marcado_de_filtro_toggled"]
 [connection signal="value_changed" from="ColorRect/audio/HSlider" to="." method="_on_h_slider_value_changed"]
-[connection signal="pressed" from="ColorRect/Compatilhe/link_botao" to="." method="acesar_link"]
+[connection signal="pressed" from="ColorRect/CREDITOS/link_botao" to="." method="acesar_link"]
 [connection signal="pressed" from="ColorRect/BotaoVoltar" to="." method="_on_botao_voltar_pressed"]
 [connection signal="pressed" from="ColorRect/BotaoSair" to="." method="_on_botao_sair_pressed"]

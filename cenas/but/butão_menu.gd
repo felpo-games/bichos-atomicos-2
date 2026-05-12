@@ -41,8 +41,6 @@ func _on_mouse_exited() -> void:
 	pass # Replace with function body.
 
 
-
-
 func _on_pressed() -> void:
 	if Input.is_action_pressed("ação") and namira:
 		_on_pressed()

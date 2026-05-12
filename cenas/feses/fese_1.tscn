@@ -24,7 +24,6 @@
 [ext_resource type="Script" uid="uid://c7fsw3lepcgdq" path="res://cenas/script/obstaculos/areado_fogo.gd" id="13_u5hjb"]
 [ext_resource type="PackedScene" uid="uid://ce3xps06jwojt" path="res://cenas/obstaculos/fogo_eletrico.tscn" id="14_qjydo"]
 [ext_resource type="PackedScene" uid="uid://ds2fpmg81xnkt" path="res://cenas/efeitos/filtro_azul.tscn" id="14_tim8w"]
-[ext_resource type="Shader" uid="uid://bcgutpyd7ctqt" path="res://cenas/efeitos/blue_visual.gdshader" id="15_b4grr"]
 [ext_resource type="PackedScene" uid="uid://dl7em3ubuelef" path="res://cenas/telas/ui_inimigos.tscn" id="16_031u1"]
 [ext_resource type="PackedScene" uid="uid://bprq4uurg7e8o" path="res://cenas/telas/diario.tscn" id="16_lnt5l"]
 [ext_resource type="Script" uid="uid://bkcf15b20g7bi" path="res://addons/proton_scatter/src/scatter.gd" id="17_pshm4"]
@@ -56,10 +55,6 @@ reflected_light_source = 2
 [sub_resource type="SphereShape3D" id="SphereShape3D_rmu0y"]
 radius = 19.946926
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8l63c"]
-shader = ExtResource("15_b4grr")
-shader_parameter/intensidade = 1.0
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_vb2yy"]
 size = Vector3(65.2415, 8.291626, 26.465836)
 
@@ -69,34 +64,34 @@ size = Vector3(86.25282, 15.723511, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_u5hjb"]
 size = Vector3(34.796753, 12.025513, 24.604477)
 
-[sub_resource type="Resource" id="Resource_5khuk"]
+[sub_resource type="Resource" id="Resource_3qe05"]
 script = ExtResource("20_8l63c")
 amount = 50
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_1hi1d"]
+[sub_resource type="Resource" id="Resource_5khuk"]
 script = ExtResource("21_ob45n")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(10, 100, 0)
 scale = Vector3(1.5, 0.1, 0.1)
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_h1cmy"]
+[sub_resource type="Resource" id="Resource_1hi1d"]
 script = ExtResource("22_lg0kn")
 offset_step = 0.2
 consecutive_step_multiplier = 0.75
 restrict_height = true
 
-[sub_resource type="Resource" id="Resource_ipfv2"]
+[sub_resource type="Resource" id="Resource_h1cmy"]
 script = ExtResource("23_gynid")
 ray_length = 5.0
 ray_offset = 5.0
 remove_points_on_miss = false
 
-[sub_resource type="Resource" id="Resource_pe8w4"]
+[sub_resource type="Resource" id="Resource_ipfv2"]
 script = ExtResource("18_tim8w")
-stack = Array[ExtResource("19_b4grr")]([SubResource("Resource_5khuk"), SubResource("Resource_1hi1d"), SubResource("Resource_h1cmy"), SubResource("Resource_ipfv2")])
+stack = Array[ExtResource("19_b4grr")]([SubResource("Resource_3qe05"), SubResource("Resource_5khuk"), SubResource("Resource_1hi1d"), SubResource("Resource_h1cmy")])
 
 [sub_resource type="Resource" id="Resource_re6xn"]
 script = ExtResource("26_031u1")
@@ -205,7 +200,7 @@ transform = Transform3D(-2.2562599e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.21063, 0, 0)
 
 [node name="player" parent="personagem" unique_id=1822486866 instance=ExtResource("1_1c7ow")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.1043701, 0.23167133, 1.6637878)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -127.38165, 0.23167133, 1.6637878)
 
 [node name="efeitos" type="Node3D" parent="." unique_id=1522335302]
 
@@ -220,6 +215,7 @@ shadow_enabled = true
 
 [node name="bicho_c2" parent="bichos" unique_id=428746475 instance=ExtResource("9_qjydo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115.22098, 3.5070648, -229.98473)
+visible = false
 speed = 3.0
 fraqueza = "pocao"
 forca_knockback = 15.0
@@ -238,10 +234,10 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_rmu0y")
 
 [node name="area_h2" parent="bichos" unique_id=2145989643 instance=ExtResource("13_h4ygu")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -130.83383, 0, -10.1134205)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 30.510712, 0, -10.1134205)
 
 [node name="bicho_h" parent="bichos/area_h2" unique_id=7474898 instance=ExtResource("3_e5vpm")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.91381073, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.934105, 0.91381073, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bichos/area_h2" unique_id=207247854]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
@@ -249,10 +245,12 @@ shape = SubResource("SphereShape3D_rmu0y")
 
 [node name="bicho_o" parent="bichos" unique_id=1814063333 instance=ExtResource("7_7uoum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.21265, 1.418, -137.479)
+visible = false
 icon = ExtResource("10_h4ygu")
 
 [node name="bicho_o3" parent="bichos" unique_id=1500830051 instance=ExtResource("7_7uoum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.50658, 1.5029488, -230.38823)
+visible = false
 icon = ExtResource("10_h4ygu")
 
 [node name="bicho_o2" parent="bichos" unique_id=1549283805 instance=ExtResource("7_7uoum")]
@@ -261,6 +259,7 @@ icon = ExtResource("10_h4ygu")
 
 [node name="bicho_ph" parent="bichos" unique_id=1936316218 instance=ExtResource("9_h4ygu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5707998, -314.826)
+visible = false
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=744198927]
 process_mode = 3
@@ -274,18 +273,6 @@ anchors_preset = 0
 
 [node name="filtro_azul" parent="UI/telas" unique_id=1994584366 instance=ExtResource("14_tim8w")]
 visible = false
-material = SubResource("ShaderMaterial_8l63c")
-layout_mode = 1
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -38.0
-offset_top = -40.0
-offset_right = 1187.0
-offset_bottom = 676.0
-grow_horizontal = 1
-grow_vertical = 1
-mouse_filter = 2
 
 [node name="conversa_o" parent="UI/telas" unique_id=901814761 instance=ExtResource("2_oqrsv")]
 layout_mode = 1
@@ -303,6 +290,7 @@ visible = false
 layout_mode = 1
 
 [node name="notificacao" parent="UI/telas" unique_id=1508309764 instance=ExtResource("5_f6840")]
+visible = false
 layout_mode = 1
 offset_left = 407.0
 offset_top = -114.0
@@ -397,7 +385,7 @@ shape = SubResource("BoxShape3D_u5hjb")
 [node name="ProtonScatter" type="Node3D" parent="." unique_id=1967824871]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6306324, 0)
 script = ExtResource("17_pshm4")
-modifier_stack = SubResource("Resource_pe8w4")
+modifier_stack = SubResource("Resource_ipfv2")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://bkcf15b20g7bi"

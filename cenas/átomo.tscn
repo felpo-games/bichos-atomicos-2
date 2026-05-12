@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kty240fktcex"]
 
 [ext_resource type="Texture2D" uid="uid://vm6nppxse6mr" path="res://arte/artes chris/átomo PNG.png" id="1_7dhif"]
-[ext_resource type="Script" uid="uid://cdai56fxd6w1x" path="res://cenas/átomo.gd" id="1_texgt"]
+[ext_resource type="Script" uid="uid://cdai56fxd6w1x" path="res://cenas/script/átomo.gd" id="1_texgt"]
 [ext_resource type="Texture2D" uid="uid://cmjwws7efpwio" path="res://arte/artes chris/elétron PNG.png" id="2_texgt"]
 
 [sub_resource type="Animation" id="Animation_pa5ek"]
