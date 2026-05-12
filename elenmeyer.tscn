@@ -1,17 +1,23 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdsa75mhnls2r"]
+[gd_scene load_steps=24 format=3 uid="uid://bdsa75mhnls2r"]
 
 [ext_resource type="Texture2D" uid="uid://csxhgdnqmmd30" path="res://UI/Janelas/fundo_opcoes.png" id="1_36m0o"]
+[ext_resource type="Script" uid="uid://c6lca21fx03n1" path="res://cenas/telas/elenmeyer.gd" id="1_ycnnh"]
 [ext_resource type="Texture2D" uid="uid://bh1b02q35o3au" path="res://UI/Janelas/elenmeyer_opt1.png" id="2_38c2g"]
+[ext_resource type="Texture2D" uid="uid://eq3y4ypqw7xu" path="res://UI/Janelas/elenmeyer_opt2.png" id="3_sn8qg"]
 [ext_resource type="FontFile" uid="uid://dycml3x37dr0n" path="res://UI/Fontes/04B_30__.TTF" id="3_ycnnh"]
+[ext_resource type="Texture2D" uid="uid://dg1jxbm1i6gxf" path="res://UI/Janelas/elenmeyer_opt3.png" id="4_gekhx"]
 [ext_resource type="Texture2D" uid="uid://bjjcviv1pbr7r" path="res://UI/Botões/button_voltar.png" id="5_54ra3"]
 [ext_resource type="Texture2D" uid="uid://b3tvr3xivpovl" path="res://UI/Botões/button_pressed_voltar.png" id="6_6bmsf"]
-[ext_resource type="Texture2D" uid="uid://bw6x0mo8geimk" path="res://UI/Janelas/desconhecido.png" id="9_u5dh3"]
+[ext_resource type="Texture2D" uid="uid://bw6x0mo8geimk" path="res://UI/Janelas/Elenemeyer/desconhecido.png" id="9_u5dh3"]
 [ext_resource type="Texture2D" uid="uid://djkyvtwph20xx" path="res://UI/Janelas/Elenemeyer/moldura_elemento_C.png" id="10_ycnnh"]
 [ext_resource type="Texture2D" uid="uid://b8kaqmohyfe60" path="res://UI/Janelas/Elenemeyer/moldura_elemento_C_pressed.png" id="11_bc34h"]
 [ext_resource type="Texture2D" uid="uid://c7carlnyhojy1" path="res://UI/Janelas/Elenemeyer/moldura_elemento_H.png" id="12_sn8qg"]
+[ext_resource type="Texture2D" uid="uid://dhquaf83wmy5q" path="res://UI/Janelas/Elenemeyer/espac_elemento_sintese.png" id="13_6bmsf"]
 [ext_resource type="Texture2D" uid="uid://b51yl6eo0qays" path="res://UI/Janelas/Elenemeyer/moldura_elemento_H_pressed.png" id="13_gekhx"]
 [ext_resource type="Texture2D" uid="uid://d120hq0aubsym" path="res://UI/Janelas/Elenemeyer/moldura_elemento_O.png" id="14_1n2fo"]
+[ext_resource type="Texture2D" uid="uid://c6hu7whipb8e1" path="res://UI/Janelas/Elenemeyer/co2.png" id="14_u5dh3"]
 [ext_resource type="Texture2D" uid="uid://7h60sqtxbuc2" path="res://UI/Janelas/Elenemeyer/moldura_elemento_O_pressed.png" id="15_vaa7t"]
+[ext_resource type="Texture2D" uid="uid://6h0dt1e0h2uw" path="res://UI/Janelas/Elenemeyer/h2o.png" id="15_ycnnh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ycnnh"]
 texture = ExtResource("1_36m0o")
@@ -32,12 +38,19 @@ default_font_size = 23
 default_font = ExtResource("3_ycnnh")
 default_font_size = 23
 
-[node name="elenmeyer" type="Control"]
+[node name="elenmeyer-elementos" type="Control" node_paths=PackedStringArray("tela_elementos", "tela_sintese", "tela_compostos")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -1.0
-offset_right = 151.0
-offset_bottom = 57.0
+offset_right = 1154.0
+offset_bottom = 652.0
+script = ExtResource("1_ycnnh")
+tela_elementos = NodePath("Panel/Janela_Elementos")
+tela_sintese = NodePath("Panel/Janela_Síntese")
+tela_compostos = NodePath("Panel/Janela_Compostos")
+sprit_1 = ExtResource("2_38c2g")
+sprit_2 = ExtResource("3_sn8qg")
+sprit_3 = ExtResource("4_gekhx")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -77,92 +90,6 @@ size_flags_vertical = 8
 layout_mode = 2
 texture_normal = ExtResource("5_54ra3")
 texture_pressed = ExtResource("6_6bmsf")
-
-[node name="AspectRC-Elementos" type="AspectRatioContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.128
-anchor_top = 0.26200002
-anchor_right = 0.12900001
-anchor_bottom = 0.26200002
-offset_left = -21.712006
-offset_top = 3.9564667
-offset_right = 927.3903
-offset_bottom = 338.95645
-ratio = 1.9174
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/AspectRC-Elementos"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel/AspectRC-Elementos/HBoxContainer"]
-position = Vector2(-32.005493, -41.75)
-scale = Vector2(0.7987076, 0.77371275)
-texture = ExtResource("9_u5dh3")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/AspectRC-Elementos"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel/AspectRC-Elementos/HBoxContainer2"]
-position = Vector2(-32.005493, -41.75)
-scale = Vector2(0.7987076, 0.77371275)
-texture = ExtResource("9_u5dh3")
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/AspectRC-Elementos"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel/AspectRC-Elementos/HBoxContainer3"]
-position = Vector2(-32.005493, -41.75)
-scale = Vector2(0.7987076, 0.77371275)
-texture = ExtResource("9_u5dh3")
-
-[node name="AspectRC-BotoesElementos" type="AspectRatioContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.069000006
-anchor_top = 0.60300004
-anchor_right = 0.069000006
-anchor_bottom = 0.60300004
-offset_left = -0.47213745
-offset_top = -15.026886
-offset_right = 984.52783
-offset_bottom = 106.973114
-ratio = 6.0454
-
-[node name="ElementContainer_C" type="HBoxContainer" parent="Panel/AspectRC-BotoesElementos"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-
-[node name="C_Button" type="TextureButton" parent="Panel/AspectRC-BotoesElementos/ElementContainer_C"]
-layout_mode = 2
-texture_normal = ExtResource("10_ycnnh")
-texture_pressed = ExtResource("11_bc34h")
-
-[node name="ElementContainer_H" type="HBoxContainer" parent="Panel/AspectRC-BotoesElementos"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-
-[node name="h_Button" type="TextureButton" parent="Panel/AspectRC-BotoesElementos/ElementContainer_H"]
-layout_mode = 2
-texture_normal = ExtResource("12_sn8qg")
-texture_pressed = ExtResource("13_gekhx")
-
-[node name="ElementContainer_O" type="HBoxContainer" parent="Panel/AspectRC-BotoesElementos"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-
-[node name="O_Button" type="TextureButton" parent="Panel/AspectRC-BotoesElementos/ElementContainer_O"]
-layout_mode = 2
-texture_normal = ExtResource("14_1n2fo")
-texture_pressed = ExtResource("15_vaa7t")
 
 [node name="AspectRC-SubJanelas" type="AspectRatioContainer" parent="Panel"]
 layout_mode = 0
@@ -225,3 +152,233 @@ theme_override_colors/font_color = Color(0.16470589, 0.18039216, 0.24313726, 1)
 text = "COMPOSTOS
 "
 flat = true
+
+[node name="Janela_Elementos" type="Control" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AspectRC-Elementos" type="AspectRatioContainer" parent="Panel/Janela_Elementos"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.128
+anchor_top = 0.26200002
+anchor_right = 0.12900001
+anchor_bottom = 0.26200002
+offset_left = -21.712006
+offset_top = 3.9564667
+offset_right = 927.3903
+offset_bottom = 338.95645
+ratio = 1.9174
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Janela_Elementos/AspectRC-Elementos"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/Janela_Elementos/AspectRC-Elementos/HBoxContainer"]
+position = Vector2(-32.005493, -41.75)
+scale = Vector2(0.7987076, 0.77371275)
+texture = ExtResource("9_u5dh3")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/Janela_Elementos/AspectRC-Elementos"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/Janela_Elementos/AspectRC-Elementos/HBoxContainer2"]
+position = Vector2(-32.005493, -41.75)
+scale = Vector2(0.7987076, 0.77371275)
+texture = ExtResource("9_u5dh3")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/Janela_Elementos/AspectRC-Elementos"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/Janela_Elementos/AspectRC-Elementos/HBoxContainer3"]
+position = Vector2(-32.005493, -41.75)
+scale = Vector2(0.7987076, 0.77371275)
+texture = ExtResource("9_u5dh3")
+
+[node name="AspectRC-BotoesElementos" type="AspectRatioContainer" parent="Panel/Janela_Elementos"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.069000006
+anchor_top = 0.60300004
+anchor_right = 0.069000006
+anchor_bottom = 0.60300004
+offset_left = -0.47213745
+offset_top = -15.026886
+offset_right = 984.52783
+offset_bottom = 106.973114
+ratio = 6.0454
+
+[node name="ElementContainer_C" type="HBoxContainer" parent="Panel/Janela_Elementos/AspectRC-BotoesElementos"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="C_Button" type="TextureButton" parent="Panel/Janela_Elementos/AspectRC-BotoesElementos/ElementContainer_C"]
+layout_mode = 2
+texture_normal = ExtResource("10_ycnnh")
+texture_pressed = ExtResource("11_bc34h")
+
+[node name="ElementContainer_H" type="HBoxContainer" parent="Panel/Janela_Elementos/AspectRC-BotoesElementos"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="h_Button" type="TextureButton" parent="Panel/Janela_Elementos/AspectRC-BotoesElementos/ElementContainer_H"]
+layout_mode = 2
+texture_normal = ExtResource("12_sn8qg")
+texture_pressed = ExtResource("13_gekhx")
+
+[node name="ElementContainer_O" type="HBoxContainer" parent="Panel/Janela_Elementos/AspectRC-BotoesElementos"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="O_Button" type="TextureButton" parent="Panel/Janela_Elementos/AspectRC-BotoesElementos/ElementContainer_O"]
+layout_mode = 2
+texture_normal = ExtResource("14_1n2fo")
+texture_pressed = ExtResource("15_vaa7t")
+
+[node name="Janela_Síntese" type="Control" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ARC-Elementos" type="AspectRatioContainer" parent="Panel/Janela_Síntese"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 272.0
+offset_right = 1071.0
+offset_bottom = 575.0
+ratio = 1.6421
+
+[node name="BC-C" type="BoxContainer" parent="Panel/Janela_Síntese/ARC-Elementos"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="TextureButton" type="TextureButton" parent="Panel/Janela_Síntese/ARC-Elementos/BC-C"]
+layout_mode = 2
+texture_normal = ExtResource("10_ycnnh")
+texture_pressed = ExtResource("11_bc34h")
+texture_hover = ExtResource("11_bc34h")
+
+[node name="BC-H" type="BoxContainer" parent="Panel/Janela_Síntese/ARC-Elementos"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureButton" type="TextureButton" parent="Panel/Janela_Síntese/ARC-Elementos/BC-H"]
+layout_mode = 2
+texture_normal = ExtResource("12_sn8qg")
+texture_pressed = ExtResource("13_gekhx")
+texture_hover = ExtResource("13_gekhx")
+
+[node name="BC-O" type="BoxContainer" parent="Panel/Janela_Síntese/ARC-Elementos"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="TextureButton" type="TextureButton" parent="Panel/Janela_Síntese/ARC-Elementos/BC-O"]
+layout_mode = 2
+texture_normal = ExtResource("14_1n2fo")
+texture_pressed = ExtResource("15_vaa7t")
+texture_hover = ExtResource("15_vaa7t")
+
+[node name="BoxContainer" type="BoxContainer" parent="Panel/Janela_Síntese/ARC-Elementos"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/Janela_Síntese/ARC-Elementos/BoxContainer"]
+modulate = Color(0.33612818, 0.56279945, 0.5701844, 1)
+texture = ExtResource("13_6bmsf")
+
+[node name="Janela_Compostos" type="Control" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AspectRC-Elementos" type="AspectRatioContainer" parent="Panel/Janela_Compostos"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.128
+anchor_top = 0.26200002
+anchor_right = 0.12900001
+anchor_bottom = 0.26200002
+offset_left = 259.288
+offset_top = 3.9564667
+offset_right = 688.134
+offset_bottom = 338.95645
+ratio = 1.9174
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Janela_Compostos/AspectRC-Elementos"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/Janela_Compostos/AspectRC-Elementos/HBoxContainer"]
+position = Vector2(-32.005493, -41.75)
+scale = Vector2(0.7987076, 0.77371275)
+texture = ExtResource("9_u5dh3")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/Janela_Compostos/AspectRC-Elementos"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/Janela_Compostos/AspectRC-Elementos/HBoxContainer2"]
+position = Vector2(-32.005493, -41.75)
+scale = Vector2(0.7987076, 0.77371275)
+texture = ExtResource("9_u5dh3")
+
+[node name="AspectRC-BotoesElementos" type="AspectRatioContainer" parent="Panel/Janela_Compostos"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.069000006
+anchor_top = 0.60300004
+anchor_right = 0.069000006
+anchor_bottom = 0.60300004
+offset_left = 234.374
+offset_top = -15.026886
+offset_right = 790.374
+offset_bottom = 106.973114
+ratio = 6.0454
+
+[node name="ElementContainer_C" type="HBoxContainer" parent="Panel/Janela_Compostos/AspectRC-BotoesElementos"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="C_Button" type="TextureButton" parent="Panel/Janela_Compostos/AspectRC-BotoesElementos/ElementContainer_C"]
+layout_mode = 2
+texture_normal = ExtResource("14_u5dh3")
+
+[node name="ElementContainer_H" type="HBoxContainer" parent="Panel/Janela_Compostos/AspectRC-BotoesElementos"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="h_Button" type="TextureButton" parent="Panel/Janela_Compostos/AspectRC-BotoesElementos/ElementContainer_H"]
+layout_mode = 2
+texture_normal = ExtResource("15_ycnnh")
+
+[connection signal="pressed" from="Panel/AspectRC-SubJanelas/HBC_Titulo1/Elementos" to="." method="ativar_tela_elementos"]
+[connection signal="pressed" from="Panel/AspectRC-SubJanelas/HBC_Titulo2/Sintese" to="." method="ativar_tela_sintese"]
+[connection signal="pressed" from="Panel/AspectRC-SubJanelas/HBC_Titulo3/Compostos" to="." method="ativar_tela_compostos"]
