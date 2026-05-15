@@ -1,5 +1,9 @@
 extends CharacterBody3D
 
+#FALAS
+@export_multiline var falas_carbono: Array[String]
+@export var voz_carbono: AudioStream
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @export var queméessebicho:Array = ["o","h","c"]
@@ -52,10 +56,20 @@ func _physics_process(delta):
 	match state:
 
 		estado.conversa:
-
-			if Input.is_action_just_pressed("interacao") and player != null:
-				emit_signal("conversa")
-				print("conversa")
+			if Input.is_action_just_pressed("interacao") and player != null and not conversando:
+				conversando = true
+				player.em_dialogo = true
+				if falas_carbono.is_empty():
+					print("ERRO: O Inspetor deste bicho não tem falas!")
+					conversando = false
+					player.em_dialogo = false
+					return
+				$"../../UI/telas/TelaDeDiálogo".iniciar_dialogo(falas_carbono, voz_carbono)
+				await $"../../UI/telas/TelaDeDiálogo".dialogo_encerrado
+				if player == null:
+					conversando = false
+					return
+				iniciar_pergunta_carbono()
 
 		estado.batalhando:
 
@@ -75,6 +89,11 @@ func _physics_process(delta):
 var icon: Texture2D
 
 func derrotado():
+	if player != null:
+		player.em_dialogo = false
+		
+	eventos_global.batalha = false
+	$crecimento/AreadeDano/CollisionShape3D.set_deferred("disabled", true)
 	eventos_global.batalha = false
 	$crecimento/AreadeDano/CollisionShape3D.set_deferred("disabled", true)
 	
@@ -236,17 +255,20 @@ func _on_area_conversa_body_entered(body: Node3D) -> void:
 
 func _on_area_conversa_body_exited(body: Node3D) -> void:
 
-	if body.is_in_group("player") and state == estado.conversa:
-
+	if body.is_in_group("player"):
 		player = null
-
-		# limpa inimigo atual
 		DadosInimigos.inimigo_atual = null
+		if conversando:
+			conversando = false
+			body.em_dialogo = false
+			$"../../UI/telas/TelaDeDiálogo".cancelar_dialogo()
+			$"../../UI/telas/conversas_cena".sair()
 
 func _on_conversas_cena_batalhar() -> void:
-
 	state = estado.batalhando
-
+	if player != null:
+		player.em_dialogo = false 
+		
 	crecer()
 
 func _on_conversas_cena_acertou() -> void:
@@ -258,16 +280,15 @@ func _on_conversas_cena_acertou() -> void:
 func _on_areade_dano_body_entered(body: Node3D) -> void:
 
 	if body.is_in_group("player") and state == estado.batalhando:
-
+		$som_danoCO2.play()
 		aplicar_knockback(body)
-
 		body.dano()
 
 func _on_areade_dano_area_entered(area: Area3D) -> void:
 
 	if area.is_in_group("ataque_player"):
-
 		vida -= 1
+		$Som_ataque
 
 		# atualiza global
 		DadosInimigos.status_inimigo["vida"] = vida
@@ -277,3 +298,6 @@ func _on_areade_dano_area_entered(area: Area3D) -> void:
 			eventos_global.batalha = false
 			state = estado.morto
 			derrotado()
+
+func iniciar_pergunta_carbono() -> void:
+	$"../../UI/telas/conversas_cena".aparecer()

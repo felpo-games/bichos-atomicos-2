@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+var em_dialogo: bool = false
+
 @onready var menu_opcoes: Control = $"../../UI/telas/Config"
 @export var ui_atomo: Control
 var vida = 3
@@ -45,6 +47,7 @@ func _ready() -> void:
 	
 	pass
 func _physics_process(delta: float) -> void:
+	
 	if Input.is_action_just_pressed("troca_de_pet"):
 		laboratorio_global.pet_1 = !laboratorio_global.pet_1
 		print(laboratorio_global.pet_1)
@@ -58,32 +61,36 @@ func _physics_process(delta: float) -> void:
 		#pass
 
 	if eventos_global.numa_tela == false:
-		
-		
 		if not is_on_floor() and not is_dashing:
 			velocity.y -= gravity * delta
 
-		
-		if not em_knockback:
-			
-			var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
-			var direction := Vector3(input_dir.x, 0, input_dir.y).normalized()
+	if em_dialogo:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		$body/pivod/AnimationPlayer.play("idle_PL")
+		move_and_slide()
+		return
 
-			if is_dashing:
-				dash_timer -= delta
-				if dash_timer <= 0:
-					is_dashing = false
+	if not em_knockback:
+		
+		var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
+		var direction := Vector3(input_dir.x, 0, input_dir.y).normalized()
+
+		if is_dashing:
+			dash_timer -= delta
+			if dash_timer <= 0:
+				is_dashing = false
+		else:
+			if direction:
+				velocity.x = direction.x * SPEED
+				velocity.z = direction.z * SPEED
+				$body/pivod/AnimationPlayer.play("walk_Pl")
+				var target_angle = atan2(direction.x, direction.z)
+				$body.rotation.y = lerp_angle($body.rotation.y, target_angle, rotation_speed * delta)
 			else:
-				if direction:
-					velocity.x = direction.x * SPEED
-					velocity.z = direction.z * SPEED
-					$body/pivod/AnimationPlayer.play("walk_Pl")
-					var target_angle = atan2(direction.x, direction.z)
-					$body.rotation.y = lerp_angle($body.rotation.y, target_angle, rotation_speed * delta)
-				else:
-					$body/pivod/AnimationPlayer.stop()
-					velocity.x = move_toward(velocity.x, 0, SPEED)
-					velocity.z = move_toward(velocity.z, 0, SPEED)
+				$body/pivod/AnimationPlayer.stop()
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+				velocity.z = move_toward(velocity.z, 0, SPEED)
 
 		move_and_slide()
 
