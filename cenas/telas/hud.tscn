@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqxrqwyjntcyt"]
+
+[ext_resource type="Texture2D" uid="uid://paukn3qg2q10" path="res://UI/Icons_HUD/icon_elenmeyer.png" id="1_m74as"]
+[ext_resource type="Texture2D" uid="uid://bda0pag2rstpa" path="res://UI/Icons_HUD/seletor_1.png" id="2_fwqqr"]
+[ext_resource type="Texture2D" uid="uid://drmtai7y55u2a" path="res://UI/Icons_HUD/seletor_3.png" id="3_bsex3"]
+[ext_resource type="Texture2D" uid="uid://djkyww0fgl41r" path="res://UI/Icons_HUD/seletor_2.png" id="4_bxhs3"]
+
+[node name="hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1150, 650)
+render_target_update_mode = 4
+
+[node name="Button" type="Button" parent="SubViewportContainer/SubViewport"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -71.0
+offset_bottom = 92.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+icon = ExtResource("1_m74as")
+flat = true
+
+[node name="FlowContainer" type="FlowContainer" parent="SubViewportContainer/SubViewport"]
+layout_direction = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -165.0
+offset_right = 330.0
+grow_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+vertical = true
+
+[node name="Button" type="Button" parent="SubViewportContainer/SubViewport/FlowContainer"]
+layout_mode = 2
+icon = ExtResource("2_fwqqr")
+flat = true
+
+[node name="Button2" type="TextureButton" parent="SubViewportContainer/SubViewport/FlowContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_bsex3")
+texture_pressed = ExtResource("4_bxhs3")
+
+[node name="Button3" type="TextureButton" parent="SubViewportContainer/SubViewport/FlowContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_bsex3")
+texture_pressed = ExtResource("4_bxhs3")
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
