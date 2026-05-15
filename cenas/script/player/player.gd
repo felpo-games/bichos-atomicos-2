@@ -60,6 +60,7 @@ func _physics_process(delta: float) -> void:
 	if eventos_global.numa_tela == false:
 		
 		
+		
 		if not is_on_floor() and not is_dashing:
 			velocity.y -= gravity * delta
 

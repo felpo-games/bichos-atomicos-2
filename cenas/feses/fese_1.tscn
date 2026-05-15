@@ -38,7 +38,7 @@
 [ext_resource type="Script" uid="uid://cpxdb6oe7k6bw" path="res://cenas/feses/fogo_obstaculo.gd" id="24_wlnao"]
 [ext_resource type="Script" uid="uid://r2q8o1ditgup" path="res://addons/proton_scatter/src/scatter_shape.gd" id="25_2khhj"]
 [ext_resource type="Script" uid="uid://dmjx8g0p0xn8q" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="26_031u1"]
-[ext_resource type="PackedScene" uid="uid://dyphkfe8asawa" path="res://cenas/coletaveis/pagina_do_diario.tscn" id="37_wlnao"]
+[ext_resource type="Script" uid="uid://bg7i8hh4nsoaw" path="res://cenas/feses/visible_on.gd" id="28_3qe05"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xeb63"]
 panorama = ExtResource("4_qjydo")
@@ -200,7 +200,7 @@ transform = Transform3D(-2.2562599e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.21063, 0, 0)
 
 [node name="player" parent="personagem" unique_id=1822486866 instance=ExtResource("1_1c7ow")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -127.38165, 0.23167133, 1.6637878)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -92.72879, 0.23167133, 6.0793915)
 
 [node name="efeitos" type="Node3D" parent="." unique_id=1522335302]
 
@@ -215,13 +215,6 @@ shadow_enabled = true
 
 [node name="bicho_c2" parent="bichos" unique_id=428746475 instance=ExtResource("9_qjydo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115.22098, 3.5070648, -229.98473)
-visible = false
-speed = 3.0
-fraqueza = "pocao"
-forca_knockback = 15.0
-forca_vertical = 5.0
-tempo_knockback = 1.0
-reaparecer = true
 
 [node name="area_h" parent="bichos" unique_id=187279684 instance=ExtResource("13_h4ygu")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 133.20277, 0, -11.101296)
@@ -234,7 +227,7 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_rmu0y")
 
 [node name="area_h2" parent="bichos" unique_id=2145989643 instance=ExtResource("13_h4ygu")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 30.510712, 0, -10.1134205)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -100.772995, 0, -10.1134205)
 
 [node name="bicho_h" parent="bichos/area_h2" unique_id=7474898 instance=ExtResource("3_e5vpm")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.934105, 0.91381073, 0)
@@ -259,7 +252,6 @@ icon = ExtResource("10_h4ygu")
 
 [node name="bicho_ph" parent="bichos" unique_id=1936316218 instance=ExtResource("9_h4ygu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5707998, -314.826)
-visible = false
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=744198927]
 process_mode = 3
@@ -310,6 +302,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.21842, 0, 0)
 
 [node name="fogo_obstaculo" type="Node3D" parent="obstaculos" unique_id=1811681913]
 transform = Transform3D(0.8512052, 0, 0.524833, 0, 1, 0, -0.524833, 0, 0.8512052, -46.827675, 0, -86.13635)
+visible = false
 script = ExtResource("24_wlnao")
 
 [node name="fogo_normal" parent="obstaculos/fogo_obstaculo" unique_id=944948005 instance=ExtResource("12_f6840")]
@@ -355,6 +348,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.97781, 0, -37.266785)
 transform = Transform3D(0.9932195, 0, 0.11625475, 0, 1, 0, -0.11625475, 0, 0.9932195, -4.02882, 7.3617554, 9.055954)
 shape = SubResource("BoxShape3D_lnt5l")
 
+[node name="visible_fogo" type="VisibleOnScreenEnabler3D" parent="obstaculos" unique_id=2018964849 node_paths=PackedStringArray("object")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.295385, 0, -117.341324)
+enable_node_path = NodePath("../eletrizidade")
+script = ExtResource("28_3qe05")
+object = NodePath("../fogo_obstaculo")
+
 [node name="eletrizidade" type="Node3D" parent="obstaculos" unique_id=158834330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -258.3992)
 
@@ -382,6 +381,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.938768, 0.84676933, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.898376, 5.5127563, 8.245331)
 shape = SubResource("BoxShape3D_u5hjb")
 
+[node name="visible_eletricidade" type="VisibleOnScreenEnabler3D" parent="obstaculos" unique_id=1890911516 node_paths=PackedStringArray("object")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.065277, 2.4390383, -251.77893)
+aabb = AABB(-19.489376, -6.76042, -1, 38.978752, 13.52084, 2)
+enable_node_path = NodePath("../eletrizidade")
+script = ExtResource("28_3qe05")
+object = NodePath("../eletrizidade")
+
 [node name="ProtonScatter" type="Node3D" parent="." unique_id=1967824871]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6306324, 0)
 script = ExtResource("17_pshm4")
@@ -400,24 +406,6 @@ path = "uid://clbgrf8mx7a1x"
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, -6.067067, -124.09856)
 script = ExtResource("25_2khhj")
 shape = SubResource("Resource_re6xn")
-
-[node name="coletaveis" type="Node3D" parent="." unique_id=654289107]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2675228, 0)
-
-[node name="pagina do diario" parent="coletaveis" unique_id=329671854 instance=ExtResource("37_wlnao")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -6.5957584, 0, -30.614758)
-
-[node name="pagina do diario2" parent="coletaveis" unique_id=213313738 instance=ExtResource("37_wlnao")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -134.5054, 0, -25.625223)
-
-[node name="pagina do diario3" parent="coletaveis" unique_id=645070512 instance=ExtResource("37_wlnao")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.295013, 0, -57.244194)
-
-[node name="pagina do diario4" parent="coletaveis" unique_id=1583070764 instance=ExtResource("37_wlnao")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -100.0815, 0, -231.52675)
-
-[node name="pagina do diario5" parent="coletaveis" unique_id=1522847604 instance=ExtResource("37_wlnao")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.090073, 0, -242.37402)
 
 [connection signal="conversa" from="bichos/bicho_c2" to="UI/telas/conversas_cena" method="_on_bicho_c_2_conversa"]
 [connection signal="body_entered" from="bichos/area_h" to="bichos/area_h/bicho_h" method="_on_area_h_body_entered"]
@@ -443,6 +431,9 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.090073, 0, -242.37402)
 [connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal9" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]
 [connection signal="body_entered" from="obstaculos/fogo_obstaculo/Areado fogo" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_body_entered"]
 [connection signal="body_exited" from="obstaculos/fogo_obstaculo/Areado fogo" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_body_exited"]
+[connection signal="screen_entered" from="obstaculos/visible_fogo" to="obstaculos/visible_fogo" method="_on_screen_entered"]
+[connection signal="screen_exited" from="obstaculos/visible_fogo" to="obstaculos/visible_fogo" method="_on_screen_exited"]
 [connection signal="body_entered" from="obstaculos/eletrizidade/Area3D" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="obstaculos/eletrizidade/Area3D" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_area_3d_body_exited"]
-[connection signal="peguei_pagina" from="coletaveis/pagina do diario" to="UI/telas/notificacao" method="_on_pagina_do_diario_peguei_pagina"]
+[connection signal="screen_entered" from="obstaculos/visible_eletricidade" to="obstaculos/visible_eletricidade" method="_on_screen_entered"]
+[connection signal="screen_exited" from="obstaculos/visible_eletricidade" to="obstaculos/visible_eletricidade" method="_on_screen_exited"]

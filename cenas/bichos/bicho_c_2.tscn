@@ -762,29 +762,32 @@ _data = {
 &"walk_Pl": SubResource("Animation_jsk63")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gpf66"]
+size = Vector3(1.8956299, 2.1729736, 1.9222412)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ujdew"]
 margin = 0.0
-size = Vector3(0.5198364, 1.6842957, 0.79434204)
+size = Vector3(1.5338135, 1.6842957, 1.8337097)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gpf66"]
-radius = 1.0761832
+radius = 0.85627186
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hr657"]
 radius = 1.3675228
 
-[sub_resource type="Animation" id="Animation_ujdew"]
+[sub_resource type="Animation" id="Animation_hr657"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("crecimento/AreadeDano/CollisionShape3D:shape:size")
+tracks/0/path = NodePath("crecimento/Areade-ataque/CollisionShape3D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.5198364, 1.6842957, 0.79434204)]
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_3t3t1"]
@@ -792,14 +795,14 @@ resource_name = "inicio"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape3D:shape:size")
+tracks/0/path = NodePath("crecimento/Areade-ataque/CollisionShape3D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.341, 1.0392656, 1.527)]
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_gpf66"]
@@ -808,19 +811,19 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("crecimento/AreadeDano/CollisionShape3D:shape:size")
+tracks/0/path = NodePath("crecimento/Areade-ataque/CollisionShape3D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4666667, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(1.5338135, 1.6842957, 1.8337097), Vector3(0.5198364, 1.6842957, 0.79434204), Vector3(1.5338135, 1.6842957, 1.8337097)]
+"times": PackedFloat32Array(0, 0.93333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3t3t1"]
 _data = {
-&"RESET": SubResource("Animation_ujdew"),
+&"RESET": SubResource("Animation_hr657"),
 &"inicio": SubResource("Animation_3t3t1"),
 &"new_animation": SubResource("Animation_gpf66")
 }
@@ -828,12 +831,6 @@ _data = {
 [node name="bicho_c2" type="CharacterBody3D" unique_id=428746475]
 script = ExtResource("1_gpf66")
 "queméessebicho" = ["c", "o", "h"]
-speed = null
-fraqueza = null
-forca_knockback = null
-forca_vertical = null
-tempo_knockback = null
-reaparecer = null
 tempo_renascer = 30.0
 
 [node name="crecimento" type="Node3D" parent="." unique_id=2146030183]
@@ -920,11 +917,18 @@ skeleton = NodePath("..")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="crecimento/pivod" unique_id=881368085]
 libraries/ = SubResource("AnimationLibrary_c55ae")
 
-[node name="AreadeDano" type="Area3D" parent="crecimento" unique_id=1200206220 groups=["ataque_bicho"]]
+[node name="AreadeDano" type="Area3D" parent="crecimento" unique_id=1312299519]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="crecimento/AreadeDano" unique_id=1730406103]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="crecimento/AreadeDano" unique_id=52826443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015808105, 0.5864868, 0.16766357)
+shape = SubResource("BoxShape3D_gpf66")
+
+[node name="Areade-ataque" type="Area3D" parent="crecimento" unique_id=1200206220 groups=["ataque_bicho"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="crecimento/Areade-ataque" unique_id=1730406103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03250122, 0.2640915, 0.11306763)
 shape = SubResource("BoxShape3D_ujdew")
+disabled = true
 debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=199239861]
@@ -941,6 +945,6 @@ libraries/ = SubResource("AnimationLibrary_3t3t1")
 autoplay = &"inicio"
 
 [connection signal="area_entered" from="crecimento/AreadeDano" to="." method="_on_areade_dano_area_entered"]
-[connection signal="body_entered" from="crecimento/AreadeDano" to="." method="_on_areade_dano_body_entered"]
+[connection signal="body_entered" from="crecimento/Areade-ataque" to="." method="_on_areadeataque_body_entered"]
 [connection signal="body_entered" from="AreaConversa" to="." method="_on_area_conversa_body_entered"]
 [connection signal="body_exited" from="AreaConversa" to="." method="_on_area_conversa_body_exited"]

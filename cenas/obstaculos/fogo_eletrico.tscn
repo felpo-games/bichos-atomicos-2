@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://be8b64ln4i1yh" path="res://cenas/obstaculos/fogo_eletrico.gd" id="1_70vp8"]
 [ext_resource type="Texture2D" uid="uid://dccejat5jnm0x" path="res://arte/felp/fogo eletrico.png" id="2_e4rsf"]
+[ext_resource type="PackedScene" uid="uid://bfxyxserdkipu" path="res://arte/miguel/3d/gerador de energia.glb" id="3_e4rsf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_irmpw"]
-size = Vector3(1, 4.2973633, 1)
+size = Vector3(3.135254, 4.2973633, 2.0639648)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70vp8"]
 transparency = 1
@@ -38,7 +39,7 @@ texture = ExtResource("2_e4rsf")
 [node name="Area3D" type="Area3D" parent="." unique_id=213032899 groups=["ataque_bicho"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=792946967]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6486816, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1496582, 1.6486816, -0.111083984)
 shape = SubResource("BoxShape3D_irmpw")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=517500028]
@@ -47,5 +48,8 @@ amount = 3
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_e4rsf")
 draw_pass_1 = SubResource("QuadMesh_irmpw")
+
+[node name="gerador de energia" parent="." unique_id=1370278118 instance=ExtResource("3_e4rsf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

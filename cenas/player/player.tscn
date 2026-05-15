@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://kty240fktcex" path="res://cenas/átomo.tscn" id="5_bmch6"]
 [ext_resource type="Texture2D" uid="uid://c8iyrdstmqqdr" path="res://arte/miguel/3d/novo/player_oxigenio__textura.png" id="6_wneci"]
 [ext_resource type="AudioStream" uid="uid://du7bh8hxxjqhd" path="res://SFX/UI_passos.wav" id="7_wneci"]
+[ext_resource type="Script" uid="uid://ch2uhurssomv0" path="res://cenas/player/troca_de_camera.gd" id="8_0wone"]
 [ext_resource type="AudioStream" uid="uid://cigbjkl0waib6" path="res://SFX/arremesso_erlenmeyer.wav" id="9_h2li5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kbvfo"]
@@ -866,6 +867,78 @@ _data = {
 &"walk_Pl": SubResource("Animation_rd5wg")
 }
 
+[sub_resource type="Animation" id="Animation_ua7yo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera_normal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.458, 9.458, 12.130428)]
+}
+
+[sub_resource type="Animation" id="Animation_0wone"]
+resource_name = "troca_camera"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera_normal:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6333333, 1.0333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [true, false, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera_normal:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.458, 9.458, 12.130428), Vector3(0.458, 3.8364868, -2.3526616)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/camera_batalha:current")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("body/camera_batalha:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.458, 9.458, -11.861), Vector3(0.458, 3.8364868, -2.3526616)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bs6os"]
+_data = {
+&"RESET": SubResource("Animation_ua7yo"),
+&"troca_camera": SubResource("Animation_0wone")
+}
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d4u85"]
 radius = 0.55
 height = 2.05
@@ -886,7 +959,7 @@ shape = SubResource("CapsuleShape3D_kbvfo")
 transform = Transform3D(0.50000006, 0, 0, 0, 0.5, 0, 0, 0, 0.50000006, 1.5, 0.44, 0)
 
 [node name="pet_dc" parent="body/sistema_ataque" unique_id=191536983 instance=ExtResource("4_a8ubr")]
-transform = Transform3D(0.50000006, 0, 0, 0, 0.5, 0, 0, 0, 0.50000006, -1.4997356, 0.44, 0)
+transform = Transform3D(0.50000006, 0, 0, 0, 0.5, 0, 0, 0, 0.50000006, 1.5493762, 0.44, 0)
 
 [node name="Marker3D" type="Marker3D" parent="body" unique_id=940710450]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.29054737, 1.1336591)
@@ -945,7 +1018,7 @@ bones/6/parent = 0
 bones/6/rest = Transform3D(-0.9297507, 0.049983773, -0.36478594, -0.036607653, -0.9983826, -0.043497, -0.36637056, -0.027087338, 0.93007547, 0.21878017, 0.5200347, 0.0363315)
 bones/6/enabled = true
 bones/6/position = Vector3(0.21878017, 0.5200347, 0.0363315)
-bones/6/rotation = Quaternion(-0.18611744, -0.017967414, 0.982116, -0.022042042)
+bones/6/rotation = Quaternion(-0.18611744, -0.01796741, 0.98211586, -0.022042042)
 bones/6/scale = Vector3(1.0000019, 1, 1.0000006)
 bones/7/name = "root"
 bones/7/parent = -1
@@ -995,9 +1068,24 @@ skeleton = NodePath("..")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="body/pivod" unique_id=1329756788]
 libraries/ = SubResource("AnimationLibrary_asbux")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=217648361]
-transform = Transform3D(0.7071068, 0.49999997, -0.5, 0, 0.7071068, 0.70710677, 0.7071068, -0.49999997, 0.5, -3.8289208, 10.855367, 10.460821)
+[node name="camera_batalha" type="Camera3D" parent="body" unique_id=1735440725]
+transform = Transform3D(-1, 8.8753104e-08, -1.2215817e-07, 0, 0.809017, 0.58778524, 1.509958e-07, 0.58778524, -0.809017, 0.458, 3.8364868, -2.3526616)
+current = true
+far = 20.0
+
+[node name="Camera_normal" type="Camera3D" parent="." unique_id=217648361]
+transform = Transform3D(1, 0, 0, 0, 0.809017, 0.58778524, 0, -0.58778524, 0.809017, 0.458, 9.458, 12.130428)
 rotation_order = 3
+fov = 59.062492
+far = 20.0
+
+[node name="troca de camera" type="Node3D" parent="." unique_id=665327285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4576075, 2.9846125, -2.7738333)
+script = ExtResource("8_0wone")
+
+[node name="animacao_camera" type="AnimationPlayer" parent="troca de camera" unique_id=1618551088]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_bs6os")
 
 [node name="sistema_vida" type="Node3D" parent="." unique_id=1277443864]
 
@@ -1010,6 +1098,9 @@ shape = SubResource("CapsuleShape3D_d4u85")
 
 [node name="atomo_VIDAS" parent="CanvasLayer" unique_id=39492598 instance=ExtResource("5_bmch6")]
 visible = true
+
+[node name="bala_player" parent="." unique_id=1133610996 instance=ExtResource("2_w152q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.036183, 0)
 
 [node name="AUDIOS" type="Node3D" parent="." unique_id=1587115270]
 

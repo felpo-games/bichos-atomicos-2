@@ -26,7 +26,10 @@ var pode_mover = true
 var vida = 3
 
 func _ready():
+	
 	posicao_inicial = global_position
+	await get_tree().create_timer(1.5).timeout
+	morrer()
 
 func _physics_process(delta: float):
 

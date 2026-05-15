@@ -15,7 +15,8 @@ func _process(delta: float) -> void:
 func _on_fogo_normal_apagado() -> void:
 	vida -= 1 
 	if vida <= 0:
-		queue_free()
+		hide()
+		$StaticBody3D/CollisionShape3D.disabled = true
 		print("dano")
 		pass
 	pass # Replace with function body.

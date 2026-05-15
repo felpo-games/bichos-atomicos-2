@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if laboratorio_global.pet_1 == true and liberado == true:
+	if laboratorio_global.pet_1 == false and liberado == true:
 		pet_um = true
 		show()
 	else:

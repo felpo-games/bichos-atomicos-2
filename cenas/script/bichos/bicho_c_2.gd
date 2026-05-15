@@ -38,8 +38,12 @@ var pode_bater = true
 var posicao_inicial: Vector3
 
 func _ready() -> void:
+	
 	posicao_inicial = global_transform.origin
 	$AnimationPlayer.play("inicio")
+	await get_tree().create_timer(1.5).timeout
+	derrotado()
+	
 
 func _physics_process(delta):
 
@@ -79,7 +83,7 @@ func derrotado():
 	$crecimento/AreadeDano/CollisionShape3D.set_deferred("disabled", true)
 	
 	icon = load("res://arte/vlad/satanas atomico/satanas atomico/c.png")
-	$"../../ui_dialogos/telas/notificacao".mostrar_notificacao(
+	$"../../UI/telas/notificacao".mostrar_notificacao(
 		"carbono",
 		icon
 	)
@@ -255,20 +259,11 @@ func _on_conversas_cena_acertou() -> void:
 
 	derrotado()
 
-func _on_areade_dano_body_entered(body: Node3D) -> void:
 
-	if body.is_in_group("player") and state == estado.batalhando:
-
-		aplicar_knockback(body)
-
-		body.dano()
 
 func _on_areade_dano_area_entered(area: Area3D) -> void:
-
 	if area.is_in_group("ataque_player"):
-
 		vida -= 1
-
 		# atualiza global
 		DadosInimigos.status_inimigo["vida"] = vida
 		DadosInimigos.status_inimigo["fraqueza"] = fraqueza
@@ -277,3 +272,9 @@ func _on_areade_dano_area_entered(area: Area3D) -> void:
 			eventos_global.batalha = false
 			state = estado.morto
 			derrotado()
+
+func _on_areadeataque_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player") and state == estado.batalhando:
+		aplicar_knockback(body)
+		body.dano()
+	pass # Replace with function body.

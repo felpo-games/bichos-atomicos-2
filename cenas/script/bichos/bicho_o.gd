@@ -13,9 +13,13 @@ signal conversar
 var posicao_inicial: Vector3
 
 func _ready() -> void:
+	
 	player = null
 	posicao_inicial = global_position
 	show()
+	await get_tree().create_timer(1.5).timeout
+	coletado()
+	
 
 func _process(delta: float) -> void:
 	if player != null and conversando == false and Input.is_action_just_pressed("interacao"):
@@ -37,15 +41,15 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 # =========================
 
 func coletado():
-	if player != null:
-		laboratorio_global.bichos_desbloqueados.append("o")
-		laboratorio_global.quantidade_o += 1
-		
-		var notif = $"../../UI/telas/notificacao"
-		if notif != null:
-			notif.mostrar_notificacao("Oxigenio", icon)
-		else:
-			print("NOTIFICAÇÃO NÃO ENCONTRADA")
+	#if player != null:
+	laboratorio_global.bichos_desbloqueados.append("o")
+	laboratorio_global.quantidade_o += 1
+	
+	var notif = $"../../UI/telas/notificacao"
+	if notif != null:
+		notif.mostrar_notificacao("Oxigenio", icon)
+	else:
+		print("NOTIFICAÇÃO NÃO ENCONTRADA")
 	
 	if player != null:
 		desativar()
