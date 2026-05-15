@@ -1,36 +1,382 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqxrqwyjntcyt"]
+[gd_scene load_steps=17 format=3 uid="uid://cqxrqwyjntcyt"]
 
+[ext_resource type="Script" uid="uid://cc74xqyoimya1" path="res://cenas/telas/hud.gd" id="1_fwqqr"]
 [ext_resource type="Texture2D" uid="uid://paukn3qg2q10" path="res://UI/Icons_HUD/icon_elenmeyer.png" id="1_m74as"]
 [ext_resource type="Texture2D" uid="uid://bda0pag2rstpa" path="res://UI/Icons_HUD/seletor_1.png" id="2_fwqqr"]
 [ext_resource type="Texture2D" uid="uid://drmtai7y55u2a" path="res://UI/Icons_HUD/seletor_3.png" id="3_bsex3"]
+[ext_resource type="FontFile" uid="uid://beofpp02twowh" path="res://UI/Fontes/m04b.TTF" id="4_bsex3"]
 [ext_resource type="Texture2D" uid="uid://djkyww0fgl41r" path="res://UI/Icons_HUD/seletor_2.png" id="4_bxhs3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bxhs3"]
+font = ExtResource("4_bsex3")
+font_size = 21
+font_color = Color(0.033853278, 0.033853278, 0.033853274, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ajajy"]
+font = ExtResource("4_bsex3")
+font_size = 21
+
+[sub_resource type="Animation" id="Animation_bxhs3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Seletor2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(899, 482)]
+}
+
+[sub_resource type="Animation" id="Animation_bsex3"]
+resource_name = "encolher_1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Seletor1:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 157)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Seletor1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(978, 471), Vector2(987, 481)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Seletor1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Seletor1:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lih0i"]
+resource_name = "encolher_2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Seletor2:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(158, 75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Seletor2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(876.28, 482), Vector2(899, 482)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Seletor2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Seletor2:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1kjne"]
+resource_name = "encolher_3"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Seletor3:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(158, 75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Seletor3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(876.28, 560), Vector2(899, 560)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Seletor3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Seletor3:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fwqqr"]
+resource_name = "expandir_1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Seletor1:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 157)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Seletor1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(987, 481), Vector2(978, 471)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Seletor1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Seletor1:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="Animation" id="Animation_ajajy"]
+resource_name = "expandir_2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Seletor2:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(158, 75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Seletor2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(899, 482), Vector2(876.28, 482)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Seletor2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Seletor2:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_22j02"]
+resource_name = "expandir_3"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Seletor3:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(158, 75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Seletor3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(899, 560), Vector2(876.28, 560)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Seletor3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Seletor3:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ajajy"]
+_data = {
+&"RESET": SubResource("Animation_bxhs3"),
+&"encolher_1": SubResource("Animation_bsex3"),
+&"encolher_2": SubResource("Animation_lih0i"),
+&"encolher_3": SubResource("Animation_1kjne"),
+&"expandir_1": SubResource("Animation_fwqqr"),
+&"expandir_2": SubResource("Animation_ajajy"),
+&"expandir_3": SubResource("Animation_22j02")
+}
 
 [node name="hud" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = 44.0
+offset_right = -45.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fwqqr")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(1150, 650)
-render_target_update_mode = 4
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 
-[node name="Button" type="Button" parent="SubViewportContainer/SubViewport"]
+[node name="Button" type="Button" parent="CanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -71.0
+offset_left = -73.0
+offset_right = -2.0
 offset_bottom = 92.0
 grow_horizontal = 0
 size_flags_horizontal = 8
@@ -38,32 +384,116 @@ size_flags_vertical = 0
 icon = ExtResource("1_m74as")
 flat = true
 
-[node name="FlowContainer" type="FlowContainer" parent="SubViewportContainer/SubViewport"]
-layout_direction = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -165.0
-offset_right = 330.0
-grow_vertical = 0
-size_flags_stretch_ratio = 0.0
-theme_override_constants/h_separation = 4
-theme_override_constants/v_separation = 4
-vertical = true
+[node name="Seletor1" type="TextureButton" parent="CanvasLayer"]
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.85700005
+anchor_top = 0.74200004
+anchor_right = 0.85700005
+anchor_bottom = 0.74200004
+offset_left = -0.2640381
+offset_top = 0.18395996
+offset_right = 159.73596
+offset_bottom = 157.18396
+texture_normal = ExtResource("2_fwqqr")
 
-[node name="Button" type="Button" parent="SubViewportContainer/SubViewport/FlowContainer"]
-layout_mode = 2
-icon = ExtResource("2_fwqqr")
-flat = true
+[node name="Numero1" type="Label" parent="CanvasLayer/Seletor1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23400001
+anchor_top = 0.79
+anchor_right = 0.23400001
+anchor_bottom = 0.79
+offset_left = -9.440002
+offset_top = -105.03001
+offset_right = 11.559998
+offset_bottom = -82.03001
+text = "1"
+label_settings = SubResource("LabelSettings_bxhs3")
 
-[node name="Button2" type="TextureButton" parent="SubViewportContainer/SubViewport/FlowContainer"]
-layout_mode = 2
+[node name="Bicho1" type="TextureRect" parent="CanvasLayer/Seletor1"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 27.0
+offset_right = 3731.0
+offset_bottom = 3227.0
+scale = Vector2(0.04, 0.04)
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Seletor2" type="TextureButton" parent="CanvasLayer"]
+z_index = -1
+anchors_preset = -1
+anchor_left = 0.91800004
+anchor_top = 0.74200004
+anchor_right = 0.91800004
+anchor_bottom = 0.744
+offset_left = -158.53601
+offset_top = 1.18396
+offset_right = -0.53601074
+offset_bottom = 74.888
 texture_normal = ExtResource("3_bsex3")
 texture_pressed = ExtResource("4_bxhs3")
 
-[node name="Button3" type="TextureButton" parent="SubViewportContainer/SubViewport/FlowContainer"]
-layout_mode = 2
+[node name="Numero2" type="Label" parent="CanvasLayer/Seletor2"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 30.0
+offset_bottom = 30.0
+text = "2"
+label_settings = SubResource("LabelSettings_ajajy")
+
+[node name="Bicho2" type="TextureRect" parent="CanvasLayer/Seletor2"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = -4.0
+offset_right = 2961.0
+offset_bottom = 2712.0
+scale = Vector2(0.03, 0.03)
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Seletor3" type="TextureButton" parent="CanvasLayer"]
+z_index = -1
+offset_left = 899.0
+offset_top = 560.0
+offset_right = 1057.0
+offset_bottom = 635.0
 texture_normal = ExtResource("3_bsex3")
 texture_pressed = ExtResource("4_bxhs3")
 
-[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+[node name="Numero3" type="Label" parent="CanvasLayer/Seletor3"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 31.0
+offset_bottom = 29.0
+text = "3"
+label_settings = SubResource("LabelSettings_ajajy")
+
+[node name="Bicho3" type="TextureRect" parent="CanvasLayer/Seletor3"]
+layout_mode = 0
+offset_left = 36.999996
+offset_top = -6.9999995
+offset_right = 3100.0
+offset_bottom = 2778.0
+scale = Vector2(0.03, 0.03)
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ajajy")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="mouse_entered" from="CanvasLayer/Seletor1" to="." method="_on_seletor_1_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Seletor1" to="." method="_on_seletor_1_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Seletor2" to="." method="_on_seletor_2_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Seletor2" to="." method="_on_seletor_2_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Seletor3" to="." method="_on_seletor_3_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Seletor3" to="." method="_on_seletor_3_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
