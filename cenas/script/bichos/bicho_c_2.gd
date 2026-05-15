@@ -1,5 +1,9 @@
 extends CharacterBody3D
 
+#FALAS
+@export_multiline var falas_carbono: Array[String]
+@export var voz_carbono: AudioStream
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @export var queméessebicho:Array = ["o","h","c"]
@@ -38,11 +42,13 @@ var pode_bater = true
 var posicao_inicial: Vector3
 
 func _ready() -> void:
-	
 	posicao_inicial = global_transform.origin
 	$AnimationPlayer.play("inicio")
-	await get_tree().create_timer(1.5).timeout
-	derrotado()
+	
+	# ATENÇÃO: Comentei estas linhas abaixo porque elas estão fazendo 
+	# o Carbono morrer sozinho após 1.5s que a fase começa.
+	# await get_tree().create_timer(1.5).timeout
+	# derrotado()
 	
 
 func _physics_process(delta):
@@ -56,10 +62,20 @@ func _physics_process(delta):
 	match state:
 
 		estado.conversa:
-
-			if Input.is_action_just_pressed("interacao") and player != null:
-				emit_signal("conversa")
-				print("conversa")
+			if Input.is_action_just_pressed("interacao") and player != null and not conversando:
+				conversando = true
+				player.em_dialogo = true
+				if falas_carbono.is_empty():
+					print("ERRO: O Inspetor deste bicho não tem falas!")
+					conversando = false
+					player.em_dialogo = false
+					return
+				$"../../UI/telas/TelaDeDiálogo".iniciar_dialogo(falas_carbono, voz_carbono)
+				await $"../../UI/telas/TelaDeDiálogo".dialogo_encerrado
+				if player == null:
+					conversando = false
+					return
+				iniciar_pergunta_carbono()
 
 		estado.batalhando:
 
@@ -72,13 +88,15 @@ func _physics_process(delta):
 
 		estado.morto:
 			pass
-			 
-
+			
 	move_and_slide()
 
 var icon: Texture2D
 
 func derrotado():
+	if player != null:
+		player.em_dialogo = false
+		
 	eventos_global.batalha = false
 	$crecimento/AreadeDano/CollisionShape3D.set_deferred("disabled", true)
 	
@@ -240,30 +258,43 @@ func _on_area_conversa_body_entered(body: Node3D) -> void:
 
 func _on_area_conversa_body_exited(body: Node3D) -> void:
 
-	if body.is_in_group("player") and state == estado.conversa:
-
+	if body.is_in_group("player"):
 		player = null
-
-		# limpa inimigo atual
 		DadosInimigos.inimigo_atual = null
+		if conversando:
+			conversando = false
+			body.em_dialogo = false
+			$"../../UI/telas/TelaDeDiálogo".cancelar_dialogo()
+			$"../../UI/telas/conversas_cena".sair()
 
 func _on_conversas_cena_batalhar() -> void:
-
 	state = estado.batalhando
-
+	if player != null:
+		player.em_dialogo = false 
+		
 	crecer()
 
 func _on_conversas_cena_acertou() -> void:
-
 	state = estado.morto
-
 	derrotado()
 
+# Esta função veio da branch MAIN e eu adicionei os seus sons nela
+func _on_areadeataque_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player") and state == estado.batalhando:
+		if has_node("som_danoCO2"):
+			$som_danoCO2.play()
+		aplicar_knockback(body)
+		body.dano()
 
-
+# Esta função você modificou adicionando o Som_ataque
 func _on_areade_dano_area_entered(area: Area3D) -> void:
 	if area.is_in_group("ataque_player"):
 		vida -= 1
+		
+		# Corrigi o seu código, estava apenas $Som_ataque. Tem que ter o .play()
+		if has_node("Som_ataque"):
+			$Som_ataque.play()
+
 		# atualiza global
 		DadosInimigos.status_inimigo["vida"] = vida
 		DadosInimigos.status_inimigo["fraqueza"] = fraqueza
@@ -273,8 +304,6 @@ func _on_areade_dano_area_entered(area: Area3D) -> void:
 			state = estado.morto
 			derrotado()
 
-func _on_areadeataque_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player") and state == estado.batalhando:
-		aplicar_knockback(body)
-		body.dano()
-	pass # Replace with function body.
+# Esta função é sua (da branch CHRIS) e tem que estar aqui
+func iniciar_pergunta_carbono() -> void:
+	$"../../UI/telas/conversas_cena".aparecer()

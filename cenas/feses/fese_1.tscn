@@ -37,6 +37,7 @@
 [ext_resource type="Script" uid="uid://brbtiyaqrbvlg" path="res://addons/proton_scatter/src/scatter_item.gd" id="24_mjidp"]
 [ext_resource type="Script" uid="uid://cpxdb6oe7k6bw" path="res://cenas/feses/fogo_obstaculo.gd" id="24_wlnao"]
 [ext_resource type="Script" uid="uid://r2q8o1ditgup" path="res://addons/proton_scatter/src/scatter_shape.gd" id="25_2khhj"]
+[ext_resource type="PackedScene" uid="uid://pxlbdj5mbpd6" path="res://cenas/tela_de_diálogo.tscn" id="26_1hi1d"]
 [ext_resource type="Script" uid="uid://dmjx8g0p0xn8q" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="26_031u1"]
 [ext_resource type="Script" uid="uid://bg7i8hh4nsoaw" path="res://cenas/feses/visible_on.gd" id="28_3qe05"]
 
@@ -64,34 +65,34 @@ size = Vector3(86.25282, 15.723511, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_u5hjb"]
 size = Vector3(34.796753, 12.025513, 24.604477)
 
-[sub_resource type="Resource" id="Resource_3qe05"]
+[sub_resource type="Resource" id="Resource_5khuk"]
 script = ExtResource("20_8l63c")
 amount = 500
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_5khuk"]
+[sub_resource type="Resource" id="Resource_1hi1d"]
 script = ExtResource("21_ob45n")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(10, 100, 0)
 scale = Vector3(1.5, 0.1, 0.1)
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_1hi1d"]
+[sub_resource type="Resource" id="Resource_h1cmy"]
 script = ExtResource("22_lg0kn")
 offset_step = 0.2
 consecutive_step_multiplier = 0.75
 restrict_height = true
 
-[sub_resource type="Resource" id="Resource_h1cmy"]
+[sub_resource type="Resource" id="Resource_ipfv2"]
 script = ExtResource("23_gynid")
 ray_length = 5.0
 ray_offset = 5.0
 remove_points_on_miss = false
 
-[sub_resource type="Resource" id="Resource_ipfv2"]
+[sub_resource type="Resource" id="Resource_pe8w4"]
 script = ExtResource("18_tim8w")
-stack = Array[ExtResource("19_b4grr")]([SubResource("Resource_3qe05"), SubResource("Resource_5khuk"), SubResource("Resource_1hi1d"), SubResource("Resource_h1cmy")])
+stack = Array[ExtResource("19_b4grr")]([SubResource("Resource_5khuk"), SubResource("Resource_1hi1d"), SubResource("Resource_h1cmy"), SubResource("Resource_ipfv2")])
 
 [sub_resource type="Resource" id="Resource_re6xn"]
 script = ExtResource("26_031u1")
@@ -219,6 +220,7 @@ shadow_enabled = true
 
 [node name="bicho_c2" parent="bichos" unique_id=428746475 instance=ExtResource("9_qjydo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.30417, 3.5070648, -113.64518)
+falas_carbono = Array[String](["oier", "vc é legau"])
 
 [node name="area_h" parent="bichos" unique_id=187279684 instance=ExtResource("13_h4ygu")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 172.23967, 0, 28.41858)
@@ -298,6 +300,10 @@ offset_left = -15.0
 offset_top = 2.0
 offset_right = -15.0
 offset_bottom = 2.0
+
+[node name="TelaDeDiálogo" parent="UI/telas" unique_id=180870299 instance=ExtResource("26_1hi1d")]
+visible = false
+layout_mode = 0
 
 [node name="obstaculos" type="Node3D" parent="." unique_id=1940622742]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.21842, 0, 0)
@@ -393,7 +399,7 @@ object = NodePath("../eletrizidade")
 [node name="ProtonScatter" type="Node3D" parent="." unique_id=1967824871]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6306324, 0)
 script = ExtResource("17_pshm4")
-modifier_stack = SubResource("Resource_ipfv2")
+modifier_stack = SubResource("Resource_pe8w4")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://bkcf15b20g7bi"

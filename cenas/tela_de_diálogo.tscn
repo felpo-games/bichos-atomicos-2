@@ -1,39 +1,40 @@
 [gd_scene format=3 uid="uid://pxlbdj5mbpd6"]
 
 [ext_resource type="Script" uid="uid://bg24llxnvrtei" path="res://cenas/script/tela_de_diálogo.gd" id="1_eanw3"]
-[ext_resource type="Texture2D" uid="uid://c3ee3nwen2kg1" path="res://arte/artes chris/e8a724a7-a1ce-43d0-bc96-05399faae374.png" id="2_sg1hu"]
+[ext_resource type="Texture2D" uid="uid://cig6gumsbampg" path="res://UI/Icons_HUD/dialog_box.png" id="2_sg1hu"]
+[ext_resource type="AudioStream" uid="uid://cydjg6t7l635c" path="res://SFX/voz_carbono1.wav" id="3_4ilke"]
 
-[node name="TelaDeDiálogo" type="CanvasLayer" unique_id=1407872982]
+[node name="TelaDeDiálogo" type="Control" unique_id=180870299]
 process_mode = 3
-script = ExtResource("1_eanw3")
-
-[node name="Painel" type="Control" parent="." unique_id=1428743031]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+script = ExtResource("1_eanw3")
 
-[node name="Fundo" type="TextureRect" parent="Painel" unique_id=661650818]
+[node name="Fundo" type="TextureRect" parent="." unique_id=661650818]
 layout_mode = 0
-offset_left = -89.0
-offset_top = 293.0
-offset_right = 1180.0
-offset_bottom = 763.0
-texture = ExtResource("2_sg1hu")
-expand_mode = 3
-metadata/_edit_lock_ = true
-
-[node name="Texto" type="RichTextLabel" parent="Painel" unique_id=1938629798]
-layout_mode = 0
-offset_left = 136.0
-offset_top = 524.0
-offset_right = 1019.0
-offset_bottom = 607.0
-
-[node name="AvisoBotão" type="Label" parent="Painel" unique_id=919999908]
-layout_mode = 0
-offset_left = 807.0
-offset_top = 603.0
-offset_right = 1010.0
+offset_left = 35.0
+offset_top = 539.0
+offset_right = 1145.0
 offset_bottom = 637.0
+texture = ExtResource("2_sg1hu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Texto" type="RichTextLabel" parent="." unique_id=1938629798]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 549.0
+offset_right = 784.0
+offset_bottom = 623.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+
+[node name="AvisoBotão" type="Label" parent="." unique_id=919999908]
+layout_mode = 0
+offset_left = 935.0
+offset_top = 610.0
+offset_right = 1138.0
+offset_bottom = 644.0
 text = "Aperte \"E\" para continuar."
+
+[node name="som_voz" type="AudioStreamPlayer" parent="." unique_id=1767056248]
+stream = ExtResource("3_4ilke")

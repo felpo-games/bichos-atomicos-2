@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+var em_dialogo: bool = false
+
 @onready var menu_opcoes: Control = $"../../UI/telas/Config"
 @export var ui_atomo: Control
 var vida = 3
@@ -42,9 +44,9 @@ func alternar_pausa():
 
 func _ready() -> void:
 	eventos_global.batalha = false
-	
-	pass
+
 func _physics_process(delta: float) -> void:
+	
 	if Input.is_action_just_pressed("troca_de_pet"):
 		laboratorio_global.pet_1 = !laboratorio_global.pet_1
 		print(laboratorio_global.pet_1)
@@ -52,64 +54,40 @@ func _physics_process(delta: float) -> void:
 	# tiro
 	if Input.is_action_just_pressed("campirar") and eventos_global.batalha == true:
 		atirar()
-	
-	# dash
-	#if Input.is_action_just_pressed("dash"): 
-		#pass
 
 	if eventos_global.numa_tela == false:
-		
-		
-		
 		if not is_on_floor() and not is_dashing:
 			velocity.y -= gravity * delta
 
-		
-		if not em_knockback:
-			
-			var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
-			var direction := Vector3(input_dir.x, 0, input_dir.y).normalized()
+	if em_dialogo:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		$body/pivod/AnimationPlayer.play("idle_PL")
+		move_and_slide()
+		return
 
-			if is_dashing:
-				dash_timer -= delta
-				if dash_timer <= 0:
-					is_dashing = false
+	if not em_knockback:
+		
+		var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
+		var direction := Vector3(input_dir.x, 0, input_dir.y).normalized()
+
+		if is_dashing:
+			dash_timer -= delta
+			if dash_timer <= 0:
+				is_dashing = false
+		else:
+			if direction:
+				velocity.x = direction.x * SPEED
+				velocity.z = direction.z * SPEED
+				$body/pivod/AnimationPlayer.play("walk_Pl")
+				var target_angle = atan2(direction.x, direction.z)
+				$body.rotation.y = lerp_angle($body.rotation.y, target_angle, rotation_speed * delta)
 			else:
-				if direction:
-					velocity.x = direction.x * SPEED
-					velocity.z = direction.z * SPEED
-					$body/pivod/AnimationPlayer.play("walk_Pl")
-					var target_angle = atan2(direction.x, direction.z)
-					$body.rotation.y = lerp_angle($body.rotation.y, target_angle, rotation_speed * delta)
-				else:
-					$body/pivod/AnimationPlayer.stop()
-					velocity.x = move_toward(velocity.x, 0, SPEED)
-					velocity.z = move_toward(velocity.z, 0, SPEED)
+				$body/pivod/AnimationPlayer.stop()
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+				velocity.z = move_toward(velocity.z, 0, SPEED)
 
 		move_and_slide()
-
-
-#func start_dash():
-	#if is_dashing or dash_em_cooldown or em_knockback:
-		#return
-	#
-	#is_dashing = true
-	#dash_em_cooldown = true
-	#dash_timer = dash_duration
-	#
-	#var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
-	#var dash_dir : Vector3
-	#
-	#if input_dir.length() > 0:
-		#dash_dir = Vector3(input_dir.x, 0, input_dir.y).normalized()
-	#else:
-		#dash_dir = -$body.global_transform.basis.z 
-#
-	#velocity = dash_dir * dash_speed
-	#
-	#await get_tree().create_timer(dash_cooldown).timeout
-	#dash_em_cooldown = false
-
 
 func receber_knockback(forca: Vector3):
 	em_knockback = true
@@ -122,7 +100,6 @@ func receber_knockback(forca: Vector3):
 	await get_tree().create_timer(tempo_knockback).timeout
 	em_knockback = false
 
-
 func atirar():
 	var bala = bala_cena.instantiate()
 	get_tree().root.add_child(bala)
@@ -131,7 +108,6 @@ func atirar():
 	$AUDIOS/SfxArremesso.play()
 
 func dano():
-	
 	if vida > 0:
 		vida -= 1
 		if ui_atomo:
@@ -139,18 +115,13 @@ func dano():
 		if vida <= 0:
 			AudioManager.get_node("SFXGameOver").play()
 			morrer()
-	pass
 
 func morrer():
 	get_tree().change_scene_to_file("res://cenas/gameover.tscn")
-	pass # Replace with function body.
 
 func iniciar_batalha():
-	
 	pass
-
 
 func _on_area_dano_area_entered(area: Area3D) -> void:
 	if area.is_in_group("ataque_bicho"):
 		dano()
-	pass # Replace with function body.
