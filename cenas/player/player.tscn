@@ -867,21 +867,6 @@ _data = {
 &"walk_Pl": SubResource("Animation_rd5wg")
 }
 
-[sub_resource type="Animation" id="Animation_ua7yo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera_normal:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.458, 9.458, 12.130428)]
-}
-
 [sub_resource type="Animation" id="Animation_0wone"]
 resource_name = "troca_camera"
 tracks/0/type = "value"
@@ -935,7 +920,6 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bs6os"]
 _data = {
-&"RESET": SubResource("Animation_ua7yo"),
 &"troca_camera": SubResource("Animation_0wone")
 }
 
@@ -1069,15 +1053,13 @@ skeleton = NodePath("..")
 libraries/ = SubResource("AnimationLibrary_asbux")
 
 [node name="camera_batalha" type="Camera3D" parent="body" unique_id=1735440725]
-transform = Transform3D(-1, 8.8753104e-08, -1.2215817e-07, 0, 0.809017, 0.58778524, 1.509958e-07, 0.58778524, -0.809017, 0.458, 3.8364868, -2.3526616)
-current = true
-far = 20.0
+transform = Transform3D(-1, 8.8753104e-08, -1.2215817e-07, 0, 0.809017, 0.58778524, 1.509958e-07, 0.58778524, -0.809017, 0.458, 9.458, -11.861)
 
 [node name="Camera_normal" type="Camera3D" parent="." unique_id=217648361]
 transform = Transform3D(1, 0, 0, 0, 0.809017, 0.58778524, 0, -0.58778524, 0.809017, 0.458, 9.458, 12.130428)
 rotation_order = 3
+current = true
 fov = 59.062492
-far = 20.0
 
 [node name="troca de camera" type="Node3D" parent="." unique_id=665327285]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4576075, 2.9846125, -2.7738333)

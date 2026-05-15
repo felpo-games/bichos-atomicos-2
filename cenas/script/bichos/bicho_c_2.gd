@@ -195,7 +195,7 @@ func crecer():
 		tween.tween_property(
 			self,
 			"scale",
-			Vector3.ONE * 2.0,
+			Vector3.ONE * 5.0,
 			1.5
 		)
 

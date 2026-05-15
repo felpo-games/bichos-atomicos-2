@@ -773,7 +773,7 @@ size = Vector3(1.5338135, 1.6842957, 1.8337097)
 radius = 0.85627186
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hr657"]
-radius = 1.3675228
+radius = 5.2663317
 
 [sub_resource type="Animation" id="Animation_hr657"]
 length = 0.001

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://datijccqxpmd3" path="res://arte/miguel/3d/novo/oxigenio_oxigenio__textura.png" id="2_vscvc"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uwu8j"]
-radius = 2.0
+radius = 6.573172
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmqng"]
 resource_name = "oxigenio_textura.1"

@@ -66,7 +66,7 @@ size = Vector3(34.796753, 12.025513, 24.604477)
 
 [sub_resource type="Resource" id="Resource_3qe05"]
 script = ExtResource("20_8l63c")
-amount = 50
+amount = 500
 restrict_height = true
 reference_frame = 1
 
@@ -95,8 +95,12 @@ stack = Array[ExtResource("19_b4grr")]([SubResource("Resource_3qe05"), SubResour
 
 [sub_resource type="Resource" id="Resource_re6xn"]
 script = ExtResource("26_031u1")
-size = Vector3(296.05426, 1, 255.70296)
+size = Vector3(260.9877, 1, 214.44194)
 metadata/_custom_type_script = "uid://dmjx8g0p0xn8q"
+
+[sub_resource type="Resource" id="Resource_pe8w4"]
+script = ExtResource("26_031u1")
+size = Vector3(184.14008, 1, 223.76428)
 
 [node name="fese_1" type="Node3D" unique_id=1341664247]
 script = ExtResource("1_3qe05")
@@ -107,7 +111,7 @@ script = ExtResource("1_3qe05")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10222626, -0.96635246, -68.12547)
 
 [node name="decoração da area d carbono" type="Node3D" parent="blocagem" unique_id=1523680775]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.42557, 0, -229.10681)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 157.34692, 0, -118.62399)
 
 [node name="Totem1" parent="blocagem/decoração da area d carbono" unique_id=2107902850 instance=ExtResource("2_2khhj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.68898, 0, 0)
@@ -200,7 +204,7 @@ transform = Transform3D(-2.2562599e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.21063, 0, 0)
 
 [node name="player" parent="personagem" unique_id=1822486866 instance=ExtResource("1_1c7ow")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -92.72879, 0.23167133, 6.0793915)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -92.72879, 0.23167133, 37.82943)
 
 [node name="efeitos" type="Node3D" parent="." unique_id=1522335302]
 
@@ -214,10 +218,10 @@ shadow_enabled = true
 [node name="bichos" type="Node3D" parent="." unique_id=9806684]
 
 [node name="bicho_c2" parent="bichos" unique_id=428746475 instance=ExtResource("9_qjydo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115.22098, 3.5070648, -229.98473)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.30417, 3.5070648, -113.64518)
 
 [node name="area_h" parent="bichos" unique_id=187279684 instance=ExtResource("13_h4ygu")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 133.20277, 0, -11.101296)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 172.23967, 0, 28.41858)
 
 [node name="bicho_h" parent="bichos/area_h" unique_id=1122094937 instance=ExtResource("3_e5vpm")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.91381073, 0)
@@ -227,7 +231,7 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_rmu0y")
 
 [node name="area_h2" parent="bichos" unique_id=2145989643 instance=ExtResource("13_h4ygu")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -100.772995, 0, -10.1134205)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -175.29187, 0, 22.15816)
 
 [node name="bicho_h" parent="bichos/area_h2" unique_id=7474898 instance=ExtResource("3_e5vpm")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.934105, 0.91381073, 0)
@@ -237,17 +241,15 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_rmu0y")
 
 [node name="bicho_o" parent="bichos" unique_id=1814063333 instance=ExtResource("7_7uoum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.21265, 1.418, -137.479)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -158.0235, 1.418, -234.89572)
 icon = ExtResource("10_h4ygu")
 
 [node name="bicho_o3" parent="bichos" unique_id=1500830051 instance=ExtResource("7_7uoum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.50658, 1.5029488, -230.38823)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.57588, 1.5029488, -92.99931)
 icon = ExtResource("10_h4ygu")
 
 [node name="bicho_o2" parent="bichos" unique_id=1549283805 instance=ExtResource("7_7uoum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2433052, 1.5029488, -22.677217)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2433052, 1.5029488, 12.90624)
 icon = ExtResource("10_h4ygu")
 
 [node name="bicho_ph" parent="bichos" unique_id=1936316218 instance=ExtResource("9_h4ygu")]
@@ -403,9 +405,14 @@ proportion = 10
 path = "uid://clbgrf8mx7a1x"
 
 [node name="ScatterShape" type="Node3D" parent="ProtonScatter" unique_id=1094161149]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, -6.067067, -124.09856)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, -6.067067, -126.41277)
 script = ExtResource("25_2khhj")
 shape = SubResource("Resource_re6xn")
+
+[node name="ScatterShape2" type="Node3D" parent="ProtonScatter" unique_id=1628945004]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 134.05867, -6.067067, -255.80653)
+script = ExtResource("25_2khhj")
+shape = SubResource("Resource_pe8w4")
 
 [connection signal="conversa" from="bichos/bicho_c2" to="UI/telas/conversas_cena" method="_on_bicho_c_2_conversa"]
 [connection signal="body_entered" from="bichos/area_h" to="bichos/area_h/bicho_h" method="_on_area_h_body_entered"]
