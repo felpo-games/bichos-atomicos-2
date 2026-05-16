@@ -91,8 +91,16 @@ func atualizar_icones_inventario() -> void:
 		c.show()
 
 func _on_visibility_changed() -> void:
+	if not is_inside_tree():
+		return
+	var jogador = get_tree().get_nodes_in_group("player")
 	if visible:
 		atualizar_icones_inventario()
+		if jogador.size() > 0 and jogador[0].ui_atomo != null:
+			jogador[0].ui_atomo.visible = false
+	else:
+		if jogador.size() > 0 and jogador[0].ui_atomo != null:
+			jogador[0].ui_atomo.visible = true
 
 func trocar_aba(aba_ativa: Control) -> void:
 	tela_atomos.hide()
@@ -234,13 +242,11 @@ func animar_desbloqueio(textura: Texture2D, nome: String):
 	composto_animado.rotation_degrees = 0
 	fundo_animado.rotation_degrees = 0
 
-	# --- 2. CÁLCULO DO CENTRO ---
 	var centro_tela = get_viewport_rect().size / 2
 	
 	composto_animado.global_position = centro_tela - (composto_animado.size / 2)
 	fundo_animado.global_position = centro_tela - (fundo_animado.size / 2)
 
-	# --- 3. PREPARAÇÃO PARA O POP ---
 	composto_animado.scale = Vector2.ZERO
 	fundo_animado.scale = Vector2.ZERO
 	composto_animado.modulate.a = 0
@@ -252,11 +258,10 @@ func animar_desbloqueio(textura: Texture2D, nome: String):
 	composto_animado.show()
 	fundo_animado.show()
 
-	# --- 4. FASE A: APARECER (Efeito Pop/Revelação) ---
 	var tween = create_tween().set_parallel(true)
 	var duracao_pop = 0.6
 	
-	# Composto e Aura crescem no centro
+
 	tween.tween_property(composto_animado, "scale", Vector2(1.5, 1.5), duracao_pop).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.tween_property(composto_animado, "modulate:a", 1.0, 0.3)
 	
@@ -264,33 +269,30 @@ func animar_desbloqueio(textura: Texture2D, nome: String):
 	tween.tween_property(fundo_animado, "modulate:a", 0.7, 0.4)
 	tween.tween_property(fundo_animado, "rotation_degrees", 180, duracao_pop).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
-	# --- 5. ESPERA (Tempo para admirar) ---
 	await get_tree().create_timer(1.3).timeout
 	
-	# --- 6. FASE B: SEPARAÇÃO E VOO ---
 	var tween_voo = create_tween().set_parallel(true)
 	var duracao_voo = 0.8
 	
-	# Calcula destino apenas para o composto
+
 	var destino = botao_composto.global_position + (botao_composto.size / 2)
 	var pos_final_composto = destino - (composto_animado.size / 2)
 
-	# O COMPOSTO voa para a aba, encolhe e some
 	tween_voo.tween_property(composto_animado, "global_position", pos_final_composto, duracao_voo).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	tween_voo.tween_property(composto_animado, "scale", Vector2.ZERO, duracao_voo)
 	tween_voo.tween_property(composto_animado, "modulate:a", 0.0, duracao_voo)
 	
-	# A AURA fica parada no centro: apenas encolhe, some e termina de girar
+	
 	tween_voo.tween_property(fundo_animado, "scale", Vector2.ZERO, duracao_voo).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	tween_voo.tween_property(fundo_animado, "modulate:a", 0.0, duracao_voo)
 	tween_voo.tween_property(fundo_animado, "rotation_degrees", 360, duracao_voo)
 
-	# --- 7. FINALIZAÇÃO ---
+	
 	await tween_voo.finished
 	composto_animado.hide()
 	fundo_animado.hide()
 	
-	# Chama a notificação e pulsa o botão da aba
+	
 	get_tree().call_group("interface_notificacao", "mostrar_notificacao", nome, textura)
 	
 	var tween_feedback = create_tween()

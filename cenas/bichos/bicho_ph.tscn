@@ -2,12 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://cfvlkltqkvds4" path="res://arte/miguel/3d/novo/peroxido de hidrogenio_peroxido_textura.png" id="1_bfl0s"]
 [ext_resource type="Script" uid="uid://d3bb4iruaxmtb" path="res://cenas/bichos/bicho_ph.gd" id="1_pn01w"]
-[ext_resource type="PackedScene" uid="uid://2n7s13pt8lm1" path="res://cenas/obstaculos/fogo_normal.tscn" id="2_2g0cs"]
+[ext_resource type="AudioStream" uid="uid://wcjwtfcd1sui" path="res://SFX/Som_H2O2.wav" id="2_dooiq"]
 [ext_resource type="Texture2D" uid="uid://dsjy4rrbmdv0p" path="res://arte/felp/fogo.png" id="2_preqx"]
-[ext_resource type="PackedScene" uid="uid://cndx8s1jfrqcp" path="res://cenas/efeitos/cena_de_aviso_de_fogo.tscn" id="3_dooiq"]
 [ext_resource type="Texture2D" uid="uid://dccejat5jnm0x" path="res://arte/felp/fogo eletrico.png" id="3_pn01w"]
 [ext_resource type="Texture2D" uid="uid://ddj41f08d6184" path="res://arte/felp/pocao.jpeg" id="4_swpu4"]
 [ext_resource type="Shader" uid="uid://c0mdkbdeehau5" path="res://cenas/script/efeitos/simples_shades.tres" id="7_swpu4"]
+[ext_resource type="Texture2D" uid="uid://bxshao66ofplb" path="res://arte/artes chris/letra E interacao.png" id="8_dooiq"]
+[ext_resource type="Script" uid="uid://7p5ugivqxvga" path="res://cenas/bichos/interacao_e.gd" id="9_afd1l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0swi"]
 resource_name = "peroxido_textura"
@@ -651,8 +652,8 @@ color_initial_ramp = SubResource("GradientTexture1D_dooiq")
 
 [node name="bicho_ph" type="Node3D" unique_id=1936316218]
 script = ExtResource("1_pn01w")
-cena_fogo = ExtResource("2_2g0cs")
-cena_aviso = ExtResource("3_dooiq")
+falas_ph = Array[String](["Você não me engana! ", "Pode ter encolhido...", "pode não ter a barba...", "Mas você tem a mesma energia oxidante e irritante dele!", "Eu não vou voltar para aquele vidro!"])
+voz_ph = ExtResource("2_dooiq")
 raio_spawn = 10.0
 
 [node name="pivod" type="Node3D" parent="." unique_id=2004215243]
@@ -821,6 +822,13 @@ amount = 3
 process_material = SubResource("ParticleProcessMaterial_dooiq")
 draw_pass_1 = SubResource("QuadMesh_kfy8d")
 
+[node name="INTERACAO_E" type="Sprite3D" parent="." unique_id=1735331501]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8.958606, 0)
+billboard = 1
+texture = ExtResource("8_dooiq")
+script = ExtResource("9_afd1l")
+
 [connection signal="timeout" from="sistema_de_ataque/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="sistema_de_ataque/Area_visao" to="." method="_on_area_visao_body_entered"]
+[connection signal="body_exited" from="sistema_de_ataque/Area_visao" to="." method="_on_area_visao_body_exited"]
 [connection signal="area_entered" from="sistema_de_ataque/Area_vida" to="." method="_on_area_vida_area_entered"]

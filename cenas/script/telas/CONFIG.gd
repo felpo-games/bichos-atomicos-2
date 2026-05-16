@@ -54,14 +54,21 @@ func _on_botao_sair_pressed() -> void:
 
 
 func _on_visibility_changed() -> void:
+	if not is_inside_tree():
+		return
+	var jogador = get_tree().get_nodes_in_group("player")
 	if self.visible == true:
+		if jogador.size() > 0 and jogador[0].ui_atomo != null:
+			jogador[0].ui_atomo.visible = false
 		if get_tree().paused == true:
 			$ColorRect/BotaoVoltar.visible = true
 			$ColorRect/BotaoSair.visible = true
 		else:
 			$ColorRect/BotaoVoltar.visible = true
 			$ColorRect/BotaoSair.visible = false
-	pass # Replace with function body.
+	else:
+		if jogador.size() > 0 and jogador[0].ui_atomo != null:
+			jogador[0].ui_atomo.visible = true
 
 
 func _on_botao_voltar_pressed() -> void:

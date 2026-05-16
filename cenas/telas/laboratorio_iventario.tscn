@@ -24,6 +24,7 @@
 
 [node name="Laboratorio_iventario" type="Control" unique_id=1409135382]
 process_mode = 3
+z_index = 100
 layout_direction = 1
 layout_mode = 3
 anchors_preset = 15

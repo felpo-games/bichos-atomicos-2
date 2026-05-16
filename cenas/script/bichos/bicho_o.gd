@@ -1,9 +1,10 @@
 extends Node3D
 
-var conversando = false
-var player 
-signal conversar
+@export_multiline var falas_o: Array[String]
+@export var voz_o: AudioStream
+var conversando: bool = false
 
+var player: Node3D = null
 @export var icon: Texture2D
 
 # respawn
@@ -13,81 +14,70 @@ signal conversar
 var posicao_inicial: Vector3
 
 func _ready() -> void:
-	
-	player = null
 	posicao_inicial = global_position
 	show()
-	await get_tree().create_timer(1.5).timeout
-	coletado()
-	
 
-func _process(delta: float) -> void:
-	if player != null and conversando == false and Input.is_action_just_pressed("interacao"):
-		emit_signal("conversar")
-		conversando = true
-		print("oi")
+func _process(_delta: float) -> void:
+	if player != null and not conversando and Input.is_action_just_pressed("interacao"):
+		$INTERACAO_E.animar(false)
+		iniciar_conversa()
+
+func iniciar_conversa():
+	conversando = true
+	player.em_dialogo = true 
+	$"../../UI/telas/TelaDeDiálogo".iniciar_dialogo(falas_o, voz_o)
+	await $"../../UI/telas/TelaDeDiálogo".dialogo_encerrado
+	
+	encerrar_conversa()
+	coletado()
+
+func encerrar_conversa():
+	conversando = false
+	if player != null:
+		player.em_dialogo = false
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		player = body
+		if has_node("INTERACAO_E"):
+			$INTERACAO_E.animar(true)
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		player = null
-		conversando = false
-
-# =========================
-# COLETA / MORTE
-# =========================
+		if has_node("INTERACAO_E"):
+			$INTERACAO_E.animar(false)
+		if conversando:
+			encerrar_conversa()
+			$"../../UI/telas/TelaDeDiálogo".cancelar_dialogo()
 
 func coletado():
-	#if player != null:
-	laboratorio_global.bichos_desbloqueados.append("o")
-	laboratorio_global.quantidade_o += 1
+	laboratorio_global.adicionar_atomo("o")
 	
 	var notif = $"../../UI/telas/notificacao"
 	if notif != null:
-		notif.mostrar_notificacao("Oxigenio", icon)
-	else:
-		print("NOTIFICAÇÃO NÃO ENCONTRADA")
+		notif.mostrar_notificacao("Oxigênio", icon)
 	
-	if player != null:
-		desativar()
+	desativar()
 	
 	if reaparecer:
 		respawn()
 
 func desativar():
 	hide()
-	
 	if has_node("Area3D/CollisionShape3D"):
 		$Area3D/CollisionShape3D.disabled = true
-	
 	set_process(false)
 
 func reativar():
 	show()
-	
 	if has_node("Area3D/CollisionShape3D"):
 		$Area3D/CollisionShape3D.disabled = false
-	
 	player = null
 	conversando = false
-	
 	global_position = posicao_inicial
-	
 	set_process(true)
 
 func respawn():
 	await get_tree().create_timer(tempo_renascer).timeout
 	reativar()
-
-# =========================
-# SINAIS
-# =========================
-
-func _on_conversa_o_acertou() -> void:
-	coletado()
-
-func _on_conversa_o_capturou_oxigenio() -> void:
-	coletado()

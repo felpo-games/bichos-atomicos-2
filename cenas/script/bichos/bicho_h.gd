@@ -26,10 +26,7 @@ var pode_mover = true
 var vida = 3
 
 func _ready():
-	
 	posicao_inicial = global_position
-	await get_tree().create_timer(1.5).timeout
-	morrer()
 
 func _physics_process(delta: float):
 
@@ -79,8 +76,9 @@ func decidir_direcao():
 # =========================
 
 func morrer():
-
 	state = estado.morto
+	if has_node("AvisoAlerta"):
+		$AvisoAlerta.animar(false)
 
 	laboratorio_global.bichos_desbloqueados.append(queméessebicho[0])
 	laboratorio_global.quantidade_h += 1
@@ -186,12 +184,13 @@ func _on_area_receber_danovermelha_area_entered(area: Area3D) -> void:
 			morrer()
 
 func _on_area_h_body_entered(body: Node3D) -> void:
-	# Evita que o "fantasma" do inimigo inicie uma batalha com o player
 	if state == estado.morto:
 		return
 
 	if body.is_in_group("player"):
 		player = body
+		if has_node("AvisoAlerta"):
+			$AvisoAlerta.animar(true)
 
 		# salva inimigo atual
 		DadosInimigos.inimigo_atual = self
@@ -212,3 +211,5 @@ func _on_area_h_body_exited(body: Node3D) -> void:
 		player = null
 		direcao_alvo = Vector3.ZERO
 		DadosInimigos.inimigo_atual = null
+		if has_node("AvisoAlerta"):
+			$AvisoAlerta.animar(false)

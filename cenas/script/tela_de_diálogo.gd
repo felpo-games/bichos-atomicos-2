@@ -2,7 +2,7 @@ extends Control
 
 signal dialogo_encerrado
 
-const vel_leitura: float = 0.015
+const vel_leitura: float = 0.05
 
 @onready var som_voz = $som_voz
 @onready var texto = $Texto

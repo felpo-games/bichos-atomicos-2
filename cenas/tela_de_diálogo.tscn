@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bg24llxnvrtei" path="res://cenas/script/tela_de_diálogo.gd" id="1_eanw3"]
 [ext_resource type="Texture2D" uid="uid://cig6gumsbampg" path="res://UI/Icons_HUD/dialog_box.png" id="2_sg1hu"]
 [ext_resource type="AudioStream" uid="uid://cydjg6t7l635c" path="res://SFX/voz_carbono1.wav" id="3_4ilke"]
+[ext_resource type="FontFile" uid="uid://beofpp02twowh" path="res://UI/Fontes/m04b.TTF" id="3_mms2v"]
+[ext_resource type="FontFile" uid="uid://c77v7nivsurme" path="res://UI/Fontes/JHCRasbora-RegularItalic.otf" id="4_mms2v"]
 
 [node name="TelaDeDiálogo" type="Control" unique_id=180870299]
 process_mode = 3
@@ -12,9 +14,9 @@ script = ExtResource("1_eanw3")
 
 [node name="Fundo" type="TextureRect" parent="." unique_id=661650818]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 539.0
-offset_right = 1145.0
+offset_left = -172.0
+offset_top = 511.0
+offset_right = 1255.143
 offset_bottom = 637.0
 texture = ExtResource("2_sg1hu")
 expand_mode = 1
@@ -22,18 +24,24 @@ stretch_mode = 5
 
 [node name="Texto" type="RichTextLabel" parent="." unique_id=1938629798]
 layout_mode = 0
-offset_left = 396.0
-offset_top = 549.0
-offset_right = 784.0
-offset_bottom = 623.0
+offset_left = 305.0
+offset_top = 536.0
+offset_right = 787.3784
+offset_bottom = 628.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_mms2v")
+theme_override_font_sizes/normal_font_size = 20
+text = "TEXTE DE TEXTO GRANDE AAAAAAAAAAAAAAAAAAAAAAAAAAAADAWDCDCFVRG ACENTOS É "
 
 [node name="AvisoBotão" type="Label" parent="." unique_id=919999908]
 layout_mode = 0
-offset_left = 935.0
-offset_top = 610.0
-offset_right = 1138.0
+offset_left = 915.0
+offset_top = 623.0
+offset_right = 1141.0
 offset_bottom = 644.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_mms2v")
+theme_override_font_sizes/font_size = 20
 text = "Aperte \"E\" para continuar."
 
 [node name="som_voz" type="AudioStreamPlayer" parent="." unique_id=1767056248]

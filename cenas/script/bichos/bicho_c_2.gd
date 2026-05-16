@@ -65,11 +65,8 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("interacao") and player != null and not conversando:
 				conversando = true
 				player.em_dialogo = true
-				if falas_carbono.is_empty():
-					print("ERRO: O Inspetor deste bicho não tem falas!")
-					conversando = false
-					player.em_dialogo = false
-					return
+				if has_node("INTERACAO_E"):
+					$INTERACAO_E.animar(false)
 				$"../../UI/telas/TelaDeDiálogo".iniciar_dialogo(falas_carbono, voz_carbono)
 				await $"../../UI/telas/TelaDeDiálogo".dialogo_encerrado
 				if player == null:
@@ -244,28 +241,16 @@ func aplicar_knockback(alvo):
 	pode_bater = true
 
 func _on_area_conversa_body_entered(body: Node3D) -> void:
-
 	if body.is_in_group("player"):
-
-		# salva inimigo atual
-		DadosInimigos.inimigo_atual = self
-
-		# envia dados do inimigo
-		DadosInimigos.status_inimigo["vida"] = vida
-		DadosInimigos.status_inimigo["fraqueza"] = fraqueza
-
 		player = body
+		if has_node("INTERACAO_E"):
+			$INTERACAO_E.animar(true)
 
 func _on_area_conversa_body_exited(body: Node3D) -> void:
-
 	if body.is_in_group("player"):
-		player = null
-		DadosInimigos.inimigo_atual = null
-		if conversando:
-			conversando = false
-			body.em_dialogo = false
-			$"../../UI/telas/TelaDeDiálogo".cancelar_dialogo()
-			$"../../UI/telas/conversas_cena".sair()
+		player = null 
+		if has_node("INTERACAO_E"):
+			$INTERACAO_E.animar(false)
 
 func _on_conversas_cena_batalhar() -> void:
 	state = estado.batalhando
@@ -278,7 +263,7 @@ func _on_conversas_cena_acertou() -> void:
 	state = estado.morto
 	derrotado()
 
-# Esta função veio da branch MAIN e eu adicionei os seus sons nela
+# Esta função veio da branch MAIN (Do Felipe) com seus áudios
 func _on_areadeataque_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and state == estado.batalhando:
 		if has_node("som_danoCO2"):
@@ -286,12 +271,10 @@ func _on_areadeataque_body_entered(body: Node3D) -> void:
 		aplicar_knockback(body)
 		body.dano()
 
-# Esta função você modificou adicionando o Som_ataque
 func _on_areade_dano_area_entered(area: Area3D) -> void:
 	if area.is_in_group("ataque_player"):
 		vida -= 1
 		
-		# Corrigi o seu código, estava apenas $Som_ataque. Tem que ter o .play()
 		if has_node("Som_ataque"):
 			$Som_ataque.play()
 
@@ -304,6 +287,5 @@ func _on_areade_dano_area_entered(area: Area3D) -> void:
 			state = estado.morto
 			derrotado()
 
-# Esta função é sua (da branch CHRIS) e tem que estar aqui
 func iniciar_pergunta_carbono() -> void:
 	$"../../UI/telas/conversas_cena".aparecer()
