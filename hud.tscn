@@ -1,6 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqxrqwyjntcyt"]
+[gd_scene load_steps=17 format=3 uid="uid://ddggybuagxojf"]
 
-[ext_resource type="Script" uid="uid://cc74xqyoimya1" path="res://cenas/telas/hud.gd" id="1_fwqqr"]
+[ext_resource type="Script" uid="uid://2cqc54x5qhl" path="res://cenas/script/hud.gd" id="1_fwqqr"]
 [ext_resource type="Texture2D" uid="uid://paukn3qg2q10" path="res://UI/Icons_HUD/icon_elenmeyer.png" id="1_m74as"]
 [ext_resource type="Texture2D" uid="uid://bda0pag2rstpa" path="res://UI/Icons_HUD/seletor_1.png" id="2_fwqqr"]
 [ext_resource type="Texture2D" uid="uid://drmtai7y55u2a" path="res://UI/Icons_HUD/seletor_3.png" id="3_bsex3"]
@@ -359,10 +359,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -45.0
-offset_top = 44.0
-offset_right = -45.0
-offset_bottom = 44.0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 4.0
+offset_bottom = 5.999939
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fwqqr")
