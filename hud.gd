@@ -2,9 +2,13 @@ extends Control
 
 enum index_animation {expandir_1, expandir_2, expandir_3, encolher_1, encolher_2, encolher_3}
 var pending_exit: bool = false
+const cena_elenmeyer = preload("res://cenas/telas/laboratorio_iventario.tscn")
 
 @onready var timer = $Timer
 @onready var anim_play = $AnimationPlayer
+
+func abrir_elenmeyer():
+	get_tree().change_scene_to_packed(cena_elenmeyer)
 	
 func expan_enco(index: index_animation):
 	# Convertemos o nome do enum para minúsculo (ou mantemos igual) 
