@@ -223,7 +223,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.92902, 1.5029488, 12.90624
 falas_o = Array[String](["Voce tem um olhar analitico, garoto... ", "Me lembra o velho barbudo que costumava nos prender naqueles potes de vidro."])
 
 [node name="bicho_ph" parent="bichos" unique_id=1936316218 instance=ExtResource("9_h4ygu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.155212)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.269325, 0, -38.667233)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=744198927]
 process_mode = 3
@@ -398,6 +398,7 @@ shape = SubResource("Resource_pe8w4")
 [connection signal="capturou_oxigenio" from="UI/telas/conversa_o" to="bichos/bicho_o3" method="_on_conversa_o_capturou_oxigenio"]
 [connection signal="capturou_oxigenio" from="UI/telas/conversa_o" to="bichos/bicho_o2" method="_on_conversa_o_capturou_oxigenio"]
 [connection signal="acertou" from="UI/telas/conversas_cena" to="bichos/bicho_c3" method="_on_conversas_cena_acertou"]
+[connection signal="batalhar" from="UI/telas/conversas_cena" to="bichos/bicho_c3" method="_on_conversas_cena_batalhar"]
 [connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]
 [connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal2" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]
 [connection signal="apagado" from="obstaculos/fogo_obstaculo/fogo_normal3" to="obstaculos/fogo_obstaculo" method="_on_fogo_normal_apagado"]

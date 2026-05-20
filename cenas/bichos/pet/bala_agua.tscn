@@ -4,11 +4,11 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fmy5d"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fmy5d"]
-albedo_color = Color(0, 0, 1, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_sv0vd"]
-material = SubResource("StandardMaterial3D_fmy5d")
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_53sca"]
+spread = 0.0
+initial_velocity_min = 400.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 0, 0)
 
 [node name="bala_agua" type="Area3D" unique_id=254501640 groups=["ataque_agua"]]
 script = ExtResource("1_sv0vd")
@@ -16,5 +16,5 @@ script = ExtResource("1_sv0vd")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=580279200]
 shape = SubResource("SphereShape3D_fmy5d")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1589278011]
-mesh = SubResource("SphereMesh_sv0vd")
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1952167295]
+process_material = SubResource("ParticleProcessMaterial_53sca")

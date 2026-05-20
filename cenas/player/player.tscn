@@ -937,6 +937,10 @@ shape = SubResource("CapsuleShape3D_kbvfo")
 
 [node name="body" type="Node3D" parent="." unique_id=596274439]
 
+[node name="Marker3D" type="Marker3D" parent="body" unique_id=940710450]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.29054737, 1.1336591)
+gizmo_extents = 1.55
+
 [node name="sistema_ataque" type="Node3D" parent="body" unique_id=1329585878]
 
 [node name="pet_agua" parent="body/sistema_ataque" unique_id=349165857 instance=ExtResource("3_4i5rx")]
@@ -944,9 +948,6 @@ transform = Transform3D(0.50000006, 0, 0, 0, 0.5, 0, 0, 0, 0.50000006, 1.5, 0.44
 
 [node name="pet_dc" parent="body/sistema_ataque" unique_id=191536983 instance=ExtResource("4_a8ubr")]
 transform = Transform3D(0.50000006, 0, 0, 0, 0.5, 0, 0, 0, 0.50000006, 1.5493762, 0.44, 0)
-
-[node name="Marker3D" type="Marker3D" parent="body" unique_id=940710450]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.29054737, 1.1336591)
 
 [node name="pivod" type="Node3D" parent="body" unique_id=1186250388]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.9842632, 0)
