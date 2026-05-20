@@ -21,8 +21,8 @@ signal anim_fogo
 signal parar_fogo
 
 var direcao_dash = Vector3.ZERO
-var velocidade_dash = 10.0
-var tempo_dash = 1.0
+var velocidade_dash = 5.0
+var tempo_dash = 5.0
 var dash_ativo = false
 var vida = 10
 
@@ -71,9 +71,10 @@ func _on_area_visao_body_exited(body: Node3D) -> void:
 
 func ataque_():
 	print("batalhar")
-	var escolha = randi() % 2
 	state = estado.batalhando
-	if escolha == 0:
+	var chance := randf()
+
+	if chance < 0.3:
 		ataque_de_fogo()
 	else:
 		estado_eletrico()

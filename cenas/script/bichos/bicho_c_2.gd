@@ -75,7 +75,7 @@ func _physics_process(delta):
 				iniciar_pergunta_carbono()
 
 		estado.batalhando:
-
+			
 			# atualiza vida no global
 			DadosInimigos.status_inimigo["vida"] = vida
 			DadosInimigos.status_inimigo["fraqueza"] = fraqueza
@@ -91,6 +91,7 @@ func _physics_process(delta):
 var icon: Texture2D
 
 func derrotado():
+	
 	if player != null:
 		player.em_dialogo = false
 		
@@ -200,9 +201,9 @@ func andar():
 func crecer():
 
 	if not grande:
-
+		
 		eventos_global.batalha = true
-
+		print(eventos_global.batalha)
 		grande = true
 
 		var tween = create_tween()

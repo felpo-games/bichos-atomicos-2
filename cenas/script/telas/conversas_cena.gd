@@ -33,6 +33,8 @@ func _ready():
 	esconder_respostas()
 
 func aparecer():
+	eventos_global.batalha = false
+	
 	show()
 	$CanvasLayer.visible = true
 	if has_node("ButtonContinuar"):
@@ -45,6 +47,7 @@ func aparecer():
 	mostrar_respostas()
 
 func sair():
+	eventos_global.batalha = false
 	hide()
 	$CanvasLayer.visible = false
 	modulate = Color(1, 1, 1)
