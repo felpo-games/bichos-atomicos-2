@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxchpdfieiuk1"]
 
 [ext_resource type="Script" uid="uid://c2vrid18uuakb" path="res://cenas/telas/laboratorio_iventario.gd" id="1_jxupr"]
+[ext_resource type="Script" uid="uid://bp0b0b38drkrf" path="res://cenas/script/globais/InfoElemento.gd" id="3_65gy6"]
 [ext_resource type="Texture2D" uid="uid://d120hq0aubsym" path="res://UI/Janelas/Elenemeyer/moldura_elemento_O.png" id="4_hi35h"]
 [ext_resource type="Texture2D" uid="uid://c7carlnyhojy1" path="res://UI/Janelas/Elenemeyer/moldura_elemento_H.png" id="5_ymotw"]
 [ext_resource type="Texture2D" uid="uid://djkyvtwph20xx" path="res://UI/Janelas/Elenemeyer/moldura_elemento_C.png" id="6_oxgkr"]
@@ -21,6 +22,40 @@
 [ext_resource type="Texture2D" uid="uid://8mb7id4h6qii" path="res://UI/Janelas/Elenemeyer/destaque_elemento.png" id="18_d3vqm"]
 [ext_resource type="Texture2D" uid="uid://dhquaf83wmy5q" path="res://UI/Janelas/Elenemeyer/espac_elemento_sintese.png" id="19_qtrlo"]
 [ext_resource type="FontFile" uid="uid://dycml3x37dr0n" path="res://UI/Fontes/04B_30__.TTF" id="20_6jte0"]
+[ext_resource type="Texture2D" uid="uid://bd8nqqm61dh4j" path="res://UI/Botões/button_sair.png" id="24_u1mq0"]
+[ext_resource type="Texture2D" uid="uid://bwtwanqaaxpnj" path="res://UI/Botões/button_pressed_sair.png" id="25_btjc5"]
+
+[sub_resource type="Resource" id="Resource_u1mq0"]
+script = ExtResource("3_65gy6")
+metadata/_custom_type_script = "uid://bp0b0b38drkrf"
+
+[sub_resource type="Resource" id="Resource_btjc5"]
+script = ExtResource("3_65gy6")
+titulo = "Oxigenio (O)"
+descricao = "Classificação: Não-Metal / Gás Reativo
+Temperamento: Instável e acelerador.
+
+Anotações de Mendeleev:
+\"Um elemento comburente por natureza, e que na atmosfera, é crucial. Oxigenio alimenta a destruição da floresta, oxidando materiais e acelerando chamas. Ele tem uma tendência natural para procurar ligações e estabilizar a sua camada de elétrons.\"
+
+Reações de Síntese (Guia de Sobrevivência)
+
+- Fórmula: O + 2H = H2O (Água)
+- Aplicação Prática: A combinação de um átomo de Oxigenio com dois átomos de Hidrogênio resulta em Água. Esta é a única síntese capaz de extinguir as barreiras de fogo criadas pela instabilidade dos Hidrogênios na zona restrita."
+bichos = ExtResource("8_d3vqm")
+metadata/_custom_type_script = "uid://bp0b0b38drkrf"
+
+[sub_resource type="Resource" id="Resource_mgap8"]
+script = ExtResource("3_65gy6")
+metadata/_custom_type_script = "uid://bp0b0b38drkrf"
+
+[sub_resource type="Resource" id="Resource_2an7v"]
+script = ExtResource("3_65gy6")
+metadata/_custom_type_script = "uid://bp0b0b38drkrf"
+
+[sub_resource type="Resource" id="Resource_8dviv"]
+script = ExtResource("3_65gy6")
+metadata/_custom_type_script = "uid://bp0b0b38drkrf"
 
 [node name="Laboratorio_iventario" type="Control" unique_id=1409135382]
 process_mode = 3
@@ -30,9 +65,16 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 32.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jxupr")
+dados_h = SubResource("Resource_u1mq0")
+dados_o = SubResource("Resource_btjc5")
+dados_c = SubResource("Resource_mgap8")
+dados_agua = SubResource("Resource_2an7v")
+dados_co2 = SubResource("Resource_8dviv")
 imagem_brilho = ExtResource("18_d3vqm")
 imagem_vazia = ExtResource("13_u1mq0")
 imagem_o = ExtResource("8_d3vqm")
@@ -58,34 +100,33 @@ offset_right = 997.0
 offset_bottom = 541.0
 scale = Vector2(1.1610628, 1.1048545)
 texture = ExtResource("9_btfhd")
-metadata/_edit_lock_ = true
 
-[node name="MolduraElementoO" type="TextureRect" parent="TELA_ATOMOS" unique_id=212773253]
+[node name="botao_infos_o" type="TextureButton" parent="TELA_ATOMOS" unique_id=2081154312]
 layout_mode = 0
 offset_left = 149.8627
 offset_top = 415.43933
 offset_right = 240.8627
 offset_bottom = 504.43933
 scale = Vector2(0.86127985, 0.9050966)
-texture = ExtResource("4_hi35h")
+texture_normal = ExtResource("4_hi35h")
 
-[node name="MolduraElementoH" type="TextureRect" parent="TELA_ATOMOS" unique_id=969630378]
+[node name="botao_infos_h" type="TextureButton" parent="TELA_ATOMOS" unique_id=525424624]
 layout_mode = 0
 offset_left = 446.14294
 offset_top = 422.6801
 offset_right = 537.14294
 offset_bottom = 511.6801
 scale = Vector2(0.86127985, 0.9050966)
-texture = ExtResource("5_ymotw")
+texture_normal = ExtResource("5_ymotw")
 
-[node name="MolduraElementoC" type="TextureRect" parent="TELA_ATOMOS" unique_id=1547096800]
+[node name="botao_infos_c" type="TextureButton" parent="TELA_ATOMOS" unique_id=102911318]
 layout_mode = 0
 offset_left = 742.4232
 offset_top = 415.43933
 offset_right = 833.4232
 offset_bottom = 504.43933
 scale = Vector2(0.86127985, 0.9050966)
-texture = ExtResource("6_oxgkr")
+texture_normal = ExtResource("6_oxgkr")
 
 [node name="MolduraElemento" type="TextureRect" parent="TELA_ATOMOS" unique_id=1176325044]
 layout_mode = 0
@@ -503,40 +544,67 @@ text = "SÍNTESE"
 
 [node name="JanelaInformacao" type="TextureRect" parent="." unique_id=493561102]
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = -13.0
+offset_top = -23.0
+offset_right = 1194.3143
+offset_bottom = 697.0
+texture = ExtResource("8_nnxpa")
+expand_mode = 1
 
 [node name="Texto" type="RichTextLabel" parent="JanelaInformacao" unique_id=391388672]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 445.0
+offset_top = 171.0
+offset_right = 1121.0
+offset_bottom = 565.0
+theme_override_fonts/normal_font = ExtResource("11_65gy6")
+theme_override_font_sizes/normal_font_size = 22
+scroll_active = false
 
 [node name="Titulo" type="Label" parent="JanelaInformacao" unique_id=450107645]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 214.0
+offset_top = 30.0
+offset_right = 967.0
+offset_bottom = 118.0
+theme_override_fonts/font = ExtResource("20_6jte0")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Bicho" type="TextureRect" parent="JanelaInformacao" unique_id=49006530]
+[node name="Bichos" type="TextureRect" parent="JanelaInformacao" unique_id=49006530]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 64.0
+offset_top = 202.0
+offset_right = 364.0
+offset_bottom = 502.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Botao_sair" type="TextureButton" parent="JanelaInformacao" unique_id=1390660397]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 993.0
+offset_top = 592.0
+offset_right = 1140.0
+offset_bottom = 649.0
 focus_mode = 0
+texture_normal = ExtResource("24_u1mq0")
+texture_pressed = ExtResource("25_btjc5")
 
+[connection signal="pressed" from="TELA_ATOMOS/botao_infos_o" to="." method="_on_botao_infos_o_pressed"]
+[connection signal="pressed" from="TELA_ATOMOS/botao_infos_h" to="." method="_on_botao_infos_h_pressed"]
+[connection signal="pressed" from="TELA_ATOMOS/botao_infos_c" to="." method="_on_botao_infos_c_pressed"]
 [connection signal="pressed" from="TELA_SINTESE/botao_c" to="." method="_on_botao_c_pressed"]
 [connection signal="pressed" from="TELA_SINTESE/botao_o" to="." method="_on_botao_o_pressed"]
 [connection signal="pressed" from="TELA_SINTESE/botao_h" to="." method="_on_botao_h_pressed"]
 [connection signal="pressed" from="TELA_SINTESE/botao_limpar" to="." method="_on_botao_limpar_pressed"]
-[connection signal="pressed" from="TELA_COMPOSTOS/butao_h2o" to="." method="_on_butao_h_2o_pressed"]
-[connection signal="pressed" from="TELA_COMPOSTOS/butao_co2" to="." method="_on_butao_co_2_pressed"]
+[connection signal="mouse_entered" from="TELA_COMPOSTOS/butao_h2o" to="." method="_on_butao_h_2o_mouse_entered"]
+[connection signal="mouse_exited" from="TELA_COMPOSTOS/butao_h2o" to="." method="_on_butao_h_2o_mouse_exited"]
+[connection signal="pressed" from="TELA_COMPOSTOS/butao_h2o" to="." method="_on_butao_info_h_2o_pressed"]
+[connection signal="mouse_entered" from="TELA_COMPOSTOS/butao_co2" to="." method="_on_butao_co_2_mouse_entered"]
+[connection signal="mouse_exited" from="TELA_COMPOSTOS/butao_co2" to="." method="_on_butao_co_2_mouse_exited"]
+[connection signal="pressed" from="TELA_COMPOSTOS/butao_co2" to="." method="_on_butao_info_co_2_pressed"]
 [connection signal="pressed" from="botao_composto" to="." method="_on_botao_composto_pressed"]
 [connection signal="pressed" from="botao_atomos" to="." method="_on_botao_atomos_pressed"]
 [connection signal="pressed" from="botao_sintese" to="." method="_on_botao_sintese_pressed"]

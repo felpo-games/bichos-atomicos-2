@@ -5,7 +5,7 @@ extends Node3D
 func _ready() -> void:
 	GerenciarMusica.tocar_mundo()
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("laboratorio") and not $UI/telas/Laboratorio_iventario.visible:
 		$UI/telas/Laboratorio_iventario.atualizar_icones_inventario()
 		$UI/telas/Laboratorio_iventario.show()

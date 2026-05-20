@@ -189,6 +189,7 @@ shadow_enabled = true
 
 [node name="bicho_c3" parent="bichos" unique_id=428746475 instance=ExtResource("9_qjydo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.089226, 3.5070648, 6.756752)
+visible = false
 falas_carbono = Array[String](["Ora, ora....", "Um pequeno invasor. ", "Voce acha que so porque carrega esse Erlenmeyer pode ditar as regras?", "O velho tentou me prender com essa exata mesma teoria antes de tudo ir pelos ares.", "Mas espere,
 Eu tenho uma condicao...", "So aceitarei entrar no seu codice, se responder minha pergunta corretamente.", "Preparado?"])
 
@@ -227,6 +228,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.155212)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=744198927]
 process_mode = 3
+layer = 10
 
 [node name="ui_inimigos" parent="UI" unique_id=1938463550 instance=ExtResource("16_031u1")]
 visible = false

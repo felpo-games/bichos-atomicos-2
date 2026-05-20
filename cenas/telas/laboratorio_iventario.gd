@@ -10,6 +10,7 @@ extends Control
 @onready var h: = $TELA_ATOMOS/H
 @onready var c: = $TELA_ATOMOS/C
 
+
 #VAO HAVER INFORMAÇÕES DE CADA UM DELES
 @export_group("Fichas de Dados")
 @export var dados_h: InfoElemento
@@ -20,13 +21,17 @@ extends Control
 @onready var botao_o = $TELA_SINTESE/botao_o
 @export var dados_agua: InfoElemento
 @export var dados_co2: InfoElemento
+@onready var botao_infos_h = $TELA_ATOMOS/botao_infos_h
+@onready var botao_infos_c = $TELA_ATOMOS/botao_infos_c
+@onready var botao_infos_o = $TELA_ATOMOS/botao_infos_o
+
 
 #JANELA POPUP
 @onready var janela_informacao: TextureRect = $JanelaInformacao
 @onready var texto: RichTextLabel = $JanelaInformacao/Texto
 @onready var titulo: Label = $JanelaInformacao/Titulo
-@onready var bicho: TextureRect = $JanelaInformacao/Bicho
-@onready var botao_sair: TextureButton = $JanelaInformacao/Botao_sair
+@onready var bichos: TextureRect = $JanelaInformacao/Bichos
+@onready var botao_sair = $JanelaInformacao/Botao_sair
 
 @onready var img_agua_colecao = $TELA_COMPOSTOS/agua
 @onready var img_co2_colecao = $TELA_COMPOSTOS/Co2
@@ -63,8 +68,22 @@ func _ready() -> void:
 	limpar_bancada()
 	laboratorio_global.atomo_atualizado.connect(_on_atomo_atualizado)
 	atualizar_icones_inventario()
+	
+	var botoes_info = {
+		butao_h_2o: "agua",
+		butao_co_2: "co2",
+		botao_infos_h: "h",
+		botao_infos_o: "o",
+		botao_infos_c: "c"
+	}
+	
+	for botao in botoes_info.keys():
+		if botao != null:
+			var id_bicho = botoes_info[botao]
+			botao.mouse_entered.connect(_animar_brilho_botao.bind(botao, id_bicho, true))
+			botao.mouse_exited.connect(_animar_brilho_botao.bind(botao, id_bicho, false))
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("laboratorio") and visible:
 		hide()
 		get_tree().paused = false
@@ -81,14 +100,33 @@ func atualizar_icones_inventario() -> void:
 	qnt_h.text = str(laboratorio_global.quantidade_h)
 	qnt_o.text = str(laboratorio_global.quantidade_o)
 	qnt_c.text = str(laboratorio_global.quantidade_c)
+	
+	# HIDROGÊNIO
 	if laboratorio_global.quantidade_h > 0:
 		h.show()
+		botao_infos_h.disabled = false
+		botao_infos_h.modulate = Color(1, 1, 1)
+	else:
+		botao_infos_h.disabled = true
+		botao_infos_h.modulate = Color(1.0, 1.0, 1.0, 0.271)
 		
+	# OXIGÊNIO
 	if laboratorio_global.quantidade_o > 0:
 		o.show()
+		botao_infos_o.disabled = false
+		botao_infos_o.modulate = Color(1, 1, 1)
+	else:
+		botao_infos_o.disabled = true
+		botao_infos_o.modulate = Color(1.0, 1.0, 1.0, 0.271)
 		
+	# CARBONO
 	if laboratorio_global.quantidade_c > 0:
 		c.show()
+		botao_infos_c.disabled = false
+		botao_infos_c.modulate = Color(1, 1, 1)
+	else:
+		botao_infos_c.disabled = true
+		botao_infos_c.modulate = Color(1.0, 1.0, 1.0, 0.271)
 
 func _on_visibility_changed() -> void:
 	if not is_inside_tree():
@@ -120,22 +158,22 @@ func verificar_acesso_compostos():
 func atualizar_colecao():
 # ÁGUA
 	if laboratorio_global.bichos_desbloqueados.has("a"):
-		img_agua_colecao.modulate = Color(1, 1, 1) 
-		butao_h_2o.show()
+		butao_h_2o.modulate = Color(1, 1, 1) 
+		butao_h_2o.disabled = false
 		label_h_2o.show()
 	else:
-		img_agua_colecao.modulate = Color(0, 0, 0)
-		butao_h_2o.hide()
+		butao_h_2o.modulate = Color(1.0, 1.0, 1.0, 0.271)
+		butao_h_2o.disabled = true
 		label_h_2o.hide()
 
 	# CO2
 	if laboratorio_global.bichos_desbloqueados.has("dc"):
-		img_co2_colecao.modulate = Color(1, 1, 1) 
-		butao_co_2.show() 
+		butao_co_2.modulate = Color(1, 1, 1) 
+		butao_co_2.disabled = false
 		label_co_2.show()
 	else:
-		img_co2_colecao.modulate = Color(0, 0, 0) 
-		butao_co_2.hide()
+		butao_co_2.modulate = Color(1.0, 1.0, 1.0, 0.271) 
+		butao_co_2.disabled = true
 		label_co_2.hide()
 
 func _on_botao_o_pressed() -> void:
@@ -320,6 +358,10 @@ func _on_botao_sintese_pressed() -> void:
 	pass # Replace with function body.
 
 func abrir_janela_detalhes(tipo: String) -> void:
+	if not jogador_tem_o_bicho(tipo):
+		print("Jogador ainda não capturou o bicho: ", tipo)
+		return
+		
 	var ficha: InfoElemento
 	match tipo:
 		"h": ficha = dados_h
@@ -331,18 +373,60 @@ func abrir_janela_detalhes(tipo: String) -> void:
 	if ficha == null:
 		print("ERRO:'", tipo, "' TA VAZIA")
 		return
+		
 	titulo.text = ficha.titulo
 	texto.text = ficha.descricao
-	bicho.texture = ficha.icone
+	bichos.texture = ficha.bichos
 	
-	janela_informacao.show()
-	janela_informacao.scale = Vector2.ZERO
+	
 	janela_informacao.modulate.a = 0
+	janela_informacao.show()
 	
-	var tw = create_tween().set_parallel(true)
-	tw.tween_property(janela_informacao, "scale", Vector2.ONE, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tw.tween_property(janela_informacao, "modulate:a", 1.0, 0.2)
+	var tw = create_tween()
+	tw.tween_property(janela_informacao, "modulate:a", 1.0, 0.25)
 
 func _on_botao_sair_pressed() -> void:
+	var tw = create_tween()
+	tw.tween_property(janela_informacao, "modulate:a", 0.0, 0.2)
+	await tw.finished
 	janela_informacao.hide()
+
+
+func _on_botao_infos_o_pressed() -> void:
+	abrir_janela_detalhes("o")
 	pass # Replace with function body.
+
+
+func _on_botao_infos_h_pressed() -> void:
+	abrir_janela_detalhes("h")
+	pass # Replace with function body.
+
+
+func _on_botao_infos_c_pressed() -> void:
+	abrir_janela_detalhes("c")
+	pass # Replace with function body.
+
+
+func _on_butao_h_2o_pressed() -> void:
+	abrir_janela_detalhes("agua")
+	pass # Replace with function body.
+
+func _on_butao_co_2_pressed() -> void:
+	abrir_janela_detalhes("co2")
+	pass # Replace with function body.
+
+func _animar_brilho_botao(botao: Control, id_bicho: String, entrando: bool) -> void:
+	if jogador_tem_o_bicho(id_bicho):
+		var cor_alvo = Color(1.4, 1.4, 1.4) if entrando else Color(1, 1, 1)
+		var tw = create_tween()
+		tw.tween_property(botao, "modulate", cor_alvo, 0.1)
+
+#CHECAGEM DA QUANTIDADE DOS BICHOS QUE FAZ LIBERAR A TELA DE INFOS
+func jogador_tem_o_bicho(tipo: String) -> bool:
+	match tipo:
+		"h": return laboratorio_global.quantidade_h > 0
+		"o": return laboratorio_global.quantidade_o > 0
+		"c": return laboratorio_global.quantidade_c > 0
+		"agua": return laboratorio_global.bichos_desbloqueados.has("a")
+		"co2": return laboratorio_global.bichos_desbloqueados.has("dc")
+	return false
