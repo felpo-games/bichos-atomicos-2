@@ -13,7 +13,7 @@ enum estado {normal, batalhando, morto}
 var state = estado.normal
 
 # MOVIMENTO
-var SPEED = 15.0
+var SPEED = 30.0
 @export var rotation_speed = 10.0
 
 # TIRO
@@ -79,7 +79,7 @@ func _physics_process(delta: float) -> void:
 			var target_angle = atan2(direction.x, direction.z)
 			$body.rotation.y = lerp_angle($body.rotation.y, target_angle, rotation_speed * delta)
 		else:
-			$body/pivod/AnimationPlayer.play("idle_PL")
+			$body/pivod/AnimationPlayer.play("idle_Pl")
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 

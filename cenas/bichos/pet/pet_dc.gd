@@ -11,7 +11,7 @@ func _ready() -> void:
 	pass
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if laboratorio_global.pet_1 == true and liberado == true:
 		pet_um = true
 		show()
@@ -28,6 +28,8 @@ func _process(delta: float) -> void:
 		pass
 
 func atirar():
+	if has_node("sfx_ataque"):
+		$sfx_ataque.play()
 	var bala = bala_cena.instantiate()
 	get_tree().root.add_child(bala)
 	bala.global_position = arma.global_position

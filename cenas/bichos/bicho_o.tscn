@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://7p5ugivqxvga" path="res://cenas/bichos/interacao_e.gd" id="6_soata"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uwu8j"]
-radius = 6.573172
+radius = 10.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmqng"]
 resource_name = "oxigenio_textura.1"
@@ -1244,6 +1244,7 @@ _data = {
 }
 
 [node name="bicho_o" type="Node3D" unique_id=1814063333]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 0, 0, 0)
 script = ExtResource("1_e3tyx")
 falas_o = Array[String](["Você tem um olhar analítico, garoto... ", "Me lembra o velho barbudo que costumava nos prender naqueles potes de vidro."])
 voz_o = ExtResource("2_hp3yq")
@@ -1332,6 +1333,10 @@ transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6.302226, 0)
 billboard = 1
 texture = ExtResource("5_0qlgx")
 script = ExtResource("6_soata")
+
+[node name="sfx" type="Node" parent="." unique_id=215470730]
+
+[node name="voz_oxigenio" type="AudioStreamPlayer3D" parent="sfx" unique_id=1800017193]
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

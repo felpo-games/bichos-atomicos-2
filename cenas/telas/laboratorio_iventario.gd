@@ -1,5 +1,12 @@
 extends Control
 
+#SFX UI
+@onready var sfx_clique = $Sons_UI/sfx_clique
+@onready var sfx_erro = $Sons_UI/sfx_erro
+@onready var sfx_sintese = $Sons_UI/sfx_sintese
+@onready var sfx_hover = $Sons_UI/sfx_hover
+
+
 #QUANTIDADE DE ELEMENTOS QUE FORAM PEGOS
 @onready var qnt_o = $TELA_ATOMOS/qnt_O
 @onready var qnt_c = $TELA_ATOMOS/qnt_C
@@ -101,32 +108,25 @@ func atualizar_icones_inventario() -> void:
 	qnt_o.text = str(laboratorio_global.quantidade_o)
 	qnt_c.text = str(laboratorio_global.quantidade_c)
 	
-	# HIDROGÊNIO
-	if laboratorio_global.quantidade_h > 0:
-		h.show()
-		botao_infos_h.disabled = false
-		botao_infos_h.modulate = Color(1, 1, 1)
-	else:
-		botao_infos_h.disabled = true
-		botao_infos_h.modulate = Color(1.0, 1.0, 1.0, 0.271)
+	# 1. Os ícones da bancada somem se não tiver quantidade
+	if laboratorio_global.quantidade_h > 0: h.show()
+	else: h.hide()
 		
-	# OXIGÊNIO
-	if laboratorio_global.quantidade_o > 0:
-		o.show()
-		botao_infos_o.disabled = false
-		botao_infos_o.modulate = Color(1, 1, 1)
-	else:
-		botao_infos_o.disabled = true
-		botao_infos_o.modulate = Color(1.0, 1.0, 1.0, 0.271)
+	if laboratorio_global.quantidade_o > 0: o.show()
+	else: o.hide()
 		
-	# CARBONO
-	if laboratorio_global.quantidade_c > 0:
-		c.show()
-		botao_infos_c.disabled = false
-		botao_infos_c.modulate = Color(1, 1, 1)
-	else:
-		botao_infos_c.disabled = true
-		botao_infos_c.modulate = Color(1.0, 1.0, 1.0, 0.271)
+	if laboratorio_global.quantidade_c > 0: c.show()
+	else: c.hide()
+
+	# 2. Os botões de informação do Códice ficam SEMPRE liberados e visíveis
+	botao_infos_h.disabled = false
+	botao_infos_h.modulate = Color(1, 1, 1)
+	
+	botao_infos_o.disabled = false
+	botao_infos_o.modulate = Color(1, 1, 1)
+	
+	botao_infos_c.disabled = false
+	botao_infos_c.modulate = Color(1, 1, 1)
 
 func _on_visibility_changed() -> void:
 	if not is_inside_tree():
@@ -212,7 +212,7 @@ func adicionar_ao_frasco(elemento: String) -> void:
 func piscar_botao_erro(botao: TextureButton) -> void:
 	if botao == null:
 		return 
-		
+	sfx_erro.play()
 	var tw = create_tween().set_parallel(true)
 	tw.tween_property(botao, "modulate", Color.RED, 0.1)
 	tw.chain().tween_property(botao, "modulate", Color.WHITE, 0.2)
@@ -243,6 +243,7 @@ func verificar_receita() -> void:
 		fabricar("dioxido_carbono")
 		
 	else:
+		sfx_erro.play()
 		print("sintese errada")
 		#colocar som de erro
 		await get_tree().create_timer(0.5).timeout
@@ -266,6 +267,7 @@ func fabricar(composto: String) -> void:
 		laboratorio_global.quantidade_o -= 2
 		imagem_final = icone_dioxido
 		nome_final = "Dióxido de Carbono"
+	sfx_sintese.play()
 	atualizar_icones_inventario()
 	animar_desbloqueio(imagem_final, nome_final)
 	verificar_acesso_compostos()
@@ -346,14 +348,17 @@ func _on_botao_limpar_pressed() -> void:
 	pass 
 
 func _on_botao_composto_pressed() -> void:
+	sfx_clique.play()
 	trocar_aba(tela_compostos)
 	pass # Replace with function body.
 
 func _on_botao_atomos_pressed() -> void:
+	sfx_clique.play()
 	trocar_aba(tela_atomos)
 	pass # Replace with function body.
 
 func _on_botao_sintese_pressed() -> void:
+	sfx_clique.play()
 	trocar_aba(tela_sintese)
 	pass # Replace with function body.
 
@@ -361,7 +366,7 @@ func abrir_janela_detalhes(tipo: String) -> void:
 	if not jogador_tem_o_bicho(tipo):
 		print("Jogador ainda não capturou o bicho: ", tipo)
 		return
-		
+	sfx_clique.play()
 	var ficha: InfoElemento
 	match tipo:
 		"h": ficha = dados_h
@@ -420,13 +425,15 @@ func _animar_brilho_botao(botao: Control, id_bicho: String, entrando: bool) -> v
 		var cor_alvo = Color(1.4, 1.4, 1.4) if entrando else Color(1, 1, 1)
 		var tw = create_tween()
 		tw.tween_property(botao, "modulate", cor_alvo, 0.1)
+		if entrando:
+			sfx_hover.play()
 
 #CHECAGEM DA QUANTIDADE DOS BICHOS QUE FAZ LIBERAR A TELA DE INFOS
 func jogador_tem_o_bicho(tipo: String) -> bool:
 	match tipo:
-		"h": return laboratorio_global.quantidade_h > 0
-		"o": return laboratorio_global.quantidade_o > 0
-		"c": return laboratorio_global.quantidade_c > 0
+		"h": return true
+		"o": return true
+		"c": return true
 		"agua": return laboratorio_global.bichos_desbloqueados.has("a")
 		"co2": return laboratorio_global.bichos_desbloqueados.has("dc")
 	return false

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://doy1245mep7jf" path="res://arte/artes chris/excalmaçao hidrogenio alerta.png" id="3_j26s6"]
 [ext_resource type="Script" uid="uid://7p5ugivqxvga" path="res://cenas/bichos/interacao_e.gd" id="4_gr3rv"]
 [ext_resource type="Texture2D" uid="uid://ccv601ldhxx04" path="res://arte/artes chris/raio hidrogenio.png" id="5_gr3rv"]
+[ext_resource type="AudioStream" uid="uid://detc04pdgda17" path="res://SFX/hidrogenio(_).wav" id="6_i84bl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxngd"]
 resource_name = "hidrogenio_textura"
@@ -933,6 +934,7 @@ _data = {
 }
 
 [node name="bicho_h" type="CharacterBody3D" unique_id=1122094937]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 script = ExtResource("1_n5cob")
 "queméessebicho" = ["h", "o", "c"]
 reaparecer = false
@@ -1048,6 +1050,11 @@ script = ExtResource("4_gr3rv")
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=2135813838]
 transform = Transform3D(0.595, 0, 0, 0, -2.6008276e-08, 0.595, 0, -0.595, -2.6008276e-08, 0, 0, 0)
 texture = ExtResource("5_gr3rv")
+
+[node name="som_hidrogenio" type="AudioStreamPlayer3D" parent="." unique_id=1496968137]
+stream = ExtResource("6_i84bl")
+autoplay = true
+max_distance = 20.0
 
 [connection signal="area_entered" from="Area_receber_dano(vermelha)" to="." method="_on_area_receber_danovermelha_area_entered"]
 [connection signal="body_entered" from="Area de knockpack e dano (laranja)" to="." method="_on_area_de_knockpack_e_dano_laranja_body_entered"]

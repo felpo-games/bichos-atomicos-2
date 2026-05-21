@@ -50,6 +50,6 @@ process_material = SubResource("ParticleProcessMaterial_e4rsf")
 draw_pass_1 = SubResource("QuadMesh_irmpw")
 
 [node name="gerador de energia" parent="." unique_id=1370278118 instance=ExtResource("3_e4rsf")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

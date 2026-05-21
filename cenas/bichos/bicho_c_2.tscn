@@ -5,7 +5,6 @@
 [ext_resource type="AudioStream" uid="uid://ciqy83x76lk7l" path="res://SFX/andar_carbono.wav" id="3_4410a"]
 [ext_resource type="AudioStream" uid="uid://betnlyicl6c7i" path="res://SFX/ataque_carbono.wav" id="4_c55ae"]
 [ext_resource type="AudioStream" uid="uid://cydjg6t7l635c" path="res://SFX/voz_carbono1.wav" id="5_k7urn"]
-[ext_resource type="AudioStream" uid="uid://cyjqc07jjnaay" path="res://SFX/dano_CO2.wav" id="6_c55ae"]
 [ext_resource type="Texture2D" uid="uid://bxshao66ofplb" path="res://arte/artes chris/letra E interacao.png" id="7_k7urn"]
 [ext_resource type="Script" uid="uid://7p5ugivqxvga" path="res://cenas/bichos/interacao_e.gd" id="8_ed7r3"]
 
@@ -880,34 +879,34 @@ bones/1/rest = Transform3D(0.99398327, -1.8604037e-08, -0.10953203, -0.10951324,
 bones/1/enabled = true
 bones/1/position = Vector3(-5.215882e-10, -1.19209275e-07, -2.912839e-17)
 bones/1/rotation = Quaternion(0.71255296, -0.03842285, -0.039141435, 0.69947124)
-bones/1/scale = Vector3(0.99999994, 0.9999999, 0.9999998)
+bones/1/scale = Vector3(0.99999994, 0.9813015, 0.9999998)
 bones/2/name = "leg.R1"
 bones/2/parent = 1
 bones/2/rest = Transform3D(1, -4.9856762e-08, 7.985144e-09, -4.9706063e-08, -0.9998402, -0.017875247, 8.87507e-09, 0.017875245, -0.99984026, -0.22820991, 0.24505411, 0.22100294)
 bones/2/enabled = true
 bones/2/position = Vector3(-0.22820991, 0.24505411, 0.22100294)
-bones/2/rotation = Quaternion(0.99996006, -2.48917e-08, 4.2152215e-09, 0.008937979)
+bones/2/rotation = Quaternion(0.99910843, -2.5018219e-08, 3.384303e-09, 0.042219196)
 bones/2/scale = Vector3(1, 0.99999994, 1)
 bones/3/name = "leg.R2"
 bones/3/parent = 1
 bones/3/rest = Transform3D(1, -4.9856762e-08, 7.985144e-09, -4.9706063e-08, -0.9998402, -0.017875247, 8.87507e-09, 0.017875245, -0.99984026, 0.22860526, 0.24505411, 0.22100294)
 bones/3/enabled = true
 bones/3/position = Vector3(0.22860526, 0.24505411, 0.22100294)
-bones/3/rotation = Quaternion(0.99996006, -2.48917e-08, 4.2152215e-09, 0.008937979)
+bones/3/rotation = Quaternion(0.99885905, -2.503658e-08, 3.2456118e-09, 0.04775513)
 bones/3/scale = Vector3(1, 0.99999994, 1)
 bones/4/name = "leg.R3"
 bones/4/parent = 1
 bones/4/rest = Transform3D(1, -4.9856762e-08, 7.985144e-09, -4.9706063e-08, -0.9998402, -0.017875247, 8.87507e-09, 0.017875245, -0.99984026, 0.22860526, 0.24505411, -0.23422627)
 bones/4/enabled = true
 bones/4/position = Vector3(0.22860526, 0.24505411, -0.23422627)
-bones/4/rotation = Quaternion(0.99996006, -2.48917e-08, 4.2152215e-09, 0.008937979)
+bones/4/rotation = Quaternion(0.9996668, -2.4959297e-08, 3.7945416e-09, 0.025812335)
 bones/4/scale = Vector3(1, 0.99999994, 1)
 bones/5/name = "leg.R4"
 bones/5/parent = 1
 bones/5/rest = Transform3D(1, -4.9856762e-08, 7.985144e-09, -4.9706063e-08, -0.9998402, -0.017875247, 8.87507e-09, 0.017875245, -0.99984026, -0.22948001, 0.24505411, -0.23422627)
 bones/5/enabled = true
 bones/5/position = Vector3(-0.22948001, 0.24505411, -0.23422627)
-bones/5/rotation = Quaternion(0.99996006, -2.48917e-08, 4.2152215e-09, 0.008937979)
+bones/5/rotation = Quaternion(0.9996668, -2.4959297e-08, 3.7945416e-09, 0.025812335)
 bones/5/scale = Vector3(1, 0.99999994, 1)
 bones/6/name = "eye.R"
 bones/6/parent = 1
@@ -971,14 +970,14 @@ autoplay = &"inicio"
 
 [node name="Som_ataque" type="AudioStreamPlayer3D" parent="." unique_id=1097731745]
 stream = ExtResource("4_c55ae")
+bus = &"SFX BICHOS"
 
 [node name="voz_carbono" type="AudioStreamPlayer3D" parent="." unique_id=170804955]
 stream = ExtResource("5_k7urn")
+bus = &"SFX BICHOS"
 
 [node name="som_andar" type="AudioStreamPlayer3D" parent="." unique_id=501139055]
-
-[node name="som_danoCO2" type="AudioStreamPlayer3D" parent="." unique_id=1059782826]
-stream = ExtResource("6_c55ae")
+bus = &"SFX BICHOS"
 
 [node name="INTERACAO_E" type="Sprite3D" parent="." unique_id=1354085108]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4.8263807, 0)

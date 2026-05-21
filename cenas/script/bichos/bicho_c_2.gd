@@ -264,11 +264,11 @@ func _on_conversas_cena_acertou() -> void:
 	state = estado.morto
 	derrotado()
 
-# Esta função veio da branch MAIN (Do Felipe) com seus áudios
+# Esta função veio da branch MAIN (Do Felipe) com áudios CHRIS
 func _on_areadeataque_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and state == estado.batalhando:
-		if has_node("som_danoCO2"):
-			$som_danoCO2.play()
+		if has_node("Som_ataque"):
+			$Som_ataque.play()
 		aplicar_knockback(body)
 		body.dano()
 

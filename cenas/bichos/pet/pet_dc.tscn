@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dajwxhebvm6sc" path="res://cenas/bichos/pet/pet_dc.gd" id="1_f8x35"]
 [ext_resource type="PackedScene" uid="uid://jfkidv631nm2" path="res://cenas/bichos/pet/bala_dc.tscn" id="2_by070"]
 [ext_resource type="Texture2D" uid="uid://urhve5d5647e" path="res://arte/miguel/3d/novo/dioxido de carbono_dioxido_de_carbonotextura.png" id="3_ppu6c"]
+[ext_resource type="AudioStream" uid="uid://cyjqc07jjnaay" path="res://SFX/dano_CO2.wav" id="4_3055m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggg75"]
 resource_name = "dioxidodecarbono"
@@ -1854,3 +1855,6 @@ skeleton = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="pivod" unique_id=1300033004]
 libraries/ = SubResource("AnimationLibrary_8s22f")
+
+[node name="sfx_ataque" type="AudioStreamPlayer3D" parent="." unique_id=560216459]
+stream = ExtResource("4_3055m")

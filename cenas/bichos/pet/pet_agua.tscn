@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bj3lchjwjggpd" path="res://cenas/bichos/pet/pet_agua.gd" id="1_ic4cb"]
 [ext_resource type="PackedScene" uid="uid://d0q8ynndwkhfq" path="res://cenas/bichos/pet/bala_agua.tscn" id="2_ajas2"]
 [ext_resource type="Texture2D" uid="uid://vju0h1m033at" path="res://arte/miguel/3d/novo/monoxido de hidrogenio_h2o_textura.png" id="3_pkd75"]
+[ext_resource type="AudioStream" uid="uid://bvh5bg7aak1we" path="res://SFX/dano_H20.wav" id="4_jtncv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkie3"]
 resource_name = "h2o_textura"
@@ -599,3 +600,6 @@ skeleton = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="pivod" unique_id=1655132464]
 libraries/ = SubResource("AnimationLibrary_vmo0v")
+
+[node name="sfx_ataque" type="AudioStreamPlayer3D" parent="." unique_id=1516743433]
+stream = ExtResource("4_jtncv")
