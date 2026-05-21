@@ -39,7 +39,7 @@ func _ready():
 	paginas_desbloqueadas = eventos_global.paginas_coletadas
 	atualizar_diario()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("diario"):
 		eventos_global.numa_tela = true
 		show()

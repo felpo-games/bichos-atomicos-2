@@ -1,6 +1,6 @@
 extends TextureButton
 
-@export var cena:String
+@export var cena: String
 @export var asset_normal: CompressedTexture2D
 @export var asset_precionado: CompressedTexture2D
 
@@ -9,15 +9,17 @@ extends TextureButton
 @export var animation_duration: float = 0.1 # Duração da animação (rápida)
 
 var default_scale: Vector2
-var namira
+var namira: bool = false
 
 func _ready() -> void:
-	texture_normal = asset_normal
-	texture_pressed = asset_precionado
+	if asset_normal:
+		texture_normal = asset_normal
+	if asset_precionado:
+		texture_pressed = asset_precionado
 	
-# Garante que o pivô seja o centro ANTES de salvar a escala
+	# Garante que o pivô seja o centro ANTES de salvar a escala
 	pivot_offset = size / 2
-	default_scale = scale # Aqui ele salva: "A escala normal é X"
+	default_scale = scale 
 	
 	if not pressed.is_connected(_on_pressed):
 		pressed.connect(_on_pressed)
@@ -35,21 +37,11 @@ func _on_focus_exited() -> void:
 func _on_mouse_entered() -> void:
 	grab_focus() 
 
-
 func _on_mouse_exited() -> void:
-	release_focus() # Isso remove o foco quando o mouse sai (opcional, depende do design)
-	pass # Replace with function body.
-
+	release_focus()
 
 func _on_pressed() -> void:
-	if Input.is_action_pressed("ação") and namira:
-		_on_pressed()
 	if cena == "sair":
 		get_tree().quit()
 	elif cena != "":
 		get_tree().change_scene_to_file(cena)
-pass # Replace with function body.
-
-
-func _on_opcoes_button_pressed() -> void:
-	pass # Replace with function body.

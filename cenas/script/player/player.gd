@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 	if em_dialogo:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		$body/pivod/AnimationPlayer.play("idle_PL")
+		$body/pivod/AnimationPlayer.play("idle_Pl")
 		move_and_slide()
 		return
 
@@ -86,7 +86,7 @@ func _physics_process(delta: float) -> void:
 				var target_angle = atan2(direction.x, direction.z)
 				$body.rotation.y = lerp_angle($body.rotation.y, target_angle, rotation_speed * delta)
 			else:
-				$body/pivod/AnimationPlayer.play("idle_PL")
+				$body/pivod/AnimationPlayer.play("idle_Pl")
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 				velocity.z = move_toward(velocity.z, 0, SPEED)
 
@@ -111,7 +111,7 @@ func _physics_process(delta: float) -> void:
 			if mover != 0:
 				$body/pivod/AnimationPlayer.play("walk_Pl")
 			else:
-				$body/pivod/AnimationPlayer.play("idle_PL")
+				$body/pivod/AnimationPlayer.play("idle_Pl")
 
 	move_and_slide()
 
@@ -146,4 +146,32 @@ func dano():
 	# invencibilidade
 	if not tomar_dano:
 		return
-	tomar_
+	tomar_dano = false
+	if vida > 0:
+		vida -= 1
+		print("vida:", vida)
+		if ui_atomo:
+			ui_atomo.atualizar_vida(vida)
+		if vida <= 0:
+			if has_node("AudioManager/SFXGameOver"):
+				$"AudioManager/SFXGameOver".play()
+			morrer()
+	# espera invencibilidade
+	await get_tree().create_timer(tempo_dano).timeout
+	tomar_dano = true
+
+
+func receber_knockback(forca: Vector3):
+	em_knockback = true
+	velocity = forca
+	await get_tree().create_timer(tempo_knockback).timeout
+	em_knockback = false
+
+
+func morrer():
+	state = estado.morto
+	get_tree().change_scene_to_file("res://cenas/gameover.tscn")
+
+
+func iniciar_batalha():
+	pass

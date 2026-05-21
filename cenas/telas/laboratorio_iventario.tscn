@@ -31,34 +31,87 @@
 
 [sub_resource type="Resource" id="Resource_u1mq0"]
 script = ExtResource("3_65gy6")
+titulo = "Hidrogênio (H)"
+descricao = "Classificação: Não-Metal / Gás Primordial
+Temperamento: Volátil, caótico e elétrico.
+
+Anotações de Mendeleev:
+\"O primeiro átomo a existir no universo. Leve, abundante e extremamente energético. O caos corrompeu sua camada única de elétrons, transformando-o em uma bateria instável. Ele não raciocina ou persegue ativamente, mas descarrega arcos elétricos puramente por excesso de energia acumulada. Subestimá-lo é garantia de um choque letal.\"
+
+Reações de Síntese (Guia de Sobrevivência)
+
+Fórmula Base: 2H + O = H2O (Água)
+
+Aplicação Prática: Seu campo elétrico o torna um obstáculo perigoso para aproximação direta. Contudo, capturá-lo é vital: o Hidrogênio é a \"moeda de troca\" energética do laboratório, necessário para quase todas as sínteses avançadas, especialmente a da Água."
+bichos = ExtResource("10_02e1e")
 metadata/_custom_type_script = "uid://bp0b0b38drkrf"
 
 [sub_resource type="Resource" id="Resource_btjc5"]
 script = ExtResource("3_65gy6")
 titulo = "Oxigenio (O)"
-descricao = "Classificação: Não-Metal / Gás Reativo
-Temperamento: Instável e acelerador.
+descricao = "Classificação: Não-Metal / Gás Comburente
+Temperamento: Pacífico, reativo e essencial.
 
 Anotações de Mendeleev:
-\"Um elemento comburente por natureza, e que na atmosfera, é crucial. Oxigenio alimenta a destruição da floresta, oxidando materiais e acelerando chamas. Ele tem uma tendência natural para procurar ligações e estabilizar a sua camada de elétrons.\"
+\"O sopro invisível que sustenta a vida e alimenta a destruição. Em seu estado puro, este átomo vaga pelo ecossistema sem agressividade, atuando como um observador pacífico em meio ao caos. No entanto, sua verdadeira força está na reatividade. O Oxigênio é o elo fundamental da matéria; ele anseia por se conectar aos outros elementos. Sem a sua presença, a evolução química congela e a nossa ciência perde o seu combustível.\"
 
 Reações de Síntese (Guia de Sobrevivência)
 
-- Fórmula: O + 2H = H2O (Água)
-- Aplicação Prática: A combinação de um átomo de Oxigenio com dois átomos de Hidrogênio resulta em Água. Esta é a única síntese capaz de extinguir as barreiras de fogo criadas pela instabilidade dos Hidrogênios na zona restrita."
+Fórmulas Base: 2H + O = H2O (Água) | 1C + 2O = CO2 (Dióxido de Carbono)
+
+Aplicação Prática: É o único átomo que não representa uma ameaça direta durante a exploração, mas exige coleta e gerenciamento constantes. Ele é o recurso universal da bancada: indispensável tanto para sintetizar a agilidade estabilizadora da Água, quanto para forjar a artilharia pesada e supressiva do Dióxido de Carbono. Estocar Oxigênio é a regra número um da sobrevivência."
 bichos = ExtResource("8_d3vqm")
 metadata/_custom_type_script = "uid://bp0b0b38drkrf"
 
 [sub_resource type="Resource" id="Resource_mgap8"]
 script = ExtResource("3_65gy6")
+titulo = "Carbono (C)"
+descricao = "Classificação: Não-Metal / Elemento Base
+Temperamento: Agressivo, territorial e rígido.
+
+Anotações de Mendeleev:
+\"O pilar estrutural da vida. Na natureza, sua capacidade de fazer quatro ligações permite que ele forme desde o grafite macio até o diamante indestrutível. Afetado pela anomalia do ecossistema, este átomo se tornou uma força bruta densa. Ele confia na sua estrutura molecular para golpes de contato e afasta invasores de seu território com pura força física. É teimoso e violento, mas indispensável.\"
+
+Reações de Síntese (Guia de Sobrevivência)
+
+Fórmula Base: C + 2O = CO2 (Dióxido de Carbono)
+
+Aplicação Prática: Na natureza, é o adversário que exige paciência e esquiva contra golpes físicos contínuos. Quando capturado, sua densidade é o material primário para sintetizar elementoydes pesados com alto poder de impacto e supressão na bancada."
+bichos = ExtResource("9_daqlr")
 metadata/_custom_type_script = "uid://bp0b0b38drkrf"
 
 [sub_resource type="Resource" id="Resource_2an7v"]
 script = ExtResource("3_65gy6")
+titulo = "Água (H2O)"
+descricao = "Classificação: Composto Estabilizador / Elementoyde Aliado
+Temperamento: Focado, adaptável e protetor.
+
+Anotações de Mendeleev:
+\"A síntese covalente perfeita e a prova de que a nossa ciência pode domar o caos. Quando forçamos o oxigênio comburente a se unir com dois hidrogênios instáveis na nossa bancada, o resultado é um elementoyde purificado. A Água não possui os instintos agressivos dos átomos selvagens; sua única função orgânica é proteger o seu criador e restabelecer o equilíbrio térmico.\"
+
+Habilidade em Combate (Guia de Sobrevivência)
+
+Origem: Sintetizado via 2H + 1O.
+
+Aplicação Prática: Age como um companheiro tático (pet). Ao invés de lutar corpo-a-corpo, a Água dispara projéteis precisos de longo alcance. É a sua principal defesa à distância e a ferramenta definitiva para neutralizar barreiras incendiárias pelo mapa."
+bichos = ExtResource("18_8dviv")
 metadata/_custom_type_script = "uid://bp0b0b38drkrf"
 
 [sub_resource type="Resource" id="Resource_8dviv"]
 script = ExtResource("3_65gy6")
+titulo = "Dióxido de Carbono (CO2)"
+descricao = "Classificação: Composto Pesado / Elementoyde Isolante
+Temperamento: Denso, implacável e isolante.
+
+Anotações de Mendeleev:
+\"Uma combinação que prova que a química pode domar até a mais caótica das energias. Ao fundir a rigidez do Carbono com a reatividade do Oxigênio, criamos uma entidade de altíssima densidade molecular. O Dióxido de Carbono não conduz a corrente; ele a sufoca. É uma barreira gasosa pesada, capaz de absorver e isolar descargas elétricas que obliterariam compostos mais simples. Onde há caos energético, ele traz o silêncio.\"
+
+Habilidade em Combate (Guia de Sobrevivência)
+
+Origem: Sintetizado via 1C + 2O.
+
+Aplicação Prática: A sua ferramenta definitiva de controle e isolamento tático. Sua densidade é a única capaz de abafar e neutralizar a eletricidade letal do gerador principal. Em confrontos diretos, ele é necessário para atacar e sobrepujar inimigos quando estes entram em modo de sobrecarga elétrica, dissipando seus ataques antes que atinjam você."
+bichos = ExtResource("17_2an7v")
 metadata/_custom_type_script = "uid://bp0b0b38drkrf"
 
 [node name="Laboratorio_iventario" type="Control" unique_id=1409135382]
@@ -547,7 +600,6 @@ theme_override_font_sizes/font_size = 30
 text = "SÍNTESE"
 
 [node name="JanelaInformacao" type="TextureRect" parent="." unique_id=493561102]
-visible = false
 layout_mode = 0
 offset_left = -13.0
 offset_top = -23.0
@@ -558,10 +610,10 @@ expand_mode = 1
 
 [node name="Texto" type="RichTextLabel" parent="JanelaInformacao" unique_id=391388672]
 layout_mode = 0
-offset_left = 445.0
-offset_top = 171.0
-offset_right = 1121.0
-offset_bottom = 565.0
+offset_left = 281.0
+offset_top = 115.0
+offset_right = 1150.0
+offset_bottom = 594.0
 theme_override_fonts/normal_font = ExtResource("11_65gy6")
 theme_override_font_sizes/normal_font_size = 22
 scroll_active = false
@@ -574,24 +626,26 @@ offset_right = 967.0
 offset_bottom = 118.0
 theme_override_fonts/font = ExtResource("20_6jte0")
 theme_override_font_sizes/font_size = 25
+text = "dffffffff"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Bichos" type="TextureRect" parent="JanelaInformacao" unique_id=49006530]
 layout_mode = 0
-offset_left = 64.0
+offset_left = -1.0
 offset_top = 202.0
-offset_right = 364.0
+offset_right = 299.0
 offset_bottom = 502.0
+texture = ExtResource("18_8dviv")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Botao_sair" type="TextureButton" parent="JanelaInformacao" unique_id=1390660397]
 layout_mode = 0
-offset_left = 993.0
-offset_top = 592.0
-offset_right = 1140.0
-offset_bottom = 649.0
+offset_left = 1010.0
+offset_top = 601.0
+offset_right = 1157.0
+offset_bottom = 658.0
 focus_mode = 0
 texture_normal = ExtResource("24_u1mq0")
 texture_pressed = ExtResource("25_btjc5")
@@ -623,10 +677,10 @@ bus = &"UI"
 [connection signal="pressed" from="TELA_SINTESE/botao_limpar" to="." method="_on_botao_limpar_pressed"]
 [connection signal="mouse_entered" from="TELA_COMPOSTOS/butao_h2o" to="." method="_on_butao_h_2o_mouse_entered"]
 [connection signal="mouse_exited" from="TELA_COMPOSTOS/butao_h2o" to="." method="_on_butao_h_2o_mouse_exited"]
-[connection signal="pressed" from="TELA_COMPOSTOS/butao_h2o" to="." method="_on_butao_info_h_2o_pressed"]
+[connection signal="pressed" from="TELA_COMPOSTOS/butao_h2o" to="." method="_on_butao_h_2o_pressed"]
 [connection signal="mouse_entered" from="TELA_COMPOSTOS/butao_co2" to="." method="_on_butao_co_2_mouse_entered"]
 [connection signal="mouse_exited" from="TELA_COMPOSTOS/butao_co2" to="." method="_on_butao_co_2_mouse_exited"]
-[connection signal="pressed" from="TELA_COMPOSTOS/butao_co2" to="." method="_on_butao_info_co_2_pressed"]
+[connection signal="pressed" from="TELA_COMPOSTOS/butao_co2" to="." method="_on_butao_co_2_pressed"]
 [connection signal="pressed" from="botao_composto" to="." method="_on_botao_composto_pressed"]
 [connection signal="pressed" from="botao_atomos" to="." method="_on_botao_atomos_pressed"]
 [connection signal="pressed" from="botao_sintese" to="." method="_on_botao_sintese_pressed"]

@@ -457,7 +457,7 @@ shape = SubResource("ConcavePolygonShape3D_1t34i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.21063, 0, 0)
 
 [node name="player" parent="personagem" unique_id=1822486866 instance=ExtResource("1_1c7ow")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -30.344116, 0.23167133, 24.841553)
+transform = Transform3D(1.9998549, 0.018169055, -0.015803304, -0.018172817, 1.9999174, -0.0004040323, 0.015798979, 0.0005476489, 1.9999375, -9.651718, 0.43041754, 48.602707)
 
 [node name="efeitos" type="Node3D" parent="." unique_id=1522335302]
 
@@ -493,7 +493,7 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_rmu0y")
 
 [node name="area_h2" parent="bichos" unique_id=2145989643 instance=ExtResource("13_h4ygu")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.59021, 0, 22.15816)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.3787003, 0, 22.15816)
 
 [node name="bicho_h" parent="bichos/area_h2" unique_id=7474898 instance=ExtResource("3_e5vpm")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.934105, 0.91381073, 0)
@@ -503,14 +503,19 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_rmu0y")
 
 [node name="bicho_o" parent="bichos" unique_id=1814063333 instance=ExtResource("7_7uoum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -158.0235, 1.418, -234.89572)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -171.79059, 1.418, -234.89572)
+falas_o = Array[String](["O ar esta pesado", "A energia que vem daquele gerador tem o poder de quebrar as nossas ligacoes quimicas", "A anomalia que corrompeu nosso ecossistema esta logo adiante", "Este e o ultimo estagio", "Combine-nos uma ultima vez no laboratorio.
+Sem as ligacoes corretas, a sua ciencia nao resistira a batalha final."])
 
 [node name="bicho_o3" parent="bichos" unique_id=1500830051 instance=ExtResource("7_7uoum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -168.88193, 1.5029488, 44.206055)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.15454, 1.5029488, 44.206055)
+falas_o = Array[String](["Sinto o calor daqui", "O caminho a frente esta tomado por chamas instaveis", "Preste atencao!", "A minha presença pura apenas alimenta o fogo
+Voce nao pode avancar assim.", "Volte ao seu Codice.
+Se você já encontrou o Hidrogenio e o Carbono, sintetize a Agua para abrir passagem!"])
 
 [node name="bicho_o2" parent="bichos" unique_id=1549283805 instance=ExtResource("7_7uoum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.92902, 1.5029488, 12.90624)
-falas_o = Array[String](["Voce tem um olhar analitico, garoto... ", "Me lembra o velho barbudo que costumava nos prender naqueles potes de vidro."])
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.76575, 1.5029488, 12.90624)
+falas_o = Array[String](["Voce tem um olhar analitico, garoto... ", "Me lembra o velho barbudo que costumava nos prender naqueles potes de vidro.", "Vou te dar uma dica", "Continue explorando e reuna os outros atomos", "Quando a hora chegar, eu serei a faisca da transformacao na sua bancada."])
 
 [node name="bicho_ph" parent="bichos" unique_id=1936316218 instance=ExtResource("9_h4ygu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.27079, 0, -334.56082)
@@ -566,7 +571,7 @@ visible = false
 layout_mode = 0
 
 [node name="obstaculos" type="Node3D" parent="." unique_id=1940622742]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.21842, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.741417, 0, 0)
 
 [node name="fogo_obstaculo" type="Node3D" parent="obstaculos" unique_id=1811681913]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -61.94664, 0, 56.285637)
@@ -649,6 +654,7 @@ object = NodePath("../eletrizidade")
 
 [node name="ProtonScatter" type="Node3D" parent="." unique_id=886652607]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+visible = false
 script = ExtResource("17_pshm4")
 global_seed = 1
 render_mode = 1
@@ -658,11 +664,13 @@ Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://bkcf15b20g7bi"
 
 [node name="ScatterItem" type="Node3D" parent="ProtonScatter" unique_id=963165388]
+visible = false
 script = ExtResource("24_mjidp")
 path = "uid://clbgrf8mx7a1x"
 
 [node name="ScatterShape" type="Node3D" parent="ProtonScatter" unique_id=1941618859]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, -179.1767)
+visible = false
 script = ExtResource("25_2khhj")
 shape = SubResource("Resource_tdv8y")
 

@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cyetq3yts03ih"]
 
+[ext_resource type="Script" uid="uid://bhkkhede0t2hd" path="res://cenas/CUTECENE/cutcene.gd" id="1_orxm3"]
 [ext_resource type="PackedScene" uid="uid://fqfjexqbgscf" path="res://cenas/but/butão_menu.tscn" id="1_yh78w"]
-[ext_resource type="Texture2D" uid="uid://g1y3rahy1doo" path="res://arte/Nova pasta/Botões/Botões/icon_play.png" id="2_ewogm"]
-[ext_resource type="Texture2D" uid="uid://bvxt88xtgtp7k" path="res://arte/Nova pasta/Botões/Botões/icon_pressed_play.png" id="3_orxm3"]
+[ext_resource type="Texture2D" uid="uid://2w3c3owpghlq" path="res://UI/Botões/icon_play.png" id="3_ewogm"]
+[ext_resource type="VideoStream" uid="uid://c1vydvgkwvjoo" path="res://arte/miguel/cutscene-BICHOS-ATOMICOS.ogv" id="4_ewogm"]
+[ext_resource type="Texture2D" uid="uid://bjooe2syuyex8" path="res://UI/Botões/icon_pressed_play.png" id="4_orxm3"]
 
 [node name="CUTCENE" type="Control" unique_id=129025649]
 layout_mode = 3
@@ -11,13 +13,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_orxm3")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=572032205]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("4_ewogm")
+autoplay = true
+expand = true
 
 [node name="butão_menu" parent="." unique_id=1083859154 instance=ExtResource("1_yh78w")]
 layout_mode = 0
-offset_left = 1025.0
-offset_top = 544.0
-offset_right = 1065.0
-offset_bottom = 584.0
+offset_left = 1049.0
+offset_top = 554.0
+offset_right = 1089.0
+offset_bottom = 594.0
 cena = "res://cenas/feses/fese_1.tscn"
-asset_normal = ExtResource("2_ewogm")
-asset_precionado = ExtResource("3_orxm3")
+asset_normal = ExtResource("3_ewogm")
+asset_precionado = ExtResource("4_orxm3")

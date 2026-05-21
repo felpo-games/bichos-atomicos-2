@@ -64,8 +64,8 @@ func _physics_process(delta):
 				player.em_dialogo = true
 				if has_node("INTERACAO_E"):
 					$INTERACAO_E.animar(false)
-				$"../../UI/telas/TelaDeDiálogo".iniciar_dialogo(falas_carbono, voz_carbono)
-				await $"../../UI/telas/TelaDeDiálogo".dialogo_encerrado
+				$"../../../UI/telas/TelaDeDiálogo".iniciar_dialogo(falas_carbono, voz_carbono)
+				await $"../../../UI/telas/TelaDeDiálogo".dialogo_encerrado
 				if player == null:
 					conversando = false
 					return
@@ -97,7 +97,7 @@ func derrotado():
 	$crecimento/AreadeDano/CollisionShape3D.set_deferred("disabled", true)
 	
 	icon = load("res://arte/vlad/satanas atomico/satanas atomico/c.png")
-	$"../../UI/telas/notificacao".mostrar_notificacao(
+	$"../../../UI/telas/notificacao".mostrar_notificacao(
 		"carbono",
 		icon
 	)
@@ -287,12 +287,12 @@ func _on_areade_dano_area_entered(area: Area3D) -> void:
 			derrotado()
 
 func iniciar_pergunta_carbono() -> void:
-	$"../../UI/telas/conversas_cena".aparecer()
+	$"../../../UI/telas/conversas_cena".aparecer()
 
 
-func _on_area_c_body_entered(body: Node3D) -> void:
+func _on_area_c_body_entered(_body: Node3D) -> void:
 	pass # Replace with function body.
 
 
-func _on_area_c_body_exited(body: Node3D) -> void:
+func _on_area_c_body_exited(_body: Node3D) -> void:
 	pass # Replace with function body.

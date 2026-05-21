@@ -8,7 +8,7 @@ extends Control
 @onready var barra_vida : ProgressBar =  $TextureProgressBar
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	if eventos_global.batalha == false:
 		$".".visible = false

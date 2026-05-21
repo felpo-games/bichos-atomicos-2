@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dips0ty1m8sek" path="res://cenas/telas/menus/main_menu.gd" id="1_2o4nl"]
 [ext_resource type="Texture2D" uid="uid://dj86w1vvq5jyg" path="res://UI/Botões/button_play.png" id="2_fcijg"]
+[ext_resource type="Texture2D" uid="uid://c5uv8wo5xr1va" path="res://arte/vlad/Capa de BICHOS ATOMICOS.png" id="2_ph7go"]
 [ext_resource type="Texture2D" uid="uid://bsm26lwe55ufj" path="res://UI/Botões/button_pressed_play.png" id="3_xvjib"]
 [ext_resource type="Script" uid="uid://c5ah83b8wjt27" path="res://cenas/but/butão_menu.gd" id="4_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://befgd8ofb8kng" path="res://UI/Botões/button_opcoes.png" id="4_vhp1t"]
@@ -19,16 +20,14 @@ grow_vertical = 2
 scale = Vector2(1.0399995, 1.0399995)
 script = ExtResource("1_2o4nl")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1074075186]
-z_index = -1
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0020001
-anchor_bottom = 1.0
-offset_right = -0.30407715
-offset_bottom = -2.0
-color = Color(0, 0.19032526, 0.27443027, 1)
-metadata/_edit_lock_ = true
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1489750683]
+layout_mode = 0
+offset_left = -54.807716
+offset_top = -26.92309
+offset_right = 1177.6715
+offset_bottom = 666.3465
+texture = ExtResource("2_ph7go")
+expand_mode = 1
 
 [node name="Titulo" type="RichTextLabel" parent="." unique_id=816270776]
 layout_mode = 1
@@ -37,30 +36,16 @@ anchor_left = 0.26900002
 anchor_top = 0.21900001
 anchor_right = 0.26900002
 anchor_bottom = 0.21900001
-offset_left = -25.888031
-offset_top = 12.087997
-offset_right = 568.11194
-offset_bottom = 73.088
+offset_left = -58.926376
+offset_top = -114.027374
+offset_right = 632.42017
+offset_bottom = -53.027374
+theme_override_colors/default_color = Color(0.44313726, 0.6901961, 0.69803923, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 8
 theme_override_fonts/normal_font = ExtResource("5_dx7j6")
-theme_override_font_sizes/normal_font_size = 45
-text = "BICHOS AToMICOS"
-metadata/_edit_group_ = true
-
-[node name="SombraTitulo" type="RichTextLabel" parent="." unique_id=1871416604]
-modulate = Color(0, 0, 0, 1)
-z_index = -1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.26900002
-anchor_top = 0.21900001
-anchor_right = 0.26900002
-anchor_bottom = 0.21900001
-offset_left = -24.888031
-offset_top = 28.087997
-offset_right = 569.11194
-offset_bottom = 89.088
-theme_override_fonts/normal_font = ExtResource("5_dx7j6")
-theme_override_font_sizes/normal_font_size = 45
+theme_override_font_sizes/normal_font_size = 49
 text = "BICHOS AToMICOS"
 metadata/_edit_group_ = true
 
@@ -71,10 +56,10 @@ anchor_left = 0.384
 anchor_top = 0.65300006
 anchor_right = 0.384
 anchor_bottom = 0.65300006
-offset_left = 38.63199
-offset_top = -44.144043
-offset_right = 204.63199
-offset_bottom = 29.855957
+offset_left = 456.67093
+offset_top = -25.066895
+offset_right = 622.671
+offset_bottom = 48.933105
 texture_normal = ExtResource("2_fcijg")
 texture_pressed = ExtResource("3_xvjib")
 script = ExtResource("4_nlkkf")
@@ -89,10 +74,10 @@ anchor_left = 0.384
 anchor_top = 0.65300006
 anchor_right = 0.384
 anchor_bottom = 0.65300006
-offset_left = -1.3680115
-offset_top = 67.85596
-offset_right = 236.63199
-offset_bottom = 141.85596
+offset_left = 423.97855
+offset_top = 71.086975
+offset_right = 661.9785
+offset_bottom = 145.08698
 texture_normal = ExtResource("4_vhp1t")
 texture_pressed = ExtResource("5_ggp7y")
 script = ExtResource("4_nlkkf")
