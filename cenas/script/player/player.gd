@@ -101,7 +101,7 @@ func _physics_process(delta: float) -> void:
 					rotation_speed * delta
 				)
 			else:
-				$body/pivod/AnimationPlayer.play("idle_PL")
+				$body/pivod/AnimationPlayer.play("idle_Pl")
 				velocity.x = move_toward(
 					velocity.x,
 					0,

@@ -8,13 +8,13 @@ var state = estado.conversa
 @export_range(1, 10) var chance_acerto: int = 8
 
 # MOVIMENTO
-@export var SPEED = 5.0
+@export var SPEED = 7.0
 @export var rotation_speed := 6.0
 
 # DASH
 @export var usar_dash := true
-@export var velocidade_dash := 18.0
-@export var tempo_dash := 0.35
+@export var velocidade_dash := 30.0
+@export var tempo_dash := 0.5
 @export var cooldown_dash := 2.0
 
 var pode_dash = true
@@ -40,6 +40,7 @@ var pode_mover = true
 
 var vida = 3
 
+var voltando_para_casa := false
 
 func _ready():
 
@@ -74,6 +75,43 @@ func _physics_process(delta: float):
 
 		var direcao = (alvo - global_position).normalized()
 
+		var angulo = atan2(direcao.x, direcao.z)
+
+		rotation.y = lerp_angle(
+			rotation.y,
+			angulo,
+			rotation_speed * delta
+		)
+# IA movimento
+	if player != null and pode_mover and not em_dash:
+		decidir_direcao()
+	elif voltando_para_casa and pode_mover:
+		# Se não tem player mas está voltando, calcula a direção até a base
+		direcao_alvo = (posicao_inicial - global_position).normalized()
+		
+		# Se ele já chegou muito perto do centro, ele para de andar
+		if global_position.distance_to(posicao_inicial) < 0.5:
+			direcao_alvo = Vector3.ZERO
+			voltando_para_casa = false
+			$pivod/hidrogenio/AnimationPlayer.stop() # Ou bota a animação de "idle" aqui
+
+	# combate e retorno
+	# Mudamos a condição abaixo para rodar se houver player OU se estiver voltando
+	if player != null or voltando_para_casa:
+
+		# movimentação
+		if direcao_alvo != Vector3.ZERO and not em_dash:
+			velocity.x = direcao_alvo.x * SPEED
+			velocity.z = direcao_alvo.z * SPEED
+		else:
+			velocity.x = 0
+			velocity.z = 0
+
+		# olhar suavemente pro alvo (player ou posição inicial)
+		var alvo = player.global_position if player != null else posicao_inicial
+		alvo.y = global_position.y
+
+		var direcao = (alvo - global_position).normalized()
 		var angulo = atan2(direcao.x, direcao.z)
 
 		rotation.y = lerp_angle(
@@ -337,35 +375,33 @@ func _on_area_h_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 
 		player = body
+		voltando_para_casa = false # Interrompe a volta se o player reentrar na área
 
 		if has_node("AvisoAlerta"):
 			$AvisoAlerta.animar(true)
 
 		DadosInimigos.inimigo_atual = self
-
 		DadosInimigos.status_inimigo["vida"] = vida
-
 		DadosInimigos.status_inimigo["fraqueza"] = fraqueza
-
 		eventos_global.batalha = true
-
 		pode_mover = true
 
-		$pivod/hidrogenio/AnimationPlayer.play(
-			"walk_2"
-		)
+		$pivod/hidrogenio/AnimationPlayer.play("walk_2")
 
 
 func _on_area_h_body_exited(body: Node3D) -> void:
 
 	if body.is_in_group("player"):
 
-		pode_mover = false
 		player = null
-
-		direcao_alvo = Vector3.ZERO
-
 		DadosInimigos.inimigo_atual = null
 
 		if has_node("AvisoAlerta"):
 			$AvisoAlerta.animar(false)
+		
+		# Ativa o modo de retorno
+		voltando_para_casa = true
+		pode_mover = true
+		
+		# Garante que ele continue tocando a animação de andar até chegar lá
+		$pivod/hidrogenio/AnimationPlayer.play("walk_2")

@@ -288,3 +288,11 @@ func _on_areade_dano_area_entered(area: Area3D) -> void:
 
 func iniciar_pergunta_carbono() -> void:
 	$"../../UI/telas/conversas_cena".aparecer()
+
+
+func _on_area_c_body_entered(body: Node3D) -> void:
+	pass # Replace with function body.
+
+
+func _on_area_c_body_exited(body: Node3D) -> void:
+	pass # Replace with function body.
