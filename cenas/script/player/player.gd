@@ -34,6 +34,7 @@ var tomar_dano = true
 var em_knockback := false
 @export var tempo_knockback := 0.3
 
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("abri_tela_opcoes"):
 		alternar_pausa()
@@ -69,21 +70,51 @@ func _physics_process(delta: float) -> void:
 
 	# movimento
 	if not em_knockback:
-		var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
-		var direction := Vector3(input_dir.x, 0, input_dir.y).normalized()
 
-		if direction:
-			velocity.x = direction.x * SPEED
-			velocity.z = direction.z * SPEED
-			$body/pivod/AnimationPlayer.play("walk_Pl")
-			var target_angle = atan2(direction.x, direction.z)
-			$body.rotation.y = lerp_angle($body.rotation.y, target_angle, rotation_speed * delta)
+		# =========================
+		# MODO NORMAL
+		# =========================
+		if not eventos_global.batalha:
+
+			var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
+			var direction := Vector3(input_dir.x, 0, input_dir.y).normalized()
+			
+			if direction:
+				velocity.x = direction.x * SPEED
+				velocity.z = direction.z * SPEED
+				$body/pivod/AnimationPlayer.play("walk_Pl")
+				var target_angle = atan2(direction.x, direction.z)
+				$body.rotation.y = lerp_angle($body.rotation.y, target_angle, rotation_speed * delta)
+			else:
+				$body/pivod/AnimationPlayer.play("idle_PL")
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+				velocity.z = move_toward(velocity.z, 0, SPEED)
+
+		# =========================
+		# MODO BATALHA (TANQUE)
+		# =========================
 		else:
-			$body/pivod/AnimationPlayer.play("idle_Pl")
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			velocity.z = move_toward(velocity.z, 0, SPEED)
+
+			# gira esquerda/direita
+			var rotacao := Input.get_axis("direita", "esquerda")
+			$body.rotation.y += rotacao * rotation_speed * delta
+
+			# frente/trás
+			var mover := Input.get_axis("frente", "tras")
+
+			# direção da frente do body
+			var frente = -$body.global_transform.basis.z.normalized()
+
+			velocity.x = frente.x * mover * SPEED
+			velocity.z = frente.z * mover * SPEED
+
+			if mover != 0:
+				$body/pivod/AnimationPlayer.play("walk_Pl")
+			else:
+				$body/pivod/AnimationPlayer.play("idle_PL")
 
 	move_and_slide()
+
 
 func atirar():
 	if not eventos_global.batalha:
@@ -103,38 +134,16 @@ func atirar():
 	# direção do BODY que realmente gira
 	bala.direcao = $body.global_transform.basis.z.normalized()
 
-	$AUDIOS/SfxArremesso.play()
+	if has_node("AUDIOS/SfxArremesso"):
+		$AUDIOS/SfxArremesso.play()
 
 	await get_tree().create_timer(tempo_tiro).timeout
 
 	pode_atirar = true
 
+
 func dano():
 	# invencibilidade
 	if not tomar_dano:
 		return
-	tomar_dano = false
-	if vida > 0:
-		vida -= 1
-		print("vida:", vida)
-		if ui_atomo:
-			ui_atomo.atualizar_vida(vida)
-		if vida <= 0:
-			AudioManager.get_node("SFXGameOver").play()
-			morrer()
-	# espera invencibilidade
-	await get_tree().create_timer(tempo_dano).timeout
-	tomar_dano = true
-
-func receber_knockback(forca: Vector3):
-	em_knockback = true
-	velocity = forca
-	await get_tree().create_timer(tempo_knockback).timeout
-	em_knockback = false
-
-func morrer():
-	state = estado.morto
-	get_tree().change_scene_to_file("res://cenas/gameover.tscn")
-
-func iniciar_batalha():
-	pass
+	tomar_

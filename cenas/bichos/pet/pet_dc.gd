@@ -31,7 +31,16 @@ func atirar():
 	if has_node("sfx_ataque"):
 		$sfx_ataque.play()
 	var bala = bala_cena.instantiate()
+	
+	# 1. Adiciona o nó na cena antes de aplicar as transformações globais
 	get_tree().root.add_child(bala)
+	
+	# 2. Define a posição e rotação iniciais baseadas no Marker3D
 	bala.global_position = arma.global_position
 	bala.global_rotation = arma.global_rotation
-	pass
+	
+	# 3. CORREÇÃO CRUCIAL: Passa a direção correta para a bala se mover no plano horizontal
+	var direcao_tiro = -arma.global_transform.basis.z.normalized()
+	direcao_tiro.y = 0 # Garante que o impulso inicial horizontal seja reto
+	
+	bala.direcao = direcao_tiro

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1plxjmq672ib"
-path.s3tc="res://.godot/imported/partículas raio hidrogenio.png-e2d15b60fe4dd2f022cfa361142da9c6.s3tc.ctex"
+uid="uid://ct66obvieyd26"
+path.s3tc="res://.godot/imported/textura de grama.png-197e5b6e6ea47bf69a9b06f8f31e9cb7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://arte/artes chris/partículas raio hidrogenio.png"
-dest_files=["res://.godot/imported/partículas raio hidrogenio.png-e2d15b60fe4dd2f022cfa361142da9c6.s3tc.ctex"]
+source_file="res://arte/felp/textura de grama.png"
+dest_files=["res://.godot/imported/textura de grama.png-197e5b6e6ea47bf69a9b06f8f31e9cb7.s3tc.ctex"]
 
 [params]
 

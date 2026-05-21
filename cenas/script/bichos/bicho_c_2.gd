@@ -45,10 +45,7 @@ func _ready() -> void:
 	posicao_inicial = global_transform.origin
 	$AnimationPlayer.play("inicio")
 	
-	# ATENÇÃO: Comentei estas linhas abaixo porque elas estão fazendo 
-	# o Carbono morrer sozinho após 1.5s que a fase começa.
-	# await get_tree().create_timer(1.5).timeout
-	# derrotado()
+	show()
 	
 
 func _physics_process(delta):
@@ -75,7 +72,8 @@ func _physics_process(delta):
 				iniciar_pergunta_carbono()
 
 		estado.batalhando:
-			
+			if eventos_global.batalha == false:
+				eventos_global.batalha = true
 			# atualiza vida no global
 			DadosInimigos.status_inimigo["vida"] = vida
 			DadosInimigos.status_inimigo["fraqueza"] = fraqueza
@@ -117,7 +115,7 @@ func derrotado():
 		respawn()
 
 func desativar_bicho():
-
+	
 	hide()
 
 	set_physics_process(false)
@@ -170,7 +168,7 @@ func respawn():
 	reativar_bicho()
 
 func andar():
-
+	
 	$crecimento/pivod/AnimationPlayer.play("attack_C")
 
 	if player == null:
@@ -199,7 +197,7 @@ func andar():
 	look_at(alvo, Vector3.UP)
 
 func crecer():
-
+	print(eventos_global.batalha)
 	if not grande:
 		
 		eventos_global.batalha = true
@@ -290,3 +288,11 @@ func _on_areade_dano_area_entered(area: Area3D) -> void:
 
 func iniciar_pergunta_carbono() -> void:
 	$"../../UI/telas/conversas_cena".aparecer()
+
+
+func _on_area_c_body_entered(body: Node3D) -> void:
+	pass # Replace with function body.
+
+
+func _on_area_c_body_exited(body: Node3D) -> void:
+	pass # Replace with function body.

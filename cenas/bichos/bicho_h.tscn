@@ -894,49 +894,13 @@ radius = 0.69038147
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n5cob"]
 height = 0.82611084
-radius = 0.001
-
-[sub_resource type="Animation" id="Animation_qmb33"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Area de knockpack e dano (laranja)/CollisionShape3D:shape:radius")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.001]
-}
-
-[sub_resource type="Animation" id="Animation_f5dbx"]
-resource_name = "colision"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Area de knockpack e dano (laranja)/CollisionShape3D:shape:radius")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.6625977, 0.001]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_j26s6"]
-_data = {
-&"RESET": SubResource("Animation_qmb33"),
-&"colision": SubResource("Animation_f5dbx")
-}
+radius = 1.9277344
 
 [node name="bicho_h" type="CharacterBody3D" unique_id=1122094937]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 script = ExtResource("1_n5cob")
 "queméessebicho" = ["h", "o", "c"]
+forca_knockback = 10.0
 reaparecer = false
 tempo_renascer = 30.0
 
@@ -1036,10 +1000,6 @@ shape = SubResource("SphereShape3D_j26s6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22506714, 0)
 shape = SubResource("CylinderShape3D_n5cob")
 debug_color = Color(0.55137575, 0.41600415, 0, 0.41960785)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=397081893]
-libraries/ = SubResource("AnimationLibrary_j26s6")
-autoplay = &"colision"
 
 [node name="AvisoAlerta" type="Sprite3D" parent="." unique_id=1161294311]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0.05000782, 3.9170313, 0)
