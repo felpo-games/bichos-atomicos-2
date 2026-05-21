@@ -174,7 +174,7 @@ transform = Transform3D(-2.2562599e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.21063, 0, 0)
 
 [node name="player" parent="personagem" unique_id=1822486866 instance=ExtResource("1_1c7ow")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -30.635849, 0.23167133, 28.581078)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -95.456924, 0.23167133, -293.31134)
 
 [node name="efeitos" type="Node3D" parent="." unique_id=1522335302]
 
@@ -188,7 +188,7 @@ shadow_enabled = true
 [node name="bichos" type="Node3D" parent="." unique_id=9806684]
 
 [node name="bicho_c3" parent="bichos" unique_id=428746475 instance=ExtResource("9_qjydo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.089226, 3.5070648, 6.756752)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 157.54404, 3.5070648, -111.963974)
 visible = false
 falas_carbono = Array[String](["Ora, ora....", "Um pequeno invasor. ", "Voce acha que so porque carrega esse Erlenmeyer pode ditar as regras?", "O velho tentou me prender com essa exata mesma teoria antes de tudo ir pelos ares.", "Mas espere,
 Eu tenho uma condicao...", "So aceitarei entrar no seu codice, se responder minha pergunta corretamente.", "Preparado?"])
@@ -197,7 +197,7 @@ Eu tenho uma condicao...", "So aceitarei entrar no seu codice, se responder minh
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 172.23967, 0, 28.41858)
 
 [node name="bicho_h" parent="bichos/area_h" unique_id=1122094937 instance=ExtResource("3_e5vpm")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.91381073, 0)
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0, 0.91381073, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bichos/area_h" unique_id=1981042974]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
@@ -217,14 +217,14 @@ shape = SubResource("SphereShape3D_rmu0y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -158.0235, 1.418, -234.89572)
 
 [node name="bicho_o3" parent="bichos" unique_id=1500830051 instance=ExtResource("7_7uoum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.57588, 1.5029488, -92.99931)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -168.88193, 1.5029488, 44.206055)
 
 [node name="bicho_o2" parent="bichos" unique_id=1549283805 instance=ExtResource("7_7uoum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.92902, 1.5029488, 12.90624)
 falas_o = Array[String](["Voce tem um olhar analitico, garoto... ", "Me lembra o velho barbudo que costumava nos prender naqueles potes de vidro."])
 
 [node name="bicho_ph" parent="bichos" unique_id=1936316218 instance=ExtResource("9_h4ygu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.269325, 0, -38.667233)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.27079, 0, -334.56082)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=744198927]
 process_mode = 3
@@ -280,8 +280,7 @@ layout_mode = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.21842, 0, 0)
 
 [node name="fogo_obstaculo" type="Node3D" parent="obstaculos" unique_id=1811681913]
-transform = Transform3D(0.8512052, 0, 0.524833, 0, 1, 0, -0.524833, 0, 0.8512052, -46.827675, 0, -86.13635)
-visible = false
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -61.94664, 0, 56.285637)
 script = ExtResource("24_wlnao")
 
 [node name="fogo_normal" parent="obstaculos/fogo_obstaculo" unique_id=944948005 instance=ExtResource("12_f6840")]
@@ -324,35 +323,27 @@ debug_color = Color(0.9799766, 0, 0.3874831, 0.41960785)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.97781, 0, -37.266785)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="obstaculos/fogo_obstaculo/StaticBody3D" unique_id=291233395]
-transform = Transform3D(0.9932195, 0, 0.11625475, 0, 1, 0, -0.11625475, 0, 0.9932195, -4.02882, 7.3617554, 9.055954)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02882, 7.3617554, 9.055954)
 shape = SubResource("BoxShape3D_lnt5l")
 
 [node name="visible_fogo" type="VisibleOnScreenEnabler3D" parent="obstaculos" unique_id=2018964849 node_paths=PackedStringArray("object")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.295385, 0, -117.341324)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.35796, 0, 22.41542)
+aabb = AABB(-1, -12.064203, -18.022482, 2, 24.128407, 44.83427)
 enable_node_path = NodePath("../eletrizidade")
 script = ExtResource("28_3qe05")
 object = NodePath("../fogo_obstaculo")
 
 [node name="eletrizidade" type="Node3D" parent="obstaculos" unique_id=158834330]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -258.3992)
-
-[node name="fogo_eletrico" parent="obstaculos/eletrizidade" unique_id=702213636 instance=ExtResource("14_qjydo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.69236, 0.84676933, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.035707, 0, -289.13953)
 
 [node name="fogo_eletrico2" parent="obstaculos/eletrizidade" unique_id=1840103484 instance=ExtResource("14_qjydo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.586695, 0.84676933, 0)
-
-[node name="fogo_eletrico3" parent="obstaculos/eletrizidade" unique_id=466788286 instance=ExtResource("14_qjydo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.275635, 0.84676933, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.5867, 0.056175232, 0)
 
 [node name="fogo_eletrico4" parent="obstaculos/eletrizidade" unique_id=905556058 instance=ExtResource("14_qjydo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.43677, 0.84676933, 0)
-
-[node name="fogo_eletrico5" parent="obstaculos/eletrizidade" unique_id=1074791998 instance=ExtResource("14_qjydo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.43677, 0.84676933, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.436768, 0.056175232, 0)
 
 [node name="fogo_eletrico6" parent="obstaculos/eletrizidade" unique_id=1158150727 instance=ExtResource("14_qjydo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.938768, 0.84676933, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 28.938782, 0.056175232, 0)
 
 [node name="Area3D" type="Area3D" parent="obstaculos/eletrizidade" unique_id=281158284]
 
@@ -361,8 +352,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.898376, 5.5127563, 8.24533
 shape = SubResource("BoxShape3D_u5hjb")
 
 [node name="visible_eletricidade" type="VisibleOnScreenEnabler3D" parent="obstaculos" unique_id=1890911516 node_paths=PackedStringArray("object")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.065277, 2.4390383, -251.77893)
-aabb = AABB(-19.489376, -6.76042, -1, 38.978752, 13.52084, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.317123, 2.4390383, -273.8332)
+aabb = AABB(-19.489376, -2.3547802, -17.75894, 38.978752, 13.52084, 35.51788)
 enable_node_path = NodePath("../eletrizidade")
 script = ExtResource("28_3qe05")
 object = NodePath("../eletrizidade")
@@ -396,6 +387,7 @@ shape = SubResource("Resource_pe8w4")
 [connection signal="body_exited" from="bichos/area_h" to="bichos/area_h/bicho_h" method="_on_area_h_body_exited"]
 [connection signal="body_entered" from="bichos/area_h2" to="bichos/area_h2/bicho_h" method="_on_area_h_body_entered"]
 [connection signal="body_exited" from="bichos/area_h2" to="bichos/area_h2/bicho_h" method="_on_area_h_body_exited"]
+[connection signal="player_venceu" from="bichos/bicho_ph" to="." method="_on_bicho_ph_player_venceu"]
 [connection signal="capturou_oxigenio" from="UI/telas/conversa_o" to="bichos/bicho_o" method="_on_conversa_o_capturou_oxigenio"]
 [connection signal="capturou_oxigenio" from="UI/telas/conversa_o" to="bichos/bicho_o3" method="_on_conversa_o_capturou_oxigenio"]
 [connection signal="capturou_oxigenio" from="UI/telas/conversa_o" to="bichos/bicho_o2" method="_on_conversa_o_capturou_oxigenio"]

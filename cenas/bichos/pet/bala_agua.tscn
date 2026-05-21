@@ -1,14 +1,21 @@
 [gd_scene format=3 uid="uid://d0q8ynndwkhfq"]
 
 [ext_resource type="Script" uid="uid://bn8jengkvj188" path="res://cenas/script/player/bala_player.gd" id="1_sv0vd"]
+[ext_resource type="Texture2D" uid="uid://u74omqyopwgq" path="res://arte/artes chris/projetil h2o.png" id="2_ywdyf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fmy5d"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_53sca"]
 spread = 0.0
-initial_velocity_min = 400.0
-initial_velocity_max = 400.0
 gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywdyf"]
+transparency = 1
+albedo_texture = ExtResource("2_ywdyf")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_53sca"]
+material = SubResource("StandardMaterial3D_ywdyf")
 
 [node name="bala_agua" type="Area3D" unique_id=254501640 groups=["ataque_agua"]]
 script = ExtResource("1_sv0vd")
@@ -18,3 +25,4 @@ shape = SubResource("SphereShape3D_fmy5d")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1952167295]
 process_material = SubResource("ParticleProcessMaterial_53sca")
+draw_pass_1 = SubResource("QuadMesh_53sca")
