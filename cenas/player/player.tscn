@@ -928,8 +928,10 @@ radius = 0.55
 height = 2.05
 
 [node name="player" type="CharacterBody3D" unique_id=1822486866 node_paths=PackedStringArray("ui_atomo") groups=["player"]]
+collision_mask = 3
 script = ExtResource("1_1m1wk")
 ui_atomo = NodePath("CanvasLayer/atomo_VIDAS")
+rotation_speed = 5.0
 bala_cena = ExtResource("2_w152q")
 
 [node name="CollisionPolygon3D" type="CollisionShape3D" parent="." unique_id=1532869750]

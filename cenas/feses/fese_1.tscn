@@ -631,13 +631,13 @@ object = NodePath("../fogo_obstaculo")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.035707, 0, -289.13953)
 
 [node name="fogo_eletrico2" parent="obstaculos/eletrizidade" unique_id=1840103484 instance=ExtResource("14_qjydo")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.5867, 0.056175232, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.9450684, 0.056175232, 0)
 
 [node name="fogo_eletrico4" parent="obstaculos/eletrizidade" unique_id=905556058 instance=ExtResource("14_qjydo")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.436768, 0.056175232, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 19.436768, 0.056175232, 0)
 
 [node name="fogo_eletrico6" parent="obstaculos/eletrizidade" unique_id=1158150727 instance=ExtResource("14_qjydo")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 28.938782, 0.056175232, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 37.983246, 0.056175232, -7.6293945e-06)
 
 [node name="Area3D" type="Area3D" parent="obstaculos/eletrizidade" unique_id=281158284]
 
@@ -654,7 +654,6 @@ object = NodePath("../eletrizidade")
 
 [node name="ProtonScatter" type="Node3D" parent="." unique_id=886652607]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
-visible = false
 script = ExtResource("17_pshm4")
 global_seed = 1
 render_mode = 1
@@ -664,13 +663,11 @@ Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://bkcf15b20g7bi"
 
 [node name="ScatterItem" type="Node3D" parent="ProtonScatter" unique_id=963165388]
-visible = false
 script = ExtResource("24_mjidp")
 path = "uid://clbgrf8mx7a1x"
 
 [node name="ScatterShape" type="Node3D" parent="ProtonScatter" unique_id=1941618859]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, -179.1767)
-visible = false
 script = ExtResource("25_2khhj")
 shape = SubResource("Resource_tdv8y")
 

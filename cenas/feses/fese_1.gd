@@ -5,7 +5,8 @@ extends Node3D
 func _ready() -> void:
 	
 	GerenciarMusica.tocar_mundo()
-	
+	await get_tree().create_timer(0.1).timeout
+	eventos_global.batalha = false
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("laboratorio") and not $UI/telas/Laboratorio_iventario.visible:
