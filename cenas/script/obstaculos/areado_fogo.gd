@@ -27,5 +27,5 @@ func _on_area_3d_body_entered(_body: Node3D) -> void:
 
 
 func _on_area_3d_body_exited(_body: Node3D) -> void:
-	eventos_global.batalha = false
+	
 	pass # Replace with function body.

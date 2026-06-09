@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://ce3xps06jwojt"]
 
 [ext_resource type="Script" uid="uid://be8b64ln4i1yh" path="res://cenas/obstaculos/fogo_eletrico.gd" id="1_70vp8"]
-[ext_resource type="Texture2D" uid="uid://dccejat5jnm0x" path="res://arte/felp/fogo eletrico.png" id="2_e4rsf"]
 [ext_resource type="PackedScene" uid="uid://bfxyxserdkipu" path="res://arte/miguel/3d/gerador de energia.glb" id="3_e4rsf"]
 [ext_resource type="Texture2D" uid="uid://d1plxjmq672ib" path="res://arte/artes chris/partículas raio hidrogenio.png" id="3_irmpw"]
+[ext_resource type="Texture2D" uid="uid://60nfabj3bwym" path="res://arte/artes chris/bola de fogo h2o2.png" id="3_l6eht"]
+[ext_resource type="Script" uid="uid://bg7i8hh4nsoaw" path="res://cenas/feses/visible_on.gd" id="5_l6eht"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_irmpw"]
-size = Vector3(3.135254, 4.2973633, 2.0639648)
+size = Vector3(37.305847, 17.490967, 19.472473)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70vp8"]
 transparency = 1
@@ -17,12 +18,9 @@ billboard_mode = 1
 direction = Vector3(0, 1, 0)
 spread = 180.0
 initial_velocity_min = 15.099999
-initial_velocity_max = 15.099999
+initial_velocity_max = 20.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.099999994
-scale_max = 0.5
-scale_over_velocity_min = 0.5
-scale_over_velocity_max = 1.0
+scale_max = 196.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2g0cs"]
 billboard_mode = 1
@@ -32,25 +30,32 @@ material = SubResource("StandardMaterial3D_2g0cs")
 
 [node name="fogo_eletrico" type="Node3D" unique_id=702213636 groups=["ataque_bicho"]]
 script = ExtResource("1_70vp8")
-
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1698896354]
-billboard = 2
-texture = ExtResource("2_e4rsf")
+particula1 = ExtResource("3_irmpw")
+particula2 = ExtResource("3_l6eht")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=213032899 groups=["ataque_bicho"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=792946967]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1496582, 1.6486816, -0.111083984)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28146362, 8.245483, -1.1882629)
 shape = SubResource("BoxShape3D_irmpw")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=517500028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.056728, 0)
 material_override = SubResource("StandardMaterial3D_70vp8")
-amount = 3
-lifetime = 0.3
+amount = 100
 process_material = SubResource("ParticleProcessMaterial_e4rsf")
 draw_pass_1 = SubResource("QuadMesh_irmpw")
 
 [node name="gerador de energia" parent="." unique_id=1370278118 instance=ExtResource("3_e4rsf")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 
+[node name="visible_eletricidade" type="VisibleOnScreenEnabler3D" parent="." unique_id=1111123927 node_paths=PackedStringArray("object")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6557617, 2.4390383, -0.28718567)
+aabb = AABB(-19.489376, -0.7094469, -5.9983864, 38.978752, 10.230173, 11.996773)
+enable_node_path = NodePath("../eletrizidade")
+script = ExtResource("5_l6eht")
+object = NodePath("..")
+
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="screen_entered" from="visible_eletricidade" to="visible_eletricidade" method="_on_screen_entered"]
+[connection signal="screen_exited" from="visible_eletricidade" to="visible_eletricidade" method="_on_screen_exited"]

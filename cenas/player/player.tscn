@@ -872,46 +872,22 @@ resource_name = "troca_camera"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera_normal:current")
+tracks/0/path = NodePath("body/camera_batalha:current")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6333333, 1.0333333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [true, false, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera_normal:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.458, 9.458, 12.130428), Vector3(0.458, 3.8364868, -2.3526616)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("body/camera_batalha:current")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.6666667, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, true]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("body/camera_batalha:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/camera_batalha:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -1057,12 +1033,6 @@ libraries/ = SubResource("AnimationLibrary_asbux")
 
 [node name="camera_batalha" type="Camera3D" parent="body" unique_id=1735440725]
 transform = Transform3D(-1, 8.8753104e-08, -1.2215817e-07, 0, 0.809017, 0.58778524, 1.509958e-07, 0.58778524, -0.809017, 0.458, 9.458, -11.861)
-
-[node name="Camera_normal" type="Camera3D" parent="." unique_id=217648361]
-transform = Transform3D(1, 0, 0, 0, 0.809017, 0.58778524, 0, -0.58778524, 0.809017, 0.458, 9.458, 12.130428)
-rotation_order = 3
-current = true
-fov = 59.062492
 
 [node name="troca de camera" type="Node3D" parent="." unique_id=665327285]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4576075, 2.9846125, -2.7738333)

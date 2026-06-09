@@ -127,18 +127,19 @@ data = PackedVector3Array(-1.6293, 1.4883, -0.774, -1, 3.5235999, -1.0051, -1, 3
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1t34i"]
 data = PackedVector3Array(-1.6293, 1.4883, -0.774, -1, 3.5235999, -1.0051, -1, 3.5235999, -0.774, -1.6293, 1.4883, -0.774, -1.6293, 1.4883, -1.0051, -1, 3.5235999, -1.0051, -1.6293, 1.4562, -0.66359997, -1.6293, 1.4883, -0.774, -1, 3.5235999, -0.774, -1.6293, 1.4562, -0.66359997, -1, 3.5235999, -0.774, -1, 3.3999999, -0.66359997, -0.7032, -0.6362, -0.774, -1.6293, 1.4883, -1.0051, -1.6293, 1.4883, -0.774, -0.7032, -0.6362, -0.774, -0.7032, -0.6362, -1.0051, -1.6293, 1.4883, -1.0051, -1, -2.1236, -0.774, -0.7032, -0.6362, -1.0051, -0.7032, -0.6362, -0.774, -1, -2.1236, -0.774, -1, -2.1236, -1.0051, -0.7032, -0.6362, -1.0051, -1, -2.0001, -0.66359997, -1, -2.1236, -0.774, -0.7032, -0.6362, -0.774, -0.70809996, -0.5798, -0.66359997, -0.7032, -0.6362, -0.774, -1.6293, 1.4883, -0.774, -1, -2.0001, -0.66359997, -0.7032, -0.6362, -0.774, -0.70809996, -0.5798, -0.66359997, -0.70809996, -0.5798, -0.66359997, -1.6293, 1.4883, -0.774, -1.6293, 1.4562, -0.66359997, -1, -2.0001, 1, -1, -2.0001, -0.66359997, -0.70809996, -0.5798, -0.66359997, -1, -2.0001, 1, -0.70809996, -0.5798, -0.66359997, -0.70809996, -0.5798, 1, -0.70809996, -0.5798, 1, -0.70809996, -0.5798, -0.66359997, -1.6293, 1.4562, -0.66359997, 1, -2.0001, 1, -1, -2.0001, 1, -0.70809996, -0.5798, 1, 1, -2.0001, 1, -0.70809996, -0.5798, 1, 1.29, -0.53389996, 1, -0.70809996, -0.5798, 1, -1.6293, 1.4562, -0.66359997, -1.6293, 1.4562, 1, 1.29, -0.53389996, 1, -0.70809996, -0.5798, 1, -1.6293, 1.4562, 1, -1.6293, 1.4562, 1, -1.6293, 1.4562, -0.66359997, -1, 3.3999999, -0.66359997, 1.29, -0.53389996, 1, -1.6293, 1.4562, 1, 0.3707, 1.4562, 1, -1.6293, 1.4562, 1, -1, 3.3999999, -0.66359997, -1, 3.3999999, 1, 0.3707, 1.4562, 1, -1.6293, 1.4562, 1, -1, 3.3999999, 1, 0.3707, 1.4562, 1, -1, 3.3999999, 1, 1, 3.3999999, 1, -1.6293, 1.4883, -1.0051, 1, 3.3999999, -1, -1, 3.5235999, -1.0051, -1.6293, 1.4883, -1.0051, 0.3707, 1.4562, -1, 1, 3.3999999, -1, -0.7032, -0.6362, -1.0051, 0.3707, 1.4562, -1, -1.6293, 1.4883, -1.0051, -0.7032, -0.6362, -1.0051, 1.29, -0.53389996, -1, 0.3707, 1.4562, -1, -1, -2.1236, -1.0051, 1.29, -0.53389996, -1, -0.7032, -0.6362, -1.0051, -1, -2.1236, -1.0051, 1, -2.0001, -1, 1.29, -0.53389996, -1, 0.3707, 1.4562, -1, 1, 3.3999999, -0.7791, 1, 3.3999999, -1, 0.3707, 1.4562, -1, 0.3707, 1.4562, -0.7791, 1, 3.3999999, -0.7791, 1.29, -0.53389996, -1, 0.3707, 1.4562, -0.7791, 0.3707, 1.4562, -1, 0.3707, 1.4562, -0.7791, 1, 3.3999999, -0.66359997, 1, 3.3999999, -0.7791, 1.29, -0.53389996, -1, 1.29, -0.53389996, -0.7791, 0.3707, 1.4562, -0.7791, 1, -2.0001, -1, 1.29, -0.53389996, -0.7791, 1.29, -0.53389996, -1, 1, -2.0001, -1, 1, -2.0001, -0.7791, 1.29, -0.53389996, -0.7791, 0.3707, 1.4562, -0.7791, 0.3707, 1.4562, -0.66359997, 1, 3.3999999, -0.66359997, 1.29, -0.53389996, -0.7791, 0.3707, 1.4562, -0.66359997, 0.3707, 1.4562, -0.7791, 0.3707, 1.4562, -0.66359997, 1, 3.3999999, 1, 1, 3.3999999, -0.66359997, 0.3707, 1.4562, -0.66359997, 0.3707, 1.4562, 1, 1, 3.3999999, 1, 1.29, -0.53389996, -0.7791, 1.29, -0.53389996, -0.66359997, 0.3707, 1.4562, -0.66359997, 1.29, -0.53389996, -0.66359997, 0.3707, 1.4562, 1, 0.3707, 1.4562, -0.66359997, 1, -2.0001, -0.7791, 1.29, -0.53389996, -0.66359997, 1.29, -0.53389996, -0.7791, 1.29, -0.53389996, -0.66359997, 1.29, -0.53389996, 1, 0.3707, 1.4562, 1, 1, -2.0001, -0.7791, 1, -2.0001, -0.66359997, 1.29, -0.53389996, -0.66359997, 1, -2.0001, -0.66359997, 1.29, -0.53389996, 1, 1.29, -0.53389996, -0.66359997, 1, -2.0001, -0.66359997, 1, -2.0001, 1, 1.29, -0.53389996, 1, -1, -2.0001, -0.66359997, 1, -2.0001, 1, 1, -2.0001, -0.66359997, -1, -2.0001, -0.66359997, -1, -2.0001, 1, 1, -2.0001, 1, -1, -2.1236, -0.774, -1, -2.0001, -0.66359997, 1, -2.0001, -0.66359997, -1, -2.1236, -0.774, 1, -2.0001, -0.66359997, 1, -2.0001, -0.7791, -1, -2.1236, -1.0051, -1, -2.1236, -0.774, 1, -2.0001, -0.7791, -1, -2.1236, -1.0051, 1, -2.0001, -0.7791, 1, -2.0001, -1, 1, 3.3999999, -0.66359997, -1, 3.3999999, 1, -1, 3.3999999, -0.66359997, 1, 3.3999999, -0.66359997, 1, 3.3999999, 1, -1, 3.3999999, 1, 1, 3.3999999, -0.7791, 1, 3.3999999, -0.66359997, -1, 3.3999999, -0.66359997, 1, 3.3999999, -0.7791, -1, 3.3999999, -0.66359997, -1, 3.5235999, -0.774, 1, 3.3999999, -1, 1, 3.3999999, -0.7791, -1, 3.5235999, -0.774, 1, 3.3999999, -1, -1, 3.5235999, -0.774, -1, 3.5235999, -1.0051)
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xeb63"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3qe05"]
 panorama = ExtResource("4_qjydo")
-filter = false
 
-[sub_resource type="Sky" id="Sky_rmu0y"]
-sky_material = SubResource("PanoramaSkyMaterial_xeb63")
+[sub_resource type="Sky" id="Sky_5khuk"]
+sky_material = SubResource("PanoramaSkyMaterial_3qe05")
 
-[sub_resource type="Environment" id="Environment_7uoum"]
-sky = SubResource("Sky_rmu0y")
+[sub_resource type="Environment" id="Environment_re6xn"]
+background_mode = 2
+sky = SubResource("Sky_5khuk")
 ambient_light_source = 3
-ambient_light_color = Color(0, 0, 1, 1)
-reflected_light_source = 2
+ambient_light_color = Color(0.91764706, 0.88235295, 0.12941177, 1)
+ambient_light_energy = 2.0
+sdfgi_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3qe05"]
 size = Vector3(70.11273, 25.280823, 63.0896)
@@ -186,7 +187,7 @@ stack = Array[ExtResource("19_b4grr")]([SubResource("Resource_h1cmy"), SubResour
 
 [sub_resource type="Resource" id="Resource_tdv8y"]
 script = ExtResource("26_031u1")
-size = Vector3(1368.2786, 62.570705, 1435.8708)
+size = Vector3(442.58667, 62.570705, 479.3461)
 metadata/_custom_type_script = "uid://dmjx8g0p0xn8q"
 
 [sub_resource type="Resource" id="Resource_3qe05"]
@@ -204,7 +205,7 @@ size = Vector3(77.10623, 50.885582, 196.09566)
 
 [sub_resource type="Resource" id="Resource_1hi1d"]
 script = ExtResource("26_031u1")
-size = Vector3(158.40656, 50.885582, 90.76843)
+size = Vector3(167.2221, 50.885582, 90.76843)
 
 [sub_resource type="Resource" id="Resource_10y24"]
 script = ExtResource("26_031u1")
@@ -216,7 +217,7 @@ script = ExtResource("1_3qe05")
 [node name="blocagem" type="Node3D" parent="." unique_id=1018792614]
 
 [node name="blogagem_1" parent="blocagem" unique_id=1832851319 instance=ExtResource("1_1efgt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10222626, -0.96635246, -68.12547)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042121887, -0.96634483, -68.25734)
 
 [node name="decoração da area d carbono" type="Node3D" parent="blocagem" unique_id=1523680775]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 157.34692, 0, -118.62399)
@@ -457,16 +458,16 @@ shape = SubResource("ConcavePolygonShape3D_1t34i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.21063, 0, 0)
 
 [node name="player" parent="personagem" unique_id=1822486866 instance=ExtResource("1_1c7ow")]
-transform = Transform3D(1.9998549, 0.018169055, -0.015803304, -0.018172817, 1.9999174, -0.0004040323, 0.015798979, 0.0005476489, 1.9999375, -9.651718, 0.43041754, 48.602707)
+transform = Transform3D(1.9998549, 0.018169055, -0.015803304, -0.018172817, 1.9999174, -0.0004040323, 0.015798979, 0.0005476489, 1.9999375, -248.21855, 0.43041754, -274.07086)
 
 [node name="efeitos" type="Node3D" parent="." unique_id=1522335302]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="efeitos" unique_id=2006854007]
-environment = SubResource("Environment_7uoum")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="efeitos" unique_id=551955312]
+environment = SubResource("Environment_re6xn")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="efeitos" unique_id=1011446137]
-transform = Transform3D(1, 0, 0, 0, -0.64191824, 0.7667731, 0, -0.7667731, -0.64191824, 0, 21.583405, 0)
-shadow_enabled = true
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="efeitos" unique_id=1348019214]
+transform = Transform3D(-0.76559556, 0.6433222, 7.288058e-09, 0.42571452, 0.50662816, 0.74973005, 0.482318, 0.57399, -0.6617438, 0, 153.19495, -160.5614)
+light_color = Color(1, 1, 0.827451, 1)
 
 [node name="bichos" type="Node3D" parent="." unique_id=9806684]
 
@@ -645,13 +646,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 37.983246, 0.056175232,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.722839, 5.5127563, 20.254833)
 shape = SubResource("BoxShape3D_u5hjb")
 
-[node name="visible_eletricidade" type="VisibleOnScreenEnabler3D" parent="obstaculos" unique_id=1890911516 node_paths=PackedStringArray("object")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.317123, 2.4390383, -273.8332)
-aabb = AABB(-19.489376, -2.3547802, -17.75894, 38.978752, 13.52084, 35.51788)
-enable_node_path = NodePath("../eletrizidade")
-script = ExtResource("28_3qe05")
-object = NodePath("../eletrizidade")
-
 [node name="ProtonScatter" type="Node3D" parent="." unique_id=886652607]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 script = ExtResource("17_pshm4")
@@ -667,7 +661,7 @@ script = ExtResource("24_mjidp")
 path = "uid://clbgrf8mx7a1x"
 
 [node name="ScatterShape" type="Node3D" parent="ProtonScatter" unique_id=1941618859]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, -179.1767)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, -156.65009)
 script = ExtResource("25_2khhj")
 shape = SubResource("Resource_tdv8y")
 
@@ -678,7 +672,7 @@ negative = true
 shape = SubResource("Resource_3qe05")
 
 [node name="ScatterShape3" type="Node3D" parent="ProtonScatter" unique_id=1301452133]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.019928, 0, 28.955093)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.019928, 0, 37.021576)
 script = ExtResource("25_2khhj")
 negative = true
 shape = SubResource("Resource_5khuk")
@@ -690,7 +684,7 @@ negative = true
 shape = SubResource("Resource_re6xn")
 
 [node name="ScatterShape6" type="Node3D" parent="ProtonScatter" unique_id=2135823756]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.4962082, 0, -306.75485)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.4962082, 0, -331.08282)
 script = ExtResource("25_2khhj")
 negative = true
 shape = SubResource("Resource_1hi1d")
@@ -728,5 +722,3 @@ shape = SubResource("Resource_10y24")
 [connection signal="screen_exited" from="obstaculos/visible_fogo" to="obstaculos/visible_fogo" method="_on_screen_exited"]
 [connection signal="body_entered" from="obstaculos/eletrizidade/Area3D" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="obstaculos/eletrizidade/Area3D" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_area_3d_body_exited"]
-[connection signal="screen_entered" from="obstaculos/visible_eletricidade" to="obstaculos/visible_eletricidade" method="_on_screen_entered"]
-[connection signal="screen_exited" from="obstaculos/visible_eletricidade" to="obstaculos/visible_eletricidade" method="_on_screen_exited"]

@@ -942,26 +942,33 @@ skeleton = NodePath("..")
 libraries/ = SubResource("AnimationLibrary_c55ae")
 
 [node name="AreadeDano" type="Area3D" parent="crecimento" unique_id=1312299519]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="crecimento/AreadeDano" unique_id=52826443]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0016546249, 0.73707056, 0.01679039)
+visible = false
 shape = SubResource("BoxShape3D_gpf66")
 
 [node name="Areade-ataque" type="Area3D" parent="crecimento" unique_id=1200206220 groups=["ataque_bicho"]]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="crecimento/Areade-ataque" unique_id=1730406103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20734763, 0.17041874, -0.47215843)
+visible = false
 shape = SubResource("BoxShape3D_ujdew")
 disabled = true
 debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=199239861]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3223672, 0)
+visible = false
 shape = SubResource("SphereShape3D_gpf66")
 
 [node name="AreaConversa" type="Area3D" parent="." unique_id=786362242]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AreaConversa" unique_id=1628395298]
+visible = false
 shape = SubResource("SphereShape3D_hr657")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2064552060]
