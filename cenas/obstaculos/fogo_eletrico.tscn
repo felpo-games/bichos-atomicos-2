@@ -7,12 +7,7 @@
 [ext_resource type="Script" uid="uid://bg7i8hh4nsoaw" path="res://cenas/feses/visible_on.gd" id="5_l6eht"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_irmpw"]
-size = Vector3(37.305847, 17.490967, 19.472473)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70vp8"]
-transparency = 1
-albedo_texture = ExtResource("3_irmpw")
-billboard_mode = 1
+size = Vector3(37.26, 17.391, 19.372)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e4rsf"]
 direction = Vector3(0, 1, 0)
@@ -23,6 +18,7 @@ gravity = Vector3(0, 0, 0)
 scale_max = 196.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2g0cs"]
+albedo_color = Color(0.29411766, 1, 0.8235294, 1)
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_irmpw"]
@@ -41,8 +37,8 @@ shape = SubResource("BoxShape3D_irmpw")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=517500028]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.056728, 0)
-material_override = SubResource("StandardMaterial3D_70vp8")
 amount = 100
+speed_scale = 64.0
 process_material = SubResource("ParticleProcessMaterial_e4rsf")
 draw_pass_1 = SubResource("QuadMesh_irmpw")
 
@@ -54,7 +50,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6557617, 2.4390383, -0.2871
 aabb = AABB(-19.489376, -0.7094469, -5.9983864, 38.978752, 10.230173, 11.996773)
 enable_node_path = NodePath("../eletrizidade")
 script = ExtResource("5_l6eht")
-object = NodePath("..")
+object = NodePath("../GPUParticles3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=458650978]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1265303874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28146362, 8.245483, -1.1882629)
+shape = SubResource("BoxShape3D_irmpw")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="screen_entered" from="visible_eletricidade" to="visible_eletricidade" method="_on_screen_entered"]

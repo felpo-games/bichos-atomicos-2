@@ -70,48 +70,26 @@ func _physics_process(delta: float) -> void:
 
 	# movimento
 	if not em_knockback:
-
-		# =========================
-		# MODO NORMAL
-		# =========================
-		if not eventos_global.batalha:
-
-			var input_dir := Input.get_vector("esquerda", "direita", "frente", "tras")
-			var direction := Vector3(input_dir.x, 0, input_dir.y).normalized()
-			
-			if direction:
-				velocity.x = direction.x * SPEED
-				velocity.z = direction.z * SPEED
-				$body/pivod/AnimationPlayer.play("walk_Pl")
-				var target_angle = atan2(direction.x, direction.z)
-				$body.rotation.y = lerp_angle($body.rotation.y, target_angle, rotation_speed * delta)
-			else:
-				$body/pivod/AnimationPlayer.play("idle_Pl")
-				velocity.x = move_toward(velocity.x, 0, SPEED)
-				velocity.z = move_toward(velocity.z, 0, SPEED)
-
 		# =========================
 		# MODO BATALHA (TANQUE)
 		# =========================
+		# gira esquerda/direita
+		var rotacao := Input.get_axis("direita", "esquerda")
+		$body.rotation.y += rotacao * rotation_speed * delta
+
+		# frente/trás
+		var mover := Input.get_axis("frente", "tras")
+
+		# direção da frente do body
+		var frente = -$body.global_transform.basis.z.normalized()
+
+		velocity.x = frente.x * mover * SPEED
+		velocity.z = frente.z * mover * SPEED
+
+		if mover != 0:
+			$body/pivod/AnimationPlayer.play("walk_Pl")
 		else:
-
-			# gira esquerda/direita
-			var rotacao := Input.get_axis("direita", "esquerda")
-			$body.rotation.y += rotacao * rotation_speed * delta
-
-			# frente/trás
-			var mover := Input.get_axis("frente", "tras")
-
-			# direção da frente do body
-			var frente = -$body.global_transform.basis.z.normalized()
-
-			velocity.x = frente.x * mover * SPEED
-			velocity.z = frente.z * mover * SPEED
-
-			if mover != 0:
-				$body/pivod/AnimationPlayer.play("walk_Pl")
-			else:
-				$body/pivod/AnimationPlayer.play("idle_Pl")
+			$body/pivod/AnimationPlayer.play("idle_Pl")
 
 	move_and_slide()
 

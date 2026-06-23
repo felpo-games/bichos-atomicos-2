@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://kty240fktcex" path="res://cenas/átomo.tscn" id="5_bmch6"]
 [ext_resource type="Texture2D" uid="uid://c8iyrdstmqqdr" path="res://arte/miguel/3d/novo/player_oxigenio__textura.png" id="6_wneci"]
 [ext_resource type="AudioStream" uid="uid://du7bh8hxxjqhd" path="res://SFX/UI_passos.wav" id="7_wneci"]
-[ext_resource type="Script" uid="uid://ch2uhurssomv0" path="res://cenas/player/troca_de_camera.gd" id="8_0wone"]
 [ext_resource type="AudioStream" uid="uid://cigbjkl0waib6" path="res://SFX/arremesso_erlenmeyer.wav" id="9_h2li5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kbvfo"]
@@ -867,38 +866,6 @@ _data = {
 &"walk_Pl": SubResource("Animation_rd5wg")
 }
 
-[sub_resource type="Animation" id="Animation_0wone"]
-resource_name = "troca_camera"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body/camera_batalha:current")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6666667, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/camera_batalha:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.458, 9.458, -11.861), Vector3(0.458, 3.8364868, -2.3526616)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bs6os"]
-_data = {
-&"troca_camera": SubResource("Animation_0wone")
-}
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d4u85"]
 radius = 0.55
 height = 2.05
@@ -1032,15 +999,8 @@ skeleton = NodePath("..")
 libraries/ = SubResource("AnimationLibrary_asbux")
 
 [node name="camera_batalha" type="Camera3D" parent="body" unique_id=1735440725]
-transform = Transform3D(-1, 8.8753104e-08, -1.2215817e-07, 0, 0.809017, 0.58778524, 1.509958e-07, 0.58778524, -0.809017, 0.458, 9.458, -11.861)
-
-[node name="troca de camera" type="Node3D" parent="." unique_id=665327285]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4576075, 2.9846125, -2.7738333)
-script = ExtResource("8_0wone")
-
-[node name="animacao_camera" type="AnimationPlayer" parent="troca de camera" unique_id=1618551088]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_bs6os")
+transform = Transform3D(-1, 8.8753104e-08, -1.2215817e-07, 0, 0.809017, 0.58778524, 1.509958e-07, 0.58778524, -0.809017, 0.458, 3.8364868, -2.3526616)
+current = true
 
 [node name="sistema_vida" type="Node3D" parent="." unique_id=1277443864]
 

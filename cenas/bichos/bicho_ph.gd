@@ -322,8 +322,9 @@ func tomar_dano():
 		for fogo in fogos_ativos:
 
 			if is_instance_valid(fogo):
-				fogo.queue_free()
+				fogo.hide()
 
 		fogos_ativos.clear()
+		emit_signal("player_venceu")
 
-		queue_free()
+		hide()

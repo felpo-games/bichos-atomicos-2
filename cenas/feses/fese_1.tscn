@@ -458,7 +458,7 @@ shape = SubResource("ConcavePolygonShape3D_1t34i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.21063, 0, 0)
 
 [node name="player" parent="personagem" unique_id=1822486866 instance=ExtResource("1_1c7ow")]
-transform = Transform3D(1.9998549, 0.018169055, -0.015803304, -0.018172817, 1.9999174, -0.0004040323, 0.015798979, 0.0005476489, 1.9999375, -248.21855, 0.43041754, -274.07086)
+transform = Transform3D(1.9998549, 0.018169055, -0.015803304, -0.018172817, 1.9999174, -0.0004040323, 0.015798979, 0.0005476489, 1.9999375, -3.740326, 0.43041754, 55.35721)
 
 [node name="efeitos" type="Node3D" parent="." unique_id=1522335302]
 
@@ -631,14 +631,8 @@ object = NodePath("../fogo_obstaculo")
 [node name="eletrizidade" type="Node3D" parent="obstaculos" unique_id=158834330]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.035707, 0, -289.13953)
 
-[node name="fogo_eletrico2" parent="obstaculos/eletrizidade" unique_id=1840103484 instance=ExtResource("14_qjydo")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.9450684, 0.056175232, 0)
-
-[node name="fogo_eletrico4" parent="obstaculos/eletrizidade" unique_id=905556058 instance=ExtResource("14_qjydo")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 19.436768, 0.056175232, 0)
-
 [node name="fogo_eletrico6" parent="obstaculos/eletrizidade" unique_id=1158150727 instance=ExtResource("14_qjydo")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 37.983246, 0.056175232, -7.6293945e-06)
+transform = Transform3D(-0.022960475, 0, -0.49947253, 0, 0.5, 0, 0.49947253, 0, -0.022960475, 37.983246, 0.056175232, -1.5258789e-05)
 
 [node name="Area3D" type="Area3D" parent="obstaculos/eletrizidade" unique_id=281158284]
 
