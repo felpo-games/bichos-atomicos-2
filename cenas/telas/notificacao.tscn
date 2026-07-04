@@ -5,7 +5,7 @@
 
 [sub_resource type="Animation" id="Animation_opje3"]
 resource_name = "new_animation"
-length = 5.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -13,7 +13,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(806, 262), Vector2(817, 5)]
@@ -25,7 +25,7 @@ tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.0009999999, 5),
+"times": PackedFloat32Array(0.0009999999, 2.0333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -37,14 +37,13 @@ _data = {
 }
 
 [node name="notificacao" type="Control" unique_id=1508309764]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchor_right = 0.291
 anchor_bottom = 0.17300001
-offset_left = 817.0
-offset_top = 5.0
-offset_right = 816.73285
-offset_bottom = 4.896118
+offset_left = 806.0
+offset_top = 262.0
+offset_right = 805.73285
+offset_bottom = 261.89612
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4yq1s")
@@ -53,7 +52,7 @@ script = ExtResource("1_4yq1s")
 layout_mode = 0
 offset_right = 330.0
 offset_bottom = 108.0
-color = Color(1, 1, 1, 0.12941177)
+color = Color(0, 0, 0, 0.12941177)
 
 [node name="TextureRect" type="Sprite2D" parent="." unique_id=1915801663]
 position = Vector2(71, 54)
@@ -62,12 +61,13 @@ texture = ExtResource("2_4yq1s")
 
 [node name="Label" type="Label" parent="." unique_id=273231939]
 layout_mode = 0
-offset_left = 112.0
+offset_left = 137.0
 offset_top = 5.0
-offset_right = 235.0
+offset_right = 326.0
 offset_bottom = 99.0
 text = "ai minha xereca
 "
+autowrap_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=525004811]
 libraries/ = SubResource("AnimationLibrary_7lmxi")

@@ -56,7 +56,7 @@ func coletado():
 	
 	var notif = $"../../UI/telas/notificacao"
 	if notif != null:
-		notif.mostrar_notificacao("Oxigênio", icon)
+		notif.mostrar_notificacao("você pegou um Oxigenio", icon)
 	
 	desativar()
 	

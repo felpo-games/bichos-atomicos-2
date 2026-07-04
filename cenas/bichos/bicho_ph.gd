@@ -174,7 +174,6 @@ func estado_eletrico():
 
 func estado_cansado():
 
-	print("CANSEI")
 
 	$efeitos/fogo/GPUParticles3D.emitting = false
 	$efeitos/raio/GPUParticles3D.emitting = false

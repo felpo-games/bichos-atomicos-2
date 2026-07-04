@@ -217,7 +217,7 @@ func morrer():
 
 	if notif != null:
 		notif.mostrar_notificacao(
-			"hidrogenio",
+			"Você pegou Hidrogênio!",
 			icon
 		)
 

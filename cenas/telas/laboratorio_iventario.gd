@@ -34,6 +34,7 @@ extends Control
 
 
 #JANELA POPUP
+
 @onready var janela_informacao: TextureRect = $JanelaInformacao
 @onready var texto: RichTextLabel = $JanelaInformacao/Texto
 @onready var titulo: Label = $JanelaInformacao/Titulo
@@ -69,12 +70,36 @@ var mistura_atual = []
 
 @onready var slots = [$TELA_SINTESE/EspacoSintese/Icone, $TELA_SINTESE/EspacoSintese2/Icone, $"TELA_SINTESE/EspaçoSintese3/Icone"] 
 
+@onready var botao_atomos: Button = $botao_atomos
+@onready var botao_sintese: Button = $botao_sintese
+
+
+# trocas de aba pelo controle
+var aba_atual := 0
 func _ready() -> void:
-	trocar_aba(tela_atomos)
-	atualizar_colecao()
-	limpar_bancada()
-	laboratorio_global.atomo_atualizado.connect(_on_atomo_atualizado)
-	atualizar_icones_inventario()
+	var todos_botoes = [
+		botao_infos_o,
+		botao_infos_h,
+		botao_infos_c,
+		botao_o,
+		botao_h,
+		botao_c,
+		butao_h_2o,
+		butao_co_2,
+		botao_atomos,
+		botao_sintese,
+		botao_composto
+	]
+
+	for botao in todos_botoes:
+		botao.focus_entered.connect(_on_focus_entered.bind(botao))
+		botao.focus_exited.connect(_on_focus_exited.bind(botao))
+		aba_atual = 0
+		trocar_aba(tela_atomos)
+		atualizar_colecao()
+		limpar_bancada()
+		laboratorio_global.atomo_atualizado.connect(_on_atomo_atualizado)
+		atualizar_icones_inventario()
 	
 	var botoes_info = {
 		butao_h_2o: "agua",
@@ -91,6 +116,15 @@ func _ready() -> void:
 			botao.mouse_exited.connect(_animar_brilho_botao.bind(botao, id_bicho, false))
 
 func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("laboratorio") and visible:
+		hide()
+		get_tree().paused = false
+		get_viewport().set_input_as_handled()
+	if visible:
+		if Input.is_action_just_pressed("aba_esquerda"):
+			mudar_aba(-1)
+		if Input.is_action_just_pressed("aba_direita"):
+			mudar_aba(1)
 	if Input.is_action_just_pressed("laboratorio") and visible:
 		hide()
 		get_tree().paused = false
@@ -147,6 +181,9 @@ func trocar_aba(aba_ativa: Control) -> void:
 	aba_ativa.show()
 	if aba_ativa == tela_compostos:
 		atualizar_colecao()
+	
+	await get_tree().process_frame
+	focar_aba_atual()
 
 func verificar_acesso_compostos():
 	if botao_composto.disabled == true: 
@@ -379,9 +416,10 @@ func abrir_janela_detalhes(tipo: String) -> void:
 		print("ERRO:'", tipo, "' TA VAZIA")
 		return
 		
-	titulo.text = ficha.titulo
-	texto.text = ficha.descricao
-	bichos.texture = ficha.bichos
+	if titulo != null and texto != null and bichos != null:
+		titulo.text = ficha.titulo
+		texto.text = ficha.descricao
+		bichos.texture = ficha.bichos
 	
 	
 	janela_informacao.modulate.a = 0
@@ -437,3 +475,58 @@ func jogador_tem_o_bicho(tipo: String) -> bool:
 		"agua": return laboratorio_global.bichos_desbloqueados.has("a")
 		"co2": return laboratorio_global.bichos_desbloqueados.has("dc")
 	return false
+
+
+func mudar_aba(direcao:int):
+	aba_atual += direcao
+	if botao_composto.disabled:
+		if aba_atual < 0:
+			aba_atual = 1
+		if aba_atual > 1:
+			aba_atual = 0
+	else:
+		if aba_atual < 0:
+			aba_atual = 2
+		if aba_atual > 2:
+			aba_atual = 0
+	match aba_atual:
+		0:
+			trocar_aba(tela_atomos)
+		1:
+			trocar_aba(tela_sintese)
+		2:
+			trocar_aba(tela_compostos)
+
+
+
+func focar_aba_atual():
+	match aba_atual:
+		0:
+			botao_infos_o.grab_focus()
+		1:
+			botao_o.grab_focus()
+		2:
+			if not butao_h_2o.disabled:
+				butao_h_2o.grab_focus()
+			elif not butao_co_2.disabled:
+				butao_co_2.grab_focus()
+
+func _on_focus_entered(botao):
+	var tw = create_tween()
+	tw.tween_property(botao, "scale", Vector2(1.1, 1.1), 0.1)
+	tw.parallel().tween_property(
+		botao,
+		"modulate",
+		Color(1.3, 1.3, 1.3),
+		0.1
+	)
+
+func _on_focus_exited(botao):
+	var tw = create_tween()
+	tw.tween_property(botao, "scale", Vector2.ONE, 0.1)
+	tw.parallel().tween_property(
+		botao,
+		"modulate",
+		Color.WHITE,
+		0.1
+	)

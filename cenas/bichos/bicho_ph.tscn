@@ -618,7 +618,6 @@ material = SubResource("StandardMaterial3D_2g0cs")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2g0cs"]
 render_priority = 0
 shader = ExtResource("7_swpu4")
-shader_parameter/tex_frg_4 = ExtResource("2_preqx")
 
 [sub_resource type="Gradient" id="Gradient_swpu4"]
 offsets = PackedFloat32Array(0, 0.5130719, 1)
@@ -770,7 +769,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34027958, 0)
 
 [node name="Timer" type="Timer" parent="sistema_de_ataque" unique_id=115750196]
-wait_time = 5.0
+wait_time = 2.0
 one_shot = true
 
 [node name="Area_visao" type="Area3D" parent="sistema_de_ataque" unique_id=2083866291]

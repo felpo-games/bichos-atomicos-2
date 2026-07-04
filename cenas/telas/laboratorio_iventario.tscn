@@ -22,9 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://8mb7id4h6qii" path="res://UI/Janelas/Elenemeyer/destaque_elemento.png" id="18_d3vqm"]
 [ext_resource type="Texture2D" uid="uid://dhquaf83wmy5q" path="res://UI/Janelas/Elenemeyer/espac_elemento_sintese.png" id="19_qtrlo"]
 [ext_resource type="FontFile" uid="uid://dycml3x37dr0n" path="res://UI/Fontes/04B_30__.TTF" id="20_6jte0"]
-[ext_resource type="Texture2D" uid="uid://bd8nqqm61dh4j" path="res://UI/Botões/button_sair.png" id="24_u1mq0"]
 [ext_resource type="AudioStream" uid="uid://bpobnb6s4wh35" path="res://SFX/UI_navegação.wav" id="25_2an7v"]
-[ext_resource type="Texture2D" uid="uid://bwtwanqaaxpnj" path="res://UI/Botões/button_pressed_sair.png" id="25_btjc5"]
 [ext_resource type="AudioStream" uid="uid://bw3sq7cqp8rnv" path="res://SFX/UI_Confirmar.wav" id="26_8dviv"]
 [ext_resource type="AudioStream" uid="uid://dwkyo7aicgrib" path="res://SFX/cancelar.wav" id="27_qtrlo"]
 [ext_resource type="AudioStream" uid="uid://c24r38i5ute2a" path="res://SFX/UI_sintetizando.wav" id="28_6jte0"]
@@ -275,7 +273,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TELA_SINTESE" type="TextureRect" parent="." unique_id=1735693008]
-visible = false
 layout_mode = 0
 offset_left = 11.0
 offset_top = 19.0
@@ -383,7 +380,7 @@ offset_top = 87.65956
 offset_right = 656.60455
 offset_bottom = 176.65956
 scale = Vector2(0.72436506, 0.72436506)
-focus_mode = 0
+focus_neighbor_left = NodePath("../botao_h")
 texture_normal = ExtResource("6_oxgkr")
 metadata/_edit_use_anchors_ = true
 
@@ -394,7 +391,7 @@ offset_top = 87.65956
 offset_right = 436.0974
 offset_bottom = 176.65956
 scale = Vector2(0.72436506, 0.72436506)
-focus_mode = 0
+focus_neighbor_right = NodePath("../botao_h")
 texture_normal = ExtResource("4_hi35h")
 metadata/_edit_use_anchors_ = true
 
@@ -405,7 +402,8 @@ offset_top = 87.65956
 offset_right = 546.35095
 offset_bottom = 176.65956
 scale = Vector2(0.72436506, 0.72436506)
-focus_mode = 0
+focus_neighbor_left = NodePath("../botao_o")
+focus_neighbor_right = NodePath("../botao_c")
 texture_normal = ExtResource("5_ymotw")
 metadata/_edit_use_anchors_ = true
 
@@ -467,7 +465,6 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="TELA_COMPOSTOS" type="TextureRect" parent="." unique_id=1644894207]
-visible = false
 layout_mode = 0
 offset_left = 15.0
 offset_top = 24.0
@@ -599,57 +596,6 @@ theme_override_fonts/font = ExtResource("11_65gy6")
 theme_override_font_sizes/font_size = 30
 text = "SÍNTESE"
 
-[node name="JanelaInformacao" type="TextureRect" parent="." unique_id=493561102]
-layout_mode = 0
-offset_left = -13.0
-offset_top = -23.0
-offset_right = 1194.3143
-offset_bottom = 697.0
-texture = ExtResource("8_nnxpa")
-expand_mode = 1
-
-[node name="Texto" type="RichTextLabel" parent="JanelaInformacao" unique_id=391388672]
-layout_mode = 0
-offset_left = 281.0
-offset_top = 115.0
-offset_right = 1150.0
-offset_bottom = 594.0
-theme_override_fonts/normal_font = ExtResource("11_65gy6")
-theme_override_font_sizes/normal_font_size = 22
-scroll_active = false
-
-[node name="Titulo" type="Label" parent="JanelaInformacao" unique_id=450107645]
-layout_mode = 0
-offset_left = 214.0
-offset_top = 30.0
-offset_right = 967.0
-offset_bottom = 118.0
-theme_override_fonts/font = ExtResource("20_6jte0")
-theme_override_font_sizes/font_size = 25
-text = "dffffffff"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Bichos" type="TextureRect" parent="JanelaInformacao" unique_id=49006530]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 202.0
-offset_right = 299.0
-offset_bottom = 502.0
-texture = ExtResource("18_8dviv")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Botao_sair" type="TextureButton" parent="JanelaInformacao" unique_id=1390660397]
-layout_mode = 0
-offset_left = 1010.0
-offset_top = 601.0
-offset_right = 1157.0
-offset_bottom = 658.0
-focus_mode = 0
-texture_normal = ExtResource("24_u1mq0")
-texture_pressed = ExtResource("25_btjc5")
-
 [node name="Sons_UI" type="Node" parent="." unique_id=1536892268]
 
 [node name="sfx_hover" type="AudioStreamPlayer" parent="Sons_UI" unique_id=1160471005]
@@ -684,4 +630,3 @@ bus = &"UI"
 [connection signal="pressed" from="botao_composto" to="." method="_on_botao_composto_pressed"]
 [connection signal="pressed" from="botao_atomos" to="." method="_on_botao_atomos_pressed"]
 [connection signal="pressed" from="botao_sintese" to="." method="_on_botao_sintese_pressed"]
-[connection signal="pressed" from="JanelaInformacao/Botao_sair" to="." method="_on_botao_sair_pressed"]

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ts0ooobu6tbv"]
+
+[ext_resource type="Texture2D" uid="uid://d1plxjmq672ib" path="res://arte/artes chris/partículas raio hidrogenio.png" id="1_esw8m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsirv"]
+transparency = 1
+albedo_texture = ExtResource("1_esw8m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7ies4"]
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_soi5u"]
+
+[node name="GPUParticles" type="GPUParticles3D" unique_id=316338297]
+material_override = SubResource("StandardMaterial3D_xsirv")
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_7ies4")
+draw_pass_1 = SubResource("QuadMesh_soi5u")

@@ -98,7 +98,7 @@ func derrotado():
 	
 	icon = load("res://arte/vlad/satanas atomico/satanas atomico/c.png")
 	$"../../../UI/telas/notificacao".mostrar_notificacao(
-		"carbono",
+		"Você descobriu um novo elemento! Carbono",
 		icon
 	)
 

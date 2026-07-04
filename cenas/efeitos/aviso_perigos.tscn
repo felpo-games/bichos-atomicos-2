@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d1g1hh1rptwcb"]
+
+[ext_resource type="Script" uid="uid://b417kw236mbho" path="res://cenas/efeitos/aviso_perigos.gd" id="1_r2im4"]
+
+[node name="aviso_perigos" type="Area3D" unique_id=1409148787]
+script = ExtResource("1_r2im4")
