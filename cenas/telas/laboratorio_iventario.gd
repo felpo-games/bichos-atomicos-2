@@ -35,8 +35,8 @@ extends Control
 
 #JANELA POPUP
 
-@onready var janela_informacao: TextureRect = $JanelaInformacao
-@onready var texto: RichTextLabel = $JanelaInformacao/Texto
+@onready var janela_informacao: TextureRect = $janela_informacao
+@onready var texto: RichTextLabel = $janela_informacao/texto
 @onready var titulo: Label = $JanelaInformacao/Titulo
 @onready var bichos: TextureRect = $JanelaInformacao/Bichos
 @onready var botao_sair = $JanelaInformacao/Botao_sair

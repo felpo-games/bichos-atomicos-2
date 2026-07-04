@@ -614,6 +614,26 @@ bus = &"UI"
 stream = ExtResource("28_6jte0")
 bus = &"UI"
 
+[node name="janela_informacao" type="TextureRect" parent="." unique_id=2137338738]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+
+[node name="texto" type="RichTextLabel" parent="janela_informacao" unique_id=1843495636]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="titulo" type="Label" parent="janela_informacao" unique_id=1062204421]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="bichos" type="TextureRect" parent="janela_informacao" unique_id=2053572443]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="pressed" from="TELA_ATOMOS/botao_infos_o" to="." method="_on_botao_infos_o_pressed"]
 [connection signal="pressed" from="TELA_ATOMOS/botao_infos_h" to="." method="_on_botao_infos_h_pressed"]
 [connection signal="pressed" from="TELA_ATOMOS/botao_infos_c" to="." method="_on_botao_infos_c_pressed"]
