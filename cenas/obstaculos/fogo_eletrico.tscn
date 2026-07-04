@@ -3,44 +3,38 @@
 [ext_resource type="Script" uid="uid://be8b64ln4i1yh" path="res://cenas/obstaculos/fogo_eletrico.gd" id="1_70vp8"]
 [ext_resource type="PackedScene" uid="uid://bfxyxserdkipu" path="res://arte/miguel/3d/gerador de energia.glb" id="3_e4rsf"]
 [ext_resource type="Texture2D" uid="uid://d1plxjmq672ib" path="res://arte/artes chris/partículas raio hidrogenio.png" id="3_irmpw"]
-[ext_resource type="Texture2D" uid="uid://60nfabj3bwym" path="res://arte/artes chris/bola de fogo h2o2.png" id="3_l6eht"]
 [ext_resource type="Script" uid="uid://bg7i8hh4nsoaw" path="res://cenas/feses/visible_on.gd" id="5_l6eht"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_irmpw"]
 size = Vector3(37.26, 17.391, 19.372)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e4rsf"]
-direction = Vector3(0, 1, 0)
-spread = 180.0
-initial_velocity_min = 15.099999
-initial_velocity_max = 20.0
-gravity = Vector3(0, 0, 0)
-scale_max = 196.2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2g0cs"]
-albedo_color = Color(0.29411766, 1, 0.8235294, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irmpw"]
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = ExtResource("3_irmpw")
 billboard_mode = 1
 
-[sub_resource type="QuadMesh" id="QuadMesh_irmpw"]
-material = SubResource("StandardMaterial3D_2g0cs")
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l6eht"]
+direction = Vector3(0, 0, 0)
+radial_velocity_min = -14.770022
+radial_velocity_max = 153.32997
+gravity = Vector3(0, 10, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gq8g"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_33hni"]
+material = SubResource("StandardMaterial3D_6gq8g")
 
 [node name="fogo_eletrico" type="Node3D" unique_id=702213636 groups=["ataque_bicho"]]
 script = ExtResource("1_70vp8")
-particula1 = ExtResource("3_irmpw")
-particula2 = ExtResource("3_l6eht")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=213032899 groups=["ataque_bicho"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=792946967]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28146362, 8.245483, -1.1882629)
 shape = SubResource("BoxShape3D_irmpw")
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=517500028]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.056728, 0)
-amount = 100
-speed_scale = 64.0
-process_material = SubResource("ParticleProcessMaterial_e4rsf")
-draw_pass_1 = SubResource("QuadMesh_irmpw")
 
 [node name="gerador de energia" parent="." unique_id=1370278118 instance=ExtResource("3_e4rsf")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
@@ -50,13 +44,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6557617, 2.4390383, -0.2871
 aabb = AABB(-19.489376, -0.7094469, -5.9983864, 38.978752, 10.230173, 11.996773)
 enable_node_path = NodePath("../eletrizidade")
 script = ExtResource("5_l6eht")
-object = NodePath("../GPUParticles3D")
+object = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=458650978]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1265303874]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28146362, 8.245483, -1.1882629)
 shape = SubResource("BoxShape3D_irmpw")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1866559014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.6794114, 0)
+material_override = SubResource("StandardMaterial3D_irmpw")
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_l6eht")
+draw_pass_1 = SubResource("QuadMesh_33hni")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="screen_entered" from="visible_eletricidade" to="visible_eletricidade" method="_on_screen_entered"]

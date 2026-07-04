@@ -134,12 +134,11 @@ panorama = ExtResource("4_qjydo")
 sky_material = SubResource("PanoramaSkyMaterial_3qe05")
 
 [sub_resource type="Environment" id="Environment_re6xn"]
-background_mode = 2
 sky = SubResource("Sky_5khuk")
 ambient_light_source = 3
-ambient_light_color = Color(0.91764706, 0.88235295, 0.12941177, 1)
-ambient_light_energy = 2.0
-sdfgi_enabled = true
+ambient_light_color = Color(1, 1, 0, 1)
+reflected_light_source = 2
+fog_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3qe05"]
 size = Vector3(70.11273, 25.280823, 63.0896)
@@ -458,16 +457,15 @@ shape = SubResource("ConcavePolygonShape3D_1t34i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.21063, 0, 0)
 
 [node name="player" parent="personagem" unique_id=1822486866 instance=ExtResource("1_1c7ow")]
-transform = Transform3D(1.9998549, 0.018169055, -0.015803304, -0.018172817, 1.9999174, -0.0004040323, 0.015798979, 0.0005476489, 1.9999375, -3.740326, 0.43041754, 55.35721)
+transform = Transform3D(-1.9999237, -0.01745307, 1.7484555e-07, -0.017453069, 1.9999238, 0, -1.7483887e-07, -1.5257959e-09, -2, -3.740326, 0.43041754, 55.35721)
 
 [node name="efeitos" type="Node3D" parent="." unique_id=1522335302]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="efeitos" unique_id=551955312]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="efeitos" unique_id=1847608832]
 environment = SubResource("Environment_re6xn")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="efeitos" unique_id=1348019214]
-transform = Transform3D(-0.76559556, 0.6433222, 7.288058e-09, 0.42571452, 0.50662816, 0.74973005, 0.482318, 0.57399, -0.6617438, 0, 153.19495, -160.5614)
-light_color = Color(1, 1, 0.827451, 1)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="efeitos" unique_id=748233991]
+transform = Transform3D(0.19594613, -0.98061466, 0, -0.2797073, -0.05589103, 0.9584571, -0.9398771, -0.18780597, -0.28523672, 0, 30.012257, 0)
 
 [node name="bichos" type="Node3D" parent="." unique_id=9806684]
 
@@ -487,7 +485,7 @@ shape = SubResource("BoxShape3D_3qe05")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 172.23967, 0, 28.41858)
 
 [node name="bicho_h" parent="bichos/area_h" unique_id=1122094937 instance=ExtResource("3_e5vpm")]
-transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0, 0.91381073, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.91381073, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bichos/area_h" unique_id=1981042974]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)

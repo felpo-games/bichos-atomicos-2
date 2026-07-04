@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://ciqy83x76lk7l" path="res://SFX/andar_carbono.wav" id="3_4410a"]
 [ext_resource type="AudioStream" uid="uid://betnlyicl6c7i" path="res://SFX/ataque_carbono.wav" id="4_c55ae"]
 [ext_resource type="AudioStream" uid="uid://cydjg6t7l635c" path="res://SFX/voz_carbono1.wav" id="5_k7urn"]
-[ext_resource type="Texture2D" uid="uid://bxshao66ofplb" path="res://arte/artes chris/letra E interacao.png" id="7_k7urn"]
+[ext_resource type="Texture2D" uid="uid://dvd06d5h3ny0p" path="res://arte/felp/x(imagem do controle).png" id="6_k7urn"]
 [ext_resource type="Script" uid="uid://7p5ugivqxvga" path="res://cenas/bichos/interacao_e.gd" id="8_ed7r3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c1ft"]
@@ -849,12 +849,15 @@ _data = {
 }
 
 [node name="bicho_c2" type="CharacterBody3D" unique_id=428746475]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_gpf66")
 falas_carbono = Array[String](["Ora, ora....", "Um pequeno invasor. ", "Voce acha que só porque carrega esse Erlenmeyer pode ditar as regras?", "O velho tentou me prender com essa exata mesma teoria antes de tudo ir pelos ares.", "Mas espere,
 Eu tenho uma condição...", "So aceitarei entrar no seu códice, se responder minha pergunta corretamente.", "Preparado?"])
 voz_carbono = ExtResource("5_k7urn")
 "queméessebicho" = ["c", "o", "h"]
 forca_knockback = 50.0
+reaparecer = false
 tempo_renascer = 30.0
 
 [node name="crecimento" type="Node3D" parent="." unique_id=2146030183]
@@ -989,7 +992,7 @@ bus = &"SFX BICHOS"
 [node name="INTERACAO_E" type="Sprite3D" parent="." unique_id=1354085108]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4.8263807, 0)
 billboard = 1
-texture = ExtResource("7_k7urn")
+texture = ExtResource("6_k7urn")
 script = ExtResource("8_ed7r3")
 
 [connection signal="area_entered" from="crecimento/AreadeDano" to="." method="_on_areade_dano_area_entered"]

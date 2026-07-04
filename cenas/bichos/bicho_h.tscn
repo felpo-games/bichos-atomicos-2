@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://0t1uru4xn0m6" path="res://cenas/script/bichos/bicho_h.gd" id="1_n5cob"]
 [ext_resource type="Texture2D" uid="uid://4ll5lv7f5us3" path="res://arte/miguel/3d/novo/hidrogenio_hidrogenio textura.png" id="2_qmb33"]
-[ext_resource type="Texture2D" uid="uid://doy1245mep7jf" path="res://arte/artes chris/excalmaçao hidrogenio alerta.png" id="3_j26s6"]
+[ext_resource type="Texture2D" uid="uid://i140ei3khvq1" path="res://arte/felp/!(imagem para ação).png" id="3_i84bl"]
 [ext_resource type="Script" uid="uid://7p5ugivqxvga" path="res://cenas/bichos/interacao_e.gd" id="4_gr3rv"]
 [ext_resource type="Texture2D" uid="uid://ccv601ldhxx04" path="res://arte/artes chris/raio hidrogenio.png" id="5_gr3rv"]
 [ext_resource type="AudioStream" uid="uid://detc04pdgda17" path="res://SFX/hidrogenio(_).wav" id="6_i84bl"]
@@ -898,6 +898,8 @@ radius = 1.9277344
 
 [node name="bicho_h" type="CharacterBody3D" unique_id=1122094937]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_n5cob")
 "queméessebicho" = ["h", "o", "c"]
 forca_knockback = 10.0
@@ -1002,9 +1004,9 @@ shape = SubResource("CylinderShape3D_n5cob")
 debug_color = Color(0.55137575, 0.41600415, 0, 0.41960785)
 
 [node name="AvisoAlerta" type="Sprite3D" parent="." unique_id=1161294311]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0.05000782, 3.9170313, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.05000782, 2.164249, 0)
 billboard = 1
-texture = ExtResource("3_j26s6")
+texture = ExtResource("3_i84bl")
 script = ExtResource("4_gr3rv")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=2135813838]

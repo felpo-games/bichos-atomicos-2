@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 		# =========================
 		# gira esquerda/direita
 		var rotacao := Input.get_axis("direita", "esquerda")
-		$body.rotation.y += rotacao * rotation_speed * delta
+		$body.rotation.y += rotacao * rotation_speed * delta / 2
 
 		# frente/trás
 		var mover := Input.get_axis("frente", "tras")

@@ -2,9 +2,9 @@ extends Area3D
 
 
 
-@export var velocidade := 25.0 # Diminuí um pouco para o arco ficar mais visível
+@export var velocidade := 45.0 # Diminuí um pouco para o arco ficar mais visível
 @export var gravidade := 20.0 
-@export var forca_pulo_inicial := 12.0 # Força que joga o projétil para cima
+@export var forca_pulo_inicial := 7.0 # Força que joga o projétil para cima
 
 var direcao: Vector3 = Vector3.FORWARD # Direção padrão caso não seja definida
 var velocidade_vertical := 0.0

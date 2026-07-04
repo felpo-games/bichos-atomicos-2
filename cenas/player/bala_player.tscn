@@ -64,6 +64,7 @@ bind/8/bone = -1
 bind/8/pose = Transform3D(0.32128024, 0, 0, 0, 0, -0.32128024, 0, 0.32128024, 0, 0, 0, 0)
 
 [node name="bala_player" type="Area3D" unique_id=1133610996 groups=["ataque_player"]]
+collision_mask = 2
 script = ExtResource("1_yl50q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=929199901]

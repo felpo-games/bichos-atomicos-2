@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://dbofcj181a818" path="res://SFX/voz_oxigenio.wav" id="2_hp3yq"]
 [ext_resource type="Texture2D" uid="uid://datijccqxpmd3" path="res://arte/miguel/3d/novo/oxigenio_oxigenio__textura.png" id="2_vscvc"]
 [ext_resource type="Texture2D" uid="uid://l40rg1w4u43m" path="res://arte/vlad/satanas atomico/satanas atomico/o2.png" id="3_r56u6"]
-[ext_resource type="Texture2D" uid="uid://bxshao66ofplb" path="res://arte/artes chris/letra E interacao.png" id="5_0qlgx"]
+[ext_resource type="Texture2D" uid="uid://dvd06d5h3ny0p" path="res://arte/felp/x(imagem do controle).png" id="5_0qlgx"]
 [ext_resource type="Script" uid="uid://7p5ugivqxvga" path="res://cenas/bichos/interacao_e.gd" id="6_soata"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uwu8j"]
@@ -1249,6 +1249,7 @@ script = ExtResource("1_e3tyx")
 falas_o = Array[String](["Você tem um olhar analítico, garoto... ", "Me lembra o velho barbudo que costumava nos prender naqueles potes de vidro."])
 voz_o = ExtResource("2_hp3yq")
 icon = ExtResource("3_r56u6")
+reaparecer = false
 tempo_renascer = 30.0
 
 [node name="Area3D" type="Area3D" parent="." unique_id=2020280710 groups=["bicho"]]
