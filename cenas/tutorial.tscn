@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dmkpsckt020cs"]
+
+[ext_resource type="Script" uid="uid://dhrkpv8l6jraa" path="res://tutorial.gd" id="1_0mca6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wet8e"]
+size = Vector3(21.913574, 4.125122, 2.6540527)
+
+[sub_resource type="Theme" id="Theme_wet8e"]
+
+[node name="tutorial" type="Area3D" unique_id=1065557331]
+script = ExtResource("1_0mca6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1304567348]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2440019, 1.562561, 0.60705566)
+shape = SubResource("BoxShape3D_wet8e")
+debug_color = Color(12.623979, 10.299823, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=202879347]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1499902034]
+offset_left = 4.0
+offset_top = 486.0
+offset_right = 791.0
+offset_bottom = 633.0
+theme = SubResource("Theme_wet8e")
+theme_override_font_sizes/normal_font_size = 33
+text = "AAAAAAAAAAAAAAAAAAA"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

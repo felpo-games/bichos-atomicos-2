@@ -27,20 +27,15 @@
 [ext_resource type="PackedScene" uid="uid://bprq4uurg7e8o" path="res://cenas/telas/diario.tscn" id="16_lnt5l"]
 [ext_resource type="Script" uid="uid://bkcf15b20g7bi" path="res://addons/proton_scatter/src/scatter.gd" id="17_pshm4"]
 [ext_resource type="PackedScene" uid="uid://ufsiaud0qavt" path="res://cenas/telas/menus/config.tscn" id="18_5khuk"]
-[ext_resource type="Script" uid="uid://dwf6bpdmo6koq" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="18_tim8w"]
-[ext_resource type="Script" uid="uid://c4ik6xgkprf30" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="19_b4grr"]
 [ext_resource type="Script" uid="uid://brbtiyaqrbvlg" path="res://addons/proton_scatter/src/scatter_item.gd" id="24_mjidp"]
 [ext_resource type="Script" uid="uid://cpxdb6oe7k6bw" path="res://cenas/feses/fogo_obstaculo.gd" id="24_wlnao"]
 [ext_resource type="Script" uid="uid://r2q8o1ditgup" path="res://addons/proton_scatter/src/scatter_shape.gd" id="25_2khhj"]
 [ext_resource type="PackedScene" uid="uid://pxlbdj5mbpd6" path="res://cenas/tela_de_diálogo.tscn" id="26_1hi1d"]
+[ext_resource type="PackedScene" uid="uid://dmkpsckt020cs" path="res://cenas/tutorial.tscn" id="26_3qe05"]
 [ext_resource type="Script" uid="uid://dmjx8g0p0xn8q" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="26_031u1"]
 [ext_resource type="Script" uid="uid://bg7i8hh4nsoaw" path="res://cenas/feses/visible_on.gd" id="28_3qe05"]
-[ext_resource type="Script" uid="uid://nkbvxtdlweuf" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="33_3qe05"]
-[ext_resource type="Script" uid="uid://dcyld38wy20io" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="34_5khuk"]
-[ext_resource type="Script" uid="uid://bwjvtpctiq7sn" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="35_re6xn"]
-[ext_resource type="Script" uid="uid://5ahvba2vb4th" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="36_1hi1d"]
-[ext_resource type="PackedScene" uid="uid://d1g1hh1rptwcb" path="res://cenas/efeitos/aviso_perigos.tscn" id="40_re6xn"]
-[ext_resource type="Texture2D" uid="uid://b46lyqljy6vlv" path="res://arte/felp/imagem (LT) .png" id="41_re6xn"]
+[ext_resource type="Script" uid="uid://dwf6bpdmo6koq" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="31_lnt5l"]
+[ext_resource type="Script" uid="uid://c4ik6xgkprf30" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="32_wlnao"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3qe05"]
 data = PackedVector3Array(-0.96059996, 3.9745998, 0, -0.90849996, 4.1177, -0.9084, -1.0907999, 4.1177, 0, -0.96059996, 3.9745998, 0, -0.79999995, 3.9745998, -0.79999995, -0.90849996, 4.1177, -0.9084, -0.79999995, 3.9745998, 0.79999995, -0.96059996, 3.9745998, 0, -1.0907999, 4.1177, 0, -0.79999995, 3.9745998, 0.79999995, -1.0907999, 4.1177, 0, -0.90849996, 4.1177, 0.9084, -1.1017, 3.5614, 0, -0.79999995, 3.9745998, -0.79999995, -0.96059996, 3.9745998, 0, -1.1017, 3.5614, 0, -0.9176, 3.5614, -0.91749996, -0.79999995, 3.9745998, -0.79999995, -0.9176, 3.5614, 0.91749996, -0.96059996, 3.9745998, 0, -0.79999995, 3.9745998, 0.79999995, -0.9176, 3.5614, 0.91749996, -1.1017, 3.5614, 0, -0.96059996, 3.9745998, 0, -1.1017, 3.1497998, 0, -0.9176, 3.5614, -0.91749996, -1.1017, 3.5614, 0, -1.1017, 3.1497998, 0, -0.9176, 3.1497998, -0.91749996, -0.9176, 3.5614, -0.91749996, -0.9176, 3.1497998, 0.91749996, -1.1017, 3.5614, 0, -0.9176, 3.5614, 0.91749996, -0.9176, 3.1497998, 0.91749996, -1.1017, 3.1497998, 0, -1.1017, 3.5614, 0, -0.96059996, 2.8172998, 0, -0.9176, 3.1497998, -0.91749996, -1.1017, 3.1497998, 0, -0.96059996, 2.8172998, 0, -0.79999995, 2.8172998, -0.79999995, -0.9176, 3.1497998, -0.91749996, -0.79999995, 2.8172998, 0.79999995, -1.1017, 3.1497998, 0, -0.9176, 3.1497998, 0.91749996, -0.79999995, 2.8172998, 0.79999995, -0.96059996, 2.8172998, 0, -1.1017, 3.1497998, 0, -1.0225999, 2.7443, 0, -0.79999995, 2.8172998, -0.79999995, -0.96059996, 2.8172998, 0, -1.0225999, 2.7443, 0, -0.8517, 2.7443, -0.8516, -0.79999995, 2.8172998, -0.79999995, -0.8517, 2.7443, 0.8516, -0.96059996, 2.8172998, 0, -0.79999995, 2.8172998, 0.79999995, -0.8517, 2.7443, 0.8516, -1.0225999, 2.7443, 0, -0.96059996, 2.8172998, 0, -1.0225999, 2.5781999, 0, -0.8517, 2.7443, -0.8516, -1.0225999, 2.7443, 0, -1.0225999, 2.5781999, 0, -0.8517, 2.5781999, -0.8516, -0.8517, 2.7443, -0.8516, -0.8517, 2.5781999, 0.8516, -1.0225999, 2.7443, 0, -0.8517, 2.7443, 0.8516, -0.8517, 2.5781999, 0.8516, -1.0225999, 2.5781999, 0, -1.0225999, 2.7443, 0, -0.96059996, 2.5182998, 0, -0.8517, 2.5781999, -0.8516, -1.0225999, 2.5781999, 0, -0.96059996, 2.5182998, 0, -0.79999995, 2.5182998, -0.79999995, -0.8517, 2.5781999, -0.8516, -0.79999995, 2.5182998, 0.79999995, -1.0225999, 2.5781999, 0, -0.8517, 2.5781999, 0.8516, -0.79999995, 2.5182998, 0.79999995, -0.96059996, 2.5182998, 0, -1.0225999, 2.5781999, 0, -1.1143, 1.5386, 0, -0.79999995, 2.5182998, -0.79999995, -0.96059996, 2.5182998, 0, -1.1143, 1.5386, 0, -0.9281, 1.5386, -0.928, -0.79999995, 2.5182998, -0.79999995, -0.9281, 1.5386, 0.928, -0.96059996, 2.5182998, 0, -0.79999995, 2.5182998, 0.79999995, -0.9281, 1.5386, 0.928, -1.1143, 1.5386, 0, -0.96059996, 2.5182998, 0, -0.96059996, 0.5588, 0, -0.9281, 1.5386, -0.928, -1.1143, 1.5386, 0, -0.96059996, 0.5588, 0, -0.79999995, 0.5588, -0.79999995, -0.9281, 1.5386, -0.928, -0.79999995, 0.5588, 0.79999995, -1.1143, 1.5386, 0, -0.9281, 1.5386, 0.928, -0.79999995, 0.5588, 0.79999995, -0.96059996, 0.5588, 0, -1.1143, 1.5386, 0, -1.0561, 0.44309998, 0, -0.79999995, 0.5588, -0.79999995, -0.96059996, 0.5588, 0, -1.0561, 0.44309998, 0, -0.8796, 0.44309998, -0.8796, -0.79999995, 0.5588, -0.79999995, -0.8796, 0.44309998, 0.8795, -0.96059996, 0.5588, 0, -0.79999995, 0.5588, 0.79999995, -0.8796, 0.44309998, 0.8795, -1.0561, 0.44309998, 0, -0.96059996, 0.5588, 0, -1.0263, 0.1639, 0, -0.8796, 0.44309998, -0.8796, -1.0561, 0.44309998, 0, -1.0263, 0.1639, 0, -0.85469997, 0.1639, -0.85469997, -0.8796, 0.44309998, -0.8796, -1.1114, 0.0177, 0, -0.85469997, 0.1639, -0.85469997, -1.0263, 0.1639, 0, -1.1114, 0.0177, 0, -0.9256, 0.0177, -0.9256, -0.85469997, 0.1639, -0.85469997, -0.9256, 0.0177, 0.9256, -1.1114, 0.0177, 0, -1.0263, 0.1639, 0, -0.9256, 0.0177, 0.9256, -1.0263, 0.1639, 0, -0.85469997, 0.1639, 0.85459995, -0.85469997, 0.1639, 0.85459995, -1.0263, 0.1639, 0, -1.0561, 0.44309998, 0, -0.85469997, 0.1639, 0.85459995, -1.0561, 0.44309998, 0, -0.8796, 0.44309998, 0.8795, 0, 0.0177, 1.0899, -0.9256, 0.0177, 0.9256, -0.85469997, 0.1639, 0.85459995, 0, 0.0177, 1.0899, -0.85469997, 0.1639, 0.85459995, 0, 0.1639, 1.0064, 0, 0.1639, 1.0064, -0.85469997, 0.1639, 0.85459995, -0.8796, 0.44309998, 0.8795, 0.9256, 0.0177, 0.9256, 0, 0.0177, 1.0899, 0, 0.1639, 1.0064, 0.9256, 0.0177, 0.9256, 0, 0.1639, 1.0064, 0.85469997, 0.1639, 0.85459995, 0, 0.1639, 1.0064, -0.8796, 0.44309998, 0.8795, 0, 0.44309998, 1.0356, 0.85469997, 0.1639, 0.85459995, 0, 0.1639, 1.0064, 0, 0.44309998, 1.0356, 0, 0.44309998, 1.0356, -0.8796, 0.44309998, 0.8795, -0.79999995, 0.5588, 0.79999995, 0.85469997, 0.1639, 0.85459995, 0, 0.44309998, 1.0356, 0.8795, 0.44309998, 0.8795, 0, 0.44309998, 1.0356, -0.79999995, 0.5588, 0.79999995, 0, 0.5588, 0.942, 0.8795, 0.44309998, 0.8795, 0, 0.44309998, 1.0356, 0, 0.5588, 0.942, 0, 0.5588, 0.942, -0.79999995, 0.5588, 0.79999995, -0.9281, 1.5386, 0.928, 0.8795, 0.44309998, 0.8795, 0, 0.5588, 0.942, 0.79999995, 0.5588, 0.79999995, 0, 0.5588, 0.942, -0.9281, 1.5386, 0.928, 0, 1.5386, 1.0928, 0.79999995, 0.5588, 0.79999995, 0, 0.5588, 0.942, 0, 1.5386, 1.0928, 0, 1.5386, 1.0928, -0.9281, 1.5386, 0.928, -0.79999995, 2.5182998, 0.79999995, 0.79999995, 0.5588, 0.79999995, 0, 1.5386, 1.0928, 0.928, 1.5386, 0.928, 0, 1.5386, 1.0928, -0.79999995, 2.5182998, 0.79999995, 0, 2.5182998, 0.942, 0.928, 1.5386, 0.928, 0, 1.5386, 1.0928, 0, 2.5182998, 0.942, 0, 2.5182998, 0.942, -0.79999995, 2.5182998, 0.79999995, -0.8517, 2.5781999, 0.8516, 0.928, 1.5386, 0.928, 0, 2.5182998, 0.942, 0.79999995, 2.5182998, 0.79999995, 0, 2.5182998, 0.942, -0.8517, 2.5781999, 0.8516, 0, 2.5781999, 1.0028, 0.79999995, 2.5182998, 0.79999995, 0, 2.5182998, 0.942, 0, 2.5781999, 1.0028, 0, 2.5781999, 1.0028, -0.8517, 2.5781999, 0.8516, -0.8517, 2.7443, 0.8516, 0.79999995, 2.5182998, 0.79999995, 0, 2.5781999, 1.0028, 0.8516, 2.5781999, 0.8516, 0, 2.5781999, 1.0028, -0.8517, 2.7443, 0.8516, 0, 2.7443, 1.0028, 0.8516, 2.5781999, 0.8516, 0, 2.5781999, 1.0028, 0, 2.7443, 1.0028, 0, 2.7443, 1.0028, -0.8517, 2.7443, 0.8516, -0.79999995, 2.8172998, 0.79999995, 0.8516, 2.5781999, 0.8516, 0, 2.7443, 1.0028, 0.8516, 2.7443, 0.8516, 0, 2.7443, 1.0028, -0.79999995, 2.8172998, 0.79999995, 0, 2.8172998, 0.942, 0.8516, 2.7443, 0.8516, 0, 2.7443, 1.0028, 0, 2.8172998, 0.942, 0, 2.8172998, 0.942, -0.79999995, 2.8172998, 0.79999995, -0.9176, 3.1497998, 0.91749996, 0.8516, 2.7443, 0.8516, 0, 2.8172998, 0.942, 0.79999995, 2.8172998, 0.79999995, 0, 2.8172998, 0.942, -0.9176, 3.1497998, 0.91749996, 0, 3.1497998, 1.0804, 0.79999995, 2.8172998, 0.79999995, 0, 2.8172998, 0.942, 0, 3.1497998, 1.0804, 0, 3.1497998, 1.0804, -0.9176, 3.1497998, 0.91749996, -0.9176, 3.5614, 0.91749996, 0.79999995, 2.8172998, 0.79999995, 0, 3.1497998, 1.0804, 0.91749996, 3.1497998, 0.91749996, 0, 3.1497998, 1.0804, -0.9176, 3.5614, 0.91749996, 0, 3.5614, 1.0804, 0.91749996, 3.1497998, 0.91749996, 0, 3.1497998, 1.0804, 0, 3.5614, 1.0804, 0, 3.5614, 1.0804, -0.9176, 3.5614, 0.91749996, -0.79999995, 3.9745998, 0.79999995, 0.91749996, 3.1497998, 0.91749996, 0, 3.5614, 1.0804, 0.91749996, 3.5614, 0.91749996, 0, 3.5614, 1.0804, -0.79999995, 3.9745998, 0.79999995, 0, 3.9745998, 0.942, 0.91749996, 3.5614, 0.91749996, 0, 3.5614, 1.0804, 0, 3.9745998, 0.942, 0, 3.9745998, 0.942, -0.79999995, 3.9745998, 0.79999995, -0.90849996, 4.1177, 0.9084, 0.91749996, 3.5614, 0.91749996, 0, 3.9745998, 0.942, 0.79999995, 3.9745998, 0.79999995, 0, 3.9745998, 0.942, -0.90849996, 4.1177, 0.9084, 0, 4.1177, 1.0696, 0.79999995, 3.9745998, 0.79999995, 0, 3.9745998, 0.942, 0, 4.1177, 1.0696, 0.79999995, 3.9745998, 0.79999995, 0, 4.1177, 1.0696, 0.9084, 4.1177, 0.9084, 0, 3.9745998, -0.942, 0.9084, 4.1177, -0.9084, 0, 4.1177, -1.0697, -0.79999995, 3.9745998, -0.79999995, 0, 4.1177, -1.0697, -0.90849996, 4.1177, -0.9084, -0.79999995, 3.9745998, -0.79999995, 0, 3.9745998, -0.942, 0, 4.1177, -1.0697, -0.9176, 3.5614, -0.91749996, 0, 3.9745998, -0.942, -0.79999995, 3.9745998, -0.79999995, 0, 3.9745998, -0.942, 0.79999995, 3.9745998, -0.79999995, 0.9084, 4.1177, -0.9084, -0.9176, 3.5614, -0.91749996, 0, 3.5614, -1.0804, 0, 3.9745998, -0.942, 0, 3.5614, -1.0804, 0.79999995, 3.9745998, -0.79999995, 0, 3.9745998, -0.942, -0.9176, 3.1497998, -0.91749996, 0, 3.5614, -1.0804, -0.9176, 3.5614, -0.91749996, 0.79999995, 3.9745998, -0.79999995, 1.0907999, 4.1177, 0, 0.9084, 4.1177, -0.9084, -0.9176, 3.1497998, -0.91749996, 0, 3.1497998, -1.0804, 0, 3.5614, -1.0804, -0.79999995, 2.8172998, -0.79999995, 0, 3.1497998, -1.0804, -0.9176, 3.1497998, -0.91749996, 0, 3.5614, -1.0804, 0.91749996, 3.5614, -0.91749996, 0.79999995, 3.9745998, -0.79999995, 0, 3.1497998, -1.0804, 0.91749996, 3.5614, -0.91749996, 0, 3.5614, -1.0804, 0.79999995, 3.9745998, -0.79999995, 0.9605, 3.9745998, 0, 1.0907999, 4.1177, 0, 0.91749996, 3.5614, -0.91749996, 0.9605, 3.9745998, 0, 0.79999995, 3.9745998, -0.79999995, 0.9605, 3.9745998, 0, 0.9084, 4.1177, 0.9084, 1.0907999, 4.1177, 0, 0.9605, 3.9745998, 0, 0.79999995, 3.9745998, 0.79999995, 0.9084, 4.1177, 0.9084, 1.1017, 3.5614, 0, 0.79999995, 3.9745998, 0.79999995, 0.9605, 3.9745998, 0, 0.91749996, 3.5614, -0.91749996, 1.1017, 3.5614, 0, 0.9605, 3.9745998, 0, 1.1017, 3.5614, 0, 0.91749996, 3.5614, 0.91749996, 0.79999995, 3.9745998, 0.79999995, 0, 3.1497998, -1.0804, 0.91749996, 3.1497998, -0.91749996, 0.91749996, 3.5614, -0.91749996, 0.91749996, 3.1497998, -0.91749996, 1.1017, 3.5614, 0, 0.91749996, 3.5614, -0.91749996, 1.1017, 3.1497998, 0, 0.91749996, 3.5614, 0.91749996, 1.1017, 3.5614, 0, 0.91749996, 3.1497998, -0.91749996, 1.1017, 3.1497998, 0, 1.1017, 3.5614, 0, 1.1017, 3.1497998, 0, 0.91749996, 3.1497998, 0.91749996, 0.91749996, 3.5614, 0.91749996, 0, 2.8172998, -0.942, 0.91749996, 3.1497998, -0.91749996, 0, 3.1497998, -1.0804, -0.79999995, 2.8172998, -0.79999995, 0, 2.8172998, -0.942, 0, 3.1497998, -1.0804, -0.8517, 2.7443, -0.8516, 0, 2.8172998, -0.942, -0.79999995, 2.8172998, -0.79999995, 0, 2.8172998, -0.942, 0.79999995, 2.8172998, -0.79999995, 0.91749996, 3.1497998, -0.91749996, 0.79999995, 2.8172998, -0.79999995, 1.1017, 3.1497998, 0, 0.91749996, 3.1497998, -0.91749996, -0.8517, 2.7443, -0.8516, 0, 2.7443, -1.0028, 0, 2.8172998, -0.942, 0, 2.7443, -1.0028, 0.79999995, 2.8172998, -0.79999995, 0, 2.8172998, -0.942, -0.8517, 2.5781999, -0.8516, 0, 2.7443, -1.0028, -0.8517, 2.7443, -0.8516, 0.9605, 2.8172998, 0, 0.91749996, 3.1497998, 0.91749996, 1.1017, 3.1497998, 0, 0.79999995, 2.8172998, -0.79999995, 0.9605, 2.8172998, 0, 1.1017, 3.1497998, 0, 0.9605, 2.8172998, 0, 0.79999995, 2.8172998, 0.79999995, 0.91749996, 3.1497998, 0.91749996, 0, 2.7443, -1.0028, 0.8516, 2.7443, -0.8516, 0.79999995, 2.8172998, -0.79999995, 0.8516, 2.7443, -0.8516, 0.9605, 2.8172998, 0, 0.79999995, 2.8172998, -0.79999995, -0.8517, 2.5781999, -0.8516, 0, 2.5781999, -1.0028, 0, 2.7443, -1.0028, 0, 2.5781999, -1.0028, 0.8516, 2.7443, -0.8516, 0, 2.7443, -1.0028, -0.79999995, 2.5182998, -0.79999995, 0, 2.5781999, -1.0028, -0.8517, 2.5781999, -0.8516, 1.0225999, 2.7443, 0, 0.79999995, 2.8172998, 0.79999995, 0.9605, 2.8172998, 0, 0.8516, 2.7443, -0.8516, 1.0225999, 2.7443, 0, 0.9605, 2.8172998, 0, 1.0225999, 2.7443, 0, 0.8516, 2.7443, 0.8516, 0.79999995, 2.8172998, 0.79999995, 0, 2.5781999, -1.0028, 0.8516, 2.5781999, -0.8516, 0.8516, 2.7443, -0.8516, 0.8516, 2.5781999, -0.8516, 1.0225999, 2.7443, 0, 0.8516, 2.7443, -0.8516, -0.79999995, 2.5182998, -0.79999995, 0, 2.5182998, -0.942, 0, 2.5781999, -1.0028, 0, 2.5182998, -0.942, 0.8516, 2.5781999, -0.8516, 0, 2.5781999, -1.0028, -0.9281, 1.5386, -0.928, 0, 2.5182998, -0.942, -0.79999995, 2.5182998, -0.79999995, 1.0225999, 2.5781999, 0, 0.8516, 2.7443, 0.8516, 1.0225999, 2.7443, 0, 0.8516, 2.5781999, -0.8516, 1.0225999, 2.5781999, 0, 1.0225999, 2.7443, 0, 1.0225999, 2.5781999, 0, 0.8516, 2.5781999, 0.8516, 0.8516, 2.7443, 0.8516, 0, 2.5182998, -0.942, 0.79999995, 2.5182998, -0.79999995, 0.8516, 2.5781999, -0.8516, 0.79999995, 2.5182998, -0.79999995, 1.0225999, 2.5781999, 0, 0.8516, 2.5781999, -0.8516, -0.9281, 1.5386, -0.928, 0, 1.5386, -1.0928, 0, 2.5182998, -0.942, 0, 1.5386, -1.0928, 0.79999995, 2.5182998, -0.79999995, 0, 2.5182998, -0.942, -0.79999995, 0.5588, -0.79999995, 0, 1.5386, -1.0928, -0.9281, 1.5386, -0.928, 0.9605, 2.5182998, 0, 0.8516, 2.5781999, 0.8516, 1.0225999, 2.5781999, 0, 0.79999995, 2.5182998, -0.79999995, 0.9605, 2.5182998, 0, 1.0225999, 2.5781999, 0, 0.9605, 2.5182998, 0, 0.79999995, 2.5182998, 0.79999995, 0.8516, 2.5781999, 0.8516, 0, 1.5386, -1.0928, 0.928, 1.5386, -0.928, 0.79999995, 2.5182998, -0.79999995, 0.928, 1.5386, -0.928, 0.9605, 2.5182998, 0, 0.79999995, 2.5182998, -0.79999995, -0.79999995, 0.5588, -0.79999995, 0, 0.5588, -0.942, 0, 1.5386, -1.0928, 0, 0.5588, -0.942, 0.928, 1.5386, -0.928, 0, 1.5386, -1.0928, -0.8796, 0.44309998, -0.8796, 0, 0.5588, -0.942, -0.79999995, 0.5588, -0.79999995, 1.1143, 1.5386, 0, 0.79999995, 2.5182998, 0.79999995, 0.9605, 2.5182998, 0, 0.928, 1.5386, -0.928, 1.1143, 1.5386, 0, 0.9605, 2.5182998, 0, 1.1143, 1.5386, 0, 0.928, 1.5386, 0.928, 0.79999995, 2.5182998, 0.79999995, 0, 0.5588, -0.942, 0.79999995, 0.5588, -0.79999995, 0.928, 1.5386, -0.928, 0.79999995, 0.5588, -0.79999995, 1.1143, 1.5386, 0, 0.928, 1.5386, -0.928, -0.8796, 0.44309998, -0.8796, 0, 0.44309998, -1.0357, 0, 0.5588, -0.942, 0, 0.44309998, -1.0357, 0.79999995, 0.5588, -0.79999995, 0, 0.5588, -0.942, -0.85469997, 0.1639, -0.85469997, 0, 0.44309998, -1.0357, -0.8796, 0.44309998, -0.8796, 0.9605, 0.5588, 0, 0.928, 1.5386, 0.928, 1.1143, 1.5386, 0, 0.79999995, 0.5588, -0.79999995, 0.9605, 0.5588, 0, 1.1143, 1.5386, 0, 0.9605, 0.5588, 0, 0.79999995, 0.5588, 0.79999995, 0.928, 1.5386, 0.928, 0, 0.44309998, -1.0357, 0.8795, 0.44309998, -0.8796, 0.79999995, 0.5588, -0.79999995, 0.8795, 0.44309998, -0.8796, 0.9605, 0.5588, 0, 0.79999995, 0.5588, -0.79999995, -0.85469997, 0.1639, -0.85469997, 0, 0.1639, -1.0064, 0, 0.44309998, -1.0357, 0, 0.1639, -1.0064, 0.8795, 0.44309998, -0.8796, 0, 0.44309998, -1.0357, -0.9256, 0.0177, -0.9256, 0, 0.1639, -1.0064, -0.85469997, 0.1639, -0.85469997, -0.9256, 0.0177, -0.9256, 0, 0.0177, -1.0899, 0, 0.1639, -1.0064, 1.0561, 0.44309998, 0, 0.79999995, 0.5588, 0.79999995, 0.9605, 0.5588, 0, 0.8795, 0.44309998, -0.8796, 1.0561, 0.44309998, 0, 0.9605, 0.5588, 0, 1.0561, 0.44309998, 0, 0.8795, 0.44309998, 0.8795, 0.79999995, 0.5588, 0.79999995, 0, 0.1639, -1.0064, 0.85469997, 0.1639, -0.85469997, 0.8795, 0.44309998, -0.8796, 0, 0.0177, -1.0899, 0.85469997, 0.1639, -0.85469997, 0, 0.1639, -1.0064, 0.85469997, 0.1639, -0.85469997, 1.0561, 0.44309998, 0, 0.8795, 0.44309998, -0.8796, 0, 0.0177, -1.0899, 0.9256, 0.0177, -0.9256, 0.85469997, 0.1639, -0.85469997, 1.0261999, 0.1639, 0, 0.8795, 0.44309998, 0.8795, 1.0561, 0.44309998, 0, 0.85469997, 0.1639, -0.85469997, 1.0261999, 0.1639, 0, 1.0561, 0.44309998, 0, 0.9256, 0.0177, -0.9256, 1.0261999, 0.1639, 0, 0.85469997, 0.1639, -0.85469997, 1.0261999, 0.1639, 0, 0.85469997, 0.1639, 0.85459995, 0.8795, 0.44309998, 0.8795, 0.9256, 0.0177, -0.9256, 1.1114, 0.0177, 0, 1.0261999, 0.1639, 0, 1.1114, 0.0177, 0, 0.85469997, 0.1639, 0.85459995, 1.0261999, 0.1639, 0, 1.1114, 0.0177, 0, 0.9256, 0.0177, 0.9256, 0.85469997, 0.1639, 0.85459995, 0, 0.0177, 0, 0.9256, 0.0177, 0.9256, 1.1114, 0.0177, 0, 0, 0.0177, 0, 0, 0.0177, 1.0899, 0.9256, 0.0177, 0.9256, 0, 0.0177, -1.0899, 0, 0.0177, 0, 1.1114, 0.0177, 0, 0, 0.0177, -1.0899, 1.1114, 0.0177, 0, 0.9256, 0.0177, -0.9256, -0.9256, 0.0177, -0.9256, 0, 0.0177, 0, 0, 0.0177, -1.0899, -0.9256, 0.0177, -0.9256, -1.1114, 0.0177, 0, 0, 0.0177, 0, -1.1114, 0.0177, 0, 0, 0.0177, 1.0899, 0, 0.0177, 0, -1.1114, 0.0177, 0, -0.9256, 0.0177, 0.9256, 0, 0.0177, 1.0899, 0, 4.1177, 0, -0.90849996, 4.1177, 0.9084, -1.0907999, 4.1177, 0, 0, 4.1177, 0, 0, 4.1177, 1.0696, -0.90849996, 4.1177, 0.9084, 0, 4.1177, -1.0697, 0, 4.1177, 0, -1.0907999, 4.1177, 0, 0, 4.1177, -1.0697, -1.0907999, 4.1177, 0, -0.90849996, 4.1177, -0.9084, 0.9084, 4.1177, -0.9084, 0, 4.1177, 0, 0, 4.1177, -1.0697, 0.9084, 4.1177, -0.9084, 1.0907999, 4.1177, 0, 0, 4.1177, 0, 1.0907999, 4.1177, 0, 0, 4.1177, 1.0696, 0, 4.1177, 0, 1.0907999, 4.1177, 0, 0.9084, 4.1177, 0.9084, 0, 4.1177, 1.0696)
@@ -157,34 +152,8 @@ size = Vector3(86.25282, 15.723511, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_u5hjb"]
 size = Vector3(58.169403, 12.025513, 70.84454)
 
-[sub_resource type="Resource" id="Resource_h1cmy"]
-script = ExtResource("33_3qe05")
-amount = 1000
-restrict_height = true
-reference_frame = 1
-
-[sub_resource type="Resource" id="Resource_ipfv2"]
-script = ExtResource("34_5khuk")
-position = Vector3(0.15, 0.15, 0.15)
-rotation = Vector3(20, 360, 20)
-scale = Vector3(0.1, 0.1, 0.1)
-reference_frame = 2
-
-[sub_resource type="Resource" id="Resource_pe8w4"]
-script = ExtResource("35_re6xn")
-offset_step = 0.2
-consecutive_step_multiplier = 0.75
-restrict_height = true
-
-[sub_resource type="Resource" id="Resource_vefxu"]
-script = ExtResource("36_1hi1d")
-ray_length = 5.0
-ray_offset = 5.0
-remove_points_on_miss = false
-
-[sub_resource type="Resource" id="Resource_o3cm3"]
-script = ExtResource("18_tim8w")
-stack = Array[ExtResource("19_b4grr")]([SubResource("Resource_h1cmy"), SubResource("Resource_ipfv2"), SubResource("Resource_pe8w4"), SubResource("Resource_vefxu")])
+[sub_resource type="Resource" id="Resource_duhmn"]
+script = ExtResource("31_lnt5l")
 
 [sub_resource type="Resource" id="Resource_tdv8y"]
 script = ExtResource("26_031u1")
@@ -211,9 +180,6 @@ size = Vector3(167.2221, 50.885582, 90.76843)
 [sub_resource type="Resource" id="Resource_10y24"]
 script = ExtResource("26_031u1")
 size = Vector3(77.10623, 50.885582, 360.99048)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tdv8y"]
-size = Vector3(1, 5.3305664, 59.69519)
 
 [node name="fese_1" type="Node3D" unique_id=1341664247]
 script = ExtResource("1_3qe05")
@@ -462,7 +428,7 @@ shape = SubResource("ConcavePolygonShape3D_1t34i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.21063, 0, 0)
 
 [node name="player" parent="personagem" unique_id=1822486866 instance=ExtResource("1_1c7ow")]
-transform = Transform3D(-1.9999237, -0.01745307, 1.7484555e-07, -0.017453069, 1.9999238, 0, -1.7483887e-07, -1.5257959e-09, -2, -3.740326, 0.43041754, 55.35721)
+transform = Transform3D(-1.9999237, -0.01745307, 1.7484555e-07, -0.017453069, 1.9999238, 0, -1.7483887e-07, -1.5257959e-09, -2, -2.9364014, 0.43041754, 53.43013)
 
 [node name="efeitos" type="Node3D" parent="." unique_id=1522335302]
 
@@ -478,9 +444,7 @@ transform = Transform3D(0.19594613, -0.98061466, 0, -0.2797073, -0.05589103, 0.9
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 168.165, 0, -109.623)
 
 [node name="bicho_c3" parent="bichos/area_c" unique_id=428746475 instance=ExtResource("9_qjydo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.283, 0)
-falas_carbono = Array[String](["Ora, ora....", "Um pequeno invasor. ", "Voce acha que so porque carrega esse Erlenmeyer pode ditar as regras?", "O velho tentou me prender com essa exata mesma teoria antes de tudo ir pelos ares.", "Mas espere,
-Eu tenho uma condicao...", "So aceitarei entrar no seu codice, se responder minha pergunta corretamente.", "Preparado?"])
+transform = Transform3D(-1.319733, 0, -0.026550077, 0, 1.32, 0, 0.026550077, 0, -1.319733, 0, -0.283, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bichos/area_c" unique_id=1888272584]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2367706, 12.01545, -4.5820923)
@@ -507,24 +471,24 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_rmu0y")
 
 [node name="bicho_o" parent="bichos" unique_id=1814063333 instance=ExtResource("7_7uoum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -171.79059, 1.418, -234.89572)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -171.79059, 1.418, -168.80917)
 falas_o = Array[String](["O ar esta pesado", "A energia que vem daquele gerador tem o poder de quebrar as nossas ligacoes quimicas", "A anomalia que corrompeu nosso ecossistema esta logo adiante", "Este e o ultimo estagio", "Combine-nos uma ultima vez no laboratorio.
 Sem as ligacoes corretas, a sua ciencia nao resistira a batalha final."])
 
 [node name="bicho_o3" parent="bichos" unique_id=1500830051 instance=ExtResource("7_7uoum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.15454, 1.5029488, 44.206055)
-falas_o = Array[String](["Sinto o calor daqui", "O caminho a frente esta tomado por chamas instaveis", "Preste atencao!", "A minha presença pura apenas alimenta o fogo
+transform = Transform3D(0.03892614, 0, 0.99924207, 0, 1, 0, -0.99924207, 0, 0.03892614, -84.403465, 1.5029488, 37.033848)
+falas_o = Array[String](["Sinto o calor daqui", "O caminho a frente esta tomado por chamas instaveis", "Preste atencao!", "A minha presenca pura apenas alimenta o fogo
 Voce nao pode avancar assim.", "Volte ao seu Codice.
 Se você já encontrou o Hidrogenio e o Carbono, sintetize a Agua para abrir passagem!"])
 
 [node name="bicho_o2" parent="bichos" unique_id=1549283805 instance=ExtResource("7_7uoum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.76575, 1.5029488, 12.90624)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.384384, 1.5029488, 27.875673)
 falas_o = Array[String](["Voce tem um olhar analitico, garoto... ", "Me lembra o velho barbudo que costumava nos prender naqueles potes de vidro.", "Vou te dar uma dica", "Continue explorando e reuna os outros atomos", "Quando a hora chegar, eu serei a faisca da transformacao na sua bancada."])
 
 [node name="bicho_ph" parent="bichos" unique_id=1936316218 instance=ExtResource("9_h4ygu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.27079, 0, -334.56082)
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=744198927]
+[node name="UI" type="CanvasLayer" parent="." unique_id=744198927 groups=["interface"]]
 process_mode = 3
 layer = 10
 
@@ -574,6 +538,43 @@ offset_bottom = 2.0
 visible = false
 layout_mode = 0
 
+[node name="tutorial" parent="UI" unique_id=1065557331 instance=ExtResource("26_3qe05")]
+transform = Transform3D(0.11502124, 0, -3.0792437, 0, 1, 0, 1.9226376, 0, 0.18421486, 105.68392, 0.44122052, 42.42073)
+texto_tutorial = "Clique Y para abrir a tela de códice e aprender sobre os elementos"
+
+[node name="tutorial2" parent="UI" unique_id=993105806 instance=ExtResource("26_3qe05")]
+transform = Transform3D(0.11502124, 0, -3.0792437, 0, 1, 0, 1.9226376, 0, 0.18421486, 136.24994, 0.44122052, 42.42073)
+texto_tutorial = "Cuidado! Um hidrogênio instável, use [LT] para atacar"
+
+[node name="tutorial4" parent="UI" unique_id=2127176728 instance=ExtResource("26_3qe05")]
+transform = Transform3D(0.11502124, 0, -3.0792437, 0, 1, 0, 1.9226376, 0, 0.18421486, 33.133064, 0.44122052, 40.657024)
+texto_tutorial = "Cuidado! Um hidrogênio instável, use [LT] para atacar"
+
+[node name="tutorial5" parent="UI" unique_id=175525038 instance=ExtResource("26_3qe05")]
+transform = Transform3D(0.11502124, 0, -3.0792437, 0, 1, 0, 1.9226376, 0, 0.18421486, -100.15052, 0.44122052, 40.657024)
+texto_tutorial = "Abra o Códice [Y] e sintetize o composto da Água"
+
+[node name="tutorial6" parent="UI" unique_id=1970794430 instance=ExtResource("26_3qe05")]
+transform = Transform3D(0.11502124, 0, -3.0792437, 0, 1, 0, 1.9226376, 0, 0.18421486, -114.650764, 0.44122052, 40.657024)
+texto_tutorial = "Use [RT] o elementoyde Água para apagar o fogo"
+
+[node name="tutorial3" parent="UI" unique_id=1836118227 instance=ExtResource("26_3qe05")]
+transform = Transform3D(2.9531226, 0, -0.14678656, 0, 1, 0, 0.07635399, 0, 5.6772246, 174.35683, 0.44122052, -70.46166)
+texto_tutorial = "Cuidado com o Carbono, uma resposta errada e você terá que atacar [LT]"
+
+[node name="tutorial7" parent="UI" unique_id=572116082 instance=ExtResource("26_3qe05")]
+transform = Transform3D(-0.05594972, 0, -3.4553497, 0, 1, 0, 3.2841625, 0, -0.058866102, -121.51245, 0, -267.4386)
+texto_tutorial = "Abra o Códice [Y] e sintetize o composto Dióxido de Carbono."
+
+[node name="tutorial8" parent="UI" unique_id=1402800334 instance=ExtResource("26_3qe05")]
+transform = Transform3D(-0.05594972, 0, -3.4553497, 0, 1, 0, 3.2841625, 0, -0.058866102, -99.81671, 0, -267.4386)
+texto_tutorial = "Use [LB] para trocar de elementoyde.
+Alterne entre eles para ultrapassar o gerador [RT]"
+
+[node name="tutorial9" parent="UI" unique_id=1309914472 instance=ExtResource("26_3qe05")]
+transform = Transform3D(0.25616708, 0, -3.445325, 0, 0.9999999, 0, 3.2746344, 0, 0.26951975, -22.341072, 0, -271.25723)
+texto_tutorial = "Tome cuidado, á frente está o Hidróxido de Hidrogênio, alterne entre os elementoydes [LB] e o erlenmeyer [LT] para derrotá-lo"
+
 [node name="obstaculos" type="Node3D" parent="." unique_id=1940622742]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.741417, 0, 0)
 
@@ -582,31 +583,31 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -61.
 script = ExtResource("24_wlnao")
 
 [node name="fogo_normal" parent="obstaculos/fogo_obstaculo" unique_id=944948005 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.51291, 0.61592054, -20.52696)
+transform = Transform3D(5.63, 0, 0, 0, 5.63, 0, 0, 0, 5.63, 23.091671, 0.61592054, -20.52697)
 
 [node name="fogo_normal2" parent="obstaculos/fogo_obstaculo" unique_id=348246755 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.717255, 0.61592054, -21.197083)
+transform = Transform3D(5.63, 0, 0, 0, 5.63, 0, 0, 0, 5.63, 26.717255, 0.61592054, -21.197083)
 
 [node name="fogo_normal3" parent="obstaculos/fogo_obstaculo" unique_id=1525543879 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3164063, 0.61592054, -21.580948)
+transform = Transform3D(5.3531747, 0, 0, 0, 5.63, 0, 1.4210855e-14, 0, 5.63, -1.7434082, 0.61592054, -21.580956)
 
 [node name="fogo_normal4" parent="obstaculos/fogo_obstaculo" unique_id=651234863 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.689114, 0.61592054, -22.392715)
+transform = Transform3D(5.63, 0, 0, 0, 5.63, 0, 0, 0, 5.63, 4.0828247, 0.61592054, -22.392723)
 
 [node name="fogo_normal5" parent="obstaculos/fogo_obstaculo" unique_id=128837452 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.678196, 0.61592054, -20.421524)
+transform = Transform3D(5.63, 0, 0, 0, 5.63, 0, 0, 0, 5.63, 40.49062, 0.61592054, -20.421532)
 
 [node name="fogo_normal6" parent="obstaculos/fogo_obstaculo" unique_id=174031416 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.636467, 0.61592054, -20.10936)
+transform = Transform3D(5.63, 0, 0, 0, 5.63, 0, 0, 0, 5.63, 36.1539, 0.61592054, -20.109367)
 
 [node name="fogo_normal7" parent="obstaculos/fogo_obstaculo" unique_id=1414721789 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.325909, 0.61592054, -20.709335)
+transform = Transform3D(5.63, 0, 0, 0, 5.63, 0, 0, 0, 5.63, 31.871904, 0.61592054, -20.709343)
 
 [node name="fogo_normal8" parent="obstaculos/fogo_obstaculo" unique_id=187064771 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.456333, 0.61592054, -20.779633)
+transform = Transform3D(5.63, 0, 0, 0, 5.63, 0, 0, 0, 5.63, 18.075024, 0.61592054, -20.779625)
 
 [node name="fogo_normal9" parent="obstaculos/fogo_obstaculo" unique_id=792274479 instance=ExtResource("12_f6840")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.996273, 0.61592054, -20.815002)
+transform = Transform3D(5.63, 0, 0, 0, 5.63, 0, 0, 0, 5.63, 11.426167, 0.61592054, -20.814995)
 
 [node name="Areado fogo" type="Area3D" parent="obstaculos/fogo_obstaculo" unique_id=1754655945]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.830103)
@@ -627,28 +628,32 @@ shape = SubResource("BoxShape3D_lnt5l")
 [node name="visible_fogo" type="VisibleOnScreenEnabler3D" parent="obstaculos" unique_id=2018964849 node_paths=PackedStringArray("object")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.35796, 0, 22.41542)
 aabb = AABB(-1, -12.064203, -18.022482, 2, 24.128407, 44.83427)
-enable_node_path = NodePath("../eletrizidade")
+enable_node_path = NodePath("../eletricidade")
 script = ExtResource("28_3qe05")
 object = NodePath("../fogo_obstaculo")
 
-[node name="eletrizidade" type="Node3D" parent="obstaculos" unique_id=158834330]
+[node name="eletricidade" type="Node3D" parent="obstaculos" unique_id=158834330]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.035707, 0, -289.13953)
 
-[node name="fogo_eletrico6" parent="obstaculos/eletrizidade" unique_id=1158150727 instance=ExtResource("14_qjydo")]
-transform = Transform3D(-0.022960475, 0, -0.49947253, 0, 0.5, 0, 0.49947253, 0, -0.022960475, 37.983246, 0.056175232, -1.5258789e-05)
+[node name="fogo_eletrico6" parent="obstaculos/eletricidade" unique_id=1158150727 instance=ExtResource("14_qjydo")]
+transform = Transform3D(0.4999191, 0, 0.008994154, 0, 0.5, 0, -0.008994154, 0, 0.4999191, 2.134613, 0.056175232, -2.2888184e-05)
 
-[node name="Area3D" type="Area3D" parent="obstaculos/eletrizidade" unique_id=281158284]
+[node name="fogo_eletrico7" parent="obstaculos/eletricidade" unique_id=702213636 instance=ExtResource("14_qjydo")]
+transform = Transform3D(0.4999191, 0, 0.008994154, 0, 0.5, 0, -0.008994154, 0, 0.4999191, 24.22107, 0.056175232, -2.2888184e-05)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="obstaculos/eletrizidade/Area3D" unique_id=168641316]
+[node name="Area3D" type="Area3D" parent="obstaculos/eletricidade" unique_id=281158284]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="obstaculos/eletricidade/Area3D" unique_id=168641316]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.722839, 5.5127563, 20.254833)
 shape = SubResource("BoxShape3D_u5hjb")
 
 [node name="ProtonScatter" type="Node3D" parent="." unique_id=886652607]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+visible = false
 script = ExtResource("17_pshm4")
 global_seed = 1
 render_mode = 1
-modifier_stack = SubResource("Resource_o3cm3")
+modifier_stack = SubResource("Resource_duhmn")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://bkcf15b20g7bi"
@@ -692,26 +697,6 @@ script = ExtResource("25_2khhj")
 negative = true
 shape = SubResource("Resource_10y24")
 
-[node name="avisos" type="Node3D" parent="." unique_id=302763555]
-
-[node name="aviso_perigos" parent="avisos" unique_id=1409148787 instance=ExtResource("40_re6xn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.41454, 0, 41.17875)
-imagem = ExtResource("41_re6xn")
-texto = "Cuidado! aberte LT para jogar o *vidro*"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="avisos/aviso_perigos" unique_id=2041439016]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1652832, -6.929138)
-shape = SubResource("BoxShape3D_tdv8y")
-
-[node name="aviso_perigos2" parent="avisos" unique_id=457794244 instance=ExtResource("40_re6xn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.024765, 0, 41.17875)
-imagem = ExtResource("41_re6xn")
-texto = "Cuidado! aberte LT para jogar o *vidro*"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="avisos/aviso_perigos2" unique_id=1601446075]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1652832, -6.929138)
-shape = SubResource("BoxShape3D_tdv8y")
-
 [connection signal="body_entered" from="bichos/area_c" to="bichos/area_c/bicho_c3" method="_on_area_c_body_entered"]
 [connection signal="body_exited" from="bichos/area_c" to="bichos/area_c/bicho_c3" method="_on_area_c_body_exited"]
 [connection signal="body_entered" from="bichos/area_h" to="bichos/area_h/bicho_h" method="_on_area_h_body_entered"]
@@ -737,7 +722,5 @@ shape = SubResource("BoxShape3D_tdv8y")
 [connection signal="body_exited" from="obstaculos/fogo_obstaculo/Areado fogo" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_body_exited"]
 [connection signal="screen_entered" from="obstaculos/visible_fogo" to="obstaculos/visible_fogo" method="_on_screen_entered"]
 [connection signal="screen_exited" from="obstaculos/visible_fogo" to="obstaculos/visible_fogo" method="_on_screen_exited"]
-[connection signal="body_entered" from="obstaculos/eletrizidade/Area3D" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="obstaculos/eletrizidade/Area3D" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_area_3d_body_exited"]
-[connection signal="body_entered" from="avisos/aviso_perigos" to="avisos/aviso_perigos" method="_on_body_entered"]
-[connection signal="body_entered" from="avisos/aviso_perigos2" to="avisos/aviso_perigos2" method="_on_body_entered"]
+[connection signal="body_entered" from="obstaculos/eletricidade/Area3D" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="obstaculos/eletricidade/Area3D" to="obstaculos/fogo_obstaculo/Areado fogo" method="_on_area_3d_body_exited"]

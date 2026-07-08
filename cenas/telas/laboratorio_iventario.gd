@@ -35,11 +35,11 @@ extends Control
 
 #JANELA POPUP
 
-@onready var janela_informacao: TextureRect = $janela_informacao
-@onready var texto: RichTextLabel = $janela_informacao/texto
-@onready var titulo: Label = $JanelaInformacao/Titulo
-@onready var bichos: TextureRect = $JanelaInformacao/Bichos
-@onready var botao_sair = $JanelaInformacao/Botao_sair
+@onready var janela_informacao = $janela_informacao
+@onready var texto = $janela_informacao/texto
+@onready var titulo = $janela_informacao/titulo
+@onready var bichos = $janela_informacao/bichos
+@onready var botao_sair = $janela_informacao/botao_sair
 
 @onready var img_agua_colecao = $TELA_COMPOSTOS/agua
 @onready var img_co2_colecao = $TELA_COMPOSTOS/Co2

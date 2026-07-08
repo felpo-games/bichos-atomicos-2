@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jk2l4bbvs3p4"
-path.s3tc="res://.godot/imported/y(imagem do controle).png-b53b3660c9eeba74addde1db6e8a8ce0.s3tc.ctex"
+uid="uid://cciupjol5r421"
+path.s3tc="res://.godot/imported/Xbox_button_A.svg.webp-822d9917d7b0944329f7e5dec842fd59.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://arte/felp/y(imagem do controle).png"
-dest_files=["res://.godot/imported/y(imagem do controle).png-b53b3660c9eeba74addde1db6e8a8ce0.s3tc.ctex"]
+source_file="res://arte/felp/Xbox_button_A.svg.webp"
+dest_files=["res://.godot/imported/Xbox_button_A.svg.webp-822d9917d7b0944329f7e5dec842fd59.s3tc.ctex"]
 
 [params]
 

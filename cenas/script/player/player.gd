@@ -134,12 +134,16 @@ func dano():
 			if has_node("AudioManager/SFXGameOver"):
 				$"AudioManager/SFXGameOver".play()
 			morrer()
-	# espera invencibilidade
+			return
+	
 	await get_tree().create_timer(tempo_dano).timeout
 	tomar_dano = true
 
 
 func receber_knockback(forca: Vector3):
+	if vida <= 0 or not is_inside_tree():
+		return
+	
 	em_knockback = true
 	velocity = forca
 	await get_tree().create_timer(tempo_knockback).timeout

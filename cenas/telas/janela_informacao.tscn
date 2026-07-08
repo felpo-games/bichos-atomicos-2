@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cu0aox80bawpm"]
+
+[ext_resource type="Texture2D" uid="uid://cy6jho6h72jem" path="res://UI/Janelas/elenmeyer_info.png" id="1_h2jqu"]
+[ext_resource type="FontFile" uid="uid://dn8arjbeupiyv" path="res://UI/Fontes/JHCRasbora-Extrabold.otf" id="2_ghe3t"]
+[ext_resource type="FontFile" uid="uid://dycml3x37dr0n" path="res://UI/Fontes/04B_30__.TTF" id="3_g3p7g"]
+[ext_resource type="Texture2D" uid="uid://bnwippjag2fcx" path="res://arte/vlad/satanas atomico/satanas atomico/nao sei oq atomico.png" id="4_n8knb"]
+[ext_resource type="Texture2D" uid="uid://bd8nqqm61dh4j" path="res://UI/Botões/button_sair.png" id="5_tay0f"]
+[ext_resource type="Texture2D" uid="uid://bwtwanqaaxpnj" path="res://UI/Botões/button_pressed_sair.png" id="6_05y6f"]
+
+[node name="JanelaInformacao" type="TextureRect" unique_id=125364947]
+offset_left = -13.0
+offset_top = -23.0
+offset_right = 1194.3143
+offset_bottom = 697.0
+texture = ExtResource("1_h2jqu")
+expand_mode = 1
+
+[node name="Texto" type="RichTextLabel" parent="." unique_id=387388157]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 115.0
+offset_right = 1150.0
+offset_bottom = 594.0
+theme_override_fonts/normal_font = ExtResource("2_ghe3t")
+theme_override_font_sizes/normal_font_size = 22
+scroll_active = false
+
+[node name="Titulo" type="Label" parent="." unique_id=1362192126]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 30.0
+offset_right = 967.0
+offset_bottom = 118.0
+theme_override_fonts/font = ExtResource("3_g3p7g")
+theme_override_font_sizes/font_size = 25
+text = "dffffffff"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bichos" type="TextureRect" parent="." unique_id=537978386]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 202.0
+offset_right = 299.0
+offset_bottom = 502.0
+texture = ExtResource("4_n8knb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Botao_sair" type="TextureButton" parent="." unique_id=1382787202]
+layout_mode = 0
+offset_left = 1010.0
+offset_top = 601.0
+offset_right = 1157.0
+offset_bottom = 658.0
+focus_mode = 0
+texture_normal = ExtResource("5_tay0f")
+texture_pressed = ExtResource("6_05y6f")

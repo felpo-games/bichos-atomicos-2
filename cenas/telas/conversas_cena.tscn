@@ -25,9 +25,9 @@ fala_erro = "IGNORANTE!!!"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=337030534]
 layout_mode = 0
-offset_left = -147.0
+offset_left = 181.0
 offset_top = 515.0
-offset_right = 1280.143
+offset_right = 898.0
 offset_bottom = 641.0
 texture = ExtResource("2_6fmmt")
 expand_mode = 1
@@ -43,10 +43,10 @@ text = "por favor me deixe passar"
 
 [node name="texto" type="RichTextLabel" parent="." unique_id=163731479]
 layout_mode = 0
-offset_left = 324.0
-offset_top = 567.0
-offset_right = 862.0
-offset_bottom = 665.0
+offset_left = 309.0
+offset_top = 534.0
+offset_right = 772.0
+offset_bottom = 628.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("5_vmr3s")
 theme_override_font_sizes/normal_font_size = 14

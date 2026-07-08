@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://dbofcj181a818" path="res://SFX/voz_oxigenio.wav" id="2_hp3yq"]
 [ext_resource type="Texture2D" uid="uid://datijccqxpmd3" path="res://arte/miguel/3d/novo/oxigenio_oxigenio__textura.png" id="2_vscvc"]
 [ext_resource type="Texture2D" uid="uid://l40rg1w4u43m" path="res://arte/vlad/satanas atomico/satanas atomico/o2.png" id="3_r56u6"]
-[ext_resource type="Texture2D" uid="uid://dvd06d5h3ny0p" path="res://arte/felp/x(imagem do controle).png" id="5_0qlgx"]
+[ext_resource type="Texture2D" uid="uid://cciupjol5r421" path="res://arte/felp/Xbox_button_A.svg.webp" id="5_0qlgx"]
 [ext_resource type="Script" uid="uid://7p5ugivqxvga" path="res://cenas/bichos/interacao_e.gd" id="6_soata"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uwu8j"]
@@ -1246,7 +1246,7 @@ _data = {
 [node name="bicho_o" type="Node3D" unique_id=1814063333]
 transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 0, 0, 0)
 script = ExtResource("1_e3tyx")
-falas_o = Array[String](["Você tem um olhar analítico, garoto... ", "Me lembra o velho barbudo que costumava nos prender naqueles potes de vidro."])
+falas_o = Array[String](["Você tem um olhar analitico, garoto... ", "Me lembra o velho barbudo que costumava nos prender naqueles potes de vidro."])
 voz_o = ExtResource("2_hp3yq")
 icon = ExtResource("3_r56u6")
 reaparecer = false
@@ -1330,7 +1330,8 @@ skeleton = NodePath("..")
 libraries/ = SubResource("AnimationLibrary_5a8d6")
 
 [node name="INTERACAO_E" type="Sprite3D" parent="." unique_id=1033122149]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6.302226, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.570895, 0)
+pixel_size = 0.001
 billboard = 1
 texture = ExtResource("5_0qlgx")
 script = ExtResource("6_soata")

@@ -40,7 +40,7 @@ func aparecer():
 	if has_node("ButtonContinuar"):
 		$ButtonContinuar.hide()
 	
-	texto_dialogo.text = "Quantas ligações químicas eu preciso fazer para alcançar minha estabilidade plena?"
+	texto_dialogo.text = "Quantas ligacoes quimicas eu preciso fazer para ter minha estabilidade plena?"
 	texto_dialogo.visible_ratio = 1.0 # Garante que a pergunta apareça inteira
 	
 	configurar_respostas()
